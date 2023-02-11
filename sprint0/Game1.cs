@@ -25,7 +25,7 @@ namespace sprint0
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
-
+        //hello testing to see if i can commit
         private SpriteFont font;
         private Isprite TextSprite;
 
