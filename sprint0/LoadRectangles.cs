@@ -16,7 +16,12 @@ namespace sprint0
 {
     public class LoadRectangles
     {
-        protected override void Draw(GameTime gameTime)
+        GraphicsDeviceManager graphics;
+        SpriteBatch spriteBatch;
+        IDictionary<int, string> linkAnimate = new Dictionary<int, string>();
+        numberNames.Add(1,"One"); //adding a key/value using the Add() method
+
+        protected void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Blue);
             Rectangle source1 = new Rectangle(0, 0, 20, 20);
