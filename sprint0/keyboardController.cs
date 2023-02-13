@@ -31,7 +31,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
             {
-                //game.sprite = new RSprite();
+                //game.sprite = new RSprite();z
                 pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.A))

@@ -19,10 +19,13 @@ namespace sprint0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         IDictionary<string, Rectangle[]> linkAnimate = new Dictionary<string, Rectangle[]>();
-        Rectangle[] x = new Rectangle[2];
+        IDictionary<string, Rectangle> aniLink = new Dictionary<string, Rectangle>();
+        
         Rectangle source1 = new Rectangle(0, 0, 20, 20);
         Rectangle source2 = new Rectangle(0, 0, 20, 20);
-        //linkAnimate.Add("w",x); //adding a key/value using the Add() method
+
+        private static Rectangle [] animation = new Rectangle[2];
+        //animation[0] = source1;
 
         protected void Draw(GameTime gameTime)
         {
