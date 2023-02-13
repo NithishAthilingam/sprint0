@@ -34,6 +34,11 @@ namespace sprint0
         //:))))
         private SpriteFont font;
         private Isprite TextSprite;
+ 
+
+
+
+
 
         public Game1()
         {
@@ -101,23 +106,28 @@ namespace sprint0
             Rectangle source1 = new Rectangle(0, 0, 20, 20);
             Rectangle dest1 = new Rectangle(100, 100, 40, 40);
 
-            Rectangle source2 = new Rectangle(0, 75, 15, 32);
+            Rectangle source2 = new Rectangle(0, 1, 20, 20);
             Rectangle dest2 = new Rectangle(100, 100, 40, 40);
+
             spriteBatch.Begin();
 
-            sprite.Draw(spriteBatch, Animate);
+
+            //sprite.Draw(spriteBatch, Animate);
 
             TextSprite.Draw(spriteBatch, font);
 
-            //if (currentFrame == 0)
-            //{
-            //    spriteBatch.Draw(zelda, dest1, source1, Color.White);
-            //}
-            //else if (currentFrame == 20)
-            //{
-            //    spriteBatch.Draw(zelda, dest2, source2, Color.White);
-            //}
-            spriteBatch.Draw(zelda, dest2, source2, Color.White);
+            if (currentFrame == 0)
+            {
+                spriteBatch.Draw(zelda, dest1, source1, Color.White);
+            }
+            else if (currentFrame == 5)
+            {
+                spriteBatch.Draw(zelda, dest2, source2, Color.White);
+            }
+            spriteBatch.Draw(zelda, dest1, source1, Color.White);
+
+
+
 
             base.Draw(gameTime);
             spriteBatch.End();
