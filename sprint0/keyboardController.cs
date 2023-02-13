@@ -34,7 +34,7 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.A))
+            else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
             {
                 //game.sprite = new RSprite();
                 pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -44,7 +44,7 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.D))
+            else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
                 //game.sprite = new RSprite();
                 pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
