@@ -18,7 +18,7 @@ namespace sprint0
         {
             game = mario;
             pos = new Vector2(220, 100);
-            speed = 100f;
+            speed = 200f;
         }
 
         public void Update(GameTime gameTime)
@@ -49,7 +49,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
-                if (!(pos.Y >= 400))
+                if (!(pos.Y >= 435))
                 {
                     pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
@@ -58,7 +58,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
-                if (!(pos.X >= 800))
+                if (!(pos.X >= 750))
                 {
                     pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
