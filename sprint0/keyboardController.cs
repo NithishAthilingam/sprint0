@@ -41,6 +41,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
             {
+                game.sprite = new LeftSprite(pos);
                 if (!(pos.X <= 0))
                 {
                     pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -59,6 +60,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
+                game.sprite = new RightSprite(pos);
                 if (!(pos.X >= 750))
                 {
                     pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
