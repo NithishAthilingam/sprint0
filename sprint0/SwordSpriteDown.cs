@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework;
 
 namespace sprint0
 {
-	public class SwordSprite : Isprite
+	public class SwordSpriteDown : Isprite
 	{
         public Vector2 thisPos;
 
-		public SwordSprite(Vector2 posi)
+		public SwordSpriteDown(Vector2 posi)
 		{
 			thisPos = posi;
 		}
