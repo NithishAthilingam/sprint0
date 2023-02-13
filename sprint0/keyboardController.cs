@@ -31,39 +31,39 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
             {
-                if (pos.Y <= 0)
+                if (!(pos.Y <= 0))
                 {
-                    pos.Y += 15;
+                    pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
                 //game.sprite = new RSprite();z
-                pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
             {
-                if (pos.X <= 0)
+                if (!(pos.X <= 0))
                 {
-                    pos.X += 15;
+                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
                 //game.sprite = new RSprite();
-                pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
-                if (pos.Y >= 400)
+                if (!(pos.Y >= 400))
                 {
-                    pos.Y -= 15;
+                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
                 //game.sprite = new RSprite();
-                pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
-                if (pos.X >= 800)
+                if (!(pos.X >= 800))
                 {
-                    pos.X -= 15;
+                    pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
                 //game.sprite = new RSprite();
-                pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                
             }
         }
     }
