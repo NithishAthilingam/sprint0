@@ -12,6 +12,7 @@ namespace sprint0
     internal class mouseController:Icontroller
     {
         private Game1 game;
+        private Vector2 pos;
         public mouseController(Game1 mario) {
             game = mario;
         }
@@ -24,7 +25,7 @@ namespace sprint0
                 game.Exit();
             }
             else if(userInput.LeftButton == ButtonState.Pressed && userInput.X <= 400 && userInput.Y <= 200) {
-                game.sprite = new RSprite();
+                game.sprite = new RSprite(pos);
             }
             else if (userInput.LeftButton == ButtonState.Pressed && userInput.X > 400 && userInput.Y <= 200)
             {

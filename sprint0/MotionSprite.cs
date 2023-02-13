@@ -51,7 +51,7 @@ namespace sprint0
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType)
+        public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             spriteBatch.Draw(AnimationType[0], location, Color.White);
         }

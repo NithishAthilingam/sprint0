@@ -24,7 +24,7 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
-            game.sprite = new RSprite();
+            game.sprite = new RSprite(pos);
             if (userInput.IsKeyDown(Keys.Q))
             {
                 game.Exit();
@@ -37,7 +37,7 @@ namespace sprint0
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.A))
             {
                 //game.sprite = new RSprite();
-                pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
@@ -47,7 +47,7 @@ namespace sprint0
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.D))
             {
                 //game.sprite = new RSprite();
-                pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
         }
     }

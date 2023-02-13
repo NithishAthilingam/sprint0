@@ -22,17 +22,17 @@ namespace sprint0
         private Vector2 location = new Vector2(220, 100);
 
         //credits
-        public void Draw(SpriteBatch spriteBatch, SpriteFont font)
-        {
-            spriteBatch.DrawString(font, "CREDITS", new Vector2(000, 300), Color.Black);
-            spriteBatch.DrawString(font, "Program By: Nithish Athilingam", new Vector2(000, 333), Color.Black);
-            spriteBatch.DrawString(font, "Sprites from: www.mariomayhem.com", new Vector2(000, 366), Color.Black);
-        }
+        //public void Draw(SpriteBatch spriteBatch, SpriteFont font)
+        //{
+        //    spriteBatch.DrawString(font, "CREDITS", new Vector2(000, 300), Color.Black);
+        //    spriteBatch.DrawString(font, "Program By: Nithish Athilingam", new Vector2(000, 333), Color.Black);
+        //    spriteBatch.DrawString(font, "Sprites from: www.mariomayhem.com", new Vector2(000, 366), Color.Black);
+        //}
         public void Update()
         {
             
         }
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType)
+        public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             //Just standing there
             

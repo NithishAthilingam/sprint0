@@ -28,6 +28,7 @@ namespace sprint0
         private Texture2D spriteC;
         private Texture2D zelda;
         private SpriteFont font;
+        public Vector2 pos;
         private Isprite TextSprite;
 
         public Game1()
@@ -59,7 +60,7 @@ namespace sprint0
             Animate[3] = spriteC;
             zelda = Content.Load<Texture2D>("sprites-link");
             Animate[4] = zelda;
-            sprite = new RSprite();
+            sprite = new RSprite(pos);
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -90,7 +91,7 @@ namespace sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            sprite.Draw(spriteBatch, Animate);
+            sprite.Draw(spriteBatch, Animate, pos);
 
             TextSprite.Draw(spriteBatch, font);
 

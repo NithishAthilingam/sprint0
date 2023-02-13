@@ -97,6 +97,18 @@
 /processorParam:TextureFormat=Color
 /build:d.png
 
+#begin health.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:health.png
+
 #begin Score.spritefont
 /importer:FontDescriptionImporter
 /processor:FontDescriptionProcessor
@@ -187,18 +199,6 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprites-link.gif
-
-#begin sprites-link.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:sprites-link.png
 
 #begin sprites-link.png
 /importer:TextureImporter
