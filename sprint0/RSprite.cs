@@ -36,8 +36,8 @@ namespace sprint0
         {
             pos = thisPos;
             Rectangle source1 = new Rectangle(0, 0, 20, 20);
-            Rectangle dest1 = new Rectangle(100, 100, 40, 40);
-            spriteBatch.Draw(AnimationType[4], pos, source1, Color.White);
+            Rectangle dest1 = new Rectangle(100, 100, 50, 50);
+            spriteBatch.Draw(AnimationType[4],dest1, source1, Color.White,0,new Vector2(0,0),0,0);
 
         }
 
