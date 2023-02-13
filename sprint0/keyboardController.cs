@@ -52,6 +52,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
+                game.sprite = new DownSprite(pos);
                 if (!(pos.Y >= 435))
                 {
                     pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
