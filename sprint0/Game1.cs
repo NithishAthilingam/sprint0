@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -92,6 +93,64 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate);
 
             TextSprite.Draw(spriteBatch, font);
+
+
+
+            vector = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
+
+            Rectangle r = new Rectangle(300, 185, 30, 30);
+
+            Rectangle c = new Rectangle(270, 225, 30, 30);
+
+            Rectangle b = new Rectangle(230, 225, 30, 30);
+            Rectangle j = new Rectangle(230, 185, 30, 30);
+            Rectangle jj = new Rectangle(350, 275, 30, 30);
+            Rectangle jl = new Rectangle(325, 275, 30, 30);
+
+            Rectangle jm = new Rectangle(260, 185, 30, 30);
+
+            Rectangle jf = new Rectangle(270, 250, 30, 30);
+
+            Rectangle f = new Rectangle(350, 250, 30, 30);
+
+            Rectangle ff = new Rectangle(375, 250, 30, 30);
+
+            Rectangle rr = new Rectangle(380, 160, 30, 30);
+
+            Rectangle rs = new Rectangle(415, 250, 16, 30);
+
+
+
+
+
+
+
+
+            //heart w/ boarder
+            //  spriteBatch.Draw(zelda, vector, r, Color.White);
+            //blue dimond
+            // spriteBatch.Draw(zelda, vector, c, Color.White);
+            //yellow dimond
+            // spriteBatch.Draw(zelda, vector, b, Color.White);
+            //heart
+            //spriteBatch.Draw(zelda, vector, j, Color.White);
+            //blue triangle
+            // spriteBatch.Draw(zelda, vector, jj, Color.White);
+            //yelow triangle
+            //spriteBatch.Draw(zelda, vector, jl, Color.White);
+            //blue heart
+            //spriteBatch.Draw(zelda, vector, jm, Color.White);
+            //chocolate bar
+            // spriteBatch.Draw(zelda, vector, jf, Color.White);
+            //key
+            //spriteBatch.Draw(zelda, vector, f, Color.White);
+            //can thing
+            //spriteBatch.Draw(zelda, vector, ff, Color.White);
+            //clock
+            //spriteBatch.Draw(zelda, vector, rr, Color.White);
+            //arrow
+            spriteBatch.Draw(zelda, vector, rs, Color.White);
+
 
             base.Draw(gameTime);
             spriteBatch.End();
