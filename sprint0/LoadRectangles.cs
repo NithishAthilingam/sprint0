@@ -18,8 +18,11 @@ namespace sprint0
     {
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
-        IDictionary<int, string> linkAnimate = new Dictionary<int, string>();
-        //numberNames.Add(1,"One"); //adding a key/value using the Add() method
+        IDictionary<string, Rectangle[]> linkAnimate = new Dictionary<string, Rectangle[]>();
+        Rectangle[] x = new Rectangle[2];
+        Rectangle source1 = new Rectangle(0, 0, 20, 20);
+        Rectangle source2 = new Rectangle(0, 0, 20, 20);
+        //linkAnimate.Add("w",x); //adding a key/value using the Add() method
 
         protected void Draw(GameTime gameTime)
         {
