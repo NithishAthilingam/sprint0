@@ -25,6 +25,7 @@ namespace sprint0
         {
             KeyboardState userInput = Keyboard.GetState();
             game.sprite = new RSprite(pos);
+
             if (userInput.IsKeyDown(Keys.Q))
             {
                 game.Exit();
@@ -64,6 +65,10 @@ namespace sprint0
                 }
                 //game.sprite = new RSprite();
                 
+            }
+            else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
+            {
+                game.sprite = new SwordSprite(pos);
             }
         }
     }
