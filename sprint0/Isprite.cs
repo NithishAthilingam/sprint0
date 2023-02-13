@@ -20,7 +20,6 @@ namespace sprint0
 
         }
 
-        void Draw(SpriteBatch spriteBatch, Texture2D[] animate);
-        void Draw();
+        void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos);
     }
 }
