@@ -21,11 +21,11 @@ namespace sprint0
         SpriteBatch spriteBatch;
         public Isprite sprite;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[4];
+        private Texture2D[] Animate = new Texture2D[5];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
-
+        private Texture2D zelda;
         private SpriteFont font;
         private Isprite TextSprite;
 
@@ -56,6 +56,8 @@ namespace sprint0
             Animate[2] = spriteC;
             spriteC = Content.Load<Texture2D>("d");
             Animate[3] = spriteC;
+            zelda = Content.Load<Texture2D>("sprites-link");
+            Animate[4] = zelda;
             sprite = new RSprite();
 
             font = Content.Load<SpriteFont>("Score");
@@ -76,7 +78,7 @@ namespace sprint0
 
             foreach (Icontroller controller in controller)
             {
-                controller.Update();
+                controller.Update(gameTime);
             }
 
             base.Update(gameTime);

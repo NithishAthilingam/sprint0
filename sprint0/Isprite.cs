@@ -21,5 +21,6 @@ namespace sprint0
         }
 
         void Draw(SpriteBatch spriteBatch, Texture2D[] animate);
+        void Draw();
     }
 }

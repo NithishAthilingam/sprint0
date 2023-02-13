@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Microsoft.Xna.Framework;
 
 namespace sprint0
 {
@@ -15,7 +16,7 @@ namespace sprint0
             game = mario;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
             MouseState userInput = Mouse.GetState();
             if (userInput.RightButton == ButtonState.Pressed)
