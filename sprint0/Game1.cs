@@ -34,6 +34,18 @@ namespace sprint0
         //:))))
         private SpriteFont font;
         private Isprite TextSprite;
+        Rectangle[] recs;
+        int currentA;
+        int previousA;
+        float s;
+        float speed;
+        float timer;
+        Vector2 p;
+
+
+
+
+
 
         public Game1()
         {
@@ -103,9 +115,63 @@ namespace sprint0
 
             Rectangle source2 = new Rectangle(0, 1, 20, 20);
             Rectangle dest2 = new Rectangle(100, 100, 40, 40);
+
+            previousA = 1;
+            currentA = 2;
+            timer = 0;
+            s = 2.0f;
+            speed = 200;
+
+
+            recs[0] = new Rectangle(0, 0, 20, 20);
+            recs[1] = new Rectangle(0, 1, 20, 20);
+
+            //middle 2
+            //left 0
+            //right 1
+
+
+            p = new Vector2(0, GraphicsDevice.Viewport.Height / 2 + 1);
+
+
+            if (timer> speed)
+            {
+                if(currentA == 2)
+                {
+                    if(previousA == 0)
+                    {
+                        currentA = 1;
+                    }
+                    else
+                    {
+                        currentA = 0;
+
+                    }
+                    previousA = currentA;
+                }
+                else{
+                    currentA = 2;
+                }
+                timer = 0;
+            }
+            else
+            {
+                timer += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
+            }
+
+            p.X += s;
+            if (p.X > GraphicsDevice.Viewport.Width)
+            {
+                p.X = 0;
+                p.Y = GraphicsDevice.Viewport.Height / 2;
+            }
+
             spriteBatch.Begin();
 
-            sprite.Draw(spriteBatch, Animate);
+            spriteBatch.Draw(zelda, p, recs[currentA], Color.White);
+
+            //sprite.Draw(spriteBatch, Animate);
 
             TextSprite.Draw(spriteBatch, font);
 
@@ -118,6 +184,9 @@ namespace sprint0
                 spriteBatch.Draw(zelda, dest2, source2, Color.White);
             }
             spriteBatch.Draw(zelda, dest1, source1, Color.White);
+
+
+
 
             base.Draw(gameTime);
             spriteBatch.End();

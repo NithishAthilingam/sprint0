@@ -12,7 +12,6 @@ namespace sprint0
     {
         
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] SpritePosition);
 
         public void Update();
 
