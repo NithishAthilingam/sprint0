@@ -110,7 +110,7 @@ namespace sprint0
             Rectangle jl = new Rectangle(325, 275, 30, 30);
 
             Rectangle jm = new Rectangle(260, 185, 30, 30);
-
+            
             Rectangle jf = new Rectangle(270, 250, 30, 30);
 
             Rectangle f = new Rectangle(350, 250, 30, 30);

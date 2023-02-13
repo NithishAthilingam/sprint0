@@ -40,7 +40,6 @@ namespace sprint0
 
             spriteBatch.Draw(AnimationType[4],pos, source1, Color.White,0,new Vector2(0,0),new Vector2(3,3),0,0);
 
-            spriteBatch.Draw(AnimationType[4],dest1, source1, Color.White,0,new Vector2(0,0),0,0);
 
         }
 
