@@ -27,7 +27,7 @@ namespace sprint0
 
         public void Update()
         {
-            
+
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType)
@@ -35,6 +35,6 @@ namespace sprint0
             spriteBatch.Draw(AnimationType[0], new Vector2(220, 100), Color.White);
 
         }
-        
+
     }
 }
