@@ -32,6 +32,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
             {
+                game.sprite = new UpSprite(pos);
                 if (!(pos.Y <= 0))
                 {
                     pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
@@ -70,7 +71,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
-                game.sprite = new SwordSprite(pos);
+                game.sprite = new SwordSpriteDown(pos);
             }
         }
     }
