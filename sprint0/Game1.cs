@@ -23,11 +23,12 @@ namespace sprint0
         SpriteBatch spriteBatch;
         public Isprite sprite;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[5];
+        private Texture2D[] Animate = new Texture2D[6];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
         private Texture2D zelda;
+        private Texture2D health;
         private SpriteFont font;
         public Vector2 pos;
         private Isprite TextSprite;
@@ -61,6 +62,7 @@ namespace sprint0
             Animate[3] = spriteC;
             zelda = Content.Load<Texture2D>("sprites-link");
             Animate[4] = zelda;
+            health = Content.Load<Texture2D>("health");
             sprite = new RSprite(pos);
 
             font = Content.Load<SpriteFont>("Score");
@@ -121,6 +123,10 @@ namespace sprint0
 
             Rectangle rs = new Rectangle(415, 250, 16, 30);
 
+<<<<<<< Updated upstream
+=======
+
+>>>>>>> Stashed changes
             //heart w/ boarder
             //  spriteBatch.Draw(zelda, vector, r, Color.White);
             //blue dimond
