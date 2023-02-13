@@ -111,7 +111,6 @@ namespace sprint0
 
             spriteBatch.Begin();
 
-
             //sprite.Draw(spriteBatch, Animate);
 
             TextSprite.Draw(spriteBatch, font);
