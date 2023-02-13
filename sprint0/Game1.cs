@@ -121,13 +121,6 @@ namespace sprint0
 
             Rectangle rs = new Rectangle(415, 250, 16, 30);
 
-
-
-
-
-
-
-
             //heart w/ boarder
             //  spriteBatch.Draw(zelda, vector, r, Color.White);
             //blue dimond
