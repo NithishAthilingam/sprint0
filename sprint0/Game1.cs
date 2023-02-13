@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using sprint0;
+using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
 
@@ -97,7 +98,7 @@ namespace sprint0
 
 
 
-            vector = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
+            //vector = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
 
             Rectangle r = new Rectangle(300, 185, 30, 30);
 
@@ -150,7 +151,7 @@ namespace sprint0
             //clock
             //spriteBatch.Draw(zelda, vector, rr, Color.White);
             //arrow
-            spriteBatch.Draw(zelda, vector, rs, Color.White);
+            //spriteBatch.Draw(zelda, vector, rs, Color.White);
 
 
             base.Draw(gameTime);
