@@ -19,23 +19,23 @@ namespace sprint0
         public void Update()
         {
             KeyboardState userInput = Keyboard.GetState();
-            if (userInput.IsKeyDown(Keys.Q))
+            if (userInput.IsKeyDown(Keys.D0))
             {
                 game.Exit();
             }
-            else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
+            else if (userInput.IsKeyDown(Keys.D1))
             {
                 game.sprite = new RSprite();
             }
-            else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
+            else if (userInput.IsKeyDown(Keys.D2))
             {
                 game.sprite = new AnimatedSprite();
             }
-            else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
+            else if (userInput.IsKeyDown(Keys.D3))
             {
                 game.sprite = new MotionSprite();
             }
-            else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
+            else if (userInput.IsKeyDown(Keys.D4))
             {
                 game.sprite = new MotionAnimatedSprite();
             }
