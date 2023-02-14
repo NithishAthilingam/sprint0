@@ -22,8 +22,10 @@ namespace sprint0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Isprite sprite;
+        public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[6];
+        private Texture2D[] Animate = new Texture2D[5];
+        private Texture2D[] HealthBar = new Texture2D[4];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -35,6 +37,7 @@ namespace sprint0
         private bool facingRight;
         private bool facingLeft;
         public Vector2 pos;
+        public Vector2 healthPos;
         private Isprite TextSprite;
 
         public Game1()
@@ -67,7 +70,12 @@ namespace sprint0
             zelda = Content.Load<Texture2D>("sprites-link");
             Animate[4] = zelda;
             health = Content.Load<Texture2D>("health");
+<<<<<<< HEAD
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+=======
+            sprite = new RSprite(pos);
+            healthbar = new FullHealthbar();
+>>>>>>> 00e948f69342b40b81e8ee238a578a6788c5f5f5
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -100,9 +108,13 @@ namespace sprint0
 
             sprite.Draw(spriteBatch, Animate, pos);
 
+            healthbar.Draw(spriteBatch, health);
+
             TextSprite.Draw(spriteBatch, font);
 
-
+            //Rectangle source2 = new Rectangle(252, 260, 192, 50);
+            //Rectangle dest2 = new Rectangle(30, 40, 192, 50);
+            //spriteBatch.Draw(health, dest2, source2, Color.White);
 
             //vector = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
 
@@ -127,7 +139,10 @@ namespace sprint0
 
             Rectangle rs = new Rectangle(415, 250, 16, 30);
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 00e948f69342b40b81e8ee238a578a6788c5f5f5
             //heart w/ boarder
             //  spriteBatch.Draw(zelda, vector, r, Color.White);
             //blue dimond

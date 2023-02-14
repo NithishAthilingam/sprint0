@@ -19,9 +19,9 @@ namespace sprint0
         private bool facingRight;
         private bool facingLeft;
 
-        public keyboardController(Game1 mario)
+        public keyboardController(Game1 link)
         {
-            game = mario;
+            game = link;
             pos = new Vector2(220, 100);
             speed = 200f;
         }
