@@ -14,6 +14,11 @@ namespace sprint0
         private Game1 game;
         private Vector2 pos;
         private float speed;
+        private bool facingDown;
+        private bool facingUp;
+        private bool facingRight;
+        private bool facingLeft;
+
         public keyboardController(Game1 mario)
         {
             game = mario;
@@ -24,7 +29,7 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
-            game.sprite = new RSprite(pos);
+            game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
 
             if (userInput.IsKeyDown(Keys.Q))
             {
@@ -32,6 +37,10 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
             {
+                facingDown = false;
+                facingUp = true;
+                facingRight = false;
+                facingLeft = false;
                 game.sprite = new UpSprite(pos);
                 if (!(pos.Y <= 0))
                 {
@@ -42,6 +51,10 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
             {
+                facingDown = false;
+                facingUp = false;
+                facingRight = false;
+                facingLeft = true;
                 game.sprite = new LeftSprite(pos);
                 if (!(pos.X <= 0))
                 {
@@ -52,6 +65,10 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
+                facingDown = true;
+                facingUp = false;
+                facingRight = false;
+                facingLeft = false;
                 game.sprite = new DownSprite(pos);
                 if (!(pos.Y >= 435))
                 {
@@ -62,6 +79,10 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
+                facingDown = false;
+                facingUp = false;
+                facingRight = true;
+                facingLeft = false;
                 game.sprite = new RightSprite(pos);
                 if (!(pos.X >= 750))
                 {

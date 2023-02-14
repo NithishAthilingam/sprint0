@@ -13,6 +13,10 @@ namespace sprint0
     {
         private Game1 game;
         private Vector2 pos;
+        private bool facingDown;
+        private bool facingUp;
+        private bool facingRight;
+        private bool facingLeft;
         public mouseController(Game1 mario) {
             game = mario;
         }
@@ -25,7 +29,7 @@ namespace sprint0
                 game.Exit();
             }
             else if(userInput.LeftButton == ButtonState.Pressed && userInput.X <= 400 && userInput.Y <= 200) {
-                game.sprite = new RSprite(pos);
+                game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             }
             else if (userInput.LeftButton == ButtonState.Pressed && userInput.X > 400 && userInput.Y <= 200)
             {
