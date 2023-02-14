@@ -70,12 +70,9 @@ namespace sprint0
             zelda = Content.Load<Texture2D>("sprites-link");
             Animate[4] = zelda;
             health = Content.Load<Texture2D>("health");
-<<<<<<< HEAD
+
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-=======
-            sprite = new RSprite(pos);
             healthbar = new FullHealthbar();
->>>>>>> 00e948f69342b40b81e8ee238a578a6788c5f5f5
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -115,9 +112,6 @@ namespace sprint0
             //Rectangle source2 = new Rectangle(252, 260, 192, 50);
             //Rectangle dest2 = new Rectangle(30, 40, 192, 50);
             //spriteBatch.Draw(health, dest2, source2, Color.White);
-
-            //vector = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
-
             Rectangle r = new Rectangle(300, 185, 30, 30);
 
             Rectangle c = new Rectangle(270, 225, 30, 30);
@@ -137,13 +131,7 @@ namespace sprint0
 
             Rectangle rr = new Rectangle(380, 160, 30, 30);
 
-            Rectangle rs = new Rectangle(415, 250, 16, 30);
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 00e948f69342b40b81e8ee238a578a6788c5f5f5
-            //heart w/ boarder
+            Rectangle rs = new Rectangle(415, 250, 16, 30);            //heart w/ boarder
             //  spriteBatch.Draw(zelda, vector, r, Color.White);
             //blue dimond
             // spriteBatch.Draw(zelda, vector, c, Color.White);
