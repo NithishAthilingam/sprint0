@@ -16,22 +16,19 @@ namespace sprint0
         public HealthController(Game1 link)
         {
             game = link;
+            pressed = 0;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
-            game.healthbar = new FullHealthbar();
-
-            pressed = 0;
+            game.healthbar = new FullHealthbar(pressed);
             if (userInput.IsKeyDown(Keys.E))
             {
                 pressed++;
-                if(pressed == 1) {
-                    game.healthbar = new HealthbarDamaged1();
-                }
             }
-            
+        
+
         }
     }
 }

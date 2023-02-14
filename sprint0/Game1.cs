@@ -36,6 +36,7 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
+        private int press;
         public Vector2 pos;
         public Vector2 healthPos;
         private Isprite TextSprite;
@@ -52,6 +53,7 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
             controller.Add(new mouseController(this));
+            controller.Add(new HealthController(this));
             base.Initialize();
         }
 
@@ -72,7 +74,7 @@ namespace sprint0
             health = Content.Load<Texture2D>("health");
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            healthbar = new FullHealthbar();
+            healthbar = new FullHealthbar(press);
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
