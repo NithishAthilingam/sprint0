@@ -99,7 +99,8 @@ namespace sprint0
                 }
                 else if (facingLeft == true)
                 {
-                    game.sprite = new SwordSpriteLeft(pos);
+                    
+                    game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 21, pos.Y - 20));
                 }
 
             }
