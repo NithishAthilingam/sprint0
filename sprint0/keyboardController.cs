@@ -93,7 +93,15 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
-                game.sprite = new SwordSpriteDown(pos);
+                if (facingDown == true)
+                {
+                    game.sprite = new SwordSpriteDown(pos);
+                }
+                else if (facingLeft == true)
+                {
+                    game.sprite = new SwordSpriteLeft(pos);
+                }
+
             }
         }
     }
