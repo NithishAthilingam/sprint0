@@ -39,6 +39,8 @@ namespace sprint0
         public Vector2 pos;
         public Vector2 healthPos;
         private Isprite TextSprite;
+        private Item item;
+
 
         public Game1()
         {
@@ -77,6 +79,8 @@ namespace sprint0
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
+            item = new Item(zelda);
+
         }
 
         protected override void UnloadContent()
@@ -94,7 +98,7 @@ namespace sprint0
             {
                 controller.Update(gameTime);
             }
-
+            item.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -109,52 +113,8 @@ namespace sprint0
 
             TextSprite.Draw(spriteBatch, font);
 
-            //Rectangle source2 = new Rectangle(252, 260, 192, 50);
-            //Rectangle dest2 = new Rectangle(30, 40, 192, 50);
-            //spriteBatch.Draw(health, dest2, source2, Color.White);
-            Rectangle r = new Rectangle(300, 185, 30, 30);
+            item.Draw(spriteBatch);
 
-            Rectangle c = new Rectangle(270, 225, 30, 30);
-
-            Rectangle b = new Rectangle(230, 225, 30, 30);
-            Rectangle j = new Rectangle(230, 185, 30, 30);
-            Rectangle jj = new Rectangle(350, 275, 30, 30);
-            Rectangle jl = new Rectangle(325, 275, 30, 30);
-
-            Rectangle jm = new Rectangle(260, 185, 30, 30);
-            
-            Rectangle jf = new Rectangle(270, 250, 30, 30);
-
-            Rectangle f = new Rectangle(350, 250, 30, 30);
-
-            Rectangle ff = new Rectangle(375, 250, 30, 30);
-
-            Rectangle rr = new Rectangle(380, 160, 30, 30);
-
-            Rectangle rs = new Rectangle(415, 250, 16, 30);            //heart w/ boarder
-            //  spriteBatch.Draw(zelda, vector, r, Color.White);
-            //blue dimond
-            // spriteBatch.Draw(zelda, vector, c, Color.White);
-            //yellow dimond
-            // spriteBatch.Draw(zelda, vector, b, Color.White);
-            //heart
-            //spriteBatch.Draw(zelda, vector, j, Color.White);
-            //blue triangle
-            // spriteBatch.Draw(zelda, vector, jj, Color.White);
-            //yelow triangle
-            //spriteBatch.Draw(zelda, vector, jl, Color.White);
-            //blue heart
-            //spriteBatch.Draw(zelda, vector, jm, Color.White);
-            //chocolate bar
-            // spriteBatch.Draw(zelda, vector, jf, Color.White);
-            //key
-            //spriteBatch.Draw(zelda, vector, f, Color.White);
-            //can thing
-            //spriteBatch.Draw(zelda, vector, ff, Color.White);
-            //clock
-            //spriteBatch.Draw(zelda, vector, rr, Color.White);
-            //arrow
-            //spriteBatch.Draw(zelda, vector, rs, Color.White);
 
 
             base.Draw(gameTime);
