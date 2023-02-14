@@ -22,8 +22,10 @@ namespace sprint0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Isprite sprite;
+        public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[6];
+        private Texture2D[] Animate = new Texture2D[5];
+        private Texture2D[] HealthBar = new Texture2D[4];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -31,6 +33,7 @@ namespace sprint0
         private Texture2D health;
         private SpriteFont font;
         public Vector2 pos;
+        public Vector2 healthPos;
         private Isprite TextSprite;
 
         public Game1()
@@ -64,6 +67,7 @@ namespace sprint0
             Animate[4] = zelda;
             health = Content.Load<Texture2D>("health");
             sprite = new RSprite(pos);
+            healthbar = new FullHealthbar();
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -96,9 +100,13 @@ namespace sprint0
 
             sprite.Draw(spriteBatch, Animate, pos);
 
+            healthbar.Draw(spriteBatch, health);
+
             TextSprite.Draw(spriteBatch, font);
 
-
+            //Rectangle source2 = new Rectangle(252, 260, 192, 50);
+            //Rectangle dest2 = new Rectangle(30, 40, 192, 50);
+            //spriteBatch.Draw(health, dest2, source2, Color.White);
 
             //vector = new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2);
 
@@ -123,10 +131,6 @@ namespace sprint0
 
             Rectangle rs = new Rectangle(415, 250, 16, 30);
 
-<<<<<<< Updated upstream
-=======
-
->>>>>>> Stashed changes
             //heart w/ boarder
             //  spriteBatch.Draw(zelda, vector, r, Color.White);
             //blue dimond
