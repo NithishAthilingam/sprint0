@@ -104,9 +104,12 @@ namespace sprint0
                 }
                 else if (facingUp == true)
                 {
-                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 35));
+                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
                 }
-
+                else if (facingRight == true)
+                {
+                    game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
+                }
             }
         }
     }
