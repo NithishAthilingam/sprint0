@@ -25,7 +25,7 @@ namespace sprint0
             game.healthbar = new FullHealthbar(pressed);
             if (userInput.IsKeyDown(Keys.E))
             {
-                pressed++;
+                pressed += 1;
             }
         
 
