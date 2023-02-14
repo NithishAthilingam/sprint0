@@ -24,11 +24,13 @@ namespace sprint0
         public Isprite sprite;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[5];
+        private Texture2D[] Animate = new Texture2D[6];
         private Texture2D[] HealthBar = new Texture2D[4];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
+        private Texture2D spriteD;
+        private Texture2D spriteX;
         private Texture2D zelda;
         private Texture2D health;
         private SpriteFont font;
@@ -36,6 +38,7 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
+        private int press;
         public Vector2 pos;
         public Vector2 healthPos;
         private Isprite TextSprite;
@@ -54,6 +57,7 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
             controller.Add(new mouseController(this));
+            controller.Add(new HealthController(this));
             base.Initialize();
         }
 
@@ -61,20 +65,23 @@ namespace sprint0
         {
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
-            spriteA = Content.Load<Texture2D>("a");
+            spriteA = Content.Load<Texture2D>("alec");
             Animate[0] = spriteA;
-            spriteB = Content.Load<Texture2D>("b");
+            spriteB = Content.Load<Texture2D>("afrah");
             Animate[1] = spriteB;
-            spriteC = Content.Load<Texture2D>("c");
+            spriteC = Content.Load<Texture2D>("dawei");
             Animate[2] = spriteC;
-            spriteC = Content.Load<Texture2D>("d");
-            Animate[3] = spriteC;
+            spriteD = Content.Load<Texture2D>("salma");
+            Animate[3] = spriteD;
             zelda = Content.Load<Texture2D>("sprites-link");
             Animate[4] = zelda;
+            spriteX = Content.Load<Texture2D>("nithish");
+            Animate[5] = spriteX;
             health = Content.Load<Texture2D>("health");
 
+
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            healthbar = new FullHealthbar();
+            healthbar = new FullHealthbar(press);
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();

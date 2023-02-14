@@ -12,48 +12,30 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
-    
-    public class MotionSprite : Isprite
+
+    public class DSprite : Isprite
     {
         bool up = true;
         double ver = 0;
         double loc = 0;
-        public MotionSprite()
+        public DSprite()
         {
 
         }
 
-        private Vector2 location = new Vector2(220, 100);
+        private Vector2 location = new Vector2(590, 290);
 
         //wrap around
         public void Update()
         {
-            
-            ver = 400*Math.Cos(location.Y);
-            if (location.Y >= 400)
-            {
-                location.Y -= 2;
-                up = true;
-            }
-            else if (location.Y <= 000)
-            {
-                location.Y += 2;
-                up = false;
-            }
-            else if (up == true)
-            {
-                location.Y -= 2;
-            }
-            else if(up == false)
-            {
-                location.Y += 2;
-            }
+
+
 
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
-            spriteBatch.Draw(AnimationType[0], location, Color.White);
+            spriteBatch.Draw(AnimationType[3], location, Color.White);
         }
     }
 }

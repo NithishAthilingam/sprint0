@@ -24,24 +24,28 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             MouseState userInput = Mouse.GetState();
-            if (userInput.RightButton == ButtonState.Pressed)
+            if((userInput.RightButton == ButtonState.Pressed) && (userInput.LeftButton == ButtonState.Pressed))
+            {
+                game.sprite = new XSprite();
+            }
+            else if (userInput.RightButton == ButtonState.Pressed)
             {
                 game.Exit();
             }
-            else if(userInput.LeftButton == ButtonState.Pressed && userInput.X <= 400 && userInput.Y <= 200) {
-                game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+            else if((userInput.LeftButton == ButtonState.Pressed) && (userInput.Position.X <= 400 && userInput.Position.Y <= 200)) {
+                game.sprite = new ASprite();
             }
-            else if (userInput.LeftButton == ButtonState.Pressed && userInput.X > 400 && userInput.Y <= 200)
+            else if ((userInput.LeftButton == ButtonState.Pressed) && (userInput.Position.X > 400 && userInput.Position.Y <= 200))
             {
-                game.sprite = new AnimatedSprite();
+                game.sprite = new BSprite();
             }
-            else if (userInput.LeftButton == ButtonState.Pressed && userInput.X <= 400 && userInput.Y > 200)
+            else if ((userInput.LeftButton == ButtonState.Pressed) && (userInput.Position.X <= 400 && userInput.Position.Y > 200))
             {
-                game.sprite = new MotionSprite();
+                game.sprite = new CSprite();
             }
-            else if (userInput.LeftButton == ButtonState.Pressed && userInput.X > 400 && userInput.Y > 200)
+            else if ((userInput.LeftButton == ButtonState.Pressed) && (userInput.Position.X > 400 && userInput.Position.Y > 200))
             {
-                game.sprite = new MotionAnimatedSprite();
+                game.sprite = new DSprite();
             }
         }
     }
