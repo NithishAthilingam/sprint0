@@ -12,7 +12,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0
 {
-    
+
     public class ASprite : Isprite
     {
         bool up = true;
@@ -28,8 +28,8 @@ namespace sprint0
         //wrap around
         public void Update()
         {
-            
-            
+
+
 
         }
 
