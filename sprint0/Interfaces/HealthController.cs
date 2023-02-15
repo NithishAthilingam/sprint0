@@ -12,21 +12,18 @@ namespace sprint0
     internal class HealthController : Icontroller
     {
         private Game1 game;
-        private int pressed;
-        public HealthController(Game1 link)
+        public int pressed;
+        public HealthController(Game1 link, int press)
         {
             game = link;
-            pressed = 0;
+            pressed = press;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
             game.healthbar = new FullHealthbar(pressed);
-            if (userInput.IsKeyDown(Keys.E))
-            {
-                pressed += 1;
-            }
+            
         
 
         }

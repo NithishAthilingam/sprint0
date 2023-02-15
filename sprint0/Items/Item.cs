@@ -90,7 +90,7 @@ namespace sprint0
             //bomb
             recs[10] = new Rectangle(350, 225, 30, 30);
             //blue dimond
-            recs[11] = new Rectangle(270, 225, 30, 30);
+            recs[11] = new Rectangle(270, 225, 20, 20);
 
 
             hearts = new Rectangle[3];
@@ -100,13 +100,19 @@ namespace sprint0
 
 
             diamonds = new Rectangle[3];
+<<<<<<< HEAD:sprint0/Item.cs
             diamonds[0] = new Rectangle(270, 225, 30, 30);
             diamonds[1] = new Rectangle(240, 225, 30, 30);
             diamonds[2] = new Rectangle(270, 225, 30, 30);
+=======
+            diamonds[0] = new Rectangle(270, 225, 27, 27);
+            diamonds[1] = new Rectangle(240, 225, 27, 27);
+            diamonds[2] = new Rectangle(270, 225, 27, 27);
+>>>>>>> 24534f8ad130fdb668e743d26db8f5e4d4c985b5:sprint0/Items/Item.cs
 
             tri = new Rectangle[3];
             tri[0] = new Rectangle(350, 275, 30, 30);
-            tri[1] = new Rectangle(325, 275, 30, 30);
+            tri[1] = new Rectangle(350, 275, 30, 30);
             tri[2] = new Rectangle(350, 275, 30, 30);
 
 
