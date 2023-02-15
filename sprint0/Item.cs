@@ -101,7 +101,7 @@ namespace sprint0
 
             diamonds = new Rectangle[3];
             diamonds[0] = new Rectangle(270, 225, 30, 30);
-            diamonds[1] = new Rectangle(240, 225, 25, 30);
+            diamonds[1] = new Rectangle(240, 225, 30, 30);
             diamonds[2] = new Rectangle(270, 225, 30, 30);
 
             tri = new Rectangle[3];

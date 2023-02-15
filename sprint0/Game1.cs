@@ -33,6 +33,7 @@ namespace sprint0
         private Texture2D spriteX;
         private Texture2D zelda;
         private Texture2D health;
+        private Texture2D b;
         private SpriteFont font;
         private bool facingDown;
         private bool facingUp;
@@ -43,6 +44,8 @@ namespace sprint0
         public Vector2 healthPos;
         private Isprite TextSprite;
         private Item item;
+        private Blocks blocks;
+
 
 
         public Game1()
@@ -78,6 +81,8 @@ namespace sprint0
             spriteX = Content.Load<Texture2D>("nithish");
             Animate[5] = spriteX;
             health = Content.Load<Texture2D>("health");
+            b = Content.Load<Texture2D>("blocks2");
+
 
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
@@ -87,6 +92,8 @@ namespace sprint0
             TextSprite = new TextSprite();
 
             item = new Item(zelda);
+            blocks = new Blocks(b);
+
 
         }
 
@@ -106,6 +113,8 @@ namespace sprint0
                 controller.Update(gameTime);
             }
             item.Update(gameTime);
+            blocks.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -121,6 +130,8 @@ namespace sprint0
             TextSprite.Draw(spriteBatch, font);
 
             item.Draw(spriteBatch);
+            blocks.Draw(spriteBatch);
+
 
 
 
