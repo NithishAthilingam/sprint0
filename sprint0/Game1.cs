@@ -57,7 +57,6 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
             controller.Add(new mouseController(this));
-            controller.Add(new HealthController(this));
             base.Initialize();
         }
 
