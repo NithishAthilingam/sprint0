@@ -35,7 +35,7 @@ namespace sprint0
             }
             else 
             {
-                source2 = new Rectangle(252, 275, 192, 45);
+                source2 = new Rectangle(252, 268, 192, 50);
             }
             spriteBatch.Draw(bar, dest2, source2, Color.White);
         }
