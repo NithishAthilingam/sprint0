@@ -2,11 +2,13 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Content;
 
 namespace sprint0
 {
-	public class Projectiles
-	{
+	public class Projectiles : IItem
+
+    {
         private Game1 game1;
         private Texture2D i;
         Rectangle blueArrow;
@@ -14,6 +16,7 @@ namespace sprint0
         Rectangle des;
         Vector2 p;
         private float s;
+       
 
         public Projectiles(Game1 myGame,Texture2D items, Vector2 position)
 		{
@@ -34,9 +37,10 @@ namespace sprint0
         public void Update(GameTime gameTime)
 		{
             p.X += s;
+            
             if (p.X > game1.GraphicsDevice.Viewport.Width / 4)
             {
-                //p.X = game1.GraphicsDevice.Viewport.Width/4;
+               // p.X = game1.GraphicsDevice.Viewport.Width/4;
                 p.Y = game1.GraphicsDevice.Viewport.Height / 4;
             }
         }
