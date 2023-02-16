@@ -35,6 +35,8 @@ namespace sprint0
         private Texture2D health;
         private Texture2D b;
         private Texture2D spritesEnemies;
+        private Texture2D spritesItems;
+
 
         private SpriteFont font;
         private bool facingDown;
@@ -47,6 +49,10 @@ namespace sprint0
         private Isprite TextSprite;
         private Item item;
         private Blocks blocks;
+        private Projectiles projectiles;
+        private keyboardController keyboardController;
+
+
 
 
 
@@ -83,7 +89,7 @@ namespace sprint0
             health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
             spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
-
+            spritesItems= Content.Load<Texture2D>("sprites-items");
 
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
@@ -94,6 +100,7 @@ namespace sprint0
 
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
+            projectiles = new Projectiles(this,spritesItems, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
 
 
         }
@@ -115,6 +122,8 @@ namespace sprint0
             }
             item.Update(gameTime);
             blocks.Update(gameTime);
+            projectiles.Update(gameTime);
+
 
             base.Update(gameTime);
         }
@@ -132,6 +141,7 @@ namespace sprint0
 
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
+            projectiles.Draw(spriteBatch);
 
 
 

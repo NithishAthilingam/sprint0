@@ -8,6 +8,11 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
 
+using System.Threading;
+
+using Microsoft.Xna.Framework.Graphics;
+
+
 namespace sprint0
 {
     internal class keyboardController : Icontroller
@@ -21,18 +26,34 @@ namespace sprint0
         private bool facingLeft;
         private int press;
 
+        private float timer;
+        private float delayTime;
+
+        private Texture2D i;
+        Rectangle blueArrow;
+        Rectangle greenArrow;
+        Rectangle des;
+        Vector2 p;
+        private float s;
+
+
         public keyboardController(Game1 link)
         {
             game = link;
             pos = new Vector2(220, 100);
             speed = 200f;
+
+            delayTime = 500f;
+            timer = 0f;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
+            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             game.healthbar = new FullHealthbar(press);
+
 
             if (userInput.IsKeyDown(Keys.Q))
             {
@@ -92,7 +113,6 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 
             }
-
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
                 facingDown = false;
@@ -131,11 +151,16 @@ namespace sprint0
                     game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
                 }
             }
-            else if(userInput.IsKeyDown(Keys.E))
+            if(timer <= 0f)
+            {
+                if (userInput.IsKeyDown(Keys.E))
                 {
                     press++;
                 }
-            else if(userInput.IsKeyDown(Keys.R))
+                timer = delayTime;
+            }
+                
+            if(userInput.IsKeyDown(Keys.R))
             {
                 pos.X = 0;
                 pos.Y = 0;
@@ -143,26 +168,16 @@ namespace sprint0
                 game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
                 game.healthbar = new FullHealthbar(press);
             }
-            else if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
-            {
-                if (facingDown == true)
-                {
-                    game.sprite = new SwordSpriteDown(pos);
-                }
-                else if (facingLeft == true)
-                {
 
-                    game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
-                }
-                else if (facingUp == true)
-                {
-                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
-                }
-                else if (facingRight == true)
-                {
-                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
-                }
-            }
+   
         }
+
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(i, p, blueArrow, Color.White);
+
+        }
+
     }
 }
