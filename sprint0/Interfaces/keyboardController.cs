@@ -35,6 +35,8 @@ namespace sprint0
         Rectangle des;
         Vector2 p;
         private float s;
+        private Projectiles projectiles;
+
 
 
         public keyboardController(Game1 link)
@@ -45,6 +47,7 @@ namespace sprint0
 
             delayTime = 500f;
             timer = 0f;
+            press = 0;
         }
 
         public void Update(GameTime gameTime)
@@ -54,6 +57,11 @@ namespace sprint0
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             game.healthbar = new FullHealthbar(press);
 
+
+            if(userInput.IsKeyDown(Keys.D1) || userInput.IsKeyDown(Keys.NumPad1))
+            {
+                //call proj.
+            }
 
             if (userInput.IsKeyDown(Keys.Q))
             {
