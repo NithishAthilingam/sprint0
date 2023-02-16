@@ -37,6 +37,7 @@ namespace sprint0
 
             blueArrow = new Rectangle(0, 120, 20, 15);
             greenArrow = new Rectangle(0, 40, 20, 15);
+
             s = 2.0f;
 
             p = position;
@@ -53,6 +54,7 @@ namespace sprint0
 
             if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
             {
+
                 p.X = game.GraphicsDevice.Viewport.Width / 2;
                 p.Y += s;
                 if (p.Y > game.GraphicsDevice.Viewport.Height)
