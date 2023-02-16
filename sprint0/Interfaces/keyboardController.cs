@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using System.Diagnostics;
 
 namespace sprint0
 {
@@ -18,6 +19,7 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
+        private int press;
 
         public keyboardController(Game1 link)
         {
@@ -30,6 +32,7 @@ namespace sprint0
         {
             KeyboardState userInput = Keyboard.GetState();
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+            game.healthbar = new FullHealthbar(press);
 
             if (userInput.IsKeyDown(Keys.Q))
             {
@@ -126,6 +129,18 @@ namespace sprint0
                 {
                     game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
                 }
+            }
+            else if(userInput.IsKeyDown(Keys.E))
+                {
+                    press++;
+                }
+            else if(userInput.IsKeyDown(Keys.R))
+            {
+                pos.X = 0;
+                pos.Y = 0;
+                press = 0;
+                game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+                game.healthbar = new FullHealthbar(press);
             }
         }
     }

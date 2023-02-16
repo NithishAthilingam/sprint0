@@ -11,7 +11,7 @@ namespace sprint0
 {
 	public class FullHealthbar : IHealthBar
 	{
-        public int press;
+        private int press;
 		public FullHealthbar(int pressed)
 		{
             press = pressed;
@@ -33,9 +33,9 @@ namespace sprint0
             {
                 source2 = new Rectangle(252, 150, 192, 50);
             }
-            else
+            else 
             {
-                source2 = new Rectangle(252, 260, 192, 50);
+                source2 = new Rectangle(252, 268, 192, 50);
             }
             spriteBatch.Draw(bar, dest2, source2, Color.White);
         }
