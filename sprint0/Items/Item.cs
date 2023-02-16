@@ -114,7 +114,6 @@ namespace sprint0
             tri[2] = new Rectangle(350, 275, 30, 30);
 
             fire = new Rectangle[3];
-
             fire[0] = new Rectangle(290, 0, 30, 30);
             fire[1] = new Rectangle(290, 30, 30, 30);
             fire[2] = new Rectangle(290, 0, 30, 30);
@@ -195,7 +194,6 @@ namespace sprint0
             if (currentImageIndex == 2)
             {
                 spriteBatch.Draw(z, des, diamonds[currentA], Color.White);
-
             }
 
             if (currentImageIndex == 5)
