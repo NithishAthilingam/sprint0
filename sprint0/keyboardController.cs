@@ -42,9 +42,13 @@ namespace sprint0
                 facingRight = false;
                 facingLeft = false;
                 game.sprite = new UpSprite(pos);
-                if (!(pos.Y <= 0))
+                if (pos.Y > 0)
                 {
                     pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    pos.Y = 0;
                 }
                 //game.sprite = new RSprite();z
                 
@@ -56,9 +60,13 @@ namespace sprint0
                 facingRight = false;
                 facingLeft = true;
                 game.sprite = new LeftSprite(pos);
-                if (!(pos.X <= 0))
+                if (pos.X > 0)
                 {
                     pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    pos.X = 0;
                 }
                 //game.sprite = new RSprite();
                 
@@ -70,9 +78,13 @@ namespace sprint0
                 facingRight = false;
                 facingLeft = false;
                 game.sprite = new DownSprite(pos);
-                if (!(pos.Y >= 435))
+                if (pos.Y < (432))
                 {
                     pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    pos.Y = 432;
                 }
                 //game.sprite = new RSprite();
                 
@@ -84,9 +96,13 @@ namespace sprint0
                 facingRight = true;
                 facingLeft = false;
                 game.sprite = new RightSprite(pos);
-                if (!(pos.X >= 750))
+                if (pos.X < 800-45)
                 {
                     pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    pos.X = 800 - 45;
                 }
                 //game.sprite = new RSprite();
                 
