@@ -156,16 +156,16 @@ namespace sprint0
             {
                 if (facingDown == true)
                 {
-                    game.sprite = new SwordSpriteDown(pos);
+                    game.sprite = new ThrowingItemDown(pos);
                 }
                 else if (facingLeft == true)
                 {
 
-                    game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
+                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X -20, pos.Y ));
                 }
                 else if (facingUp == true)
                 {
-                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
+                    game.sprite = new ThrowingItemUp(pos);
                 }
                 else if (facingRight == true)
                 {
