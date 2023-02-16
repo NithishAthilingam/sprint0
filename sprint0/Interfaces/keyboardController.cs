@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using System.Diagnostics;
+using System.Threading;
 
 namespace sprint0
 {
@@ -20,17 +21,22 @@ namespace sprint0
         private bool facingRight;
         private bool facingLeft;
         private int press;
+        private float timer;
+        private float delayTime;
 
         public keyboardController(Game1 link)
         {
             game = link;
             pos = new Vector2(220, 100);
             speed = 200f;
+            delayTime = 500f;
+            timer = 0f;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
+            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             game.healthbar = new FullHealthbar(press);
 
@@ -114,11 +120,16 @@ namespace sprint0
                     game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
                 }
             }
-            else if(userInput.IsKeyDown(Keys.E))
+            if(timer <= 0f)
+            {
+                if (userInput.IsKeyDown(Keys.E))
                 {
                     press++;
                 }
-            else if(userInput.IsKeyDown(Keys.R))
+                timer = delayTime;
+            }
+                
+            if(userInput.IsKeyDown(Keys.R))
             {
                 pos.X = 0;
                 pos.Y = 0;
