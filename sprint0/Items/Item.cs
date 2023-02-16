@@ -22,9 +22,12 @@ namespace sprint0
         Rectangle[] hearts;
         Rectangle[] diamonds;
         Rectangle[] tri;
+        Rectangle[] fire;
+
 
         int currentImageIndex;
         private Texture2D z;
+        private Texture2D f;
         Rectangle currentSourceRectangle;
         Rectangle destinationRectangle;
         float delayTime;
@@ -42,10 +45,11 @@ namespace sprint0
 
 
 
-        public Item(Texture2D zelda)
+        public Item(Texture2D zelda, Texture2D fireTex)
         {
             currentImageIndex = 0;
             z = zelda;
+            f = fireTex;
             recs = new Rectangle[13];
 
             delayTime = 500f; 
@@ -103,14 +107,17 @@ namespace sprint0
             diamonds[0] = new Rectangle(270, 225, 30, 30);
             diamonds[1] = new Rectangle(240, 225, 30, 30);
             diamonds[2] = new Rectangle(270, 225, 30, 30);
-            diamonds[0] = new Rectangle(270, 225, 27, 27);
-            diamonds[1] = new Rectangle(240, 225, 27, 27);
-            diamonds[2] = new Rectangle(270, 225, 27, 27);
 
             tri = new Rectangle[3];
             tri[0] = new Rectangle(350, 275, 30, 30);
             tri[1] = new Rectangle(350, 275, 30, 30);
             tri[2] = new Rectangle(350, 275, 30, 30);
+
+            fire = new Rectangle[3];
+            fire[0] = new Rectangle(290, 0, 30, 30);
+            fire[1] = new Rectangle(290, 30, 30, 30);
+            fire[2] = new Rectangle(290, 0, 30, 30);
+
 
 
 
@@ -182,12 +189,11 @@ namespace sprint0
 
             if (currentImageIndex == 1)
             {
-                //fire 
-            }
-            if(currentImageIndex == 2)
+                spriteBatch.Draw(f, des, fire[currentA], Color.White);
+        }
+            if (currentImageIndex == 2)
             {
                 spriteBatch.Draw(z, des, diamonds[currentA], Color.White);
-
             }
 
             if (currentImageIndex == 5)
@@ -195,11 +201,10 @@ namespace sprint0
                 spriteBatch.Draw(z, des, hearts[currentA], Color.White);
 
             }else
-            {
-                spriteBatch.Draw(z, des, recs[currentImageIndex], Color.White);
+        
+              spriteBatch.Draw(z, des, recs[currentImageIndex], Color.White);
 
             }
 
         }
     }
-}
