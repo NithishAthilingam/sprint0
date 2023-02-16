@@ -15,11 +15,6 @@ namespace sprint0
         Vector2 p;
         private float s;
 
-
-
-
-
-
         public Projectiles(Game1 myGame,Texture2D items, Vector2 position)
 		{
 			i = items;
@@ -38,9 +33,9 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
 		{
-           
-               p.X += s;
-            if (p.X > game1.GraphicsDevice.Viewport.Width/2)
+            //p.X = game1.GraphicsDevice.Viewport.Width / 4;
+            p.X += s;
+            if (p.X > game1.GraphicsDevice.Viewport.Width / 2)
             {
                 p.X = 0;
                 p.Y = game1.GraphicsDevice.Viewport.Height / 2;
@@ -53,6 +48,6 @@ namespace sprint0
 
         }
 
-    }
+       }
     }
 

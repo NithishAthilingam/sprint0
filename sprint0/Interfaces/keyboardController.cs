@@ -37,7 +37,7 @@ namespace sprint0
         private float s;
 
 
-        public keyboardController(Game1 link, Texture2D items, Vector2 position)
+        public keyboardController(Game1 link)
         {
             game = link;
             pos = new Vector2(220, 100);
@@ -45,19 +45,6 @@ namespace sprint0
 
             delayTime = 500f;
             timer = 0f;
-
-            i = items;
-
-            blueArrow = new Rectangle(0, 120, 20, 15);
-            greenArrow = new Rectangle(0, 40, 20, 15);
-
-            s = 2.0f;
-
-            p = position;
-
-            des = new Rectangle(100, 200, 80, 80);
-
-
         }
 
         public void Update(GameTime gameTime)
@@ -66,18 +53,6 @@ namespace sprint0
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             game.healthbar = new FullHealthbar(press);
-
-            if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
-            {
-
-                p.X = game.GraphicsDevice.Viewport.Width / 2;
-                p.Y += s;
-                if (p.Y > game.GraphicsDevice.Viewport.Height)
-                {
-                    p.X = game.GraphicsDevice.Viewport.Width / 2;
-                    p.Y = 0;
-                }
-            }
 
 
             if (userInput.IsKeyDown(Keys.Q))

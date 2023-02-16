@@ -66,7 +66,7 @@ namespace sprint0
         protected override void Initialize()
         {
             controller = new List<Icontroller>();
-            //controller.Add(new keyboardController(this));
+            controller.Add(new keyboardController(this));
             base.Initialize();
         }
 
@@ -101,7 +101,6 @@ namespace sprint0
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
             projectiles = new Projectiles(this,spritesItems, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
-            keyboardController = new keyboardController(this, spritesItems, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
 
 
         }
@@ -124,7 +123,6 @@ namespace sprint0
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
-            keyboardController.Update(gameTime);
 
 
             base.Update(gameTime);
@@ -143,8 +141,7 @@ namespace sprint0
 
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
-            // projectiles.Draw(spriteBatch);
-            keyboardController.Draw(spriteBatch);
+            projectiles.Draw(spriteBatch);
 
 
 
