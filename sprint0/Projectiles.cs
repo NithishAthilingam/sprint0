@@ -33,7 +33,7 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
 		{
-            //p.X = game1.GraphicsDevice.Viewport.Width / 4;
+           p.X = game1.GraphicsDevice.Viewport.Width / 4;
             p.X += s;
             if (p.X > game1.GraphicsDevice.Viewport.Width / 2)
             {
