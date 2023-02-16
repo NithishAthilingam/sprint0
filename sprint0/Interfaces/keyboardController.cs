@@ -151,7 +151,31 @@ namespace sprint0
                     game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
                 }
             }
-            if(timer <= 0f)
+
+            else if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
+            {
+                if (facingDown == true)
+                {
+                    game.sprite = new SwordSpriteDown(pos);
+                }
+                else if (facingLeft == true)
+                {
+
+                    game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
+                }
+                else if (facingUp == true)
+                {
+                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
+                }
+                else if (facingRight == true)
+                {
+                    p.Y = pos.Y;
+                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                    p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+
+            if (timer <= 0f)
             {
                 if (userInput.IsKeyDown(Keys.E))
                 {
