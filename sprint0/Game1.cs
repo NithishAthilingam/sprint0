@@ -34,6 +34,8 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D health;
         private Texture2D b;
+        private Texture2D spritesEnemies;
+
         private SpriteFont font;
         private bool facingDown;
         private bool facingUp;
@@ -80,6 +82,7 @@ namespace sprint0
             Animate[5] = spriteX;
             health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
+            spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
 
 
 
@@ -89,7 +92,7 @@ namespace sprint0
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
-            item = new Item(zelda);
+            item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
 
 
