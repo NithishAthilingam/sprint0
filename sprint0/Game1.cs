@@ -123,6 +123,7 @@ namespace sprint0
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+            //keyboardController.Update(gameTime);
 
 
             base.Update(gameTime);

@@ -35,15 +35,19 @@ namespace sprint0
 
 
         public void Update(GameTime gameTime)
-		{
-            p.X += s;
+        {
             
-            if (p.X > game1.GraphicsDevice.Viewport.Width / 4)
+
+            if (p.X > 0)
             {
-               // p.X = game1.GraphicsDevice.Viewport.Width/4;
-                p.Y = game1.GraphicsDevice.Viewport.Height / 4;
+
+                    // if (p.X > game1.GraphicsDevice.Viewport.Width / 4)
+
+                    // p.X = game1.GraphicsDevice.Viewport.Width/4;
+                    p.Y = game1.GraphicsDevice.Viewport.Height / 4;
+                }
             }
-        }
+        
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
@@ -51,6 +55,7 @@ namespace sprint0
 
         }
 
-       }
+ 
+    }
     }
 
