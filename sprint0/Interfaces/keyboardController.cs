@@ -92,6 +92,7 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 
             }
+
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
                 facingDown = false;
@@ -141,6 +142,26 @@ namespace sprint0
                 press = 0;
                 game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
                 game.healthbar = new FullHealthbar(press);
+            }
+            else if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
+            {
+                if (facingDown == true)
+                {
+                    game.sprite = new SwordSpriteDown(pos);
+                }
+                else if (facingLeft == true)
+                {
+
+                    game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
+                }
+                else if (facingUp == true)
+                {
+                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
+                }
+                else if (facingRight == true)
+                {
+                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                }
             }
         }
     }
