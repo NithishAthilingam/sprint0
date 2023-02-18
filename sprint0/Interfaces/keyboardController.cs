@@ -36,6 +36,8 @@ namespace sprint0
         Vector2 p;
         private float s;
         private Projectiles projectiles;
+        public Vector2 dragonEnemyLocation = new Vector2(75, 75);
+
 
 
 
@@ -121,6 +123,20 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 
             }
+            else if (userInput.IsKeyDown(Keys.P) || userInput.IsKeyDown(Keys.O))
+            {
+
+                game.enemy = new DragonSprite1(dragonEnemyLocation);
+                if (dragonEnemyLocation.Y < (432))
+                {
+                    dragonEnemyLocation.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    dragonEnemyLocation.Y = 432;
+                }
+
+            }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
                 facingDown = false;
@@ -139,6 +155,7 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 
             }
+
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
                 if (facingDown == true)

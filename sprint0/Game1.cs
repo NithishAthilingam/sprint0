@@ -22,6 +22,7 @@ namespace sprint0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Isprite sprite;
+        public Ienemy enemy;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[7];
@@ -30,6 +31,7 @@ namespace sprint0
         private Texture2D spriteC;
         private Texture2D spriteD;
         private Texture2D spriteX;
+        private Texture2D spriteBoss;
         private Texture2D zelda;
         //private Texture2D health;
         private Texture2D b;
@@ -85,6 +87,8 @@ namespace sprint0
             Animate[4] = zelda;
             spriteX = Content.Load<Texture2D>("nithish");
             Animate[5] = spriteX;
+            spriteBoss = Content.Load<Texture2D>("sprites-bosses");
+            Animate[6] = spriteBoss;
             //health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
             spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
@@ -92,7 +96,7 @@ namespace sprint0
 
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-
+            enemy = new DragonSprite1(pos);
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
@@ -118,6 +122,8 @@ namespace sprint0
             {
                 controller.Update(gameTime);
             }
+
+            enemy.Update(gameTime);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
@@ -136,6 +142,7 @@ namespace sprint0
 
             TextSprite.Draw(spriteBatch, font);
 
+            enemy.Draw(spriteBatch, Animate, pos);
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
