@@ -24,15 +24,14 @@ namespace sprint0
         public Isprite sprite;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[6];
-        private Texture2D[] HealthBar = new Texture2D[4];
+        private Texture2D[] Animate = new Texture2D[7];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
         private Texture2D spriteD;
         private Texture2D spriteX;
         private Texture2D zelda;
-        private Texture2D health;
+        //private Texture2D health;
         private Texture2D b;
         private Texture2D spritesEnemies;
         private Texture2D spritesItems;
@@ -50,7 +49,7 @@ namespace sprint0
         private Item item;
         private Blocks blocks;
         private Projectiles projectiles;
-        private keyboardController keyboardController;
+        //private keyboardController keyboardController;
 
 
 
@@ -86,21 +85,20 @@ namespace sprint0
             Animate[4] = zelda;
             spriteX = Content.Load<Texture2D>("nithish");
             Animate[5] = spriteX;
-            health = Content.Load<Texture2D>("health");
+            //health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
             spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            healthbar = new FullHealthbar(press);
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
-            projectiles = new Projectiles(this,spritesItems, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
+            projectiles = new Projectiles(this, spritesItems, spritesEnemies, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
 
 
         }
@@ -135,8 +133,6 @@ namespace sprint0
             spriteBatch.Begin();
 
             sprite.Draw(spriteBatch, Animate, pos);
-
-            healthbar.Draw(spriteBatch, health);
 
             TextSprite.Draw(spriteBatch, font);
 

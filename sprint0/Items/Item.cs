@@ -191,7 +191,7 @@ namespace sprint0
             if (currentImageIndex == 1)
             {
                 spriteBatch.Draw(f, des, fire[currentA], Color.White);
-        }
+            }
             if (currentImageIndex == 2)
             {
                 spriteBatch.Draw(z, des, diamonds[currentA], Color.White);

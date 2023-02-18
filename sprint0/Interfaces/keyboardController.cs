@@ -55,12 +55,12 @@ namespace sprint0
             KeyboardState userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            game.healthbar = new FullHealthbar(press);
+            //game.healthbar = new FullHealthbar(press);
 
 
-            if(userInput.IsKeyDown(Keys.D1) || userInput.IsKeyDown(Keys.NumPad1))
+            if(userInput.IsKeyDown(Keys.E))
             {
-                //call proj.
+                game.sprite = new DamagedSprite(pos);
             }
 
             if (userInput.IsKeyDown(Keys.Q))
@@ -82,7 +82,7 @@ namespace sprint0
                 {
                     pos.Y = 0;
                 }
-                //game.sprite = new RSprite();z
+                //game.sprite = new RSprite();
                 
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
@@ -183,14 +183,14 @@ namespace sprint0
                 }
             }
 
-            if (timer <= 0f)
-            {
-                if (userInput.IsKeyDown(Keys.E))
-                {
-                    press++;
-                }
-                timer = delayTime;
-            }
+            //if (timer <= 0f)
+            //{
+            //    if (userInput.IsKeyDown(Keys.E))
+            //    {
+            //        press++;
+            //    }
+            //    timer = delayTime;
+            //}
                 
             if(userInput.IsKeyDown(Keys.R))
             {
@@ -198,7 +198,7 @@ namespace sprint0
                 pos.Y = 0;
                 press = 0;
                 game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-                game.healthbar = new FullHealthbar(press);
+                //game.healthbar = new FullHealthbar(press);
             }
 
    
