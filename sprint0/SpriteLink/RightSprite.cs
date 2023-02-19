@@ -22,6 +22,7 @@ namespace sprint0
     {
         public Vector2 thisPos;
         public Rectangle[] run;
+        private int frames = 0;
 
         private Texture2D z;
         private Texture2D f;
@@ -71,23 +72,19 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            frames++;
 
-            if (tt > speed)
+            if (frames <= 20)
             {
-                if (currentA == 0)
-                {
-                    currentA = 1;
-                }
-                else
-                {
-                    currentA = 0;
-                }
-                tt = 0;
+                currentA = 1;
             }
-            else
+            else if (frames <= 40)
             {
-                tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+                currentA = 0;
+            }
+            if (frames == 41)
+            {
+                frames = 0;
             }
 
         }
