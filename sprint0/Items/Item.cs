@@ -26,11 +26,11 @@ namespace sprint0
         int currentImageIndex;
         private Texture2D z;
         private Texture2D f;
-        Rectangle currentSourceRectangle;
-        Rectangle destinationRectangle;
+        //Rectangle currentSourceRectangle;
+        //Rectangle destinationRectangle;
         float delayTime;
         float timer;
-        Rectangle source2;
+        //Rectangle source2;
         Rectangle des;
 
         int currentA;
@@ -168,7 +168,10 @@ namespace sprint0
             {
                 spriteBatch.Draw(f, des, fire[currentA], Color.White);
             }
+<<<<<<< HEAD
 
+=======
+>>>>>>> 6730054a71b21bd65df47834d86d67af7950d157
             if (currentImageIndex == 2)
             {
                 spriteBatch.Draw(z, des, diamonds[currentA], Color.White);

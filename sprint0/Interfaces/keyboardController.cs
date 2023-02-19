@@ -24,18 +24,20 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
-        private int press;
+        //private int press;
 
-        private float timer;
-        private float delayTime;
+        //private float timer;
+        //private float delayTime;
 
         private Texture2D i;
         Rectangle blueArrow;
-        Rectangle greenArrow;
-        Rectangle des;
+        //Rectangle greenArrow;
+        //Rectangle des;
         Vector2 p;
-        private float s;
+        //private float s;
         private Projectiles projectiles;
+        public Vector2 dragonEnemyLocation = new Vector2(75, 75);
+
 
 
 
@@ -45,22 +47,22 @@ namespace sprint0
             pos = new Vector2(220, 100);
             speed = 200f;
 
-            delayTime = 500f;
-            timer = 0f;
-            press = 0;
+            //delayTime = 500f;
+            //timer = 0f;
+            //press = 0;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
-            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            game.healthbar = new FullHealthbar(press);
+            //game.healthbar = new FullHealthbar(press);
 
 
-            if(userInput.IsKeyDown(Keys.D1) || userInput.IsKeyDown(Keys.NumPad1))
+            if(userInput.IsKeyDown(Keys.E))
             {
-                //call proj.
+                game.sprite = new DamagedSprite(pos);
             }
 
             if (userInput.IsKeyDown(Keys.Q))
@@ -82,7 +84,7 @@ namespace sprint0
                 {
                     pos.Y = 0;
                 }
-                //game.sprite = new RSprite();z
+                //game.sprite = new RSprite();
                 
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
@@ -121,6 +123,20 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 
             }
+            else if (userInput.IsKeyDown(Keys.P) || userInput.IsKeyDown(Keys.O))
+            {
+
+                game.enemy = new DragonSprite1(dragonEnemyLocation);
+                if (dragonEnemyLocation.Y < (432))
+                {
+                    dragonEnemyLocation.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+                else
+                {
+                    dragonEnemyLocation.Y = 432;
+                }
+
+            }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
                 facingDown = false;
@@ -139,6 +155,7 @@ namespace sprint0
                 //game.sprite = new RSprite();
                 
             }
+
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
                 if (facingDown == true)
@@ -183,22 +200,22 @@ namespace sprint0
                 }
             }
 
-            if (timer <= 0f)
-            {
-                if (userInput.IsKeyDown(Keys.E))
-                {
-                    press++;
-                }
-                timer = delayTime;
-            }
+            //if (timer <= 0f)
+            //{
+            //    if (userInput.IsKeyDown(Keys.E))
+            //    {
+            //        press++;
+            //    }
+            //    timer = delayTime;
+            //}
                 
             if(userInput.IsKeyDown(Keys.R))
             {
                 pos.X = 0;
                 pos.Y = 0;
-                press = 0;
+                //press = 0;
                 game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-                game.healthbar = new FullHealthbar(press);
+                //game.healthbar = new FullHealthbar(press);
             }
 
    

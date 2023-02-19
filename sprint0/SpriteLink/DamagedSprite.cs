@@ -9,11 +9,11 @@ using Microsoft.Xna.Framework;
 
 namespace sprint0
 {
-    public class LeftSprite : Isprite
+    public class DamagedSprite : Isprite
     {
         public Vector2 thisPos;
 
-        public LeftSprite(Vector2 posi)
+        public DamagedSprite(Vector2 posi)
         {
             thisPos = posi;
         }
@@ -26,12 +26,11 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             pos = thisPos;
-            Rectangle source2 = new Rectangle(30, 30, 20, 20);
+            Rectangle source2 = new Rectangle(28, 150, 20, 20);
             //Rectangle dest2 = new Rectangle(100, 100, 50, 50);
             spriteBatch.Draw(AnimationType[4], pos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
     }
 }
-
 

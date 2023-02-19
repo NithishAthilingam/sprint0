@@ -24,7 +24,6 @@ namespace sprint0
 
         float delayTime;
         float timer;
-        Rectangle source2;
         Rectangle des;
 
 
