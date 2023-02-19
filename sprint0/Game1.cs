@@ -112,7 +112,7 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            sprite.Update();
+            sprite.Update(gameTime);
 
             foreach (Icontroller controller in controller)
             {
