@@ -55,21 +55,12 @@ namespace sprint0
         {
 
             p.X += s;
-            if (p.X > 0)
-            {
                 if (p.X > game1.GraphicsDevice.Viewport.Width / 2)
                 {
 
                     //p.X = game1.GraphicsDevice.Viewport.Width / 4;
 
                     p.Y = game1.GraphicsDevice.Viewport.Height / 4;
-
-                }
-
-                if(p.Y == game1.GraphicsDevice.Viewport.Height / 4)
-                {
-                    arrow = true;
-                }
             }
 
 
@@ -82,15 +73,15 @@ namespace sprint0
             spriteBatch.Draw(i, p, blueArrow, Color.White);
 
 
-            if (arrow == true)
+            if (p.Y == game1.GraphicsDevice.Viewport.Height / 4)
             {
                 spriteBatch.Draw(i, new Vector2(game1.GraphicsDevice.Viewport.Width / 2, game1.GraphicsDevice.Viewport.Height / 4), smoke, Color.White);
-
             }
+            spriteBatch.Draw(i,p, blueArrow, Color.White);
 
         }
 
- 
+
     }
     }
 
