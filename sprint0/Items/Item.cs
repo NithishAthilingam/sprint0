@@ -18,12 +18,10 @@ namespace sprint0
     public class Item : IItem
     {
         Rectangle[] recs;
-
         Rectangle[] hearts;
         Rectangle[] diamonds;
         Rectangle[] tri;
         Rectangle[] fire;
-
 
         int currentImageIndex;
         private Texture2D z;
@@ -43,8 +41,6 @@ namespace sprint0
         private int left;
         private int right;
 
-
-
         public Item(Texture2D zelda, Texture2D fireTex)
         {
             currentImageIndex = 0;
@@ -60,7 +56,6 @@ namespace sprint0
             tt = 0;
             speed = 50;
 
-
             middle = 2;
             left = 0;
             right = 1;
@@ -69,17 +64,6 @@ namespace sprint0
 
             //blue dimond
             recs[0] = new Rectangle(270, 225, 30, 30);
-            //yellow dimond
-           // recs[1] = new Rectangle(240, 225, 25, 30);
-            //heart
-          //  recs[2] = new Rectangle(240, 185, 30, 30);
-            //blue triangle
-          //  recs[3] = new Rectangle(350, 275, 30, 30);
-            //yelow triangle
-          //  recs[4] = new Rectangle(325, 275, 30, 30);
-            //blue heart
-           // recs[5] = new Rectangle(260, 185, 30, 30);
-            //chocolate bar
             recs[3] = new Rectangle(270, 250, 30, 30);
             //key
             recs[4] = new Rectangle(350, 250, 30, 30);
@@ -95,7 +79,6 @@ namespace sprint0
             recs[10] = new Rectangle(350, 225, 30, 30);
             //blue dimond
             recs[11] = new Rectangle(270, 225, 20, 20);
-
 
             hearts = new Rectangle[3];
             hearts[0] = new Rectangle(230, 185, 30, 30);
@@ -114,17 +97,11 @@ namespace sprint0
             tri[2] = new Rectangle(350, 275, 30, 30);
 
             fire = new Rectangle[3];
-
             fire[0] = new Rectangle(290, 0, 30, 30);
             fire[1] = new Rectangle(290, 30, 30, 30);
             fire[2] = new Rectangle(290, 0, 30, 30);
 
-
-
-
             des = new Rectangle(600, 200, 80, 80);
-
-
 
         }
 
@@ -154,7 +131,6 @@ namespace sprint0
                     timer = delayTime;
                 }
             }
-
 
 
             if (tt > speed)
@@ -192,18 +168,17 @@ namespace sprint0
             {
                 spriteBatch.Draw(f, des, fire[currentA], Color.White);
             }
+
             if (currentImageIndex == 2)
             {
                 spriteBatch.Draw(z, des, diamonds[currentA], Color.White);
-
             }
 
             if (currentImageIndex == 5)
             {
                 spriteBatch.Draw(z, des, hearts[currentA], Color.White);
-
-            }else
-        
+            }
+            else
               spriteBatch.Draw(z, des, recs[currentImageIndex], Color.White);
 
             }
