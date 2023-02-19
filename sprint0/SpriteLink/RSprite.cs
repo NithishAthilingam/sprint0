@@ -28,7 +28,7 @@ namespace sprint0
             fl = facingLeft;
         }
 
-        public void Update()
+        public void Update(GameTime gameTime)
         {
 
         }
