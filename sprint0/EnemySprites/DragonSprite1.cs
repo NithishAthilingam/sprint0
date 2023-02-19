@@ -20,7 +20,7 @@ namespace sprint0
         public DragonSprite1(Vector2 pos)
         {
             thisPos = pos;
-            thisPos.X -= 250;
+
         }
 
         public void Update(GameTime gameTime)
@@ -28,17 +28,17 @@ namespace sprint0
             if (thisPos.X > 0)
             {
                 frames++;
-                if (frames <= 20)
+                if (frames <= 160)
                 {
-                    thisPos.X+=2;
+                    thisPos.X+=1;
 
                 }
-                else if (frames <= 40)
+                else if (frames <= 320)
                 {
-                    thisPos.X-= 3;
+                    thisPos.X-= 1;
                 }
 
-                if (frames == 41)
+                if (frames == 321)
                 {
                     frames = 0;
                 }
