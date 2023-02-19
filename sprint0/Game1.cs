@@ -51,6 +51,7 @@ namespace sprint0
         private Blocks blocks;
         private Projectiles projectiles;
         //private keyboardController keyboardController;
+        private DragonSprite1 DragonSprite1;
 
         public Game1()
         {
@@ -97,7 +98,7 @@ namespace sprint0
 
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
-            projectiles = new Projectiles(this, spritesItems, spritesEnemies, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
+            projectiles = new Projectiles(this, spritesItems , new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
 
         }
 
@@ -122,6 +123,8 @@ namespace sprint0
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+            DragonSprite1.Update(gameTime);
+
             //keyboardController.Update(gameTime);
 
             base.Update(gameTime);
@@ -133,10 +136,7 @@ namespace sprint0
             spriteBatch.Begin();
 
             sprite.Draw(spriteBatch, Animate, pos);
-<<<<<<< HEAD
-            healthbar.Draw(spriteBatch, health);
-=======
->>>>>>> 6730054a71b21bd65df47834d86d67af7950d157
+
 
             TextSprite.Draw(spriteBatch, font);
 

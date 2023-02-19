@@ -168,10 +168,7 @@ namespace sprint0
             {
                 spriteBatch.Draw(f, des, fire[currentA], Color.White);
             }
-<<<<<<< HEAD
 
-=======
->>>>>>> 6730054a71b21bd65df47834d86d67af7950d157
             if (currentImageIndex == 2)
             {
                 spriteBatch.Draw(z, des, diamonds[currentA], Color.White);
