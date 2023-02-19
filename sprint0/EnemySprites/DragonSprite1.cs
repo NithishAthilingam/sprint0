@@ -13,7 +13,8 @@ namespace sprint0
 {
 	public class DragonSprite1 : Ienemy
 	{
-        private Vector2 thisPos;
+        public Vector2 thisPos;
+
         private int frames = 0;
      
         public DragonSprite1(Vector2 pos)
