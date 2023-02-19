@@ -13,7 +13,7 @@ namespace sprint0
         
 
 
-        public void Update();
+        public void Update(GameTime gameTime);
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont Font)
         {
