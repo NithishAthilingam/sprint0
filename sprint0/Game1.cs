@@ -14,7 +14,6 @@ using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
 
-
 namespace sprint0
 {
     public class Game1 : Game
@@ -52,10 +51,6 @@ namespace sprint0
         private Projectiles projectiles;
         private keyboardController keyboardController;
 
-
-
-
-
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -64,6 +59,7 @@ namespace sprint0
         }
 
         protected override void Initialize()
+
         {
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
@@ -91,7 +87,6 @@ namespace sprint0
             spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
-
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             healthbar = new FullHealthbar(press);
 
@@ -102,11 +97,11 @@ namespace sprint0
             blocks = new Blocks(b);
             projectiles = new Projectiles(this,spritesItems, new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
 
-
         }
 
         protected override void UnloadContent()
         {
+
         }
 
         protected override void Update(GameTime gameTime)
@@ -125,7 +120,6 @@ namespace sprint0
             projectiles.Update(gameTime);
             //keyboardController.Update(gameTime);
 
-
             base.Update(gameTime);
         }
 
@@ -135,7 +129,6 @@ namespace sprint0
             spriteBatch.Begin();
 
             sprite.Draw(spriteBatch, Animate, pos);
-
             healthbar.Draw(spriteBatch, health);
 
             TextSprite.Draw(spriteBatch, font);
@@ -143,9 +136,6 @@ namespace sprint0
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
-
-
-
 
             base.Draw(gameTime);
             spriteBatch.End();
