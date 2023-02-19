@@ -12,12 +12,15 @@ namespace sprint0
 	public class DragonSprite1 : Ienemy
 	{
         public Vector2 thisPos;
-		public DragonSprite1(Vector2 pos)
+
+        public DragonSprite1(Vector2 pos)
 		{
-		}
+
+        }
 
         public void Update(GameTime gameTime)
         {
+
 
         }
 
