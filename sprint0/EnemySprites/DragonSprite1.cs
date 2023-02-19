@@ -20,7 +20,6 @@ namespace sprint0
         public DragonSprite1(Vector2 pos)
         {
             thisPos = pos;
-            thisPos.X += 150;
 
         }
 
