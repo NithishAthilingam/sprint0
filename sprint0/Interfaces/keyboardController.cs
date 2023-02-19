@@ -24,17 +24,17 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
-        private int press;
+        //private int press;
 
-        private float timer;
-        private float delayTime;
+        //private float timer;
+        //private float delayTime;
 
         private Texture2D i;
         Rectangle blueArrow;
-        Rectangle greenArrow;
-        Rectangle des;
+        //Rectangle greenArrow;
+        //Rectangle des;
         Vector2 p;
-        private float s;
+        //private float s;
         private Projectiles projectiles;
 
 
@@ -45,15 +45,15 @@ namespace sprint0
             pos = new Vector2(220, 100);
             speed = 200f;
 
-            delayTime = 500f;
-            timer = 0f;
-            press = 0;
+            //delayTime = 500f;
+            //timer = 0f;
+            //press = 0;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
-            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
             //game.healthbar = new FullHealthbar(press);
 
@@ -196,7 +196,7 @@ namespace sprint0
             {
                 pos.X = 0;
                 pos.Y = 0;
-                press = 0;
+                //press = 0;
                 game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
                 //game.healthbar = new FullHealthbar(press);
             }

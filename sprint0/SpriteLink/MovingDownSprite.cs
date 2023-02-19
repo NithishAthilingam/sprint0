@@ -12,17 +12,12 @@ namespace sprint0
 	public class MovingDownSprite : Isprite
     {
         public Vector2 thisPos;
+        private int currentFrame = 0;
+
         public MovingDownSprite(Vector2 posi)
         {
             thisPos = posi;
         }
-
-        private int currentFrame = 0;
-        private int totalFrames = 45;
-        private Vector2 location = new Vector2(220, 100);
-
-
-
 
         public void Update()
         {

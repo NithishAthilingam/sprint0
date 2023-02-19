@@ -42,7 +42,7 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
-        private int press;
+        //private int press;
         public Vector2 pos;
         public Vector2 healthPos;
         private Isprite TextSprite;

@@ -28,11 +28,11 @@ namespace sprint0
         int currentImageIndex;
         private Texture2D z;
         private Texture2D f;
-        Rectangle currentSourceRectangle;
-        Rectangle destinationRectangle;
+        //Rectangle currentSourceRectangle;
+        //Rectangle destinationRectangle;
         float delayTime;
         float timer;
-        Rectangle source2;
+        //Rectangle source2;
         Rectangle des;
 
         int currentA;

@@ -27,13 +27,6 @@ namespace sprint0
             fr = facingRight;
             fl = facingLeft;
         }
-#pragma warning disable CS0414 // The field 'RSprite.currentFrame' is assigned but its value is never used
-        int currentFrame = 0;
-#pragma warning restore CS0414 // The field 'RSprite.currentFrame' is assigned but its value is never used
-#pragma warning disable CS0414 // The field 'RSprite.totalFrames' is assigned but its value is never used
-        private int totalFrames = 45;
-#pragma warning restore CS0414 // The field 'RSprite.totalFrames' is assigned but its value is never used
-        private Vector2 location = new Vector2(220, 100);
 
         public void Update()
         {

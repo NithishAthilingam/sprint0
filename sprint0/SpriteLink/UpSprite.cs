@@ -18,13 +18,6 @@ namespace sprint0
             thisPos = posi;
         }
 
-        private int currentFrame = 0;
-        private int totalFrames = 45;
-        private Vector2 location = new Vector2(220, 100);
-
-
-
-
         public void Update()
         {
 
@@ -34,7 +27,7 @@ namespace sprint0
         {
             pos = thisPos;
             Rectangle source2 = new Rectangle(60, 0, 20, 20);
-            Rectangle dest2 = new Rectangle(100, 100, 50, 50);
+            //Rectangle dest2 = new Rectangle(100, 100, 50, 50);
             spriteBatch.Draw(AnimationType[4], pos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
