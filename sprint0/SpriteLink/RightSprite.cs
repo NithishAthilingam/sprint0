@@ -1,20 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
-using Microsoft.Xna.Framework.Input;
-using System.Reflection;
-#pragma warning disable CS0105 // The using directive for 'Microsoft.Xna.Framework.Graphics' appeared previously in this namespace
-using Microsoft.Xna.Framework.Graphics;
-using sprint0.Content;
-using Microsoft.Xna.Framework.Input;
-using static System.Net.Mime.MediaTypeNames;
-using System.Reflection;
-#pragma warning restore CS0105
+
 
 namespace sprint0
 {
