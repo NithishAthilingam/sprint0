@@ -15,17 +15,11 @@ namespace sprint0
     public class RSprite : Isprite
     {
         public Vector2 thisPos;
-        public bool fd;
-        public bool fu;
-        public bool fr;
-        public bool fl;
-        public RSprite(Vector2 posi, bool facingDown, bool facingUp, bool facingRight, bool facingLeft)
+        public char direc;
+        public RSprite(Vector2 posi, char direction)
         {
             thisPos = posi;
-            fd = facingDown;
-            fu = facingUp;
-            fr = facingRight;
-            fl = facingLeft;
+            direc = direction;
         }
 
         public void Update(GameTime gameTime)
@@ -37,19 +31,19 @@ namespace sprint0
         {
             Rectangle source1 = new Rectangle(0, 0, 20, 20);
             pos = thisPos;
-            if (fd)
+            if (direc == 's')
             {
                 source1 = new Rectangle(0, 0, 20, 20);
             }
-            else if (fu)
+            else if (direc == 'w')
             {
                 source1 = new Rectangle(60, 30, 20, 20);
             }
-            else if (fr)
+            else if (direc == 'd')
             {
                 source1 = new Rectangle(90, 30, 20, 20);
             }
-            else if (fl)
+            else if (direc == 'a')
             {
                 source1 = new Rectangle(30, 0, 20, 20);
             }

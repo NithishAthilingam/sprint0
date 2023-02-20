@@ -22,9 +22,10 @@ namespace sprint0
         SpriteBatch spriteBatch;
         public Isprite sprite;
         public Ienemy enemy;
+        public Ienemy enemy0;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[7];
+        private Texture2D[] Animate = new Texture2D[8];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -39,12 +40,18 @@ namespace sprint0
 
 
         private SpriteFont font;
+<<<<<<< HEAD
         public bool facingDown;
         public bool facingUp;
         public bool facingRight;
         public bool facingLeft;
+=======
+        private char direc = 'd';
+        private int characterFrame = 0;
+>>>>>>> 003236339fd37cfb3dbe625b8f70da0f63d19798
         //private int press;
         public Vector2 pos;
+        public Vector2 pos0;
         public Vector2 healthPos;
         private Isprite TextSprite;
         private Item item;
@@ -88,13 +95,15 @@ namespace sprint0
             Animate[5] = spriteX;
             spriteBoss = Content.Load<Texture2D>("sprites-bosses");
             Animate[6] = spriteBoss;
+            spritesEnemies = Content.Load<Texture2D>("sprites-enemies");
+            Animate[7] = spritesEnemies;
             //health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
-            spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
-            sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            enemy = new DragonSprite1(new Vector2(450, 250));
+            sprite = new RSprite(pos, direc);
+            enemy = new DragonSprite1(new Vector2(550, 250));
+            enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
@@ -119,11 +128,12 @@ namespace sprint0
             {
                 controller.Update(gameTime);
             }
-
             enemy.Update(gameTime);
+            enemy0.Update(gameTime);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+
             //DragonSprite1.Update(gameTime);
 
            // keyboardController.Update(gameTime);
@@ -142,6 +152,7 @@ namespace sprint0
             TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);
+            enemy0.Draw(spriteBatch, Animate, pos0);
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
