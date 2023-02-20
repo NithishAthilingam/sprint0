@@ -14,10 +14,12 @@ namespace sprint0
 	public class DragonSprite1 : Ienemy
 	{
         public Vector2 thisPos;
+        Rectangle source2;
 
         private int frames = 0;
         private int framesBall = 0;
         Rectangle[] dragonProjectile;
+        Rectangle[] drago;
         int currentA;
         int previousA;
         float speed;
@@ -39,7 +41,12 @@ namespace sprint0
             posBallMid = thisPos;
             posBallBtm = thisPos;
 
-           
+            drago = new Rectangle[4];
+            drago[0] = new Rectangle(0, 0, 30, 35);
+            drago[1] = new Rectangle(45, 0, 30, 35);
+            drago[2] = new Rectangle(90, 0, 30, 35);
+            drago[3] = new Rectangle(135, 0, 30, 35);
+            source2 = drago[0];
 
             dragonProjectile = new Rectangle[3];
             dragonProjectile[0] = new Rectangle(330, 0, 20, 20);
@@ -70,6 +77,14 @@ namespace sprint0
             if (thisPos.X > 0)
             {
                 frames++;
+                if ((frames % 20 == 0) && (source2 == drago[0] || source2 == drago[3]))
+                {
+                    source2 = drago[1];
+                }
+                else if ((frames % 20 == 0) && (source2 == drago[1] || source2 == drago[2]))
+                {
+                    source2 = drago[0];
+                }
                 if (frames <= 160)
                 {
                     thisPos.X += 1;
@@ -87,6 +102,14 @@ namespace sprint0
                     posBallTop = thisPos;
                     posBallMid = thisPos;
                     posBallBtm = thisPos;
+                    if (source2 == drago[0])
+                    {
+                        source2 = drago[3];
+                    }
+                    else
+                    {
+                        source2 = drago[2];
+                    }
                 }
             }
             else
@@ -124,7 +147,6 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
-            Rectangle source2 = new Rectangle(0, 0, 30, 35);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
 
                 spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
