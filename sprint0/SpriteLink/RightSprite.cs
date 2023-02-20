@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System;
 
 
 namespace sprint0
@@ -8,23 +9,15 @@ namespace sprint0
     {
         public Vector2 thisPos;
         public Rectangle[] run;
-        private int frames = 0;
-
-        private Texture2D z;
-        private Texture2D f;
-        float delayTime;
-        float timer;
-        Rectangle des;
-
-        int currentA;
+        private int totalFrames = 30;
+        private int cF;
+        private Rectangle character;
+        private Vector2 location = new Vector2(220, 100);
 
         public RightSprite(Vector2 posi)
         {
 
             thisPos = posi;
-
-
-            currentA = 0;
 
             run = new Rectangle[2];
 
@@ -33,32 +26,29 @@ namespace sprint0
 
         }
 
-        private int currentFrame = 0;
-        private int totalFrames = 30;
-        private Rectangle character;
-        private Vector2 location = new Vector2(220, 100);
 
 
 
-
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, int characterFrame)
         {
-            currentFrame++;
-            if (currentFrame == totalFrames)
+            characterFrame++;
+            
+            if (characterFrame >= totalFrames)
             {
-                currentFrame = 0;
+                characterFrame = 0;
             }
+            cF = characterFrame;
 
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             pos = thisPos;
-            if (currentFrame == 0)
+            if (cF <= 30)
             {
                 character = run[0];
             }
-            else if (currentFrame == 15)
+            else if (cF <= 60)
             {
                 character = run[1];
             }

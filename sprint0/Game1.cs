@@ -43,6 +43,7 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
+        private int characterFrame = 0;
         //private int press;
         public Vector2 pos;
         public Vector2 healthPos;
@@ -113,17 +114,17 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            sprite.Update(gameTime);
+            sprite.Update(gameTime, characterFrame);
 
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
             }
-
             enemy.Update(gameTime);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+
             //DragonSprite1.Update(gameTime);
 
             //keyboardController.Update(gameTime);
