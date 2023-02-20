@@ -27,7 +27,7 @@ namespace sprint0
         }
 
 
-        public void Update(GameTime gameTime, int characterFrame)
+        public void Update(GameTime gameTime)
         {
 
         }
