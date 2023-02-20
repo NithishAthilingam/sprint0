@@ -93,7 +93,7 @@ namespace sprint0
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            enemy = new DragonSprite1(new Vector2(450, 250));
+            enemy = new DragonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
