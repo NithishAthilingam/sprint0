@@ -29,13 +29,6 @@ namespace sprint0
 
         public void Update(GameTime gameTime, int characterFrame)
         {
-            characterFrame++;
-            
-            if (characterFrame >= totalFrames)
-            {
-                characterFrame = 0;
-            }
-            cF = characterFrame;
 
         }
 
