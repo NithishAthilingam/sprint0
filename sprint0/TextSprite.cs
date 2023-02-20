@@ -28,7 +28,7 @@ namespace sprint0
         //    spriteBatch.DrawString(font, "Program By: Nithish Athilingam", new Vector2(000, 333), Color.Black);
         //    spriteBatch.DrawString(font, "Sprites from: www.mariomayhem.com", new Vector2(000, 366), Color.Black);
         //}
-        public void Update(GameTime gameTime, int characterFrame)
+        public void Update(GameTime gameTime)
         {
             
         }

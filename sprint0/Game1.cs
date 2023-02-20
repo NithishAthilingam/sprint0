@@ -40,10 +40,7 @@ namespace sprint0
 
 
         private SpriteFont font;
-        private bool facingDown;
-        private bool facingUp;
-        private bool facingRight;
-        private bool facingLeft;
+        private char direc = 'd';
         private int characterFrame = 0;
         //private int press;
         public Vector2 pos;
@@ -95,7 +92,7 @@ namespace sprint0
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
-            sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+            sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
@@ -117,7 +114,7 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            sprite.Update(gameTime, characterFrame);
+            sprite.Update(gameTime);
 
             foreach (Icontroller controller in controller)
             {
