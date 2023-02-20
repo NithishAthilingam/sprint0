@@ -35,7 +35,6 @@ namespace sprint0
         {
             thisPos = pos;
 
-            thisPos.X -= 250;
             posBallTop.X = thisPos.X;
             posBallTop.Y = thisPos.Y -50;
 
@@ -132,9 +131,14 @@ namespace sprint0
         {
             Rectangle source2 = new Rectangle(0, 0, 30, 35);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
-            spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(AnimationType[7], posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(AnimationType[7], posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+
+            if (frames == 0)
+            {
+                spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(AnimationType[7], posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(AnimationType[7], posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            }
+          
             spriteBatch.Draw(AnimationType[6], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
         }
     }
