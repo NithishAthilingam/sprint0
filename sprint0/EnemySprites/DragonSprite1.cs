@@ -36,14 +36,10 @@ namespace sprint0
             thisPos = pos;
 
             thisPos.X -= 250;
-            posBallTop.X = thisPos.X;
-            posBallTop.Y = thisPos.Y -50;
+            posBallTop = thisPos;
+            posBallMid = thisPos;
+            posBallBtm = thisPos;
 
-            posBallMid.X = thisPos.X;
-            posBallMid.Y = thisPos.Y;
-
-            posBallBtm.X = thisPos.X;
-            posBallBtm.Y = thisPos.Y + 50;
            
 
             dragonProjectile = new Rectangle[3];
@@ -63,19 +59,14 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-                framesBall++;
-                if (frames <= 1000)
-                {
-                    posBallTop.X -=1;
-                    posBallTop.Y -= 1;
-                    posBallMid.X -= 1;
-                    posBallBtm.X -= 1;
-                    posBallBtm.Y += 1;
 
-                }
-
-
-
+            posBallTop.X -= 3;
+            posBallTop.Y -= 1;
+            posBallMid.X -= 3;
+            posBallBtm.X -= 3;
+            posBallBtm.Y += 1;
+        
+                
 
             if (thisPos.X > 0)
             {
@@ -88,11 +79,15 @@ namespace sprint0
                 else if (frames <= 320)
                 {
                     thisPos.X -= 1;
+                    
                 }
 
                 if (frames == 321)
                 {
                     frames = 0;
+                    posBallTop = thisPos;
+                    posBallMid = thisPos;
+                    posBallBtm = thisPos;
                 }
             }
             else
@@ -132,9 +127,12 @@ namespace sprint0
         {
             Rectangle source2 = new Rectangle(0, 0, 30, 35);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
-            spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(AnimationType[7], posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(AnimationType[7], posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+
+                spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(AnimationType[7], posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(AnimationType[7], posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+               
+
             spriteBatch.Draw(AnimationType[6], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
         }
     }
