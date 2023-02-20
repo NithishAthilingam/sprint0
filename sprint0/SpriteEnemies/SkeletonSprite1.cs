@@ -14,7 +14,6 @@ namespace sprint0
     public class SkeletonSprite1 : Ienemy
     {
         public Vector2 thisPos;
-
         private int frames = 0;
         Rectangle[] skele;
         Rectangle source2;
@@ -31,6 +30,8 @@ namespace sprint0
         public SkeletonSprite1(Vector2 pos)
         {
             thisPos = pos;
+
+            thisPos.Y -= 100;
 
 
 
@@ -68,17 +69,23 @@ namespace sprint0
                     source2 = skele[0];
                 }
 
-                    if (frames <= 150)
+                if (frames <= 75)
                 {
-                    thisPos.X += 2;
+                    thisPos.X += 3;
+                }
+                else if (frames <= 150) {
+                    thisPos.Y += 3;
+                }
+                else if (frames <= 225)
+                {
+                    thisPos.X -= 3;     
                 }
                 else if (frames <= 300)
                 {
-                    thisPos.X -= 2;     
-
+                    thisPos.Y -= 3;
                 }
 
-                if (frames == 300)
+                if (frames == 301)
                 {
                     frames = 0;
                 }
@@ -118,7 +125,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
-            spriteBatch.Draw(AnimationType[7], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            spriteBatch.Draw(AnimationType[7], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
         }
     }
 }
