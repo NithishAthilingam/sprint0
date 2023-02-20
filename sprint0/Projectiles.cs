@@ -6,7 +6,7 @@ using sprint0.Content;
 
 namespace sprint0
 {
-	public class Projectiles : IItem
+    public class Projectiles : IItem
 
     {
         private Game1 game1;
@@ -18,18 +18,29 @@ namespace sprint0
         Rectangle des;
         Rectangle des1;
 
-        Vector2 p;
         private float s;
-        private bool arrow;
 
         float delayTime;
         float timer;
+        Vector2 position;
+        public bool facingDown;
+        public bool facingUp;
+        public bool facingRight;
+        public bool facingLeft;
 
+        private bool up;
+        private bool side;
 
-        public Projectiles(Game1 myGame,Texture2D items, Vector2 position)
-		{
-			i = items;
+        public Projectiles(Game1 myGame, Texture2D items, Vector2 pos, bool facingDown, bool facingUp, bool facingRight, bool facingLeft)
+        {
+            i = items;
             game1 = myGame;
+            this.facingDown = facingDown;
+            this.facingUp = facingUp;
+            this.facingRight = facingRight;
+            this.facingLeft = facingLeft;
+
+            this.position = pos;
 
             blueArrow = new Rectangle(0, 120, 20, 15);
             greenArrow = new Rectangle(0, 40, 20, 15);
@@ -38,7 +49,6 @@ namespace sprint0
 
             s = 2.0f;
 
-            p = position;
 
             des = new Rectangle(296, 136, 55, 40);
             des1 = new Rectangle(296, 117, 55, 40);
@@ -46,42 +56,48 @@ namespace sprint0
             delayTime = 500f;
             timer = 0f;
 
-
-
         }
 
 
         public void Update(GameTime gameTime)
         {
-
-            p.X += s;
-                if (p.X > game1.GraphicsDevice.Viewport.Width / 2)
-                {
-
-                    //p.X = game1.GraphicsDevice.Viewport.Width / 4;
-
-                    p.Y = game1.GraphicsDevice.Viewport.Height / 4;
+            if (facingDown == true || facingUp == true)
+            {
+                position.Y += s;
+                up = true;
             }
 
+            if (facingRight == true || facingLeft == true)
+            {
+                position.X += s;
+                side = true;
 
+            }
         }
 
 
 
         public void Draw(SpriteBatch spriteBatch)
-		{
-            spriteBatch.Draw(i, p, blueArrow, Color.White);
+        {
 
 
-            if (p.Y == game1.GraphicsDevice.Viewport.Height / 4)
+            if (up == true && (position.X > position.X + 250))
             {
-                spriteBatch.Draw(i, new Vector2(game1.GraphicsDevice.Viewport.Width / 2, game1.GraphicsDevice.Viewport.Height / 4), smoke, Color.White);
+                
+                    spriteBatch.Draw(i, position, blueArrow, Color.White);
+                
             }
-            spriteBatch.Draw(i,p, blueArrow, Color.White);
+
+                if (side == true && (position.Y > position.Y + 250))
+                {
+                    spriteBatch.Draw(i, position, smoke, Color.White);
+                }
+
+
+            
+
 
         }
-
-
     }
-    }
+}
 

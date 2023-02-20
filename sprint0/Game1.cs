@@ -39,10 +39,10 @@ namespace sprint0
 
 
         private SpriteFont font;
-        private bool facingDown;
-        private bool facingUp;
-        private bool facingRight;
-        private bool facingLeft;
+        public bool facingDown;
+        public bool facingUp;
+        public bool facingRight;
+        public bool facingLeft;
         //private int press;
         public Vector2 pos;
         public Vector2 healthPos;
@@ -50,7 +50,7 @@ namespace sprint0
         private Item item;
         private Blocks blocks;
         private Projectiles projectiles;
-        //private keyboardController keyboardController;
+        private keyboardController keyboardController;
         private DragonSprite1 DragonSprite1;
 
         public Game1()
@@ -65,6 +65,8 @@ namespace sprint0
         {
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
+            pos = new Vector2(220, 100);
+
             base.Initialize();
         }
 
@@ -98,8 +100,7 @@ namespace sprint0
 
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
-            projectiles = new Projectiles(this, spritesItems , new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
-
+            projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
         }
 
         protected override void UnloadContent()
@@ -125,7 +126,7 @@ namespace sprint0
             projectiles.Update(gameTime);
             //DragonSprite1.Update(gameTime);
 
-            //keyboardController.Update(gameTime);
+           // keyboardController.Update(gameTime);
 
             base.Update(gameTime);
         }
