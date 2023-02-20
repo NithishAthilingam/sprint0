@@ -118,8 +118,8 @@ namespace sprint0
             {
 
                 game.enemy = new SkeletonSprite1(enemyStartPos);
-                game.enemy = new DragonSprite1(enemyStartPos);
-                game.enemy0 = new SkeletonSprite1(enemyStartPos);
+                //game.enemy = new DragonSprite1(enemyStartPos);
+                //game.enemy0 = new SkeletonSprite1(enemyStartPos);
 
 
             }

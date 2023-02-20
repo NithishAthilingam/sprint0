@@ -40,15 +40,14 @@ namespace sprint0
 
 
         private SpriteFont font;
-<<<<<<< HEAD
+
         public bool facingDown;
         public bool facingUp;
         public bool facingRight;
         public bool facingLeft;
-=======
+
         private char direc = 'd';
         private int characterFrame = 0;
->>>>>>> 003236339fd37cfb3dbe625b8f70da0f63d19798
         //private int press;
         public Vector2 pos;
         public Vector2 pos0;
@@ -103,7 +102,7 @@ namespace sprint0
 
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
-            enemy0 = new SkeletonSprite1(new Vector2(550, 250));
+            //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
@@ -129,7 +128,7 @@ namespace sprint0
                 controller.Update(gameTime);
             }
             enemy.Update(gameTime);
-            enemy0.Update(gameTime);
+            //enemy0.Update(gameTime);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
