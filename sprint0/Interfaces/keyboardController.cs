@@ -130,7 +130,7 @@ namespace sprint0
             {
 
                 game.enemy = new DragonSprite1(enemyStartPos);
-    
+                game.enemy0 = new SkeletonSprite1(enemyStartPos);
 
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
