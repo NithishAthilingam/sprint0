@@ -24,7 +24,7 @@ namespace sprint0
         public Ienemy enemy;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[7];
+        private Texture2D[] Animate = new Texture2D[8];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -86,9 +86,10 @@ namespace sprint0
             Animate[5] = spriteX;
             spriteBoss = Content.Load<Texture2D>("sprites-bosses");
             Animate[6] = spriteBoss;
+            spritesEnemies = Content.Load<Texture2D>("sprites-enemies");
+            Animate[7] = spritesEnemies;
             //health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
-            spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
