@@ -18,7 +18,7 @@ namespace sprint0
 			thisPos = posi;
 		}
 
-		public void Update(GameTime gameTime)
+		public void Update(GameTime gameTime, int characterFrame)
 		{
 
 		}

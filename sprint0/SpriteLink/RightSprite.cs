@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System;
 
 
 namespace sprint0
@@ -8,39 +9,15 @@ namespace sprint0
     {
         public Vector2 thisPos;
         public Rectangle[] run;
-        private int frames = 0;
-
-        private Texture2D z;
-        private Texture2D f;
-        float delayTime;
-        float timer;
-        Rectangle des;
-
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
+        private int totalFrames = 30;
+        private int cF;
+        private Rectangle character;
+        private Vector2 location = new Vector2(220, 100);
 
         public RightSprite(Vector2 posi)
         {
 
             thisPos = posi;
-
-            delayTime = 500f;
-            timer = 0f;
-
-            previousA = 1;
-            currentA = 0;
-            tt = 0;
-            speed = 50;
-
-
-            middle = 2;
-            left = 0;
-            right = 1;
 
             run = new Rectangle[2];
 
@@ -49,34 +26,37 @@ namespace sprint0
 
         }
 
-        public void Update(GameTime gameTime)
-        {
-            frames++;
 
-            if (frames <= 20)
+        public void Update(GameTime gameTime, int characterFrame)
+        {
+            characterFrame++;
+            
+            if (characterFrame >= totalFrames)
             {
-                currentA = 1;
+                characterFrame = 0;
             }
-            else if (frames <= 40)
-            {
-                currentA = 0;
-            }
-            if (frames == 41)
-            {
-                frames = 0;
-            }
+            cF = characterFrame;
 
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             pos = thisPos;
+            if (cF <= 30)
+            {
+                character = run[0];
+            }
+            else if (cF <= 60)
+            {
+                character = run[1];
+            }
             Rectangle source2 = new Rectangle(90, 0, 20, 20);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
-            spriteBatch.Draw(AnimationType[4], pos, run[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            spriteBatch.Draw(AnimationType[4], pos, character, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
     }
     
 }
 
+      

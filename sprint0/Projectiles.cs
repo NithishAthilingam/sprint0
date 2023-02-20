@@ -34,14 +34,14 @@ namespace sprint0
             blueArrow = new Rectangle(0, 120, 20, 15);
             greenArrow = new Rectangle(0, 40, 20, 15);
 
-            smoke = new Rectangle(0, 40, 20, 15);
+            smoke = new Rectangle(314, 40, 20, 15);
 
             s = 2.0f;
 
             p = position;
 
             des = new Rectangle(296, 136, 55, 40);
-            des1 = new Rectangle(296, 136, 55, 40);
+            des1 = new Rectangle(296, 117, 55, 40);
 
             delayTime = 500f;
             timer = 0f;
@@ -54,27 +54,23 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
 
-            //p.X += s;
-            //if (p.X > 0)
-            //{
-            //    if (p.X > game1.GraphicsDevice.Viewport.Width / 2)
-            //    {
+            p.X += s;
+            if (p.X > 0)
+            {
+                if (p.X > game1.GraphicsDevice.Viewport.Width / 2)
+                {
 
-            //        //p.X = game1.GraphicsDevice.Viewport.Width / 4;
+                    //p.X = game1.GraphicsDevice.Viewport.Width / 4;
 
-            //        p.Y = game1.GraphicsDevice.Viewport.Height / 4;
-            //        arrow = true;
+                    p.Y = game1.GraphicsDevice.Viewport.Height / 4;
 
-            //    }
-            //}
+                }
 
-            //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
-            //if (timer <= 0f)
-            //{
-              
-            //}
-
+                if(p.Y == game1.GraphicsDevice.Viewport.Height / 4)
+                {
+                    arrow = true;
+                }
+            }
 
 
         }
@@ -86,11 +82,11 @@ namespace sprint0
             spriteBatch.Draw(i, p, blueArrow, Color.White);
 
 
-            //if (arrow == true)
-            //{
-            //    spriteBatch.Draw(i, new Vector2(game1.GraphicsDevice.Viewport.Width / 2, game1.GraphicsDevice.Viewport.Height / 4), smoke, Color.White);
+            if (arrow == true)
+            {
+                spriteBatch.Draw(i, new Vector2(game1.GraphicsDevice.Viewport.Width / 2, game1.GraphicsDevice.Viewport.Height / 4), smoke, Color.White);
 
-            //}
+            }
 
         }
 

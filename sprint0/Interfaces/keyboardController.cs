@@ -36,7 +36,8 @@ namespace sprint0
         Vector2 p;
         //private float s;
         private Projectiles projectiles;
-        public Vector2 dragonEnemyLocation;
+        private Vector2 enemyStartPos;
+        // public Vector2 dragonEnemyLocation;
 
 
 
@@ -45,8 +46,9 @@ namespace sprint0
         {
             game = link;
             pos = new Vector2(220, 100);
+            enemyStartPos = new Vector2(450, 250);
             speed = 200f;
-            dragonEnemyLocation = new Vector2(350, 250);
+            // dragonEnemyLocation = new Vector2(350, 250);
 
             //delayTime = 500f;
             //timer = 0f;
@@ -128,7 +130,7 @@ namespace sprint0
             else if (userInput.IsKeyDown(Keys.P) || userInput.IsKeyDown(Keys.O))
             {
 
-                game.enemy = new DragonSprite1(dragonEnemyLocation);
+                game.enemy = new DragonSprite1(enemyStartPos);
     
 
             }

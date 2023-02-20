@@ -24,7 +24,7 @@ namespace sprint0
         public Ienemy enemy;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[7];
+        private Texture2D[] Animate = new Texture2D[8];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -43,6 +43,7 @@ namespace sprint0
         private bool facingUp;
         private bool facingRight;
         private bool facingLeft;
+        private int characterFrame = 0;
         //private int press;
         public Vector2 pos;
         public Vector2 healthPos;
@@ -86,13 +87,14 @@ namespace sprint0
             Animate[5] = spriteX;
             spriteBoss = Content.Load<Texture2D>("sprites-bosses");
             Animate[6] = spriteBoss;
+            spritesEnemies = Content.Load<Texture2D>("sprites-enemies");
+            Animate[7] = spritesEnemies;
             //health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
-            spritesEnemies= Content.Load<Texture2D>("sprites-enemies");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
             sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
-            enemy = new DragonSprite1(pos);
+            enemy = new DragonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
@@ -112,17 +114,17 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            sprite.Update(gameTime);
+            sprite.Update(gameTime, characterFrame);
 
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
             }
-
             enemy.Update(gameTime);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+
             //DragonSprite1.Update(gameTime);
 
             //keyboardController.Update(gameTime);

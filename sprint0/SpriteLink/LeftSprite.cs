@@ -26,7 +26,7 @@ namespace sprint0
             thisPos = posi;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, int characterFrame)
         {
             threshold = 250;
             timer = 0;
