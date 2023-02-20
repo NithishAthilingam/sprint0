@@ -35,7 +35,6 @@ namespace sprint0
         {
             thisPos = pos;
 
-            thisPos.X -= 250;
             posBallTop = thisPos;
             posBallMid = thisPos;
             posBallBtm = thisPos;
