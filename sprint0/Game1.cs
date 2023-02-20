@@ -147,7 +147,7 @@ namespace sprint0
             TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);
-            enemy0.Draw(spriteBatch, Animate, pos0);
+            //enemy0.Draw(spriteBatch, Animate, pos0);
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);

@@ -128,9 +128,9 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.P) || userInput.IsKeyDown(Keys.O))
             {
-
-                game.enemy = new DragonSprite1(enemyStartPos);
-                game.enemy0 = new SkeletonSprite1(enemyStartPos);
+                
+                //game.enemy = new DragonSprite1(enemyStartPos);
+                game.enemy = new SkeletonSprite1(enemyStartPos);
 
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))

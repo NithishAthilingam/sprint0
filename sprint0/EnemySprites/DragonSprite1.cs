@@ -17,7 +17,6 @@ namespace sprint0
         Rectangle source2;
 
         private int frames = 0;
-        private int framesBall = 0;
         Rectangle[] dragonProjectile;
         Rectangle[] drago;
         int currentA;
