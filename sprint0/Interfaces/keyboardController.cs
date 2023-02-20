@@ -20,10 +20,7 @@ namespace sprint0
         private Game1 game;
         private Vector2 pos;
         private float speed;
-        private bool facingDown;
-        private bool facingUp;
-        private bool facingRight;
-        private bool facingLeft;
+        private char direc;
         //private int press;
 
         //private float timer;
@@ -59,7 +56,7 @@ namespace sprint0
         {
             KeyboardState userInput = Keyboard.GetState();
             //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+            game.sprite = new RSprite(pos, direc);
             //game.healthbar = new FullHealthbar(press);
 
 
@@ -74,10 +71,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
             {
-                facingDown = false;
-                facingUp = true;
-                facingRight = false;
-                facingLeft = false;
+                direc = 'w';
                 game.sprite = new UpSprite(pos);
                 if (pos.Y > 0)
                 {
@@ -92,10 +86,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
             {
-                facingDown = false;
-                facingUp = false;
-                facingRight = false;
-                facingLeft = true;
+                direc = 'a';
                 game.sprite = new LeftSprite(pos);
                 if (pos.X > 0)
                 {
@@ -110,10 +101,7 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
-                facingDown = true;
-                facingUp = false;
-                facingRight = false;
-                facingLeft = false;
+                direc = 's';
                 game.sprite = new DownSprite(pos);
                 if (pos.Y < (432))
                 {
@@ -128,17 +116,16 @@ namespace sprint0
             }
             else if (userInput.IsKeyDown(Keys.P) || userInput.IsKeyDown(Keys.O))
             {
-                
-                //game.enemy = new DragonSprite1(enemyStartPos);
+
                 game.enemy = new SkeletonSprite1(enemyStartPos);
+                game.enemy = new DragonSprite1(enemyStartPos);
+                game.enemy0 = new SkeletonSprite1(enemyStartPos);
+
 
             }
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
-                facingDown = false;
-                facingUp = false;
-                facingRight = true;
-                facingLeft = false;
+                direc = 'd';
                 game.sprite = new RightSprite(pos);
                 if (pos.X < 800-45)
                 {
@@ -154,20 +141,20 @@ namespace sprint0
 
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
-                if (facingDown == true)
+                if (direc == 's')
                 {
                     game.sprite = new SwordSpriteDown(pos);
                 }
-                else if (facingLeft == true)
+                else if (direc == 'a')
                 {
                     
                     game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
                 }
-                else if (facingUp == true)
+                else if (direc == 'w')
                 {
                     game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
                 }
-                else if (facingRight == true)
+                else if (direc == 'd')
                 {
                     game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
                 }
@@ -175,20 +162,20 @@ namespace sprint0
 
             else if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
             {
-                if (facingDown == true)
+                if (direc == 's')
                 {
                     game.sprite = new ThrowingItemDown(pos);
                 }
-                else if (facingLeft == true)
+                else if (direc == 'a')
                 {
 
                     game.sprite = new ThrowingItemLeft(new Vector2(pos.X -20, pos.Y ));
                 }
-                else if (facingUp == true)
+                else if (direc == 'w')
                 {
                     game.sprite = new ThrowingItemUp(pos);
                 }
-                else if (facingRight == true)
+                else if (direc == 'd')
                 {
                     p.Y = pos.Y;
                     game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
@@ -210,7 +197,7 @@ namespace sprint0
                 pos.X = 0;
                 pos.Y = 0;
                 //press = 0;
-                game.sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+                game.sprite = new RSprite(pos, direc);
                 //game.healthbar = new FullHealthbar(press);
             }
 

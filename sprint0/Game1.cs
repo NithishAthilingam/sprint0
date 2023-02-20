@@ -40,11 +40,15 @@ namespace sprint0
 
 
         private SpriteFont font;
-        private bool facingDown;
-        private bool facingUp;
-        private bool facingRight;
-        private bool facingLeft;
+<<<<<<< HEAD
+        public bool facingDown;
+        public bool facingUp;
+        public bool facingRight;
+        public bool facingLeft;
+=======
+        private char direc = 'd';
         private int characterFrame = 0;
+>>>>>>> 003236339fd37cfb3dbe625b8f70da0f63d19798
         //private int press;
         public Vector2 pos;
         public Vector2 pos0;
@@ -53,7 +57,7 @@ namespace sprint0
         private Item item;
         private Blocks blocks;
         private Projectiles projectiles;
-        //private keyboardController keyboardController;
+        private keyboardController keyboardController;
         private DragonSprite1 DragonSprite1;
 
         public Game1()
@@ -68,6 +72,8 @@ namespace sprint0
         {
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
+            pos = new Vector2(220, 100);
+
             base.Initialize();
         }
 
@@ -95,7 +101,7 @@ namespace sprint0
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
-            sprite = new RSprite(pos, facingDown, facingUp, facingRight, facingLeft);
+            sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
@@ -103,8 +109,7 @@ namespace sprint0
 
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
-            projectiles = new Projectiles(this, spritesItems , new Vector2(GraphicsDevice.Viewport.Width / 2, GraphicsDevice.Viewport.Height / 2));
-
+            projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
         }
 
         protected override void UnloadContent()
@@ -117,7 +122,7 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            sprite.Update(gameTime, characterFrame);
+            sprite.Update(gameTime);
 
             foreach (Icontroller controller in controller)
             {
@@ -131,7 +136,7 @@ namespace sprint0
 
             //DragonSprite1.Update(gameTime);
 
-            //keyboardController.Update(gameTime);
+           // keyboardController.Update(gameTime);
 
             base.Update(gameTime);
         }
