@@ -49,13 +49,6 @@ namespace sprint0
 
         }
 
-        private int currentFrame = 0;
-        private int totalFrames = 45;
-        private Vector2 location = new Vector2(220, 100);
-
-
-
-
         public void Update(GameTime gameTime)
         {
             frames++;

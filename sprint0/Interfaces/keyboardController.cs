@@ -95,6 +95,7 @@ namespace sprint0
                 facingRight = false;
                 facingLeft = true;
                 game.sprite = new LeftSprite(pos);
+                game.sprite.Update(gameTime);
                 if (pos.X > 0)
                 {
                     pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
