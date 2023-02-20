@@ -17,30 +17,14 @@ namespace sprint0
         Rectangle des;
 
         int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
 
         public RightSprite(Vector2 posi)
         {
 
             thisPos = posi;
 
-            delayTime = 500f;
-            timer = 0f;
 
-            previousA = 1;
             currentA = 0;
-            tt = 0;
-            speed = 50;
-
-
-            middle = 2;
-            left = 0;
-            right = 1;
 
             run = new Rectangle[2];
 
@@ -50,7 +34,8 @@ namespace sprint0
         }
 
         private int currentFrame = 0;
-        private int totalFrames = 45;
+        private int totalFrames = 30;
+        private Rectangle character;
         private Vector2 location = new Vector2(220, 100);
 
 
@@ -58,19 +43,10 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            frames++;
-
-            if (frames <= 20)
+            currentFrame++;
+            if (currentFrame == totalFrames)
             {
-                currentA = 1;
-            }
-            else if (frames <= 40)
-            {
-                currentA = 0;
-            }
-            if (frames == 41)
-            {
-                frames = 0;
+                currentFrame = 0;
             }
 
         }
@@ -78,12 +54,21 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             pos = thisPos;
+            if (currentFrame == 0)
+            {
+                character = run[0];
+            }
+            else if (currentFrame == 15)
+            {
+                character = run[1];
+            }
             Rectangle source2 = new Rectangle(90, 0, 20, 20);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
-            spriteBatch.Draw(AnimationType[4], pos, run[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            spriteBatch.Draw(AnimationType[4], pos, character, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
     }
     
 }
 
+      
