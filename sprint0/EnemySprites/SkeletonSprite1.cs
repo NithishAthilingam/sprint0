@@ -38,6 +38,8 @@ namespace sprint0
             skele = new Rectangle[2];
             skele[0] = new Rectangle(420, 118, 16, 16);
             skele[1] = new Rectangle(420, 148, 16, 16);
+            source2 = skele[0];
+
             previousA = 1;
             currentA = 2;
             tt = 0;
@@ -57,16 +59,22 @@ namespace sprint0
             if (thisPos.X > 0)
             {
                 frames++;
-                if (frames <= 150)
+                if((frames%20 == 0) && source2 == skele[0])
+                {
+                    source2 = skele[1];
+                }
+                else if ((frames % 20 == 0) && source2 == skele[1])
+                {
+                    source2 = skele[0];
+                }
+
+                    if (frames <= 150)
                 {
                     thisPos.X += 2;
-                    source2 = skele[0];
-
                 }
                 else if (frames <= 300)
                 {
-                    thisPos.X -= 2;
-                    source2 = skele[1];
+                    thisPos.X -= 2;     
 
                 }
 
