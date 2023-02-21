@@ -25,6 +25,7 @@ namespace sprint0
         private int framesForRight = 0;
         private int framesForLeft = 0;
         private int framesForDown = 0;
+        private int framesForUp = 0;
         //private int press;
 
         private float timer;
@@ -83,7 +84,21 @@ namespace sprint0
                 game.sprite = new UpSprite(pos);
                 if (pos.Y > 0)
                 {
-                    pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    framesForUp++;
+                    if (framesForUp <= 9)
+                    {
+                        game.sprite = new UpSprite2(pos);
+                        pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (framesForUp <= 18)
+                    {
+                        game.sprite = new UpSprite(pos);
+                        pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (framesForUp == 19)
+                    {
+                        framesForUp = 0;
+                    }
                 }
                 else
                 {

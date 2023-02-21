@@ -27,7 +27,7 @@ namespace sprint0
         {
             Rectangle source2 = new Rectangle(0, 30, 20, 20);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
-            spriteBatch.Draw(AnimationType[4], pos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            spriteBatch.Draw(AnimationType[4], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
     }
