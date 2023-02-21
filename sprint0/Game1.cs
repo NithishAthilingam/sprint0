@@ -22,7 +22,6 @@ namespace sprint0
         SpriteBatch spriteBatch;
         public Isprite sprite;
         public Ienemy enemy;
-        public Ienemy enemy0;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[8];
@@ -135,7 +134,7 @@ namespace sprint0
 
             //DragonSprite1.Update(gameTime);
 
-           // keyboardController.Update(gameTime);
+           // Controller.Update(gameTime);
 
             base.Update(gameTime);
         }
