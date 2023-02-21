@@ -22,7 +22,8 @@ namespace sprint0
         private float speed;
         private char direc;
         private int enemyIndex;
-        private int frames = 0;
+        private int framesForRight = 0;
+        private int framesForLeft = 0;
         //private int press;
 
         private float timer;
@@ -97,7 +98,21 @@ namespace sprint0
                 game.sprite.Update(gameTime);
                 if (pos.X > 0)
                 {
-                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    framesForLeft++;
+                    if (framesForLeft <= 9)
+                    {
+                        game.sprite = new LeftSprite2(pos);
+                        pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (framesForLeft <= 18)
+                    {
+                        game.sprite = new LeftSprite(pos);
+                        pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (framesForLeft == 19)
+                    {
+                        framesForLeft = 0;
+                    }
                 }
                 else
                 {
@@ -160,20 +175,20 @@ namespace sprint0
                 game.sprite = new RightSprite(pos);
                 if (pos.X < 800-45)
                 {
-                    frames++;
-                    if (frames <= 5)
+                    framesForRight++;
+                    if (framesForRight <= 9)
                     {
                         game.sprite = new RightSprite2(pos);
                         pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
-                    else if (frames <= 10)
+                    else if (framesForRight <= 18)
                     {
                         game.sprite = new RightSprite(pos);
                         pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                     }
-                    else if (frames == 11)
+                    else if (framesForRight == 19)
                     {
-                        frames = 0;
+                        framesForRight = 0;
                     }
                 }
                 else

@@ -10,12 +10,12 @@ using System.Reflection;
 
 namespace sprint0
 {
-    public class LeftSprite : Isprite
+    public class LeftSprite2 : Isprite
     {
         public Vector2 thisPos;
 
 
-        public LeftSprite(Vector2 posi)
+        public LeftSprite2(Vector2 posi)
         {
             thisPos = posi;
 
@@ -27,13 +27,12 @@ namespace sprint0
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
-        { 
-            Rectangle source2 = new Rectangle(30, 30, 20, 20);
+        {
+            Rectangle source2 = new Rectangle(30, 0, 20, 20);
             Rectangle dest2 = new Rectangle(100, 100, 50, 50);
             spriteBatch.Draw(AnimationType[4], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
     }
 }
-
 
