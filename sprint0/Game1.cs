@@ -11,6 +11,7 @@ using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using sprint0;
 using sprint0.Content;
+using sprint0.Items;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
@@ -24,6 +25,7 @@ namespace sprint0
         public Isprite sprite;
         public Isprite throwFire;
         public Ienemy enemy;
+        public IShoot shoot;
         //public IItem itemProj;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
@@ -55,7 +57,7 @@ namespace sprint0
         public Vector2 pos0;
         public Vector2 healthPos;
         private Isprite TextSprite;
-        public IItem item;
+        public Content.IShoot item;
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
@@ -104,6 +106,7 @@ namespace sprint0
 
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
+            shoot = new BlueArrowDown(pos);
             //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -134,6 +137,7 @@ namespace sprint0
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+            shoot.Update(gameTime);
 
             //DragonSprite1.Update(gameTime);
 
@@ -150,6 +154,8 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate, pos);
             throwFire.Draw(spriteBatch, Animate, pos);
 
+
+            shoot.Draw(spriteBatch, Animate, pos);
             TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);

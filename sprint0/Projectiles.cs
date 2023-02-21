@@ -6,7 +6,7 @@ using sprint0.Content;
 
 namespace sprint0
 {
-    public class Projectiles : IItem
+    public class Projectiles : Content.IShoot
 
     {
         private Game1 game1;
