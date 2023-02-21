@@ -6,11 +6,12 @@ using sprint0.Content;
 
 namespace sprint0
 {
-	public class ThrowFire : IItem
+	public class ThrowFire : Isprite
 	{
 		Texture2D thisFire;
         Rectangle[] fire;
         Vector2 thisPos;
+        char thisDirec;
         int currentA;
         int previousA;
         float speed;
@@ -19,10 +20,11 @@ namespace sprint0
         private int left;
         private int right;
 
-        public ThrowFire(Texture2D fireTex, Vector2 pos)
+        public ThrowFire(Vector2 pos, char direc)
 		{
             thisPos = pos;
-			thisFire = fireTex;
+			//thisFire = fireTex;
+            thisDirec = direc;
             fire = new Rectangle[3];
             fire[0] = new Rectangle(290, 0, 30, 30);
             fire[1] = new Rectangle(290, 30, 30, 30);
@@ -40,6 +42,22 @@ namespace sprint0
 
 		public void Update(GameTime gameTime)
 		{
+            if (thisDirec == 's')
+            {
+                thisPos.Y += 20;
+            }
+            else if (thisDirec == 'a')
+            {
+                thisPos.X -= 20;
+            }
+            else if (thisDirec == 'w')
+            {
+                thisPos.Y -= 20;
+            }
+            else if (thisDirec == 'd')
+            {
+                thisPos.X += 20;
+            }
 
             if (tt > speed)
             {
@@ -68,10 +86,10 @@ namespace sprint0
 
         }
 
-		public void Draw(SpriteBatch spriteBatch)
+		public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
 		{
 
-            spriteBatch.Draw(thisFire, thisPos, fire[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            spriteBatch.Draw(animate[7], thisPos, fire[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
         }
 	}

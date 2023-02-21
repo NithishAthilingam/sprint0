@@ -22,6 +22,7 @@ namespace sprint0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Isprite sprite;
+        public Isprite throwFire;
         public Ienemy enemy;
         //public IItem itemProj;
         public IHealthBar healthbar;
@@ -106,7 +107,7 @@ namespace sprint0
             //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
-
+            throwFire = new ThrowFire(pos, direc);
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
             projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
@@ -123,7 +124,7 @@ namespace sprint0
                 this.Exit();
 
             sprite.Update(gameTime);
-
+            throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
@@ -147,7 +148,7 @@ namespace sprint0
             spriteBatch.Begin();
 
             sprite.Draw(spriteBatch, Animate, pos);
-
+            throwFire.Draw(spriteBatch, Animate, pos);
 
             TextSprite.Draw(spriteBatch, font);
 

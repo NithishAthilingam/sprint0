@@ -64,6 +64,7 @@ namespace sprint0
             KeyboardState userInput = Keyboard.GetState();
             //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, direc);
+            
             //game.enemy = new EnemyCycle(game,enemyIndex);
             //game.healthbar = new FullHealthbar(press);
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -276,18 +277,22 @@ namespace sprint0
                 if (direc == 's')
                 {
                     game.sprite = new ThrowingItemDown(pos);
+                    game.throwFire = new ThrowFire(pos, direc);
                 }
                 else if (direc == 'a')
                 {
                     game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
+                    game.throwFire = new ThrowFire(pos, direc);
                 }
                 else if (direc == 'w')
                 {
                     game.sprite = new ThrowingItemUp(pos);
+                    game.throwFire = new ThrowFire(pos, direc);
                 }
                 else if (direc == 'd')
                 {
                     game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                    game.throwFire = new ThrowFire(pos, direc);
                 }
             }
 
