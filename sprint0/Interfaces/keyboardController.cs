@@ -22,6 +22,7 @@ namespace sprint0
         private float speed;
         private char direc;
         private int enemyIndex;
+        private int frames = 0;
         //private int press;
 
         private float timer;
@@ -159,7 +160,21 @@ namespace sprint0
                 game.sprite = new RightSprite(pos);
                 if (pos.X < 800-45)
                 {
-                    pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    frames++;
+                    if (frames <= 5)
+                    {
+                        game.sprite = new RightSprite2(pos);
+                        pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (frames <= 10)
+                    {
+                        game.sprite = new RightSprite(pos);
+                        pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (frames == 11)
+                    {
+                        frames = 0;
+                    }
                 }
                 else
                 {
