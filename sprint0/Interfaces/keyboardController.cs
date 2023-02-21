@@ -65,7 +65,7 @@ namespace sprint0
             KeyboardState userInput = Keyboard.GetState();
             //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, direc);
-            
+
             //game.enemy = new EnemyCycle(game,enemyIndex);
             //game.healthbar = new FullHealthbar(press);
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
