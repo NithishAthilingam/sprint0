@@ -24,6 +24,7 @@ namespace sprint0
         private int enemyIndex;
         private int framesForRight = 0;
         private int framesForLeft = 0;
+        private int framesForDown = 0;
         //private int press;
 
         private float timer;
@@ -88,7 +89,6 @@ namespace sprint0
                 {
                     pos.Y = 0;
                 }
-                //game.sprite = new RSprite();
 
             }
             else if (userInput.IsKeyDown(Keys.Left) || userInput.IsKeyDown(Keys.A))
@@ -118,22 +118,36 @@ namespace sprint0
                 {
                     pos.X = 0;
                 }
-                //game.sprite = new RSprite();
+                
 
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
             {
                 direc = 's';
                 game.sprite = new DownSprite(pos);
+                game.sprite.Update(gameTime);
                 if (pos.Y < (432))
                 {
-                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    framesForDown++;
+                    if (framesForDown <= 9)
+                    {
+                        game.sprite = new DownSprite2(pos);
+                        pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (framesForDown <= 18)
+                    {
+                        game.sprite = new DownSprite(pos);
+                        pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    }
+                    else if (framesForDown == 19)
+                    {
+                        framesForDown = 0;
+                    }
                 }
                 else
                 {
                     pos.Y = 432;
                 }
-                //game.sprite = new RSprite();
 
             }
             /* else if (userInput.IsKeyDown(Keys.P))
