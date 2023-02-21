@@ -12,6 +12,7 @@ using System.Threading;
 
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.EnemySprites;
+using sprint0.Items;
 
 namespace sprint0
 {
@@ -255,19 +256,26 @@ namespace sprint0
                 if (direc == 's')
                 {
                     game.sprite = new ThrowingItemDown(pos);
+                    game.shoot = new BlueArrowDown(pos);
                 }
                 else if (direc == 'a')
                 {
                     game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
+                    game.shoot = new BlueArrowLeft(pos);
+
                 }
                 else if (direc == 'w')
                 {
                     game.sprite = new ThrowingItemUp(pos);
+                    game.shoot = new BlueArrowUp(pos);
+
                 }
                 else if (direc == 'd')
                 {
                     p.Y = pos.Y;
                     game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                    game.shoot = new BlueArrowRight(pos);
+
                     p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }

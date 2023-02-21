@@ -4,7 +4,7 @@ using sprint0.Content;
 using Microsoft.Xna.Framework.Input;
 namespace sprint0
 {
-    public class Item : IItem
+    public class Item : Content.IShoot
     {
         Rectangle[] recs;
         Rectangle[] hearts;

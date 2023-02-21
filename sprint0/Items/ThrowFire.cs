@@ -6,7 +6,7 @@ using sprint0.Content;
 
 namespace sprint0
 {
-	public class ThrowFire : IItem
+	public class ThrowFire : Content.IShoot
 	{
 		Texture2D thisFire;
         Rectangle[] fire;

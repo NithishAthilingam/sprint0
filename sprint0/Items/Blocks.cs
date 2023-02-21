@@ -15,7 +15,7 @@ using System.Reflection;
 #pragma warning restore CS0105 // The using directive for 'Microsoft.Xna.Framework.Graphics' appeared previously in this namespace
 namespace sprint0
 {
-    public class Blocks : IItem
+    public class Blocks : Content.IShoot
     {
         Rectangle[] recs;
 

@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework.Graphics;
 
 namespace sprint0.Content
 {
-	public interface IItem
+	public interface IShoot
 	{
 
         public void Update(GameTime gameTime);
