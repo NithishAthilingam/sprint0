@@ -32,6 +32,7 @@ namespace sprint0
         private float delayTime;
 
         private Texture2D i;
+        private Texture2D o;
         Rectangle blueArrow;
         //Rectangle greenArrow;
         //Rectangle des;
@@ -133,7 +134,7 @@ namespace sprint0
                 {
                     pos.X = 0;
                 }
-                
+
 
             }
             else if (userInput.IsKeyDown(Keys.Down) || userInput.IsKeyDown(Keys.S))
@@ -202,7 +203,7 @@ namespace sprint0
             {
                 direc = 'd';
                 game.sprite = new RightSprite(pos);
-                if (pos.X < 800-45)
+                if (pos.X < 800 - 45)
                 {
                     framesForRight++;
                     if (framesForRight <= 9)
@@ -225,7 +226,7 @@ namespace sprint0
                     pos.X = 800 - 45;
                 }
                 //game.sprite = new RSprite();
-                
+
             }
 
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
@@ -236,7 +237,7 @@ namespace sprint0
                 }
                 else if (direc == 'a')
                 {
-                    
+
                     game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
                 }
                 else if (direc == 'w')
@@ -257,8 +258,7 @@ namespace sprint0
                 }
                 else if (direc == 'a')
                 {
-
-                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X -20, pos.Y ));
+                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
                 }
                 else if (direc == 'w')
                 {
@@ -271,6 +271,25 @@ namespace sprint0
                     p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
+            else if (userInput.IsKeyDown(Keys.NumPad6) || userInput.IsKeyDown(Keys.D6))
+            {
+                if (direc == 's')
+                {
+                    game.sprite = new ThrowingItemDown(pos);
+                }
+                else if (direc == 'a')
+                {
+                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
+                }
+                else if (direc == 'w')
+                {
+                    game.sprite = new ThrowingItemUp(pos);
+                }
+                else if (direc == 'd')
+                {
+                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                }
+            }
 
             //if (timer <= 0f)
             //{
@@ -280,8 +299,8 @@ namespace sprint0
             //    }
             //    timer = delayTime;
             //}
-                
-            if(userInput.IsKeyDown(Keys.R))
+
+            if (userInput.IsKeyDown(Keys.R))
             {
                 pos.X = 0;
                 pos.Y = 0;
@@ -312,7 +331,7 @@ namespace sprint0
                 else if (Keyboard.GetState().IsKeyDown(Keys.O))
                 {
                     enemyIndex++;
-                    if(enemyIndex == 0)
+                    if (enemyIndex == 0)
                     {
                         game.enemy = new DragonSprite1(enemyStartPos);
                     }
@@ -327,8 +346,8 @@ namespace sprint0
                     }
                     timer = delayTime;
                 }
-            }
 
+            }
 
 
         }
@@ -337,7 +356,6 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(i, p, blueArrow, Color.White);
-
         }
 
     }

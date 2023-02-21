@@ -10,6 +10,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using sprint0;
+using sprint0.Content;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
@@ -22,6 +23,7 @@ namespace sprint0
         SpriteBatch spriteBatch;
         public Isprite sprite;
         public Ienemy enemy;
+        //public IItem itemProj;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[8];
@@ -52,7 +54,7 @@ namespace sprint0
         public Vector2 pos0;
         public Vector2 healthPos;
         private Isprite TextSprite;
-        private Item item;
+        public IItem item;
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
