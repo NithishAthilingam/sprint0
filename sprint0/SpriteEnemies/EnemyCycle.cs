@@ -34,7 +34,7 @@ namespace sprint0.EnemySprites
             }
             else if (EnemyIndex == 2)
             {
-
+                game.enemy = new BatSprite1(enemyStartPos);
             }
         } 
 

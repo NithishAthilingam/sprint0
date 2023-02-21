@@ -246,23 +246,25 @@ namespace sprint0
                     else if (enemyIndex == 2)
                     {
                         game.enemy = new BatSprite1(enemyStartPos);
+                        enemyIndex = -1;
                     }
                     timer = delayTime;
                 }
                 else if (Keyboard.GetState().IsKeyDown(Keys.O))
                 {
-                    enemyIndex--;
+                    enemyIndex++;
                     if(enemyIndex == 0)
-                {
+                    {
                         game.enemy = new DragonSprite1(enemyStartPos);
                     }
-                else if (enemyIndex == 1)
+                    else if (enemyIndex == 1)
                     {
                         game.enemy = new SkeletonSprite1(enemyStartPos);
                     }
                     else if (enemyIndex == 2)
                     {
                         game.enemy = new BatSprite1(enemyStartPos);
+                        enemyIndex = -1;
                     }
                     timer = delayTime;
                 }
