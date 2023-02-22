@@ -29,7 +29,7 @@ namespace sprint0
         //public IItem itemProj;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[8];
+        private Texture2D[] Animate = new Texture2D[10];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -104,13 +104,17 @@ namespace sprint0
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
 
+            Animate[8] = b;
+
+            Animate[9] = spritesItems;
+
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
             //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
-            throwFire = new ThrowFire(pos, direc);
+            throwFire = new InitialFire();
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
             projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
