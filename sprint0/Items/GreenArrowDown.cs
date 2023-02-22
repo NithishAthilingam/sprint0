@@ -21,12 +21,13 @@ namespace sprint0.Items
         public GreenArrowDown(Vector2 arrowPos)
         {
             thisPos = arrowPos;
+            thisPos.Y += 25;
             originalPos = arrowPos;
             current = 0;
             frame = 0;
             draw = true;
             explode = new Rectangle[2];
-            explode[0] = new Rectangle(120, 210, 20, 20);
+            explode[0] = new Rectangle(120, 190, 20, 20);
             explode[1] = new Rectangle(200, 270, 30, 30);
         }
 
@@ -34,11 +35,11 @@ namespace sprint0.Items
         {
             frame++;
             thisPos.Y += 2;
-            if (thisPos.Y - 150 > originalPos.Y)
+            if (thisPos.Y - 250 > originalPos.Y)
             {
                 current = 1;
             }
-            if (frame > 82)
+            if (frame > 120)
             {
                 draw = false;
             }
