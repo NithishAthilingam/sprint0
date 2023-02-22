@@ -21,6 +21,7 @@ namespace sprint0.Items
         public BlueArrowDown(Vector2 arrowPos) 
         { 
             thisPos= arrowPos;
+            thisPos.Y += 15;
             originalPos = arrowPos;
             current = 0;
             frame = 0;
