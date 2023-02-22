@@ -106,7 +106,7 @@ namespace sprint0
 
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
-            shoot = new BlueArrowDown(pos);
+            shoot = new initial();
             //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
