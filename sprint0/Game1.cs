@@ -10,6 +10,8 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using sprint0;
+using sprint0.Content;
+using sprint0.Items;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
@@ -21,7 +23,10 @@ namespace sprint0
         GraphicsDeviceManager graphics;
         SpriteBatch spriteBatch;
         public Isprite sprite;
+        public Isprite throwFire;
         public Ienemy enemy;
+        public IShoot shoot;
+        //public IItem itemProj;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[10];
@@ -52,7 +57,7 @@ namespace sprint0
         public Vector2 pos0;
         public Vector2 healthPos;
         private Isprite TextSprite;
-        private Item item;
+        public Content.IShoot item;
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
@@ -105,10 +110,11 @@ namespace sprint0
 
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
+            shoot = new BlueArrowDown(pos);
             //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
-
+            throwFire = new ThrowFire(pos, direc);
             item = new Item(zelda, spritesEnemies);
             blocks = new Blocks(b);
             projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
@@ -125,7 +131,7 @@ namespace sprint0
                 this.Exit();
 
             sprite.Update(gameTime);
-
+            throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
@@ -135,6 +141,7 @@ namespace sprint0
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
+            shoot.Update(gameTime);
 
             //DragonSprite1.Update(gameTime);
 
@@ -149,8 +156,10 @@ namespace sprint0
             spriteBatch.Begin();
 
             sprite.Draw(spriteBatch, Animate, pos);
+            throwFire.Draw(spriteBatch, Animate, pos);
 
 
+            shoot.Draw(spriteBatch, Animate, pos);
             TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);
