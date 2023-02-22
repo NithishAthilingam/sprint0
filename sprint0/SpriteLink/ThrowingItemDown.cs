@@ -6,16 +6,25 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
+using static System.Formats.Asn1.AsnWriter;
 
 namespace sprint0
 {
     public class ThrowingItemDown : Isprite
+
     {
         public Vector2 thisPos;
+        Rectangle blueArrow;
+        Rectangle greenArrow;
+        Rectangle smoke;
 
         public ThrowingItemDown(Vector2 posi)
         {
             thisPos = posi;
+
+            blueArrow = new Rectangle(0, 120, 20, 15);
+            greenArrow = new Rectangle(0, 40, 20, 15);
+            smoke = new Rectangle(314, 40, 20, 15);
         }
 
         public void Update(GameTime gameTime)
@@ -27,9 +36,10 @@ namespace sprint0
         {
             pos = thisPos;
             Rectangle source2 = new Rectangle(0, 60, 20, 20);
-            //Rectangle dest2 = new Rectangle(100, 100, 50, 50);
+          //Rectangle dest2 = new Rectangle(100, 100, 50, 50);
             spriteBatch.Draw(AnimationType[4], pos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
+            spriteBatch.Draw(AnimationType[9], new Vector2(0, 0), blueArrow, Color.White);
         }
     }
 }

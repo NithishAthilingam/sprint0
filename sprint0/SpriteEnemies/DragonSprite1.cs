@@ -111,10 +111,12 @@ namespace sprint0
                     }
                 }
             }
+
             else
             {
                 thisPos.X = 0;
             }
+
             //projectile
             if (tt > speed)
             {
