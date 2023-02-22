@@ -170,39 +170,6 @@ namespace sprint0
                 }
 
             }
-            /* else if (userInput.IsKeyDown(Keys.P))
-            {
-                enemyIndex++;
-                if(enemyIndex == 0)
-                {
-                    game.enemy = new DragonSprite1(enemyStartPos);
-                }else if(enemyIndex ==1)
-                {
-                    game.enemy = new SkeletonSprite1(enemyStartPos);
-                }
-                else if (enemyIndex == 2)
-                {
-                    game.enemy = new BatSprite1(enemyStartPos);
-                }
-
-            }
-            else if (userInput.IsKeyDown(Keys.O))
-            {
-                enemyIndex--;
-                if (enemyIndex == 0)
-                {
-                    game.enemy = new DragonSprite1(enemyStartPos);
-                }
-                else if (enemyIndex == 1)
-                {
-                    game.enemy = new SkeletonSprite1(enemyStartPos);
-                }
-                else if (enemyIndex == 2)
-                {
-                    game.enemy = new BatSprite1(enemyStartPos);
-                }
-
-            } */
             else if (userInput.IsKeyDown(Keys.Right) || userInput.IsKeyDown(Keys.D))
             {
                 direc = 'd';
@@ -279,6 +246,34 @@ namespace sprint0
                     p.Y = pos.Y;
                     game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
                     game.shoot = new BlueArrowRight(pos);
+
+                    p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                }
+            }
+            else if (userInput.IsKeyDown(Keys.NumPad2) || userInput.IsKeyDown(Keys.D2))
+            {
+                if (direc == 's')
+                {
+                    game.sprite = new ThrowingItemDown(pos);
+                    game.shoot = new GreenArrowDown(pos);
+                }
+                else if (direc == 'a')
+                {
+                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
+                    game.shoot = new GreenArrowLeft(pos);
+
+                }
+                else if (direc == 'w')
+                {
+                    game.sprite = new ThrowingItemUp(pos);
+                    game.shoot = new GreenArrowUp(pos);
+
+                }
+                else if (direc == 'd')
+                {
+                    p.Y = pos.Y;
+                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                    game.shoot = new GreenArrowRight(pos);
 
                     p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
