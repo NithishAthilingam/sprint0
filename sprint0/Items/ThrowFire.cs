@@ -12,8 +12,6 @@ namespace sprint0
         Texture2D thisFire;
         Rectangle[] fire;
         Vector2 thisPos;
-        bool draw;
-        int inc;
         char thisDirec;
         int currentA;
         int previousA;
@@ -33,9 +31,6 @@ namespace sprint0
             fire[1] = new Rectangle(290, 30, 30, 30);
             fire[2] = new Rectangle(290, 0, 30, 30);
 
-            draw = true;
-            inc = 0;
-
             previousA = 1;
             currentA = 2;
             tt = 0;
@@ -48,11 +43,6 @@ namespace sprint0
 
 		public void Update(GameTime gameTime)
 		{
-            inc++;
-            if (inc > 80)
-            {
-                draw = false;
-            }
 
             if (thisDirec == 's')
             {
@@ -101,10 +91,7 @@ namespace sprint0
 
 		public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
 		{
-            if (draw)
-            {
-                spriteBatch.Draw(animate[7], thisPos, fire[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            }
+            spriteBatch.Draw(animate[7], thisPos, fire[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
         }
 	}
 }
