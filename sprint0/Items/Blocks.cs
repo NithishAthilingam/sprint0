@@ -39,29 +39,23 @@ namespace sprint0
 
             recs = new Rectangle[8];
 
-            recs[0] = new Rectangle(0, 0, 160, 165);
+            recs[0] = new Rectangle(24, 31, 123, 123);
 
-            recs[1] = new Rectangle(160, 0, 160, 160);
+            recs[1] = new Rectangle(160, 5, 160, 160);
 
-            recs[2] = new Rectangle(320, 0, 160, 160);
+            recs[2] = new Rectangle(339, 0, 160, 160);
 
             recs[3] = new Rectangle(480, 0, 160, 160);
 
 
-            recs[4] = new Rectangle(0, 160, 160, 160);
 
-            recs[5] = new Rectangle(160, 160, 160, 160);
+            recs[4] = new Rectangle(0, 173, 130, 152);
 
-            recs[6] = new Rectangle(320, 160, 160, 160);
+            recs[5] = new Rectangle(160, 172, 149, 149);
 
-            recs[7] = new Rectangle(480, 160, 160, 160);
+            recs[6] = new Rectangle(330, 179, 146, 146);
 
-
-
-
-
-
-
+            recs[7] = new Rectangle(496, 173, 143, 147);
 
             des = new Rectangle(100, 400, 50, 50);
 

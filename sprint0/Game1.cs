@@ -115,7 +115,7 @@ namespace sprint0
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
             throwFire = new ThrowFire(pos, direc);
-            item = new Item(zelda, spritesEnemies);
+            item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b);
             projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
         }
