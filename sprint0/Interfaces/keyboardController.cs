@@ -55,8 +55,10 @@ namespace sprint0
             enemyIndex = 0;
             // dragonEnemyLocation = new Vector2(350, 250);
 
+
             delayTime = 500f;
             timer = 0f;
+
             //press = 0;
         }
 
@@ -254,6 +256,7 @@ namespace sprint0
 
             else if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
             {
+
                 if (direc == 's')
                 {
                     game.sprite = new ThrowingItemDown(pos);

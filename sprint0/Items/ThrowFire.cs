@@ -2,13 +2,14 @@
 using System.Reflection;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 using sprint0.Content;
 
 namespace sprint0
 {
-	public class ThrowFire : Isprite
-	{
-		Texture2D thisFire;
+    public class ThrowFire : Isprite
+    {
+        Texture2D thisFire;
         Rectangle[] fire;
         Vector2 thisPos;
         char thisDirec;
@@ -21,9 +22,9 @@ namespace sprint0
         private int right;
 
         public ThrowFire(Vector2 pos, char direc)
-		{
+        {
             thisPos = pos;
-			//thisFire = fireTex;
+            //thisFire = fireTex;
             thisDirec = direc;
             fire = new Rectangle[3];
             fire[0] = new Rectangle(290, 0, 30, 30);
@@ -40,8 +41,9 @@ namespace sprint0
             right = 1;
         }
 
-		public void Update(GameTime gameTime)
-		{
+        public void Update(GameTime gameTime)
+        {
+            
             if (thisDirec == 's')
             {
                 thisPos.Y += 2;
@@ -85,6 +87,7 @@ namespace sprint0
             }
 
         }
+    
 
 		public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
 		{
