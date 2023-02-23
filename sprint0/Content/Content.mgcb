@@ -179,7 +179,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:NES - The Legend of Zelda - Items & Weapons.png
+/build:NES - The Legend of Zelda - Items & Weapons.png;boomerang.png
 
 #begin nithish.png
 /importer:TextureImporter
