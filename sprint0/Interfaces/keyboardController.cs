@@ -301,6 +301,29 @@ namespace sprint0
                     game.throwFire = new ThrowFire(pos, direc);
                 }
             }
+            else if (userInput.IsKeyDown(Keys.NumPad3) || userInput.IsKeyDown(Keys.D3))
+            {
+                if (direc == 's')
+                {
+                    game.sprite = new ThrowingItemDown(pos);
+                    game.throwFire = new Bomb(pos, direc);
+                }
+                else if (direc == 'a')
+                {
+                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 15, pos.Y));
+                    game.throwFire = new Bomb(pos, direc);
+                }
+                else if (direc == 'w')
+                {
+                    game.sprite = new ThrowingItemUp(pos);
+                    game.throwFire = new Bomb(pos, direc);
+                }
+                else if (direc == 'd')
+                {
+                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
+                    game.throwFire = new Bomb(pos, direc);
+                }
+            }
 
             //if (timer <= 0f)
             //{
