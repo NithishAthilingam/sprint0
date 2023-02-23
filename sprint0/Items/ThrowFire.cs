@@ -46,19 +46,19 @@ namespace sprint0
 
             if (thisDirec == 's')
             {
-                thisPos.Y += 2;
+                thisPos.Y += 3;
             }
             else if (thisDirec == 'a')
             {
-                thisPos.X -= 2;
+                thisPos.X -= 3;
             }
             else if (thisDirec == 'w')
             {
-                thisPos.Y -= 2;
+                thisPos.Y -= 3;
             }
             else if (thisDirec == 'd')
             {
-                thisPos.X += 2;
+                thisPos.X += 3;
             }
 
             if (tt > speed)
