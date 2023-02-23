@@ -37,7 +37,7 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             frame++;
-            if (thisDirec == 's')
+            /*if (thisDirec == 's')
             {
                 thisPos.Y += 3;
             }
@@ -52,7 +52,7 @@ namespace sprint0
             else if (thisDirec == 'd')
             {
                 thisPos.X += 3;
-            }
+            } */
             if (frame > 70)
             {
                 drawExplode = true;
