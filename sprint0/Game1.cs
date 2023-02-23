@@ -29,7 +29,7 @@ namespace sprint0
         //public IItem itemProj;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[11];
+        private Texture2D[] Animate = new Texture2D[12];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -38,6 +38,7 @@ namespace sprint0
         private Texture2D spriteBoss;
         private Texture2D zelda;
         private Texture2D deathEffect;
+        private Texture2D boomerang;
         //private Texture2D health;
         private Texture2D b;
         private Texture2D spritesEnemies;
@@ -105,11 +106,14 @@ namespace sprint0
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
             deathEffect = Content.Load<Texture2D>("death-effects");
+            boomerang = Content.Load<Texture2D>("boomerang");
 
             Animate[8] = b;
 
             Animate[9] = spritesItems;
             Animate[10] = deathEffect;
+
+            Animate[11] = boomerang;
 
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
@@ -161,7 +165,7 @@ namespace sprint0
         {
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
+            
             sprite.Draw(spriteBatch, Animate, pos);
             throwFire.Draw(spriteBatch, Animate, pos);
 
