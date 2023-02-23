@@ -37,27 +37,32 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             frame++;
-            /*if (thisDirec == 's')
+
+            if (frame < 50)
             {
-                thisPos.Y += 3;
+
+                if (thisDirec == 's')
+                {
+                    thisPos.Y += 3;
+                }
+                else if (thisDirec == 'a')
+                {
+                    thisPos.X -= 3;
+                }
+                else if (thisDirec == 'w')
+                {
+                    thisPos.Y -= 3;
+                }
+                else if (thisDirec == 'd')
+                {
+                    thisPos.X += 3;
+                }
             }
-            else if (thisDirec == 'a')
-            {
-                thisPos.X -= 3;
-            }
-            else if (thisDirec == 'w')
-            {
-                thisPos.Y -= 3;
-            }
-            else if (thisDirec == 'd')
-            {
-                thisPos.X += 3;
-            } */
-            if (frame > 70)
+            if (frame > 90)
             {
                 drawExplode = true;
             }
-            if(frame > 75)
+            if(frame > 95)
             {
                 stopDraw = true;
             }
