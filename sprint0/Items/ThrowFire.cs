@@ -41,9 +41,9 @@ namespace sprint0
             right = 1;
         }
 
-        public void Update(GameTime gameTime)
-        {
-            
+		public void Update(GameTime gameTime)
+		{
+
             if (thisDirec == 's')
             {
                 thisPos.Y += 2;
@@ -91,9 +91,7 @@ namespace sprint0
 
 		public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
 		{
-
             spriteBatch.Draw(animate[7], thisPos, fire[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-
         }
 	}
 }

@@ -51,7 +51,7 @@ namespace sprint0
 
             recs[4] = new Rectangle(0, 173, 130, 152);
 
-            recs[5] = new Rectangle(160, 172, 149, 149);
+            recs[5] = new Rectangle(169, 172, 149, 149);
 
             recs[6] = new Rectangle(330, 179, 146, 146);
 

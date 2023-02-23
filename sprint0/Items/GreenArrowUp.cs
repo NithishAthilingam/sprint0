@@ -9,7 +9,7 @@ using sprint0.Content;
 
 namespace sprint0.Items
 {
-    internal class BlueArrowUp : IShoot
+    internal class GreenArrowUp : IShoot
     {
         private Vector2 thisPos;
         private Vector2 originalPos;
@@ -18,16 +18,15 @@ namespace sprint0.Items
         Rectangle[] explode;
         private int current;
 
-        public BlueArrowUp(Vector2 arrowPos)
+        public GreenArrowUp(Vector2 arrowPos)
         {
             thisPos = arrowPos;
-            thisPos.Y -= 40;
             originalPos = arrowPos;
             current = 0;
             frame = 0;
             draw = true;
             explode = new Rectangle[2];
-            explode[0] = new Rectangle(180, 250, 20, 20);
+            explode[0] = new Rectangle(180, 210, 20, 20);
             explode[1] = new Rectangle(200, 270, 30, 30);
         }
 
@@ -35,11 +34,11 @@ namespace sprint0.Items
         {
             frame++;
             thisPos.Y -= 2;
-            if (originalPos.Y - thisPos.Y   > 150)
+            if (originalPos.Y - thisPos.Y > 150)
             {
                 current = 1;
             }
-            if(frame > 82)
+            if (frame > 82)
             {
                 draw = false;
             }
@@ -47,7 +46,7 @@ namespace sprint0.Items
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
         {
-            if(draw)
+            if (draw)
             {
                 spriteBatch.Draw(animate[4], thisPos, explode[current], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
             }
