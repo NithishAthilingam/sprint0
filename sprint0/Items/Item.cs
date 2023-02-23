@@ -15,6 +15,8 @@ namespace sprint0
         int currentImageIndex;
         private Texture2D z;
         private Texture2D f;
+        private Texture2D i;
+
         //Rectangle currentSourceRectangle;
         //Rectangle destinationRectangle;
         float delayTime;
@@ -30,11 +32,13 @@ namespace sprint0
         private int left;
         private int right;
 
-        public Item(Texture2D zelda, Texture2D fireTex)
+        public Item(Texture2D zelda, Texture2D fireTex, Texture2D items)
         {
             currentImageIndex = 0;
             z = zelda;
             f = fireTex;
+            i = items;
+
             recs = new Rectangle[13];
 
             delayTime = 500f; 
@@ -49,7 +53,7 @@ namespace sprint0
             left = 0;
             right = 1;
 
-            recs = new Rectangle[12];
+            recs = new Rectangle[13];
 
             //blue dimond
             recs[0] = new Rectangle(270, 225, 30, 30);
@@ -66,8 +70,11 @@ namespace sprint0
             recs[9] = new Rectangle(415, 250, 17, 30);
             //bomb
             recs[10] = new Rectangle(350, 225, 30, 30);
+
+            //lady
+            recs[11] = new Rectangle(150, 30, 24, 25);
             //blue dimond
-            recs[11] = new Rectangle(270, 225, 20, 20);
+            recs[12] = new Rectangle(270, 225, 20, 20);
 
             hearts = new Rectangle[3];
             hearts[0] = new Rectangle(230, 185, 30, 30);
@@ -166,6 +173,11 @@ namespace sprint0
             if (currentImageIndex == 5)
             {
                 spriteBatch.Draw(z, des, hearts[currentA], Color.White);
+            }
+
+            if (currentImageIndex == 11)
+            {
+                spriteBatch.Draw(i, des, recs[currentImageIndex], Color.White);
             }
             else
               spriteBatch.Draw(z, des, recs[currentImageIndex], Color.White);
