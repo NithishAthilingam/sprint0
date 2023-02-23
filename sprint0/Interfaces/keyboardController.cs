@@ -22,7 +22,7 @@ namespace sprint0
         private Vector2 pos;
         private float speed;
         private char direc;
-        private int enemyIndex;
+        private int enemyIndex = -1;
         private int framesForRight = 0;
         private int framesForLeft = 0;
         private int framesForDown = 0;
@@ -287,7 +287,7 @@ namespace sprint0
                 }
                 else if (direc == 'a')
                 {
-                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
+                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 15, pos.Y));
                     game.throwFire = new ThrowFire(pos, direc);
                 }
                 else if (direc == 'w')
