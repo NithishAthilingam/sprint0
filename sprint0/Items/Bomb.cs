@@ -9,7 +9,6 @@ namespace sprint0
 {
     public class Bomb : Isprite
     {
-        Texture2D thisFire;
         Rectangle bomb;
         Rectangle explosion;
         Vector2 thisPos;

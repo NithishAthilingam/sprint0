@@ -9,34 +9,14 @@ namespace sprint0
 {
     public class Boomerang : Isprite
     {
-        Texture2D thisFire;
         Rectangle boomerang;
         Vector2 thisPos;
-        char thisDirec;
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
 
         public Boomerang(Vector2 pos, char direc)
         {
             thisPos = pos;
-            //thisFire = fireTex;
-            thisDirec = direc;
 
             boomerang = new Rectangle(129, 3, 6, 12);
-
-            previousA = 1;
-            currentA = 2;
-            tt = 0;
-            speed = 50;
-
-            middle = 2;
-            left = 0;
-            right = 1;
         }
 
 		public void Update(GameTime gameTime)

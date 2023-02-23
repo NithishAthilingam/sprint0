@@ -14,9 +14,6 @@ namespace sprint0
 
     {
         public Vector2 thisPos;
-        Rectangle blueArrow;
-        Rectangle greenArrow;
-        Rectangle smoke;
 
         public ThrowingItemDown(Vector2 posi)
         {
@@ -33,7 +30,6 @@ namespace sprint0
         {
             pos = thisPos;
             Rectangle source2 = new Rectangle(0, 60, 20, 20);
-          //Rectangle dest2 = new Rectangle(100, 100, 50, 50);
             spriteBatch.Draw(AnimationType[4], pos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
         }
     }
