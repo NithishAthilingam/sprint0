@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
+using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -12,6 +13,7 @@ using Microsoft.Xna.Framework.Media;
 using sprint0;
 using sprint0.Content;
 using sprint0.Items;
+using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
@@ -37,11 +39,17 @@ namespace sprint0
         private Texture2D spriteX;
         private Texture2D spriteBoss;
         private Texture2D zelda;
+        private Texture2D nes;
+
         private Texture2D deathEffect;
         //private Texture2D health;
         private Texture2D b;
         private Texture2D spritesEnemies;
         private Texture2D spritesItems;
+        private Rectangle banana;
+
+        private float angle;
+        private float scale;
 
 
         private SpriteFont font;
@@ -105,7 +113,7 @@ namespace sprint0
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
             deathEffect = Content.Load<Texture2D>("death-effects");
-
+            nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
             Animate[8] = b;
 
             Animate[9] = spritesItems;
@@ -159,11 +167,20 @@ namespace sprint0
 
         protected override void Draw(GameTime gameTime)
         {
+
+            banana = new Rectangle(128, 0, 7, 10);
+
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
             sprite.Draw(spriteBatch, Animate, pos);
             throwFire.Draw(spriteBatch, Animate, pos);
+
+            angle = (float)Math.PI / 2.0f;  // 90 degrees
+            scale = 1.0f;
+
+            spriteBatch.Draw(nes, Position, null, Color.White, (float)Math.PI, new Vector2(nes.Width, nes.Height), 1, SpriteEffects.None, 0);
+
 
 
             shoot.Draw(spriteBatch, Animate, pos);
