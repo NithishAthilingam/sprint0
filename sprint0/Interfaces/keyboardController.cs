@@ -27,24 +27,14 @@ namespace sprint0
         private int framesForLeft = 0;
         private int framesForDown = 0;
         private int framesForUp = 0;
-        //private int press;
 
         private float timer;
         private float delayTime;
 
         private Texture2D i;
-        private Texture2D o;
         Rectangle blueArrow;
-        //Rectangle greenArrow;
-        //Rectangle des;
         Vector2 p;
-        //private float s;
-        private Projectiles projectiles;
         private Vector2 enemyStartPos;
-        // public Vector2 dragonEnemyLocation;
-
-
-
 
         public keyboardController(Game1 link)
         {
@@ -53,23 +43,16 @@ namespace sprint0
             enemyStartPos = new Vector2(450, 250);
             speed = 200f;
             enemyIndex = 0;
-            // dragonEnemyLocation = new Vector2(350, 250);
-
 
             delayTime = 500f;
             timer = 0f;
-
-            //press = 0;
         }
 
         public void Update(GameTime gameTime)
         {
             KeyboardState userInput = Keyboard.GetState();
-            //timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             game.sprite = new RSprite(pos, direc);
 
-            //game.enemy = new EnemyCycle(game,enemyIndex);
-            //game.healthbar = new FullHealthbar(press);
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
 
@@ -196,7 +179,6 @@ namespace sprint0
                 {
                     pos.X = 800 - 45;
                 }
-                //game.sprite = new RSprite();
 
             }
 
@@ -278,7 +260,7 @@ namespace sprint0
                     p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
             }
-            else if (userInput.IsKeyDown(Keys.NumPad6) || userInput.IsKeyDown(Keys.D6))
+            else if (userInput.IsKeyDown(Keys.NumPad4) || userInput.IsKeyDown(Keys.D4))
             {
                 if (direc == 's')
                 {
@@ -325,22 +307,11 @@ namespace sprint0
                 }
             }
 
-            //if (timer <= 0f)
-            //{
-            //    if (userInput.IsKeyDown(Keys.E))
-            //    {
-            //        press++;
-            //    }
-            //    timer = delayTime;
-            //}
-
             if (userInput.IsKeyDown(Keys.R))
             {
                 pos.X = 0;
                 pos.Y = 0;
-                //press = 0;
                 game.sprite = new RSprite(pos, direc);
-                //game.healthbar = new FullHealthbar(press);
             }
             if (timer <= 0f)
             {

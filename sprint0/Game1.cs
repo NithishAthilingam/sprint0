@@ -28,10 +28,9 @@ namespace sprint0
         public Isprite throwFire;
         public Ienemy enemy;
         public IShoot shoot;
-        //public IItem itemProj;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[11];
+        private Texture2D[] Animate = new Texture2D[12];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -42,7 +41,7 @@ namespace sprint0
         private Texture2D nes;
 
         private Texture2D deathEffect;
-        //private Texture2D health;
+        private Texture2D boomerang;
         private Texture2D b;
         private Texture2D spritesEnemies;
         private Texture2D spritesItems;
@@ -60,7 +59,6 @@ namespace sprint0
         public bool facingLeft;
 
         private char direc = 'd';
-        private int characterFrame = 0;
         //private int press;
         public Vector2 pos;
         public Vector2 pos0;
@@ -70,7 +68,6 @@ namespace sprint0
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
-        private DragonSprite1 DragonSprite1;
 
         public Game1()
         {
@@ -109,24 +106,29 @@ namespace sprint0
             Animate[6] = spriteBoss;
             spritesEnemies = Content.Load<Texture2D>("sprites-enemies");
             Animate[7] = spritesEnemies;
-            //health = Content.Load<Texture2D>("health");
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
             deathEffect = Content.Load<Texture2D>("death-effects");
+<<<<<<< HEAD
             nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
+=======
+            boomerang = Content.Load<Texture2D>("boomerang");
+
+>>>>>>> 42153d83938b21438a9b80a49d22e3878649e943
             Animate[8] = b;
 
             Animate[9] = spritesItems;
             Animate[10] = deathEffect;
 
+            Animate[11] = boomerang;
+
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
-            //enemy0 = new SkeletonSprite1(new Vector2(550, 250));
+
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
-            //throwFire = new ThrowFire(pos, direc);
             item = new Item(zelda, spritesEnemies, spritesItems);
 
             throwFire = new InitialFire();
@@ -152,15 +154,11 @@ namespace sprint0
                 controller.Update(gameTime);
             }
             enemy.Update(gameTime);
-            //enemy0.Update(gameTime);
+
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
-
-            //DragonSprite1.Update(gameTime);
-
-           // Controller.Update(gameTime);
 
             base.Update(gameTime);
         }
@@ -172,7 +170,7 @@ namespace sprint0
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
+            
             sprite.Draw(spriteBatch, Animate, pos);
             throwFire.Draw(spriteBatch, Animate, pos);
 
@@ -187,7 +185,7 @@ namespace sprint0
             TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);
-            //enemy0.Draw(spriteBatch, Animate, pos0);
+
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);

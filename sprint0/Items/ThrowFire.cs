@@ -9,7 +9,6 @@ namespace sprint0
 {
     public class ThrowFire : Isprite
     {
-        Texture2D thisFire;
         Rectangle[] fire;
         Vector2 thisPos;
         char thisDirec;
@@ -24,7 +23,6 @@ namespace sprint0
         public ThrowFire(Vector2 pos, char direc)
         {
             thisPos = pos;
-            //thisFire = fireTex;
             thisDirec = direc;
             fire = new Rectangle[3];
             fire[0] = new Rectangle(290, 0, 30, 30);

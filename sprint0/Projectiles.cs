@@ -19,9 +19,6 @@ namespace sprint0
         Rectangle des1;
 
         private float s;
-
-        float delayTime;
-        float timer;
         Vector2 position;
         public bool facingDown;
         public bool facingUp;
@@ -53,8 +50,6 @@ namespace sprint0
             des = new Rectangle(296, 136, 55, 40);
             des1 = new Rectangle(296, 117, 55, 40);
 
-            delayTime = 500f;
-            timer = 0f;
 
         }
 
