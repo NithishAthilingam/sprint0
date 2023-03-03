@@ -130,7 +130,7 @@ namespace sprint0
             throwFire = new InitialFire();
             item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b);
-            projectiles = new Projectiles(this, spritesItems,pos,facingDown,facingUp,facingRight,facingLeft);
+            projectiles = new Projectiles(this, spritesItems,pos,direc);
         }
 
         protected override void UnloadContent()
