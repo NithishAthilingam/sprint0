@@ -20,22 +20,16 @@ namespace sprint0
 
         private float s;
         Vector2 position;
-        public bool facingDown;
-        public bool facingUp;
-        public bool facingRight;
-        public bool facingLeft;
+        public char direction;
 
         private bool up;
         private bool side;
 
-        public Projectiles(Game1 myGame, Texture2D items, Vector2 pos, bool facingDown, bool facingUp, bool facingRight, bool facingLeft)
+        public Projectiles(Game1 myGame, Texture2D items, Vector2 pos, char direc)
         {
             i = items;
             game1 = myGame;
-            this.facingDown = facingDown;
-            this.facingUp = facingUp;
-            this.facingRight = facingRight;
-            this.facingLeft = facingLeft;
+            this.direction = direc;
 
             this.position = pos;
 
@@ -56,13 +50,13 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            if (facingDown == true || facingUp == true)
+            if (direction == 's' || direction == 'w')
             {
                 position.Y += s;
                 up = true;
             }
 
-            if (facingRight == true || facingLeft == true)
+            if (direction == 'a' || direction == 'd')
             {
                 position.X += s;
                 side = true;
