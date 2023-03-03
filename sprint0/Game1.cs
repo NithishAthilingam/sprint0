@@ -77,7 +77,6 @@ namespace sprint0
         }
 
         protected override void Initialize()
-
         {
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
@@ -109,12 +108,9 @@ namespace sprint0
             b = Content.Load<Texture2D>("blocks2");
             spritesItems= Content.Load<Texture2D>("sprites-items");
             deathEffect = Content.Load<Texture2D>("death-effects");
-<<<<<<< HEAD
             nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
-=======
             boomerang = Content.Load<Texture2D>("boomerang");
 
->>>>>>> 42153d83938b21438a9b80a49d22e3878649e943
             Animate[8] = b;
 
             Animate[9] = spritesItems;
@@ -177,7 +173,7 @@ namespace sprint0
             angle = (float)Math.PI / 2.0f;  // 90 degrees
             scale = 1.0f;
 
-            spriteBatch.Draw(nes, Position, null, Color.White, (float)Math.PI, new Vector2(nes.Width, nes.Height), 1, SpriteEffects.None, 0);
+
 
 
 
