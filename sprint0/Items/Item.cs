@@ -16,6 +16,8 @@ namespace sprint0
         private Texture2D z;
         private Texture2D f;
         private Texture2D i;
+        private Texture2D w;
+
 
         //Rectangle currentSourceRectangle;
         //Rectangle destinationRectangle;
@@ -32,12 +34,13 @@ namespace sprint0
         private int left;
         private int right;
 
-        public Item(Texture2D zelda, Texture2D fireTex, Texture2D items)
+        public Item(Texture2D zelda, Texture2D fireTex, Texture2D items,Texture2D wall)
         {
             currentImageIndex = 0;
             z = zelda;
             f = fireTex;
             i = items;
+            w = wall;
 
             recs = new Rectangle[13];
 
@@ -167,7 +170,10 @@ namespace sprint0
 
             if (currentImageIndex == 2)
             {
-                spriteBatch.Draw(z, des, diamonds[currentA], Color.White);
+                spriteBatch.Draw(w, des, diamonds[currentA], Color.White);
+
+                //spriteBatch.Draw(z, des, diamonds[currentA], Color.White);
+
             }
 
             if (currentImageIndex == 5)

@@ -30,7 +30,7 @@ namespace sprint0
         public IShoot shoot;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[12];
+        private Texture2D[] Animate = new Texture2D[13];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -45,6 +45,8 @@ namespace sprint0
         private Texture2D b;
         private Texture2D spritesEnemies;
         private Texture2D spritesItems;
+        private Texture2D wallBlock;
+
         private Rectangle banana;
 
         private float angle;
@@ -118,6 +120,9 @@ namespace sprint0
 
             Animate[11] = boomerang;
 
+            wallBlock = Content.Load<Texture2D>("Wall Textures");
+            Animate[12] = spritesEnemies;
+
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
@@ -125,10 +130,10 @@ namespace sprint0
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
-            item = new Item(zelda, spritesEnemies, spritesItems);
+            item = new Item(zelda, spritesEnemies, spritesItems, wallBlock);
 
             throwFire = new InitialFire();
-            item = new Item(zelda, spritesEnemies, spritesItems);
+           // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b);
             projectiles = new Projectiles(this, spritesItems,pos,direc);
         }
