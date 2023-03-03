@@ -13,7 +13,7 @@
 
 #---------------------------------- Content ---------------------------------#
 
-#begin  Wall Textures.png
+#begin ../../../../../../Desktop/Wall Textures.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -23,7 +23,19 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build: Wall Textures.png
+/build:../../../../../../Desktop/Wall Textures.png;Wall Textures.png
+
+#begin ../../../../../../Desktop/Wall Textures.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:../../../../../../Desktop/Wall Textures.png;Wall Textures.png
 
 #begin a.png
 /importer:TextureImporter
@@ -228,6 +240,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:nithish.png
+
+#begin rooms.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:rooms.png
 
 #begin salma.png
 /importer:TextureImporter

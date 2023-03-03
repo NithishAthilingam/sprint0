@@ -39,13 +39,14 @@ namespace sprint0
         private Texture2D spriteBoss;
         private Texture2D zelda;
         private Texture2D nes;
+        private Texture2D room;
+
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
         private Texture2D b;
         private Texture2D spritesEnemies;
         private Texture2D spritesItems;
-        private Texture2D wallBlock;
 
         private Rectangle banana;
 
@@ -120,7 +121,6 @@ namespace sprint0
 
             Animate[11] = boomerang;
 
-            wallBlock = Content.Load<Texture2D>("Wall Textures");
             Animate[12] = spritesEnemies;
 
             sprite = new RSprite(pos, direc);
@@ -130,7 +130,7 @@ namespace sprint0
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
-            item = new Item(zelda, spritesEnemies, spritesItems, wallBlock);
+            item = new Item(zelda, spritesEnemies, spritesItems);
 
             throwFire = new InitialFire();
            // item = new Item(zelda, spritesEnemies, spritesItems);
@@ -177,10 +177,6 @@ namespace sprint0
 
             angle = (float)Math.PI / 2.0f;  // 90 degrees
             scale = 1.0f;
-
-
-
-
 
             shoot.Draw(spriteBatch, Animate, pos);
             TextSprite.Draw(spriteBatch, font);

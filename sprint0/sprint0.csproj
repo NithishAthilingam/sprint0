@@ -23,6 +23,7 @@
     <None Remove="Items\" />
     <None Remove="ProjectBuildFiles\" />
     <None Remove="EnemySprites\" />
+    <None Remove="Content\Wall Textures.png" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
