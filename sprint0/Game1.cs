@@ -30,7 +30,7 @@ namespace sprint0
         public IShoot shoot;
         public IHealthBar healthbar;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[13];
+        private Texture2D[] Animate = new Texture2D[14];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -40,6 +40,11 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        RenderTarget2D renderTarget;
+        Rectangle des1;
+        Rectangle des2;
+
+
 
 
         private Texture2D deathEffect;
@@ -114,9 +119,11 @@ namespace sprint0
             nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
             boomerang = Content.Load<Texture2D>("boomerang");
 
+          
             Animate[8] = b;
 
             Animate[9] = spritesItems;
+
             Animate[10] = deathEffect;
 
             Animate[11] = boomerang;
@@ -126,6 +133,14 @@ namespace sprint0
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
+
+            room = Content.Load<Texture2D>("rooms");
+            Animate[13] = boomerang;
+
+            renderTarget = new RenderTarget2D(GraphicsDevice, room.Width, room.Height);
+            des1 = new Rectangle(400, 10, 257, 176);
+            des2 = new Rectangle(195, 191, 190, 112);
+
 
             font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -166,7 +181,6 @@ namespace sprint0
 
         protected override void Draw(GameTime gameTime)
         {
-
             banana = new Rectangle(128, 0, 7, 10);
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
@@ -186,9 +200,10 @@ namespace sprint0
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
-
-            base.Draw(gameTime);
             spriteBatch.End();
+
+
+
         }
     }
 }
