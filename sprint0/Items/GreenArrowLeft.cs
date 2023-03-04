@@ -29,16 +29,21 @@ namespace sprint0.Items
             draw = true;
             explode = new Rectangle[2];
             explode[0] = new Rectangle(140, 190, 30, 20);
-            explode[1] = new Rectangle(200, 270, 30, 30);
+            explode[1] = new Rectangle(118, 282, 18, 18);
+            //136, 302
         }
 
         public void Update(GameTime gameTime)
         {
             frame++;
-            thisPos.X -= 2;
+            /*thisPos.X -= 2;*/
             if (originalPos.X - thisPos.X > 250)
             {
                 current = 1;
+            }
+            else
+            {
+                thisPos.X -= 2;
             }
             if (frame > 110)
             {

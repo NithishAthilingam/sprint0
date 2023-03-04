@@ -34,10 +34,14 @@ namespace sprint0.Items
         public void Update(GameTime gameTime)
         {
             frame++;
-            thisPos.Y += 2;
+            //thisPos.Y += 2;
             if (thisPos.Y - 250 > originalPos.Y)
             {
                 current = 1;
+            }
+            else
+            {
+                thisPos.Y += 2;
             }
             if (frame > 120)
             {
