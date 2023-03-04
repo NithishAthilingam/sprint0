@@ -27,9 +27,12 @@ namespace sprint0.Items
             current = 0;
             frame = 0;
             draw = true;
-            explode = new Rectangle[2];
+            explode = new Rectangle[5];
             explode[0] = new Rectangle(140, 190, 30, 20);
-            explode[1] = new Rectangle(118, 282, 18, 18);
+            explode[1] = new Rectangle(118, 282, 18, 21);
+            explode[2] = new Rectangle(148, 282, 18, 21);
+            explode[3] = new Rectangle(178, 282, 18, 21);
+            explode[4] = new Rectangle(208, 282, 18, 21);
             //136, 302
         }
 
@@ -39,13 +42,16 @@ namespace sprint0.Items
             /*thisPos.X -= 2;*/
             if (originalPos.X - thisPos.X > 250)
             {
-                current = 1;
+                if(frame % 10 == 0 && current < 4)
+                {
+                    current += 1;
+                }
             }
             else
             {
                 thisPos.X -= 2;
             }
-            if (frame > 110)
+            if (frame > 150)
             {
                 draw = false;
             }
