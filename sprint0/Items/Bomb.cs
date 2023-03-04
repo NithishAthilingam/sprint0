@@ -40,22 +40,22 @@ namespace sprint0
             if (frame < 50)
             {
 
-                if (thisDirec == 's')
-                {
-                    thisPos.Y += 3;
-                }
-                else if (thisDirec == 'a')
-                {
-                    thisPos.X -= 3;
-                }
-                else if (thisDirec == 'w')
-                {
-                    thisPos.Y -= 3;
-                }
-                else if (thisDirec == 'd')
-                {
-                    thisPos.X += 3;
-                }
+                //if (thisDirec == 's')
+                //{
+                //    thisPos.Y += 1;
+                //}
+                //else if (thisDirec == 'a')
+                //{
+                //    thisPos.X -= 1;
+                //}
+                //else if (thisDirec == 'w')
+                //{
+                //    thisPos.Y -= 1;
+                //}
+                //else if (thisDirec == 'd')
+                //{
+                //    thisPos.X += 1;
+                //}
             }
             if (frame > 90)
             {
@@ -72,9 +72,25 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
         {
+
             if(!drawExplode)
             {
-                spriteBatch.Draw(animate[4], thisPos, bomb, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                if (thisDirec == 's')
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X, thisPos.Y + 50), bomb, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else if (thisDirec == 'a')
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X - 50, thisPos.Y), bomb, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else if (thisDirec == 'w')
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X, thisPos.Y - 50), bomb, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else if (thisDirec == 'd')
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X + 50, thisPos.Y), bomb, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
             }
             else
             {
