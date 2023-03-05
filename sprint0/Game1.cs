@@ -30,6 +30,7 @@ namespace sprint0
         public Isprite throwFire;
         public Ienemy enemy;
         public IShoot shoot;
+        public Rooms rooms;
         public IHealthBar healthbar;
         public ICollision collide;
         private List<Icontroller> controller;
@@ -43,11 +44,16 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+<<<<<<< HEAD
+      
+
+=======
         public Vector2 linkPos;
         public Vector2 EnemyPos;
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
+>>>>>>> 1c1c8f78905f0019505621ce346210b11c5f5913
 
 
 
@@ -144,9 +150,10 @@ namespace sprint0
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-            renderTarget = new RenderTarget2D(GraphicsDevice, room.Width, room.Height);
-            des1 = new Rectangle(400, 10, 257, 176);
-            des2 = new Rectangle(195, 191, 190, 112);
+
+
+
+            rooms = new Rooms(room,this);
 
 
             font = Content.Load<SpriteFont>("Score");
@@ -209,8 +216,11 @@ namespace sprint0
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
+            rooms.Draw(spriteBatch);
+
             spriteBatch.End();
 
+            base.Draw(gameTime);
 
 
         }
