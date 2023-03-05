@@ -329,6 +329,10 @@ namespace sprint0
                     else if (enemyIndex == 2)
                     {
                         game.enemy = new BatSprite1(enemyStartPos);
+                    }
+                    else if (enemyIndex == 3)
+                    {
+                        game.enemy = new BlueBlob(enemyStartPos);
                         enemyIndex = -1;
                     }
                     timer = delayTime;
@@ -347,6 +351,10 @@ namespace sprint0
                     else if (enemyIndex == 2)
                     {
                         game.enemy = new BatSprite1(enemyStartPos);
+                    }
+                    else if (enemyIndex == 3)
+                    {
+                        game.enemy = new BlueBlob(enemyStartPos);
                         enemyIndex = -1;
                     }
                     timer = delayTime;

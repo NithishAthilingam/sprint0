@@ -36,6 +36,10 @@ namespace sprint0.EnemySprites
             {
                 game.enemy = new BatSprite1(enemyStartPos);
             }
+            else if (EnemyIndex == 3)
+            {
+                game.enemy = new BlueBlob(enemyStartPos);
+            }
         } 
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
