@@ -28,9 +28,9 @@ namespace sprint0
             thisDirec = direc;
             explosion = new Rectangle(100, 0, 30, 30);
             bomb = new Rectangle(360, 230, 30, 20);
-            
 
-            
+
+
         }
 
         public void Update(GameTime gameTime)
@@ -61,11 +61,11 @@ namespace sprint0
             {
                 drawExplode = true;
             }
-            if(frame > 95)
+            if (frame > 95)
             {
                 stopDraw = true;
             }
-                
+
 
         }
 
@@ -73,7 +73,7 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
         {
 
-            if(!drawExplode)
+            if (!drawExplode)
             {
                 if (thisDirec == 's')
                 {
@@ -94,9 +94,25 @@ namespace sprint0
             }
             else
             {
-                if(!stopDraw)
+                if (!stopDraw)
                 {
-                    spriteBatch.Draw(animate[10], new Vector2(thisPos.X-25,thisPos.Y-25), explosion, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                    if (thisDirec == 's')
+                    {
+                        spriteBatch.Draw(animate[10], new Vector2(thisPos.X - 25, thisPos.Y + 25), explosion, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                    }
+                    else if (thisDirec == 'a')
+                    {
+                        spriteBatch.Draw(animate[10], new Vector2(thisPos.X - 75, thisPos.Y - 25), explosion, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                    }
+                    else if (thisDirec == 'w')
+                    {
+                        spriteBatch.Draw(animate[10], new Vector2(thisPos.X - 25, thisPos.Y - 75), explosion, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                    }
+                    else if (thisDirec == 'd')
+                    {
+                        spriteBatch.Draw(animate[10], new Vector2(thisPos.X + 25, thisPos.Y - 25), explosion, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                    }
+                    // spriteBatch.Draw(animate[10], new Vector2(thisPos.X,thisPos.Y-25), explosion, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
                 }
             }
         }
