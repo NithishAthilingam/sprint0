@@ -315,29 +315,7 @@ namespace sprint0
             }
             if (timer <= 0f)
             {
-                if (Keyboard.GetState().IsKeyDown(Keys.P))
-                {
-                    enemyIndex++;
-                    if (enemyIndex == 0)
-                    {
-                        game.enemy = new DragonSprite1(enemyStartPos);
-                    }
-                    else if (enemyIndex == 1)
-                    {
-                        game.enemy = new SkeletonSprite1(enemyStartPos);
-                    }
-                    else if (enemyIndex == 2)
-                    {
-                        game.enemy = new BatSprite1(enemyStartPos);
-                    }
-                    else if (enemyIndex == 3)
-                    {
-                        game.enemy = new BlueBlob(enemyStartPos);
-                        enemyIndex = -1;
-                    }
-                    timer = delayTime;
-                }
-                else if (Keyboard.GetState().IsKeyDown(Keys.O))
+                if (Keyboard.GetState().IsKeyDown(Keys.P) || Keyboard.GetState().IsKeyDown(Keys.O))
                 {
                     enemyIndex++;
                     if (enemyIndex == 0)
