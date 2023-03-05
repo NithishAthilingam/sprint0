@@ -11,11 +11,13 @@ namespace sprint0.Collision
 {
     internal class EnemyLinkCollision : ICollision
     {
+        int frame =0;
         public void Update(GameTime gameTime, Game1 game)
         {
-            if(game.linkPos == game.DragonPos)
+            frame++;
+            if (game.EnemyPos.X - game.linkPos.X  < 20 )
             {
-                //game.sprite;
+                game.sprite = new DamagedSprite(game.linkPos);
             }
         }
 

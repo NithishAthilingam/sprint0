@@ -73,18 +73,27 @@ namespace sprint0
                 {
                     thisPos.X += 2;
                     thisPos.Y += 2;
+                    game.EnemyPos.X = thisPos.X;
+                    game.EnemyPos.Y = thisPos.Y;
+
                 }
                 else if (frames <= 150)
                 {
                     thisPos.Y -= 2;
+                    game.EnemyPos.Y = thisPos.Y ;
+
                 }
                 else if (frames <= 225)
                 {
                     thisPos.X -= 2;
+                    game.EnemyPos.X = thisPos.X;
+
                 }
                 else if (frames <= 300)
                 {
                     thisPos.Y -= 2;
+                    game.EnemyPos.Y = thisPos.Y;
+
                 }
 
                 if (frames == 301)
@@ -96,6 +105,9 @@ namespace sprint0
             {
                 thisPos.X += 2;
                 thisPos.Y += 5;
+                game.EnemyPos.X = thisPos.X;
+                game.EnemyPos.Y = thisPos.Y;
+
             }
             //projectile
             if (tt > speed)

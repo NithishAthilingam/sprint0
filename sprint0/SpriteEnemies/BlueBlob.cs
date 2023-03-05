@@ -67,17 +67,25 @@ namespace sprint0
                 if (frames <= 75)
                 {
                     thisPos.X += 1;
+                    game.EnemyPos.X = thisPos.X;
+
                 }
                 else if (frames <= 150) {
                     thisPos.Y += 1;
+                    game.EnemyPos.Y = thisPos.Y;
+
                 }
                 else if (frames <= 225)
                 {
-                    thisPos.X -= 1;     
+                    thisPos.X -= 1;
+                    game.EnemyPos.X = thisPos.X;
+
                 }
                 else if (frames <= 300)
                 {
                     thisPos.Y -= 1;
+                    game.EnemyPos.Y = thisPos.Y;
+
                 }
 
                 if (frames == 301)

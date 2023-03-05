@@ -11,7 +11,9 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
 using sprint0;
+using sprint0.Collision;
 using sprint0.Content;
+using sprint0.Interfaces;
 using sprint0.Items;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
@@ -29,6 +31,7 @@ namespace sprint0
         public Ienemy enemy;
         public IShoot shoot;
         public IHealthBar healthbar;
+        public ICollision collide;
         private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[14];
         private Texture2D spriteA;
@@ -41,7 +44,7 @@ namespace sprint0
         private Texture2D nes;
         private Texture2D room;
         public Vector2 linkPos;
-        public Vector2 DragonPos;
+        public Vector2 EnemyPos;
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
@@ -135,6 +138,8 @@ namespace sprint0
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
+            collide = new EnemyLinkCollision();
+
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
@@ -165,6 +170,7 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
@@ -177,6 +183,7 @@ namespace sprint0
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
+            collide.Update(gameTime, this);
 
             base.Update(gameTime);
         }
