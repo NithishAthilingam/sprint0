@@ -49,7 +49,7 @@ namespace sprint0
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
 
             if (thisPos.X > 0)

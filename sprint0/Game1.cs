@@ -40,6 +40,8 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        public Vector2 linkPos;
+        public Vector2 DragonPos;
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
@@ -169,7 +171,7 @@ namespace sprint0
             {
                 controller.Update(gameTime);
             }
-            enemy.Update(gameTime);
+            enemy.Update(gameTime, this);
 
             item.Update(gameTime);
             blocks.Update(gameTime);

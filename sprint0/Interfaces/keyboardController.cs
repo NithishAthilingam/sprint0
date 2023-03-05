@@ -11,7 +11,6 @@ using System.Diagnostics;
 using System.Threading;
 
 using Microsoft.Xna.Framework.Graphics;
-using sprint0.EnemySprites;
 using sprint0.Items;
 
 namespace sprint0
@@ -19,7 +18,7 @@ namespace sprint0
     internal class keyboardController : Icontroller
     {
         private Game1 game;
-        private Vector2 pos;
+        public Vector2 pos;
         private float speed;
         private char direc;
         private int enemyIndex = -1;
@@ -77,11 +76,13 @@ namespace sprint0
                     {
                         game.sprite = new UpSprite2(pos);
                         pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.Y = pos.Y;
                     }
                     else if (framesForUp <= 18)
                     {
                         game.sprite = new UpSprite(pos);
                         pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.Y = pos.Y;
                     }
                     else if (framesForUp == 19)
                     {
@@ -91,6 +92,7 @@ namespace sprint0
                 else
                 {
                     pos.Y = 0;
+                    game.linkPos.Y = pos.Y;
                 }
 
             }
@@ -106,11 +108,13 @@ namespace sprint0
                     {
                         game.sprite = new LeftSprite2(pos);
                         pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
                     }
                     else if (framesForLeft <= 18)
                     {
                         game.sprite = new LeftSprite(pos);
                         pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
                     }
                     else if (framesForLeft == 19)
                     {
@@ -120,6 +124,7 @@ namespace sprint0
                 else
                 {
                     pos.X = 0;
+                    game.linkPos.X = pos.X;
                 }
 
 
@@ -136,11 +141,13 @@ namespace sprint0
                     {
                         game.sprite = new DownSprite2(pos);
                         pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.Y = pos.Y;
                     }
                     else if (framesForDown <= 18)
                     {
                         game.sprite = new DownSprite(pos);
                         pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.Y = pos.Y;
                     }
                     else if (framesForDown == 19)
                     {
@@ -150,6 +157,7 @@ namespace sprint0
                 else
                 {
                     pos.Y = 432;
+                    game.linkPos.Y = pos.Y;
                 }
 
             }
@@ -164,11 +172,13 @@ namespace sprint0
                     {
                         game.sprite = new RightSprite2(pos);
                         pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
                     }
                     else if (framesForRight <= 18)
                     {
                         game.sprite = new RightSprite(pos);
                         pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
                     }
                     else if (framesForRight == 19)
                     {
@@ -178,6 +188,7 @@ namespace sprint0
                 else
                 {
                     pos.X = 800 - 45;
+                    game.linkPos.X = pos.X;
                 }
 
             }

@@ -62,7 +62,7 @@ namespace sprint0
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime,Game1 game)
         {
 
             posBallTop.X -= 3;
@@ -87,6 +87,7 @@ namespace sprint0
                 if (frames <= 160)
                 {
                     thisPos.X += 1;
+                    game.DragonPos.X = thisPos.X;   
 
                 }
                 else if (frames <= 320)
