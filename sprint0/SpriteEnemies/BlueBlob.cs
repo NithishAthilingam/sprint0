@@ -11,11 +11,11 @@ using System.Reflection;
 
 namespace sprint0
 {
-    public class BatSprite1 : Ienemy
+    public class BlueBlob : Ienemy
     {
         public Vector2 thisPos;
         private int frames = 0;
-        Rectangle[] bat;
+        Rectangle[] blob;
         Rectangle source2;
         int currentA;
         int previousA;
@@ -27,19 +27,16 @@ namespace sprint0
 
 
 
-        public BatSprite1(Vector2 pos)
+        public BlueBlob(Vector2 pos)
         {
             thisPos = pos;
 
             thisPos.Y -= 100;
 
-
-
-
-            bat = new Rectangle[2];
-            bat[0] = new Rectangle(230, 270, 20, 20);
-            bat[1] = new Rectangle(260, 270, 20, 20);
-            source2 = bat[0];
+            blob = new Rectangle[2];
+            blob[0] = new Rectangle(404, 184, 10, 10);
+            blob[1] = new Rectangle(404, 213, 10, 10);
+            source2 = blob[0];
 
             previousA = 1;
             currentA = 2;
@@ -55,36 +52,32 @@ namespace sprint0
         public void Update(GameTime gameTime, Game1 game)
         {
 
-
-
-            if (thisPos.X > 0 && thisPos.Y>0)
+            if (thisPos.X > 0)
             {
                 frames++;
-                if ((frames % 20 == 0) && source2 == bat[0])
+                if((frames%20 == 0) && source2 == blob[0])
                 {
-                    source2 = bat[1];
+                    source2 = blob[1];
                 }
-                else if ((frames % 20 == 0) && source2 == bat[1])
+                else if ((frames % 20 == 0) && source2 == blob[1])
                 {
-                    source2 = bat[0];
+                    source2 = blob[0];
                 }
 
                 if (frames <= 75)
                 {
-                    thisPos.X += 2;
-                    thisPos.Y += 2;
+                    thisPos.X += 1;
                 }
-                else if (frames <= 150)
-                {
-                    thisPos.Y -= 2;
+                else if (frames <= 150) {
+                    thisPos.Y += 1;
                 }
                 else if (frames <= 225)
                 {
-                    thisPos.X -= 2;
+                    thisPos.X -= 1;     
                 }
                 else if (frames <= 300)
                 {
-                    thisPos.Y -= 2;
+                    thisPos.Y -= 1;
                 }
 
                 if (frames == 301)
@@ -94,8 +87,7 @@ namespace sprint0
             }
             else
             {
-                thisPos.X += 2;
-                thisPos.Y += 5;
+                thisPos.X = 0;
             }
             //projectile
             if (tt > speed)
