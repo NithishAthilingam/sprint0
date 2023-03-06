@@ -35,6 +35,7 @@ namespace sprint0
 >>>>>>> 3bad95933cf1fbf955700a99c4bf590d7a7e33b1
         private Texture2D room;
         private Game1 game1;
+        Rectangle[] rooms; 
 
 
 
@@ -43,6 +44,7 @@ namespace sprint0
             game1 = game;
 
             room = r;
+<<<<<<< Updated upstream
 
             //entrance to dungeon
             source1 = new Rectangle(508, 840, 257, 168);
@@ -114,6 +116,45 @@ namespace sprint0
             ////right door
             //source6 = new Rectangle(815, 77, 32, 32);
 
+=======
+            rooms = new Rectangle[18];
+            //enter
+            rooms[0] = new Rectangle(254, 840, 255, 168);
+            //l
+            rooms[1] = new Rectangle(254, 840, 256, 168);
+            //r
+            rooms[2] = new Rectangle(767, 840, 256, 168);
+            //f
+            rooms[3] = new Rectangle(510, 672, 256, 168);
+            //ff
+            rooms[4] = new Rectangle(510, 504, 256, 168);
+            //ffr
+            rooms[5] = new Rectangle(765, 504, 256, 168);
+            //ffl
+            rooms[6] = new Rectangle(255, 504, 256, 168);
+            //fflf
+            rooms[7] = new Rectangle(255, 336, 256, 168);
+            //fflfl
+            rooms[8] = new Rectangle(0, 336, 256, 168);
+            //fflfr
+            rooms[9] = new Rectangle(510, 336, 256, 168);
+            //fflfrr
+            rooms[10] = new Rectangle(765, 336, 256, 168);
+            //fflfrrr
+            rooms[11] = new Rectangle(1019, 336, 256, 168);
+            //fflfrrrf
+            //rooms[12] = new Rectangle(, , 256, 168);
+            //fflfrrrfr
+            //rooms[13] = new Rectangle(, , 256, 168);
+            //fflfrf
+            //rooms[14] = new Rectangle(, , 256, 168);
+            //fflfrff
+            //rooms[15] = new Rectangle(, , 256, 168);
+            //fflfrffl
+            //rooms[16] = new Rectangle(, , 256, 168);
+            //fflfrfflb
+            //rooms[17] = new Rectangle(, , 256, 168);
+>>>>>>> Stashed changes
 
         }
 
@@ -124,11 +165,15 @@ namespace sprint0
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), salma2, Color.White);
 
             //outer
+<<<<<<< Updated upstream
 <<<<<<< HEAD
             //  spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), source1, Color.White);
 =======
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), salma6, Color.White);
 >>>>>>> 3bad95933cf1fbf955700a99c4bf590d7a7e33b1
+=======
+            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[0], Color.White);
+>>>>>>> Stashed changes
 
             ////top door
             //spriteBatch.Draw(room, new Rectangle(348, 0, 103, 90), source4, Color.White);
