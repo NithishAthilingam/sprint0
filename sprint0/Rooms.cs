@@ -84,37 +84,37 @@ namespace sprint0
             //l
             rooms[1] = new Rectangle(254, 840, 256, 168);
             //r
-            rooms[2] = new Rectangle(767, 840, 256, 168);
+            rooms[2] = new Rectangle(765, 840, 256, 168);
             //f
-            rooms[3] = new Rectangle(510, 672, 256, 168);
+            rooms[3] = new Rectangle(511, 672, 256, 168);
             //ff
-            rooms[4] = new Rectangle(510, 504, 256, 168);
+            rooms[4] = new Rectangle(511, 504, 256, 168);
             //ffr
             rooms[5] = new Rectangle(765, 504, 256, 168);
             //ffl
-            rooms[6] = new Rectangle(255, 504, 256, 168);
+            rooms[6] = new Rectangle(254, 504, 256, 168);
             //fflf
-            rooms[7] = new Rectangle(255, 336, 256, 168);
+            rooms[7] = new Rectangle(254, 336, 256, 168);
             //fflfl
             rooms[8] = new Rectangle(0, 336, 256, 168);
             //fflfr
             rooms[9] = new Rectangle(510, 336, 256, 168);
             //fflfrr
-            rooms[10] = new Rectangle(765, 336, 256, 168);
+            rooms[10] = new Rectangle(767, 336, 256, 168);
             //fflfrrr
-            rooms[11] = new Rectangle(1019, 336, 256, 168);
+            rooms[11] = new Rectangle(1022, 336, 256, 168);
             //fflfrrrf
-            //rooms[12] = new Rectangle(, , 256, 168);
+            rooms[12] = new Rectangle(1022, 168, 256, 168);
             //fflfrrrfr
-            //rooms[13] = new Rectangle(, , 256, 168);
+            rooms[13] = new Rectangle(1279, 168, 256, 168);
             //fflfrf
-            //rooms[14] = new Rectangle(, , 256, 168);
+            rooms[14] = new Rectangle(513, 168, 256, 168);
             //fflfrff
-            //rooms[15] = new Rectangle(, , 256, 168);
+            rooms[15] = new Rectangle(513, 0, 256, 168);
             //fflfrffl
-            //rooms[16] = new Rectangle(, , 256, 168);
+            rooms[16] = new Rectangle(257, 0, 256, 168);
             //fflfrfflb
-            //rooms[17] = new Rectangle(, , 256, 168);
+            rooms[17] = new Rectangle(257, 168, 255, 152);
 
         }
 
@@ -126,7 +126,7 @@ namespace sprint0
 
             //outer
             //spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), salma6, Color.White);
-            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[0], Color.White);
+            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[17], Color.White);
 
             ////top door
             //spriteBatch.Draw(room, new Rectangle(348, 0, 103, 90), source4, Color.White);
