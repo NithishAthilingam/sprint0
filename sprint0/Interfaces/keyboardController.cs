@@ -69,7 +69,7 @@ namespace sprint0
             {
                 direc = 'w';
                 game.sprite = new UpSprite(pos);
-                if (pos.Y > 0)
+                if (pos.Y > 0 + 60)
                 {
                     framesForUp++;
                     if (framesForUp <= 9)
@@ -91,7 +91,7 @@ namespace sprint0
                 }
                 else
                 {
-                    pos.Y = 0;
+                    pos.Y = 0 + 60;
                     game.linkPos.Y = pos.Y;
                 }
 
@@ -101,7 +101,7 @@ namespace sprint0
                 direc = 'a';
                 game.sprite = new LeftSprite(pos);
                 game.sprite.Update(gameTime);
-                if (pos.X > 0)
+                if (pos.X > 0 + 90)
                 {
                     framesForLeft++;
                     if (framesForLeft <= 9)
@@ -123,7 +123,7 @@ namespace sprint0
                 }
                 else
                 {
-                    pos.X = 0;
+                    pos.X = 0 + 90;
                     game.linkPos.X = pos.X;
                 }
 
@@ -134,7 +134,7 @@ namespace sprint0
                 direc = 's';
                 game.sprite = new DownSprite(pos);
                 game.sprite.Update(gameTime);
-                if (pos.Y < (432))
+                if (pos.Y < (432 - 60))
                 {
                     framesForDown++;
                     if (framesForDown <= 9)
@@ -156,7 +156,7 @@ namespace sprint0
                 }
                 else
                 {
-                    pos.Y = 432;
+                    pos.Y = 432 - 60;
                     game.linkPos.Y = pos.Y;
                 }
 
@@ -165,7 +165,7 @@ namespace sprint0
             {
                 direc = 'd';
                 game.sprite = new RightSprite(pos);
-                if (pos.X < 800 - 45)
+                if (pos.X < 800 - 45 - 90)
                 {
                     framesForRight++;
                     if (framesForRight <= 9)
@@ -187,7 +187,7 @@ namespace sprint0
                 }
                 else
                 {
-                    pos.X = 800 - 45;
+                    pos.X = 800 - 45 - 90;
                     game.linkPos.X = pos.X;
                 }
 
