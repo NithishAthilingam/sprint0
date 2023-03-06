@@ -13,7 +13,7 @@ namespace sprint0
 
         public static bool CheckMouseStateLeft()
         {
-            bool LeftMouse = false;
+             bool LeftMouse = false;
 
             if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
