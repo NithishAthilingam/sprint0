@@ -32,6 +32,20 @@ namespace sprint0
             topDoorPos = new Rectangle(815, 11, 32, 32);
             bottomDoorPos = new Rectangle(815, 110, 32, 32);
             rightDoorPos = new Rectangle(815, 77, 32, 32);
+            //source1 = new Rectangle(508, 840, 257, 168);
+            ////outer
+            //source1 = new Rectangle(521, 11, 256, 176);
+            ////room1
+            //source2 = new Rectangle(390, 192, 192, 112);
+            ////left door
+            //source3 = new Rectangle(848, 44, 32, 32);
+            ////no door on top  
+            //source4 = new Rectangle(815, 11, 32, 32);
+            ////no door on bottom 
+            //source5 = new Rectangle(815, 110, 32, 32);
+            ////right door
+            //source6 = new Rectangle(815, 77, 32, 32);
+
 
 
         }
@@ -52,9 +66,20 @@ namespace sprint0
 
             //right door
             spriteBatch.Draw(room, new Rectangle(700, 195, 103, 90), rightDoorPos, Color.White);
+            ////top door
+            //spriteBatch.Draw(room, new Rectangle(348, 0, 103, 90), source4, Color.White);
 
-            //room1
-            spriteBatch.Draw(room, new Rectangle(97, 83, 603, 312), source2, Color.White);
+            ////left door
+            //spriteBatch.Draw(room, new Rectangle(0, 195, 103, 90), source3, Color.White);
+
+            ////bottom door
+            //spriteBatch.Draw(room, new Rectangle(348, 390, 103, 90), source5, Color.White);
+
+            ////right door
+            //spriteBatch.Draw(room, new Rectangle(700, 195, 103, 90), source6, Color.White);
+
+            ////room1
+            //spriteBatch.Draw(room, new Rectangle(97, 83, 603, 312), source2, Color.White);
 
         }
 
