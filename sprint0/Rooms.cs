@@ -13,6 +13,13 @@ namespace sprint0
         Rectangle source4;
         Rectangle source5;
         Rectangle source6;
+        Rectangle source7;
+        Rectangle salma1;
+        Rectangle salma2;
+        Rectangle salma3;
+        Rectangle salma4;
+        Rectangle salma5;
+        Rectangle salma6;
         private Texture2D room;
         private Game1 game1;
 
@@ -24,7 +31,45 @@ namespace sprint0
 
             room = r;
 
+            //entrance to dungeon
             source1 = new Rectangle(508, 840, 257, 168);
+
+            //two doors 4 squares
+            source2 = new Rectangle(770, 336, 257, 168);
+
+            //one door 4 squares
+            source3 = new Rectangle(764, 503, 257, 168);
+
+            //one door 2 six block clusters
+            source4 = new Rectangle(763, 840, 257, 168);
+
+            //one door lots of blocks everywhere
+            source5 = new Rectangle(1020, 336, 257, 168);
+
+            //two doors and blocks clustered by locked door
+            source6 = new Rectangle(1023, 168, 257, 168);
+
+            //treasure room
+            source7 = new Rectangle(1278, 168, 257, 168);
+
+            //top
+            salma1 = new Rectangle(257, 0, 257, 168);
+
+            //black and grey
+            salma2 = new Rectangle(257, 168, 255, 152);
+
+            //bottom
+            salma3 = new Rectangle(256, 840, 257, 168);
+
+            //w/fire
+            salma4 = new Rectangle(0, 336, 257, 168);
+
+            //one block 
+            salma5 = new Rectangle(257, 336, 257, 168);
+
+            //one large block 
+            salma6 = new Rectangle(255, 504, 257, 168);
+
             ////outer
             //source1 = new Rectangle(521, 11, 256, 176);
             ////room1
@@ -44,7 +89,7 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             //outer
-            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), source1, Color.White);
+            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), salma6, Color.White);
 
             ////top door
             //spriteBatch.Draw(room, new Rectangle(348, 0, 103, 90), source4, Color.White);
