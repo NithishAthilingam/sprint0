@@ -34,7 +34,7 @@ namespace sprint0
         public IHealthBar healthbar;
         public ICollision collide;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[14];
+        private Texture2D[] Animate = new Texture2D[15];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -44,19 +44,13 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-<<<<<<< HEAD
-      
+        private Texture2D dungeon;
 
-=======
         public Vector2 linkPos;
         public Vector2 EnemyPos;
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
->>>>>>> 1c1c8f78905f0019505621ce346210b11c5f5913
-
-
-
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
@@ -130,6 +124,8 @@ namespace sprint0
             nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
             boomerang = Content.Load<Texture2D>("boomerang");
 
+            dungeon = Content.Load<Texture2D>("Dungeon");
+            Animate[14] = dungeon;
           
             Animate[8] = b;
 
@@ -153,7 +149,7 @@ namespace sprint0
 
 
 
-            rooms = new Rooms(room,this);
+            rooms = new Rooms(dungeon,this);
 
 
             font = Content.Load<SpriteFont>("Score");
@@ -201,12 +197,13 @@ namespace sprint0
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            
-            sprite.Draw(spriteBatch, Animate, pos);
+
+            rooms.Draw(spriteBatch);
+
             throwFire.Draw(spriteBatch, Animate, pos);
 
-            angle = (float)Math.PI / 2.0f;  // 90 degrees
-            scale = 1.0f;
+            //angle = (float)Math.PI / 2.0f;  // 90 degrees
+            //scale = 1.0f;
 
             shoot.Draw(spriteBatch, Animate, pos);
             TextSprite.Draw(spriteBatch, font);
@@ -216,7 +213,8 @@ namespace sprint0
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
-            rooms.Draw(spriteBatch);
+
+            sprite.Draw(spriteBatch, Animate, pos);
 
             spriteBatch.End();
 
