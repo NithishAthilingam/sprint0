@@ -13,6 +13,19 @@ namespace sprint0
         Rectangle source4;
         Rectangle source5;
         Rectangle source6;
+
+        Rectangle salma1;
+        Rectangle salma2;
+        Rectangle salma3;
+        Rectangle salma4;
+        Rectangle salma5;
+        Rectangle salma6;
+
+
+
+
+
+
         private Texture2D room;
         private Game1 game1;
 
@@ -25,6 +38,29 @@ namespace sprint0
             room = r;
 
             source1 = new Rectangle(508, 840, 257, 168);
+
+            //top
+            salma1 = new Rectangle(257, 0, 257, 168);
+
+            //black and grey
+             salma2 = new Rectangle(257, 167, 255, 152);
+
+            //bottom
+             salma3 = new Rectangle(257, 840, 255, 152);
+
+            //w/fire
+            salma4 = new Rectangle(0, 336, 257, 168);
+
+            //one block 
+            salma5 = new Rectangle(257, 336, 257, 168);
+
+            //one large block 
+            salma6 = new Rectangle(253, 504, 257, 168);
+
+
+
+
+
             ////outer
             //source1 = new Rectangle(521, 11, 256, 176);
             ////room1
@@ -43,11 +79,16 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
+
+            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), salma2, Color.White);
+
             //outer
-            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), source1, Color.White);
+            //  spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), source1, Color.White);
 
             ////top door
             //spriteBatch.Draw(room, new Rectangle(348, 0, 103, 90), source4, Color.White);
+
 
             ////left door
             //spriteBatch.Draw(room, new Rectangle(0, 195, 103, 90), source3, Color.White);
