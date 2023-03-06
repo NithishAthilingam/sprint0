@@ -41,16 +41,13 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-<<<<<<< HEAD
       
 
-=======
         public Vector2 linkPos;
         public Vector2 DragonPos;
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
->>>>>>> 1c1c8f78905f0019505621ce346210b11c5f5913
 
 
 
