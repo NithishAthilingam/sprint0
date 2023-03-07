@@ -7,10 +7,9 @@ using System;
 
 namespace sprint0
 {
-	public class Rooms
-	{
+    public class Rooms
+    {
 
-        Rectangle salma1;
 
         float delayTime;
         float timer;
@@ -26,27 +25,16 @@ namespace sprint0
         int currentImageIndex;
         private Texture2D room;
         private Game1 game1;
-        Rectangle[] rooms; 
+        Rectangle[] rooms;
 
 
         public Rooms(Texture2D r, Game1 game)
-		{
+        {
             game1 = game;
-
             room = r;
-
             currentImageIndex = 0;
             delayTime = 500f;
             timer = 0f;
-
-            previousA = 1;
-            currentA = 2;
-            tt = 0;
-            speed = 50;
-
-            middle = 2;
-            left = 0;
-            right = 1;
 
 
             rooms = new Rectangle[18];
@@ -90,20 +78,20 @@ namespace sprint0
         }
 
 
-         public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime)
         {
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             if (timer <= 0f)
             {
                 MouseState mouseState = Mouse.GetState();
-                if (mouseState.RightButton == ButtonState.Pressed)
+                if (MouseController.CheckMouseStateRight())
                 {
                     currentImageIndex++;
                     if (currentImageIndex >= rooms.Length)
                         currentImageIndex = 0;
                     timer = delayTime;
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed)
+                else if (MouseController.CheckMouseStateLeft())
                 {
                     currentImageIndex--;
                     if (currentImageIndex < 0)
@@ -115,14 +103,34 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (currentImageIndex < rooms.Length)
-            {
-                spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-                currentImageIndex++;
+            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
 
-            }
+            //    if (currentImageIndex == 1)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[1], Color.White);
+            //    }
+
+            //    if (currentImageIndex == 2)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[2], Color.White);
+
+            //    }
+
+            //    if (currentImageIndex == 5)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[5], Color.White);
+            //    }
+
+            //    if (currentImageIndex == 11)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[11], Color.White);
+            //    }
+            //    else
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+
+            //}
         }
     }
-
 }
+
 
