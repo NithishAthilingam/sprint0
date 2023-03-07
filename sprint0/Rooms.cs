@@ -51,7 +51,7 @@ namespace sprint0
 
             rooms = new Rectangle[18];
             //enter
-            rooms[0] = new Rectangle(254, 840, 255, 168);
+            rooms[0] = new Rectangle(510, 840, 256, 168);
             //l
             rooms[1] = new Rectangle(254, 840, 256, 168);
             //r
@@ -115,12 +115,12 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (currentImageIndex < rooms.Length)
-            {
+            //if (currentImageIndex < rooms.Length)
+            //{
                 spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-                currentImageIndex++;
+                //currentImageIndex++;
 
-            }
+            //}
         }
     }
 
