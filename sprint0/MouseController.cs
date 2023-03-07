@@ -11,7 +11,13 @@ namespace sprint0
 
         }
 
-        public static bool CheckMouseStateLeft()
+        public void Update(GameTime gameTime)
+        {
+            MouseController.CheckMouseStateRight();
+            MouseController.CheckMouseStateLeft();
+
+        }
+            public static bool CheckMouseStateLeft()
         {
              bool LeftMouse = false;
 

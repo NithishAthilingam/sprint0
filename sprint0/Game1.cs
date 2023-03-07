@@ -44,7 +44,9 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-      
+        private MouseController MouseController;
+
+
         private Texture2D dungeon;
 
         public Vector2 linkPos;
@@ -145,6 +147,7 @@ namespace sprint0
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
             collide = new EnemyLinkCollision();
+            MouseController = new MouseController();
 
 
             room = Content.Load<Texture2D>("rooms");
@@ -185,13 +188,13 @@ namespace sprint0
                 controller.Update(gameTime);
             }
             enemy.Update(gameTime, this);
-
+            rooms.Update(gameTime);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this);
-
+            MouseController.Update(gameTime);
             base.Update(gameTime);
         }
 
