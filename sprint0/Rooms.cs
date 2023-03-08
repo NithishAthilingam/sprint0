@@ -100,12 +100,15 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
 
+          spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[17], Color.White);
+
+
             //if (currentImageIndex < rooms.Length)
             //{
-                spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-                //currentImageIndex++;
+            //    spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+            //currentImageIndex++;
 
-            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+            //   spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
 
             //    if (currentImageIndex == 1)
             //    {
