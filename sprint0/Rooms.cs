@@ -99,13 +99,11 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-<<<<<<< HEAD
-=======
+
             //if (currentImageIndex < rooms.Length)
             //{
                 spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
                 //currentImageIndex++;
->>>>>>> 73b2194185bd3dd2e9df4b04ea515ce7c0e789fe
 
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
 
