@@ -10,7 +10,8 @@ namespace sprint0.Interfaces
 {
     public  interface ICollision
     {
-        public void Update(GameTime gameTime,Game1 game);
+        //use rectangle.intersect()
+        public void Update(GameTime gameTime, Game1 game);
 
         public void Draw(SpriteBatch spriteBatch);
         
