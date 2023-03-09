@@ -24,6 +24,8 @@ namespace sprint0
         private Texture2D room;
         private Game1 game1;
         Rectangle[] rooms;
+        Dictionary<int, int[]> myRooms;
+        Dictionary<int, int[]> temp;
 
         public Rooms(Texture2D r, Game1 game)
         {
@@ -71,6 +73,28 @@ namespace sprint0
             rooms[16] = new Rectangle(257, 0, 256, 168);
             //fflfrfflb
             rooms[17] = new Rectangle(257, 168, 255, 152);
+            myRooms = new Dictionary<int, int[]>()
+            {
+                {0, new int[] {3,1,0,2} },
+                {1, new int[] {0,0,0,0} },
+                {2, new int[] {0,0,0,0} },
+                {3, new int[] {4,0,0,0} },
+                {4, new int[] {0,6,4,5} },
+                {5, new int[] {0,4,0,0} },
+                {6, new int[] {7,0,0,4} },
+                {7, new int[] {0,8,6,9} },
+                {8, new int[] {0,0,0,7} },
+                {9, new int[] {14,7,0,10} },
+                {10, new int[] {0,9,0,11} },
+                {11, new int[] {12,10,0,0} },
+                {12, new int[] {0,0,11,13} },
+                {13, new int[] {0,12,0,0} },
+                {14, new int[] {15,0,9,0} },
+                {15, new int[] {0,16,14,0} },
+                {16, new int[] {0,0,17,15} },
+                {17, new int[] {16,0,0,0} }
+
+            };
 
         }
 
@@ -84,33 +108,49 @@ namespace sprint0
                 {
                     game1.Exit();
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 400 && mouseState.Y <= 200)
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 350 && mouseState.X <= 450 && mouseState.Y <= 100)
                 {
-                    currentImageIndex++;
+                    /*currentImageIndex++;
                     if (currentImageIndex >= 18)
                         currentImageIndex = 0;
                     timer = delayTime;
+                    */
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[0];
+                    timer = delayTime;
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X > 400 && mouseState.Y <= 200)
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 100 && mouseState.Y >= 150 && mouseState.Y <= 250)
                 {
-                    currentImageIndex++;
+                    /*currentImageIndex++;
                     if (currentImageIndex >= 18)
                         currentImageIndex = 0;
+                    timer = delayTime;*/
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[1];
                     timer = delayTime;
+
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 400 && mouseState.Y > 200)
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 350 && mouseState.X <= 450 && mouseState.Y >= 300)
                 {
-                    currentImageIndex--;
+                    /*currentImageIndex--;
                     if (currentImageIndex < 0)
                         currentImageIndex = 17;
+                    timer = delayTime;*/
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[2];
                     timer = delayTime;
+
                 }
-                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X > 400 && mouseState.Y > 200)
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 700 && mouseState.Y >= 150 && mouseState.Y <= 250)
                 {
-                    currentImageIndex--;
+                    /*currentImageIndex--;
                     if (currentImageIndex < 0)
                         currentImageIndex = 17;
+                    timer = delayTime;*/
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[3];
                     timer = delayTime;
+
                 }
             }
         }
