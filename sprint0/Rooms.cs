@@ -80,18 +80,36 @@ namespace sprint0
             if (timer <= 0f)
             {
                 MouseState mouseState = Mouse.GetState();
-                if (MouseController.CheckMouseStateRight())
+                if (mouseState.RightButton == ButtonState.Pressed)
+                {
+                    game1.Exit();
+                }
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 400 && mouseState.Y <= 200)
                 {
                     currentImageIndex++;
-                    if (currentImageIndex >= rooms.Length)
+                    if (currentImageIndex >= 18)
                         currentImageIndex = 0;
                     timer = delayTime;
                 }
-                else if (MouseController.CheckMouseStateLeft())
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X > 400 && mouseState.Y <= 200)
+                {
+                    currentImageIndex++;
+                    if (currentImageIndex >= 18)
+                        currentImageIndex = 0;
+                    timer = delayTime;
+                }
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 400 && mouseState.Y > 200)
                 {
                     currentImageIndex--;
                     if (currentImageIndex < 0)
-                        currentImageIndex = rooms.Length - 1;
+                        currentImageIndex = 17;
+                    timer = delayTime;
+                }
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X > 400 && mouseState.Y > 200)
+                {
+                    currentImageIndex--;
+                    if (currentImageIndex < 0)
+                        currentImageIndex = 17;
                     timer = delayTime;
                 }
             }
@@ -100,7 +118,7 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
 
-          spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[17], Color.White);
+          spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
 
 
             //if (currentImageIndex < rooms.Length)
