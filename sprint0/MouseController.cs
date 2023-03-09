@@ -69,11 +69,10 @@ namespace sprint0
         {
            bool LeftMouse = false;
 
-            // if (Mouse.GetState().LeftButton == ButtonState.Pressed)
-            if (Keyboard.GetState().IsKeyDown(Keys.F))
+            if (Mouse.GetState().LeftButton == ButtonState.Pressed)
             {
                 LeftMouse = true;
-           }
+            }
 
             return LeftMouse;
         }
@@ -82,9 +81,8 @@ namespace sprint0
         {
             bool RightMouse = false;
 
-            //  if (Mouse.GetState().RightButton == ButtonState.Pressed)
-            if (Keyboard.GetState().IsKeyDown(Keys.D))
-
+            if (Mouse.GetState().RightButton == ButtonState.Pressed)
+          
             {
                 RightMouse = true;
            }
