@@ -344,6 +344,10 @@ namespace sprint0
                     else if (enemyIndex == 3)
                     {
                         game.enemy = new BlueBlob(enemyStartPos);
+                    }
+                    else if (enemyIndex == 4)
+                    {
+                        game.enemy = new Hand(enemyStartPos);
                         enemyIndex = -1;
                     }
                     timer = delayTime;
