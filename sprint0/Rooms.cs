@@ -76,59 +76,44 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+            MouseState mouseState = Mouse.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
             if (timer <= 0f)
             {
-                MouseState mouseState = Mouse.GetState();
                 if (MouseController.CheckMouseStateRight())
                 {
                     currentImageIndex++;
                     if (currentImageIndex >= rooms.Length)
-                        currentImageIndex = 0;
+                    {
+                        currentImageIndex = rooms.Length - 1;
+                    }
                     timer = delayTime;
                 }
                 else if (MouseController.CheckMouseStateLeft())
                 {
                     currentImageIndex--;
                     if (currentImageIndex < 0)
-                        currentImageIndex = rooms.Length - 1;
+                    {
+                        currentImageIndex = 0;
+                    }
                     timer = delayTime;
                 }
             }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
+             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
 
-          spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[17], Color.White);
-
-
-            //if (currentImageIndex < rooms.Length)
+            //if ((currentImageIndex == 0 && MouseController.CheckTopDoor() == true) || (currentImageIndex == 4 && MouseController.CheckBottomDoor() == true))
             //{
-            //    spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-            //currentImageIndex++;
+            //    spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[4], Color.White);
 
-            //   spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-
-            //    if (currentImageIndex == 1)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[1], Color.White);
-            //    }
-            //    if (currentImageIndex == 2)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[2], Color.White);
-            //    }
-            //    if (currentImageIndex == 5)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[5], Color.White);
-            //    }
-            //    if (currentImageIndex == 11)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[11], Color.White);
-            //    }
-            //    else
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
             //}
+
+
         }
     }
 }
