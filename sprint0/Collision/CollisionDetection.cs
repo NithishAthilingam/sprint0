@@ -11,9 +11,36 @@ namespace sprint0.Collision
     {
         public static string GetDirection(Rectangle collider, Rectangle victim)
         {
-            string intersection = "a";
+            string colide = "a";
+            Rectangle intersect = Rectangle.Intersect(collider, victim);
 
-            return intersection;
+            if(intersect.IsEmpty)
+            {
+                colide = "none";
+            }
+            else if(intersect.Height > intersect.Width) { 
+                if(collider.X < victim.X)
+                {
+                    colide = "lr";
+                }
+                else
+                {
+                    colide = "rl";
+                }
+            }
+            else
+            {
+                if(intersect.Y < victim.Y)
+                {
+                    colide = "bt";
+                }
+                else
+                {
+                    colide = "tb";
+                }
+            }
+
+            return colide;
         }
     }
 }
