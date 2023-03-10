@@ -39,7 +39,7 @@ namespace sprint0
 
             rooms = new Rectangle[18];
             //enter
-            rooms[0] = new Rectangle(509, 840, 256, 168);
+            rooms[0] = new Rectangle(509   , 840, 256, 168);
             //l
             rooms[1] = new Rectangle(254, 840, 256, 168);
             //r
@@ -75,6 +75,7 @@ namespace sprint0
             //fflfrfflb
             rooms[17] = new Rectangle(257, 168, 255, 152);
             myRooms = new Dictionary<int, int[]>()
+
             {
                 {0, new int[] {3,1,0,2} },
                 {1, new int[] {0,0,0,0} },
