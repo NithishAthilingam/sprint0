@@ -26,7 +26,7 @@ namespace sprint0
         Rectangle[] rooms;
         Dictionary<int, int[]> myRooms;
         Dictionary<int, int[]> temp;
-        MouseState mouseState;
+        Color cal = Color.White;
 
         public Rooms(Texture2D r, Game1 game)
         {
@@ -36,11 +36,10 @@ namespace sprint0
             currentImageIndex = 0;
             delayTime = 500f;
             timer = 0f;
-            mouseState = Mouse.GetState();
 
             rooms = new Rectangle[18];
             //enter
-            rooms[0] = new Rectangle(510, 840, 256, 168);
+            rooms[0] = new Rectangle(509, 840, 256, 168);
             //l
             rooms[1] = new Rectangle(254, 840, 256, 168);
             //r
@@ -48,23 +47,23 @@ namespace sprint0
             //f
             rooms[3] = new Rectangle(511, 672, 256, 168);
             //ff
-            rooms[4] = new Rectangle(511, 504, 256, 168);
+            rooms[4] = new Rectangle(510, 504, 256, 168);
             //ffr
-            rooms[5] = new Rectangle(765, 504, 256, 168);
+            rooms[5] = new Rectangle(766, 504, 256, 168);
             //ffl
             rooms[6] = new Rectangle(254, 504, 256, 168);
             //fflf
-            rooms[7] = new Rectangle(254, 336, 256, 168);
+            rooms[7] = new Rectangle(256, 336, 256, 168);
             //fflfl
             rooms[8] = new Rectangle(0, 336, 256, 168);
             //fflfr
-            rooms[9] = new Rectangle(510, 336, 256, 168);
+            rooms[9] = new Rectangle(511, 336, 256, 168);
             //fflfrr
             rooms[10] = new Rectangle(767, 336, 256, 168);
             //fflfrrr
             rooms[11] = new Rectangle(1022, 336, 256, 168);
             //fflfrrrf
-            rooms[12] = new Rectangle(1022, 168, 256, 168);
+            rooms[12] = new Rectangle(1023, 168, 256, 168);
             //fflfrrrfr
             rooms[13] = new Rectangle(1279, 168, 256, 168);
             //fflfrf
@@ -82,7 +81,7 @@ namespace sprint0
                 {1, new int[] {0,0,0,0} },
                 {2, new int[] {0,0,0,0} },
                 {3, new int[] {4,0,0,0} },
-                {4, new int[] {0,6,4,5} },
+                {4, new int[] {0,6,3,5} },
                 {5, new int[] {0,4,0,0} },
                 {6, new int[] {7,0,0,4} },
                 {7, new int[] {0,8,6,9} },
@@ -103,98 +102,103 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
-            MouseState mouseState = Mouse.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
             if (timer <= 0f)
             {
-                if (MouseController.CheckMouseStateRight())
+                MouseState mouseState = Mouse.GetState();
+                if (mouseState.RightButton == ButtonState.Pressed)
                 {
-                    currentImageIndex++;
-                    if (currentImageIndex >= rooms.Length)
+                    if(cal == Color.White)
                     {
-                        currentImageIndex = rooms.Length - 1;
+                        cal = Color.Magenta;
+                    }
+                    else
+                    {
+                        cal = Color.White;
+
                     }
                     timer = delayTime;
+
                 }
-                else if (MouseController.CheckMouseStateLeft())
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 350 && mouseState.X <= 450 && mouseState.Y <= 100)
                 {
-                    currentImageIndex--;
-                    if (currentImageIndex < 0)
-                    {
+                    /*currentImageIndex++;
+                    if (currentImageIndex >= 18)
                         currentImageIndex = 0;
-                    }
-                    if (mouseState.RightButton == ButtonState.Pressed)
-                    {
-                        game1.Exit();
-                    }
-                    else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 350 && mouseState.X <= 450 && mouseState.Y <= 100)
-                    {
-                        /*currentImageIndex++;
-                        if (currentImageIndex >= 18)
-                            currentImageIndex = 0;
-                        timer = delayTime;
-                        */
-                        int[] x = myRooms[currentImageIndex];
-                        currentImageIndex = x[0];
-                        timer = delayTime;
-                    }
-                    else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 100 && mouseState.Y >= 150 && mouseState.Y <= 250)
-                    {
-                        /*currentImageIndex++;
-                        if (currentImageIndex >= 18)
-                            currentImageIndex = 0;
-                        timer = delayTime;*/
-                        int[] x = myRooms[currentImageIndex];
-                        currentImageIndex = x[1];
-                        timer = delayTime;
-
-                    }
-                    else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 350 && mouseState.X <= 450 && mouseState.Y >= 300)
-                    {
-                        /*currentImageIndex--;
-                        if (currentImageIndex < 0)
-                            currentImageIndex = 17;
-                        timer = delayTime;*/
-                        int[] x = myRooms[currentImageIndex];
-                        currentImageIndex = x[2];
-                        timer = delayTime;
-
-                    }
-                    else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 700 && mouseState.Y >= 150 && mouseState.Y <= 250)
-                    {
-                        /*currentImageIndex--;
-                        if (currentImageIndex < 0)
-                            currentImageIndex = 17;
-                        timer = delayTime;*/
-                        int[] x = myRooms[currentImageIndex];
-                        currentImageIndex = x[3];
-                        timer = delayTime;
-
-                    }
+                    timer = delayTime;
+                    */
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[0];
+                    timer = delayTime;
                 }
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X <= 100 && mouseState.Y >= 150 && mouseState.Y <= 250)
+                {
+                    /*currentImageIndex++;
+                    if (currentImageIndex >= 18)
+                        currentImageIndex = 0;
+                    timer = delayTime;*/
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[1];
+                    timer = delayTime;
 
+                }
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 350 && mouseState.X <= 450 && mouseState.Y >= 300)
+                {
+                    /*currentImageIndex--;
+                    if (currentImageIndex < 0)
+                        currentImageIndex = 17;
+                    timer = delayTime;*/
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[2];
+                    timer = delayTime;
+
+                }
+                else if (mouseState.LeftButton == ButtonState.Pressed && mouseState.X >= 700 && mouseState.Y >= 150 && mouseState.Y <= 250)
+                {
+                    /*currentImageIndex--;
+                    if (currentImageIndex < 0)
+                        currentImageIndex = 17;
+                    timer = delayTime;*/
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[3];
+                    timer = delayTime;
+
+                }
             }
         }
 
-            public void Draw(SpriteBatch spriteBatch)
-            {
-                spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+        public void Draw(SpriteBatch spriteBatch)
+        {
 
-                //if ((currentImageIndex == 0 && MouseController.CheckTopDoor() == true) || (currentImageIndex == 4 && MouseController.CheckBottomDoor() == true))
-                spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+            spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], cal);
 
 
-                //if (currentImageIndex < rooms.Length)
-                //{
-                //    spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[4], Color.White);
+            //if (currentImageIndex < rooms.Length)
+            //{
+            //    spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+            //currentImageIndex++;
 
-                //}
+            //   spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
 
-
-            }
+            //    if (currentImageIndex == 1)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[1], Color.White);
+            //    }
+            //    if (currentImageIndex == 2)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[2], Color.White);
+            //    }
+            //    if (currentImageIndex == 5)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[5], Color.White);
+            //    }
+            //    if (currentImageIndex == 11)
+            //    {
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[11], Color.White);
+            //    }
+            //    else
+            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
+            //}
         }
     }
-
-
-
+}
