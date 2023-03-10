@@ -76,6 +76,7 @@ namespace sprint0
             //fflfrfflb
             rooms[17] = new Rectangle(257, 168, 255, 152);
             myRooms = new Dictionary<int, int[]>()
+
             {
                 {0, new int[] {3,1,0,2} },
                 {1, new int[] {0,0,0,0} },
