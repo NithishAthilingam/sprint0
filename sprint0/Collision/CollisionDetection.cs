@@ -9,34 +9,34 @@ namespace sprint0.Collision
 {
     public static class CollisionDetection
     {
-        public static string GetDirection(Rectangle collider, Rectangle victim)
+        public static char GetDirection(Rectangle collider, Rectangle victim)
         {
-            string colide = "a";
+            char colide = 'o';
             Rectangle intersect = Rectangle.Intersect(collider, victim);
 
             if(intersect.IsEmpty)
             {
-                colide = "none";
+                colide = 'o';
             }
             else if(intersect.Height > intersect.Width) { 
                 if(collider.X < victim.X)
                 {
-                    colide = "lr";
+                    colide = 'd';
                 }
                 else
                 {
-                    colide = "rl";
+                    colide = 'a';
                 }
             }
             else
             {
                 if(intersect.Y < victim.Y)
                 {
-                    colide = "bt";
+                    colide = 'w';
                 }
                 else
                 {
-                    colide = "tb";
+                    colide = 's';
                 }
             }
 
