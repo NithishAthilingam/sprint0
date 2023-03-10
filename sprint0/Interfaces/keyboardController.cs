@@ -165,7 +165,7 @@ namespace sprint0
             {
                 direc = 'd';
                 game.sprite = new RightSprite(pos);
-                if (pos.X < 800 - 45 - 90)
+                if (pos.X < 800 -45 - 90 )
                 {
                     framesForRight++;
                     if (framesForRight <= 9)
@@ -187,7 +187,18 @@ namespace sprint0
                 }
                 else
                 {
-                    pos.X = 800 - 45 - 90;
+                    if(pos.Y>200 && pos.Y < 250)
+                    {
+                        game.sprite = new RightSprite(pos);
+
+                        pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
+
+                    }
+                    else
+                    {
+                        pos.X = 800 - 45 - 90;
+                    }
                     game.linkPos.X = pos.X;
                 }
 
