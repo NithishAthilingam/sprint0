@@ -17,15 +17,6 @@ namespace sprint0
         private int frames = 0;
         Rectangle[] hand;
         Rectangle source2;
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
-
-
 
         public Hand(Vector2 pos)
         {
@@ -37,16 +28,6 @@ namespace sprint0
             hand[0] = new Rectangle(270, 0, 22, 22);
             hand[1] = new Rectangle(270, 25, 22, 22);
             source2 = hand[0];
-
-            previousA = 1;
-            currentA = 2;
-            tt = 0;
-            speed = 200;
-
-            middle = 2;
-            left = 0;
-            right = 1;
-
         }
 
         public void Update(GameTime gameTime, Game1 game)
@@ -83,31 +64,6 @@ namespace sprint0
             {
                 thisPos.X = 0;
             }
-            //projectile
-            //if (tt > speed)
-            //{
-            //    if (currentA == middle)
-            //    {
-            //        if (previousA == left)
-            //        {
-            //            currentA = right;
-            //        }
-            //        else
-            //        {
-            //            currentA = left;
-            //        }
-            //        previousA = currentA;
-            //    }
-            //    else
-            //    {
-            //        currentA = middle;
-            //    }
-            //    tt = 0;
-            //}
-            //else
-            //{
-            //    tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            //}
 
 
         }

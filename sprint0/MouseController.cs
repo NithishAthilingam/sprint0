@@ -14,7 +14,7 @@ namespace sprint0
         //Point mousePosition;
 
 
-        Rectangle rectangle;
+        //Rectangle rectangle;
 
         public MouseController()
         {
