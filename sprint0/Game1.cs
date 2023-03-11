@@ -44,8 +44,8 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-        private MouseController MouseController;
 
+        private MouseController MouseController;
 
         private Texture2D dungeon;
 
@@ -54,9 +54,6 @@ namespace sprint0
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
-
-
-
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
@@ -68,7 +65,6 @@ namespace sprint0
 
         private float angle;
         private float scale;
-
 
         private SpriteFont font;
 
@@ -83,7 +79,8 @@ namespace sprint0
         public Vector2 pos0;
         public Vector2 healthPos;
         private Isprite TextSprite;
-        public Content.IShoot item;
+        public Content.IShoot items;
+        public Item item;
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
@@ -166,7 +163,7 @@ namespace sprint0
 
             throwFire = new InitialFire();
            // item = new Item(zelda, spritesEnemies, spritesItems);
-            blocks = new Blocks(b);
+            blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems,pos,direc);
         }
 

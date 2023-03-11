@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace sprint0
+namespace sprint0.Content
 {
     public interface IShoot
     {
