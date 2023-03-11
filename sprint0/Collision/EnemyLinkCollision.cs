@@ -14,6 +14,7 @@ namespace sprint0.Collision
         int frame =0;
         public void Update(GameTime gameTime, Game1 game)
         {
+            char x = CollisionDetection.GetDirection(NULL, NULL);
             frame++;
             if (game.EnemyPos.X - game.linkPos.X  < 20 )
             {
