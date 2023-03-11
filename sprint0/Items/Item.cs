@@ -2,11 +2,15 @@
 using Microsoft.Xna.Framework;
 using sprint0.Content;
 using Microsoft.Xna.Framework.Input;
+using System.ComponentModel;
+
 namespace sprint0
 {
-    public class Item : Content.IShoot
+    public class Item : IItem
     {
         Rectangle[] recs;
+        Rectangle[] rectangles;
+
         Rectangle[] hearts;
         Rectangle[] diamonds;
         Rectangle[] tri;
@@ -100,6 +104,12 @@ namespace sprint0
 
             des = new Rectangle(600, 200, 80, 80);
 
+        }
+
+        public Item(Texture2D zelda, Texture2D fireTex, Texture2D items, Rectangle rectangle)
+        {
+            // Initialization code for other fields and properties
+            rectangles = new Rectangle[] { rectangle };
         }
 
         public void Update(GameTime gameTime)

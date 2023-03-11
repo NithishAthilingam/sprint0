@@ -15,12 +15,14 @@ using System.Reflection;
 #pragma warning restore CS0105 // The using directive for 'Microsoft.Xna.Framework.Graphics' appeared previously in this namespace
 namespace sprint0
 {
-    public class Blocks : Content.IShoot
+    public class Blocks : IItem
     {
         Rectangle[] recs;
 
         int currentImageIndex;
         private Texture2D b;
+        private Texture2D d;
+
 
         float delayTime;
         float timer;
@@ -28,16 +30,17 @@ namespace sprint0
 
 
 
-        public Blocks(Texture2D blocks)
+        public Blocks(Texture2D blocks, Texture2D dungeon)
         {
             currentImageIndex = 0;
             b = blocks;
+            d = dungeon;
+
             recs = new Rectangle[13];
 
             delayTime = 500f;
             timer = 0f;
 
-            recs = new Rectangle[8];
 
             recs[0] = new Rectangle(24, 31, 123, 123);
 
@@ -56,6 +59,11 @@ namespace sprint0
             recs[6] = new Rectangle(330, 179, 146, 146);
 
             recs[7] = new Rectangle(496, 173, 143, 147);
+
+    
+
+
+
 
             des = new Rectangle(100, 400, 50, 50);
 
@@ -90,17 +98,15 @@ namespace sprint0
                 }
             }
 
-
-
-         
-
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-        spriteBatch.Draw(b, des, recs[currentImageIndex], Color.White);
-        }
+          spriteBatch.Draw(b, des, recs[currentImageIndex], Color.White);
+
 
         }
+
+    }
     }
 

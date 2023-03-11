@@ -2,9 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace sprint0.Content
+namespace sprint0
 {
-	public interface IShoot
+	public interface IItem
 	{
 
         public void Update(GameTime gameTime);

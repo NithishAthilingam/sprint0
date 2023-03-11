@@ -87,6 +87,10 @@ namespace sprint0
 
 
         }
+
+        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
+        {
+        }
     }
 }
 
