@@ -44,13 +44,9 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-<<<<<<< HEAD
-=======
+
 
         private Texture2D health;
-
-        private MouseController MouseController;
->>>>>>> d97ff6353d2966f0380d87f1a0d1426d3c98a424
 
         private MouseController MouseController;
 
@@ -58,12 +54,11 @@ namespace sprint0
 
         public Vector2 linkPos;
         public Vector2 EnemyPos;
-<<<<<<< HEAD
+
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
-=======
->>>>>>> d97ff6353d2966f0380d87f1a0d1426d3c98a424
+
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
@@ -73,12 +68,9 @@ namespace sprint0
 
         private Rectangle banana;
 
-<<<<<<< HEAD
         private float angle;
         private float scale;
 
-=======
->>>>>>> d97ff6353d2966f0380d87f1a0d1426d3c98a424
         private SpriteFont font;
 
         public bool facingDown;
