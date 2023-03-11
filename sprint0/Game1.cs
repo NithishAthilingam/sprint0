@@ -34,7 +34,7 @@ namespace sprint0
         public IHealthBar healthbar;
         public ICollision collide;
         private List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[15];
+        private Texture2D[] Animate = new Texture2D[16];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -44,6 +44,9 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+
+        private Texture2D health;
+
         private MouseController MouseController;
 
 
@@ -51,12 +54,6 @@ namespace sprint0
 
         public Vector2 linkPos;
         public Vector2 EnemyPos;
-        RenderTarget2D renderTarget;
-        Rectangle des1;
-        Rectangle des2;
-
-
-
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
@@ -66,10 +63,6 @@ namespace sprint0
 
         private Rectangle banana;
 
-        private float angle;
-        private float scale;
-
-
         private SpriteFont font;
 
         public bool facingDown;
@@ -78,7 +71,6 @@ namespace sprint0
         public bool facingLeft;
 
         private char direc = 'd';
-        //private int press;
         public Vector2 pos;
         public Vector2 pos0;
         public Vector2 healthPos;
@@ -100,7 +92,6 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
             pos = new Vector2(220, 100);
-
             base.Initialize();
         }
 
@@ -153,7 +144,8 @@ namespace sprint0
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-
+            health = Content.Load<Texture2D>("Hearts");
+            Animate[15] = health;
 
 
             rooms = new Rooms(dungeon,this);
@@ -204,9 +196,8 @@ namespace sprint0
 
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
+            
             rooms.Draw(spriteBatch);
-
             throwFire.Draw(spriteBatch, Animate, pos);
 
             //angle = (float)Math.PI / 2.0f;  // 90 degrees

@@ -12,20 +12,11 @@ namespace sprint0
 
         float delayTime;
         float timer;
-        Rectangle des;
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
         int currentImageIndex;
         private Texture2D room;
         private Game1 game1;
         Rectangle[] rooms;
         Dictionary<int, int[]> myRooms;
-        Dictionary<int, int[]> temp;
         Color cal = Color.White;
 
         public Rooms(Texture2D r, Game1 game)
@@ -170,34 +161,7 @@ namespace sprint0
         {
 
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], cal);
-
-
-            //if (currentImageIndex < rooms.Length)
-            //{
-            //    spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-            //currentImageIndex++;
-
-            //   spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-
-            //    if (currentImageIndex == 1)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[1], Color.White);
-            //    }
-            //    if (currentImageIndex == 2)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[2], Color.White);
-            //    }
-            //    if (currentImageIndex == 5)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[5], Color.White);
-            //    }
-            //    if (currentImageIndex == 11)
-            //    {
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[11], Color.White);
-            //    }
-            //    else
-            //        spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], Color.White);
-            //}
+            
         }
     }
 }
