@@ -44,19 +44,10 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
         private Texture2D health;
 
         private MouseController MouseController;
-<<<<<<< Updated upstream
-=======
-
-        //private MouseController MouseController;
->>>>>>> Stashed changes
 
         private Texture2D dungeon;
 
@@ -66,10 +57,6 @@ namespace sprint0
         RenderTarget2D renderTarget;
         Rectangle des1;
         Rectangle des2;
-<<<<<<< Updated upstream
-
-=======
->>>>>>> Stashed changes
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
