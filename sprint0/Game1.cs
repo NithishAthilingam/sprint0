@@ -151,7 +151,7 @@ namespace sprint0
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-            health = Content.Load<Texture2D>("Hearts");
+           // health = Content.Load<Texture2D>("Hearts");
             Animate[15] = health;
 
 
