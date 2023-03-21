@@ -193,7 +193,7 @@
 /processorParam:TextureFormat=Color
 /build:Dungeon.png
 
-#begin health.png
+#begin HealthHearts.png
 /importer:TextureImporter
 /processor:TextureProcessor
 /processorParam:ColorKeyColor=255,0,255,255
@@ -203,7 +203,7 @@
 /processorParam:ResizeToPowerOfTwo=False
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
-/build:health.png
+/build:HealthHearts.png
 
 #begin NES - The Legend of Zelda - Items & Weapons.png
 /importer:TextureImporter
