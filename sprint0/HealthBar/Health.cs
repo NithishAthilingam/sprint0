@@ -11,15 +11,17 @@ namespace sprint0.HealthBar
         private List<Rectangle> hearts;
         private Rectangle fullHeart;
         private Rectangle halfHeart;
+        private Rectangle emptyHeart;
         private Rectangle des;
 
         public Health(int health)
 		{
             thisHealth = health;
             hearts = new List<Rectangle>();
-            fullHeart = new Rectangle(0, 190, 154, 137);
-            halfHeart = new Rectangle(345, 190, 154, 137);
-            des = new Rectangle(100, 100, 19, 17);
+            fullHeart = new Rectangle(36, 16, 98, 98);
+            halfHeart = new Rectangle(146, 16, 98, 98);
+            emptyHeart = new Rectangle(256, 16, 98, 98);
+            des = new Rectangle(100, 100, 19, 19);
             hearts.Add(fullHeart);
             hearts.Add(fullHeart);
             hearts.Add(fullHeart);

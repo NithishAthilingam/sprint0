@@ -17,6 +17,7 @@ using sprint0.Interfaces;
 using sprint0.Items;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
+//using Vector2 = Microsoft.Xna.Framework.Vector2;
 //using Microsoft.Xna.Framework.Net;
 //using Microsoft.Xna.Framework.Storage;
 
@@ -123,14 +124,14 @@ namespace sprint0
             spritesEnemies = Content.Load<Texture2D>("sprites-enemies");
             Animate[7] = spritesEnemies;
             b = Content.Load<Texture2D>("blocks2");
-            spritesItems= Content.Load<Texture2D>("sprites-items");
+            spritesItems = Content.Load<Texture2D>("sprites-items");
             deathEffect = Content.Load<Texture2D>("death-effects");
             nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
             boomerang = Content.Load<Texture2D>("boomerang");
 
             dungeon = Content.Load<Texture2D>("Dungeon");
             Animate[14] = dungeon;
-          
+
             Animate[8] = b;
 
             Animate[9] = spritesItems;
@@ -151,11 +152,11 @@ namespace sprint0
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-            health = Content.Load<Texture2D>("Hearts");
+            health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
 
-            rooms = new Rooms(dungeon,this);
+            rooms = new Rooms(dungeon, this);
 
 
             font = Content.Load<SpriteFont>("Score");
@@ -164,9 +165,9 @@ namespace sprint0
             item = new Item(zelda, spritesEnemies, spritesItems);
 
             throwFire = new InitialFire();
-           // item = new Item(zelda, spritesEnemies, spritesItems);
+            // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
-            projectiles = new Projectiles(this, spritesItems,pos,direc);
+            projectiles = new Projectiles(this, spritesItems, pos, direc);
         }
 
         protected override void UnloadContent()
@@ -200,10 +201,9 @@ namespace sprint0
         protected override void Draw(GameTime gameTime)
         {
             banana = new Rectangle(128, 0, 7, 10);
-
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            
+
             rooms.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
 
