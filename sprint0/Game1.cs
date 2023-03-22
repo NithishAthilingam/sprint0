@@ -152,7 +152,11 @@ namespace sprint0
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
+<<<<<<< HEAD
+           // health = Content.Load<Texture2D>("Hearts");
+=======
             health = Content.Load<Texture2D>("HealthHearts");
+>>>>>>> b0d5d1e8e39b524bdab562f3bacc3c186844e86d
             Animate[15] = health;
 
 
