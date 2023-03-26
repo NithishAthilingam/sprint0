@@ -6,7 +6,6 @@ using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-//using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -17,9 +16,6 @@ using sprint0.Interfaces;
 using sprint0.Items;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
-//using Vector2 = Microsoft.Xna.Framework.Vector2;
-//using Microsoft.Xna.Framework.Net;
-//using Microsoft.Xna.Framework.Storage;
 
 namespace sprint0
 {
@@ -153,10 +149,8 @@ namespace sprint0
             Animate[13] = boomerang;
 
 
-           // health = Content.Load<Texture2D>("Hearts");
-
             health = Content.Load<Texture2D>("HealthHearts");
-
+            health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
 
