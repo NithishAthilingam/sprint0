@@ -6,7 +6,6 @@ using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-//using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -17,9 +16,6 @@ using sprint0.Interfaces;
 using sprint0.Items;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
-//using Vector2 = Microsoft.Xna.Framework.Vector2;
-//using Microsoft.Xna.Framework.Net;
-//using Microsoft.Xna.Framework.Storage;
 
 namespace sprint0
 {
@@ -55,9 +51,9 @@ namespace sprint0
         public Vector2 linkPos;
         public Vector2 EnemyPos;
 
-        RenderTarget2D renderTarget;
-        Rectangle des1;
-        Rectangle des2;
+        //RenderTarget2D renderTarget;
+        //Rectangle des1;
+        //Rectangle des2;
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
@@ -67,10 +63,10 @@ namespace sprint0
 
         private Rectangle banana;
 
-        private float angle;
-        private float scale;
+        //private float angle;
+        //private float scale;
 
-        private SpriteFont font;
+        //private SpriteFont font;
 
         public bool facingDown;
         public bool facingUp;
@@ -153,6 +149,10 @@ namespace sprint0
             Animate[13] = boomerang;
 
            // health = Content.Load<Texture2D>("Hearts");
+<<<<<<< HEAD
+=======
+
+>>>>>>> 73a05a0f32da249f063b37ffb6a115982fa9e23d
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
@@ -160,7 +160,7 @@ namespace sprint0
             rooms = new Rooms(dungeon, this);
 
 
-            font = Content.Load<SpriteFont>("Score");
+            //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
             item = new Item(zelda, spritesEnemies, spritesItems);
@@ -212,7 +212,7 @@ namespace sprint0
             //scale = 1.0f;
 
             shoot.Draw(spriteBatch, Animate, pos);
-            TextSprite.Draw(spriteBatch, font);
+            //TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);
 
