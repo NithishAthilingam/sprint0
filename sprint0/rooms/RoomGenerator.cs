@@ -21,7 +21,6 @@ namespace sprint0
         public void ReadFile()
         {
             StreamReader reader;
-
         }
 
 
