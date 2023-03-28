@@ -40,7 +40,11 @@ namespace sprint0.Collision
 
                 }
             } */
-            if(EnemyBound.Intersects(game.linkBound))
+            /*if(EnemyBound.Intersects(game.linkBound))
+            {
+                game.sprite = new DamagedSprite(game.linkPos);
+            }*/
+            if (new Rectangle(0,0,0,0).Intersects(new Rectangle(0,0,0,0)))
             {
                 game.sprite = new DamagedSprite(game.linkPos);
             }

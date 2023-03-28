@@ -15,43 +15,35 @@ namespace sprint0.Items
         private Vector2 originalPos;
         private int frame;
         private Boolean draw;
+        private Boolean drawExplode;
         Rectangle[] explode;
-        private int current;
 
         public GreenArrowLeft(Vector2 arrowPos)
         {
             thisPos = arrowPos;
             thisPos.Y -= 10;
-            thisPos.X -= 55;
+            thisPos.X += 5;
             originalPos = arrowPos;
-            current = 0;
             frame = 0;
             draw = true;
-            explode = new Rectangle[5];
+            explode = new Rectangle[2];
             explode[0] = new Rectangle(140, 190, 30, 20);
             explode[1] = new Rectangle(118, 282, 18, 21);
-            explode[2] = new Rectangle(148, 282, 18, 21);
-            explode[3] = new Rectangle(178, 282, 18, 21);
-            explode[4] = new Rectangle(208, 282, 18, 21);
-            //136, 302
         }
 
         public void Update(GameTime gameTime)
         {
             frame++;
-            /*thisPos.X -= 2;*/
+            /*thisPos.X += 2;*/
             if (originalPos.X - thisPos.X > 250)
             {
-                if(frame % 10 == 0 && current < 4)
-                {
-                    current += 1;
-                }
+                drawExplode = true;
             }
             else
             {
                 thisPos.X -= 2;
             }
-            if (frame > 150)
+            if (frame > 135)
             {
                 draw = false;
             }
@@ -61,7 +53,14 @@ namespace sprint0.Items
         {
             if (draw)
             {
-                spriteBatch.Draw(animate[4], thisPos, explode[current], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                if (!drawExplode)
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X-60,thisPos.Y), explode[0], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X - 25, thisPos.Y + 10), explode[1], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
             }
         }
     }

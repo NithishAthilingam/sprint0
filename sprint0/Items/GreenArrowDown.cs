@@ -15,17 +15,19 @@ namespace sprint0.Items
         private Vector2 originalPos;
         private int frame;
         private Boolean draw;
+        private Boolean drawExplode;
         Rectangle[] explode;
-        private int current;
+
 
         public GreenArrowDown(Vector2 arrowPos)
         {
             thisPos = arrowPos;
             thisPos.Y += 25;
             originalPos = arrowPos;
-            current = 0;
+
             frame = 0;
             draw = true;
+            drawExplode = false;
             explode = new Rectangle[2];
             explode[0] = new Rectangle(120, 190, 20, 20);
             explode[1] = new Rectangle(200, 270, 30, 30);
@@ -37,7 +39,7 @@ namespace sprint0.Items
             //thisPos.Y += 2;
             if (thisPos.Y - 250 > originalPos.Y)
             {
-                current = 1;
+                drawExplode = true;
             }
             else
             {
@@ -51,9 +53,16 @@ namespace sprint0.Items
 
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos)
         {
-            if (draw)
+            if(draw)
             {
-                spriteBatch.Draw(animate[4], thisPos, explode[current], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                if (!drawExplode)
+                {
+                    spriteBatch.Draw(animate[4], thisPos, explode[0], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X - 25, thisPos.Y - 40), explode[1], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
             }
         }
     }
