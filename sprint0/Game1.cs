@@ -53,6 +53,7 @@ namespace sprint0
         private Texture2D dungeon;
 
         public Vector2 linkPos;
+        public Rectangle linkBound;
         public Vector2 EnemyPos;
 
         //RenderTarget2D renderTarget;
@@ -145,8 +146,10 @@ namespace sprint0
             sprite = new RSprite(pos, direc);
             enemy = new DragonSprite1(new Vector2(550, 250));
             shoot = new initial();
-            collide = new EnemyLinkCollision();
+            collide = new BlockCollision();
             MouseController = new MouseController();
+            linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
+
 
 
             room = Content.Load<Texture2D>("rooms");
