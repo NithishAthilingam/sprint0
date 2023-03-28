@@ -152,10 +152,9 @@ namespace sprint0
             Animate[13] = boomerang;
 
            // health = Content.Load<Texture2D>("Hearts");
-<<<<<<< HEAD
-=======
 
->>>>>>> 73a05a0f32da249f063b37ffb6a115982fa9e23d
+
+
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
