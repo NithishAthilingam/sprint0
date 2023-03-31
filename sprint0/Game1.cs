@@ -30,6 +30,7 @@ namespace sprint0
         public Rooms rooms;
         public IHealthBar healthbar;
         public ICollision collide;
+        public ICollision collideA;
         private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[16];
         private Texture2D spriteA;
@@ -138,11 +139,12 @@ namespace sprint0
             Animate[11] = boomerang;
 
             Animate[12] = spritesEnemies;
-
+            EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
-            enemy = new DragonSprite1(new Vector2(550, 250));
+            enemy = new DragonSprite1(EnemyPos);
             shoot = new initial();
             collide = new BlockCollision();
+            collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
             linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
 
@@ -197,6 +199,7 @@ namespace sprint0
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this);
+            collideA.Update(gameTime, this);
             MouseController.Update(gameTime);
             base.Update(gameTime);
         }

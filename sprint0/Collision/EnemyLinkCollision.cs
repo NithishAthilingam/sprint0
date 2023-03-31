@@ -12,14 +12,35 @@ namespace sprint0.Collision
     internal class EnemyLinkCollision : ICollision
     {
         int frame =0;
+        char x;
+        Rectangle link;
+        Rectangle enemy;
 
         public void Update(GameTime gameTime, Game1 game)
         {
-            //char x = CollisionDetection.GetDirection(NULL, NULL);
+            link = new Rectangle((int)game.linkPos.X, (int)game.linkPos.Y, 60, 60);
+            enemy = new Rectangle((int)game.EnemyPos.X, (int)game.EnemyPos.Y, 90, 105);
+            x = CollisionDetection.GetDirection(link, enemy);
             frame++;
-            if (game.EnemyPos.X - game.linkPos.X  < 20 )
+            if (x!='o')
             {
                 game.sprite = new DamagedSprite(game.linkPos);
+                if(x == 'w')
+                {
+
+                }
+                else if(x == 'a')
+                {
+
+                }
+                else if (x == 's')
+                {
+
+                }
+                else if (x == 'd')
+                {
+
+                }
             }
         }
 
