@@ -53,7 +53,8 @@ namespace sprint0
             game.sprite = new RSprite(pos, direc);
 
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
+            pos.X = game.linkPos.X;
+            pos.Y = game.linkPos.Y;
 
 
             if (userInput.IsKeyDown(Keys.E))

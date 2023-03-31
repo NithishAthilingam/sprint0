@@ -24,22 +24,26 @@ namespace sprint0.Collision
             frame++;
             if (x!='o')
             {
-                game.sprite = new DamagedSprite(game.linkPos);
+                //game.sprite = new DamagedSprite(game.linkPos);
                 if(x == 'w')
                 {
-
+                    //game.sprite = new UpSprite(game.linkPos);
+                    game.linkPos.Y -= 10;
                 }
                 else if(x == 'a')
                 {
-
+                    //game.sprite = new LeftSprite(game.linkPos);
+                    game.linkPos.X -= 10;
                 }
                 else if (x == 's')
                 {
-
+                    //game.sprite = new DownSprite(game.linkPos);
+                    game.linkPos.Y += 10;
                 }
                 else if (x == 'd')
                 {
-
+                    //game.sprite = new RightSprite(game.linkPos);
+                    game.linkPos.X += 10;
                 }
             }
         }
