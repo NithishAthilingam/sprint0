@@ -120,6 +120,12 @@ namespace sprint0
                     {
                         framesForLeft = 0;
                     }
+                } else if (pos.Y > 220 && pos.Y < 230)
+                {
+                    game.sprite = new LeftSprite(pos);
+
+                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    game.linkPos.X = pos.X;
                 }
                 else
                 {
@@ -153,6 +159,12 @@ namespace sprint0
                     {
                         framesForDown = 0;
                     }
+                } else if (pos.X > 350 && pos.X < 395)
+                {
+                    game.sprite = new DownSprite(pos);
+
+                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    game.linkPos.X = pos.X;
                 }
                 else
                 {
@@ -366,10 +378,21 @@ namespace sprint0
         }
 
 
+
+
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(i, p, blueArrow, Color.White);
         }
 
+        public Vector2 GetLinkPos()
+        {
+            return pos;
+        }
+
+        public void SetLinkPos(Vector2 newPos)
+        {
+            pos = newPos;
+        }
     }
 }

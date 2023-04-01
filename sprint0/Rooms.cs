@@ -30,7 +30,7 @@ namespace sprint0
 
             rooms = new Rectangle[18];
             //enter
-            rooms[0] = new Rectangle(509   , 840, 256, 168);
+            rooms[0] = new Rectangle(509, 840, 256, 168);
             //l
             rooms[1] = new Rectangle(254, 840, 256, 168);
             //r

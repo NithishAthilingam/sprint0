@@ -126,6 +126,16 @@ namespace sprint0.Items
                 }
             }
         }
+
+        public Vector2 GetLinkPos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLinkPos(Vector2 newPos)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
