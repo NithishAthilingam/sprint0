@@ -6,7 +6,6 @@ using System.Reflection.Metadata;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
-//using Microsoft.Xna.Framework.GamerServices;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Media;
@@ -17,9 +16,6 @@ using sprint0.Interfaces;
 using sprint0.Items;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
-//using Vector2 = Microsoft.Xna.Framework.Vector2;
-//using Microsoft.Xna.Framework.Net;
-//using Microsoft.Xna.Framework.Storage;
 
 namespace sprint0
 {
@@ -34,7 +30,8 @@ namespace sprint0
         public Rooms rooms;
         public IHealthBar healthbar;
         public ICollision collide;
-        public List<Icontroller> controller;
+        public ICollision collideA;
+        private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[16];
         private Texture2D spriteA;
         private Texture2D spriteB;
@@ -53,11 +50,12 @@ namespace sprint0
         private Texture2D dungeon;
 
         public Vector2 linkPos;
+        public Rectangle linkBound;
         public Vector2 EnemyPos;
 
-        RenderTarget2D renderTarget;
-        Rectangle des1;
-        Rectangle des2;
+        //RenderTarget2D renderTarget;
+        //Rectangle des1;
+        //Rectangle des2;
 
         private Texture2D deathEffect;
         private Texture2D boomerang;
@@ -67,10 +65,10 @@ namespace sprint0
 
         private Rectangle banana;
 
-        private float angle;
-        private float scale;
+        //private float angle;
+        //private float scale;
 
-        private SpriteFont font;
+        //private SpriteFont font;
 
         public bool facingDown;
         public bool facingUp;
@@ -87,7 +85,6 @@ namespace sprint0
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
-        public DoorCollision doorEnter;
 
         public Game1()
         {
@@ -142,27 +139,32 @@ namespace sprint0
             Animate[11] = boomerang;
 
             Animate[12] = spritesEnemies;
-
+            EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
-            enemy = new DragonSprite1(new Vector2(550, 250));
+            enemy = new DragonSprite1(EnemyPos);
             shoot = new initial();
-            collide = new EnemyLinkCollision();
+            collide = new BlockCollision();
+            collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
+            linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
+
 
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-            health = Content.Load<Texture2D>("HealthHearts");
+           // health = Content.Load<Texture2D>("Hearts");
 
+
+
+            health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
 
             rooms = new Rooms(dungeon, this);
-            doorEnter = new DoorCollision(dungeon, this);
 
 
-            font = Content.Load<SpriteFont>("Score");
+            //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
             item = new Item(zelda, spritesEnemies, spritesItems);
@@ -192,14 +194,13 @@ namespace sprint0
             }
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this);
+            collideA.Update(gameTime, this);
             MouseController.Update(gameTime);
-     
             base.Update(gameTime);
         }
 
@@ -210,14 +211,13 @@ namespace sprint0
             spriteBatch.Begin();
 
             rooms.Draw(spriteBatch);
-            doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
 
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
             shoot.Draw(spriteBatch, Animate, pos);
-            TextSprite.Draw(spriteBatch, font);
+            //TextSprite.Draw(spriteBatch, font);
 
             enemy.Draw(spriteBatch, Animate, pos);
 
