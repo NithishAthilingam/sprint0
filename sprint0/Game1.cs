@@ -31,7 +31,7 @@ namespace sprint0
         public IHealthBar healthbar;
         public ICollision collide;
         public ICollision collideA;
-        private List<Icontroller> controller;
+        public List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[16];
         private Texture2D spriteA;
         private Texture2D spriteB;
@@ -85,6 +85,7 @@ namespace sprint0
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
+        private DoorCollision doorEnter;
 
         public Game1()
         {
@@ -162,7 +163,7 @@ namespace sprint0
 
 
             rooms = new Rooms(dungeon, this);
-
+            doorEnter = new DoorCollision(dungeon, this);
 
             //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
@@ -194,6 +195,7 @@ namespace sprint0
             }
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
+            doorEnter.Update(gameTime, this);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
@@ -211,6 +213,7 @@ namespace sprint0
             spriteBatch.Begin();
 
             rooms.Draw(spriteBatch);
+            doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
 
             //angle = (float)Math.PI / 2.0f;  // 90 degrees

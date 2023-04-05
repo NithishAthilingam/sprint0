@@ -96,7 +96,7 @@ namespace sprint0.Collision
             
             if (game.controller[0].GetLinkPos().Y > 425)
             {
-                Debug.WriteLine("Change room here");
+                Debug.WriteLine("Change room down");
                 int[] x = myRooms[currentImageIndex];
                 currentImageIndex = x[2];
                 timer = delayTime;
@@ -106,6 +106,7 @@ namespace sprint0.Collision
 
             if (game.controller[0].GetLinkPos().X > 725)
             {
+                Debug.WriteLine("Change room right");
                 int[] x = myRooms[currentImageIndex];
                 currentImageIndex = x[3];
                 timer = delayTime;
@@ -114,6 +115,7 @@ namespace sprint0.Collision
 
             if (game.controller[0].GetLinkPos().X < 75)
             {
+                Debug.WriteLine("Change room left");
                 int[] x = myRooms[currentImageIndex];
                 currentImageIndex = x[1];
                 timer = delayTime;

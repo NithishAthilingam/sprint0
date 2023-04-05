@@ -53,8 +53,8 @@ namespace sprint0
             game.sprite = new RSprite(pos, direc);
 
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            pos.X = game.linkPos.X;
-            pos.Y = game.linkPos.Y;
+            //pos.X = game.linkPos.X;
+            //pos.Y = game.linkPos.Y;
 
 
             if (userInput.IsKeyDown(Keys.E))
@@ -165,7 +165,7 @@ namespace sprint0
                     game.sprite = new DownSprite(pos);
 
                     pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    game.linkPos.X = pos.X;
+                    game.linkPos.Y = pos.Y;
                 }
                 else
                 {
