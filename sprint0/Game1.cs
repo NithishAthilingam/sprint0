@@ -60,7 +60,8 @@ namespace sprint0
         private Texture2D b;
         private Texture2D spritesEnemies;
         private Texture2D spritesItems;
-
+        private ItemFactory itemFactory;
+        private Key key;
         private Rectangle banana;
 
         //private float angle;
@@ -84,11 +85,29 @@ namespace sprint0
         private Projectiles projectiles;
         private keyboardController keyboardController;
 
+        List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
+        RoomsRoom currentRoom;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
+
+            for (int i = 1; i <= 18; i++)
+            {
+                string fileName = $"Room_{i}.xml";
+                RoomGenerator roomGenerator = new RoomGenerator(fileName);
+                roomGenerator.GenerateRooms();
+
+                RoomsRoom roomsroom = new RoomsRoom();
+                roomsroom.enemies = roomGenerator.enemies;
+                roomsroom.items = roomGenerator.items;
+                roomsroom.blocks = roomGenerator.blocks;
+                ListOfRooms.Add(roomsroom);
+            }
+            //current room is set to the first room 
+            currentRoom = ListOfRooms[0];
         }
 
         protected override void Initialize()
@@ -149,10 +168,7 @@ namespace sprint0
             Animate[13] = boomerang;
 
            // health = Content.Load<Texture2D>("Hearts");
-<<<<<<< HEAD
-=======
 
->>>>>>> 73a05a0f32da249f063b37ffb6a115982fa9e23d
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
@@ -160,10 +176,12 @@ namespace sprint0
             rooms = new Rooms(dungeon, this);
 
 
+
             //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
             item = new Item(zelda, spritesEnemies, spritesItems);
+         
 
             throwFire = new InitialFire();
             // item = new Item(zelda, spritesEnemies, spritesItems);

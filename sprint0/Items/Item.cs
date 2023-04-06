@@ -75,7 +75,6 @@ namespace sprint0
             recs[9] = new Rectangle(415, 250, 17, 30);
             //bomb
             recs[10] = new Rectangle(350, 225, 30, 30);
-
             //lady
             recs[11] = new Rectangle(150, 30, 24, 25);
             //blue dimond
@@ -196,5 +195,8 @@ namespace sprint0
 
             }
 
+        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        {
         }
+    }
     }

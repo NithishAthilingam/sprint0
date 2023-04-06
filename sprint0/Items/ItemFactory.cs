@@ -1,37 +1,54 @@
 ﻿using System;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework;
+using System.Collections.Generic;
 
 namespace sprint0
 {
 	public class ItemFactory
 	{
-		private Item[] items = new Item[11];
 
-		public ItemFactory(Texture2D zelda, Texture2D fireTex, Texture2D items)
-		{
-            this.items[0] = new Item(zelda, fireTex, items, new Rectangle(270, 225, 30, 30));
-            this.items[1] = new Item(zelda, fireTex, items, new Rectangle(270, 225, 20, 20));
-            this.items[2] = new Item(zelda, fireTex, items, new Rectangle(380, 160, 30, 30));
-            this.items[3] = new Item(zelda, fireTex, items, new Rectangle(415, 250, 17, 30));
-            this.items[4] = new Item(zelda, fireTex, items, new Rectangle(350, 225, 30, 30));
-            this.items[5] = new Item(zelda, fireTex, items, new Rectangle(290, 185, 30, 30));
-            this.items[6] = new Item(zelda, fireTex, items, new Rectangle(350, 250, 30, 30));
-            this.items[7] = new Item(zelda, fireTex, items, new Rectangle(150, 30, 24, 25));
-            this.items[8] = new Item(zelda, fireTex, items, new Rectangle(375, 250, 30, 30));
-            this.items[9] = new Item(zelda, fireTex, items, new Rectangle(350, 275, 30, 30));
-            this.items[10] = new Item(zelda, fireTex, items, new Rectangle(290, 0, 30, 30));
+        private static ItemFactory instance = new ItemFactory();
 
+        public static ItemFactory Instance
+        {
+            get
+            {
+                return instance;
+            }
         }
 
-        public Item GetItem(int index)
+
+        public ItemFactory() { }
+
+
+        public IItem CreateItem(int item, Vector2 pos)
         {
-            if (index < 0 || index >= items.Length)
+            switch (item)
             {
-                throw new IndexOutOfRangeException("Index must be between 0 and " + (items.Length - 1));
+                case 1: // arrow
+                    return new Arrow(pos);
+                case 2: // can
+                    return new Can(pos);
+                case 3: // clock
+                    return new Clock(pos);
+                case 4: // diamonds
+                    return new Diamonds(pos);
+                case 5: // fire
+                    return new Fire(pos);
+                case 6: // hearts
+                    return new Hearts(pos);
+                case 7: // hearts w/ boarder
+                    return new HeartwithBoarder(pos);
+                case 8: // key
+                    return new Key(pos);
+                case 9: // lady item
+                    return new LadyItem(pos);
+                case 10: // triangle
+                    return new Triangle(pos);
+                default:
+                    return null;
             }
-            return items[index];
         }
     }
 }
-

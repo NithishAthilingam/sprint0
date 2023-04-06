@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Input;
 using System.Collections.Generic;
 using System;
 
+
 namespace sprint0
 {
     public class Rooms
@@ -18,6 +19,11 @@ namespace sprint0
         Rectangle[] rooms;
         Dictionary<int, int[]> myRooms;
         Color cal = Color.White;
+
+
+        private List<Ienemy> enemies = new List<Ienemy>();
+        private List<IItem> items = new List<IItem>();
+        private List<IItem> blocks = new List<IItem>();
 
         public Rooms(Texture2D r, Game1 game)
         {

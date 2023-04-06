@@ -33,9 +33,6 @@ namespace sprint0
 
             thisPos.Y -= 100;
 
-
-
-
             skele = new Rectangle[2];
             skele[0] = new Rectangle(420, 118, 20, 20);
             skele[1] = new Rectangle(420, 148, 20, 20);
@@ -54,9 +51,6 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-
-
-
             if (thisPos.X > 0)
             {
                 frames++;
