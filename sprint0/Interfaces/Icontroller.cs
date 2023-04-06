@@ -12,5 +12,6 @@ namespace sprint0
         public void Update(GameTime gameTime);
         public Vector2 GetLinkPos();
         public void SetLinkPos(Vector2 newPos);
+        public void ModifyLinkPos(Vector2 mod);
     }
 }

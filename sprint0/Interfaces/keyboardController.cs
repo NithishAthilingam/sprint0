@@ -395,5 +395,10 @@ namespace sprint0
         {
             pos = newPos;
         }
+
+        public void ModifyLinkPos(Vector2 mod)
+        {
+            pos += mod;
+        }
     }
 }

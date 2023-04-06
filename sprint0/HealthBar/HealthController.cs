@@ -37,5 +37,10 @@ namespace sprint0
         {
             throw new NotImplementedException();
         }
+
+        public void ModifyLinkPos(Vector2 mod)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
