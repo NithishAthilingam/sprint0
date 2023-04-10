@@ -32,6 +32,8 @@ namespace sprint0
         public Rooms rooms;
         public IHealthBar healthbar;
         public ICollision collide;
+        public ICollision collideA;
+        public List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[16];
         private Texture2D spriteA;
         private Texture2D spriteB;
