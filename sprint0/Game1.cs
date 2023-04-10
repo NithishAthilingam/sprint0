@@ -168,11 +168,11 @@ namespace sprint0
             Animate[12] = spritesEnemies;
             EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
-<<<<<<< HEAD
+
             enemy = new DragonSprite1(Animate[7], Animate[6],new Vector2(550, 250));
-=======
+
             enemy = new DragonSprite1(EnemyPos);
->>>>>>> 4af4231f3191ede52db27ee5a857ed3a5dc0a1c4
+
             shoot = new initial();
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
@@ -186,11 +186,7 @@ namespace sprint0
 
            // health = Content.Load<Texture2D>("Hearts");
 
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 4af4231f3191ede52db27ee5a857ed3a5dc0a1c4
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
