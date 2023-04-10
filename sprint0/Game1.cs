@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Numerics;
 using System.Reflection.Metadata;
+using System.Xml.Linq;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Audio;
 using Microsoft.Xna.Framework.Content;
@@ -96,11 +98,12 @@ namespace sprint0
 
             for (int i = 1; i <= 18; i++)
             {
-                string fileName = $"Room_{i}.xml";
-                RoomGenerator roomGenerator = new RoomGenerator(fileName);
-                roomGenerator.GenerateRooms();
 
-                RoomsRoom roomsroom = new RoomsRoom();
+                string path = Path.Combine("rooms", $"room{i}.xml");
+                RoomGenerator roomGenerator = new RoomGenerator(path);
+                roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8]);
+                RoomsRoom roomsroom = new RoomsRoom(this);
+
                 roomsroom.enemies = roomGenerator.enemies;
                 roomsroom.items = roomGenerator.items;
                 roomsroom.blocks = roomGenerator.blocks;
@@ -113,7 +116,7 @@ namespace sprint0
         protected override void Initialize()
         {
             controller = new List<Icontroller>();
-            controller.Add(new keyboardController(this));
+            controller.Add(new keyboardController(Animate[7], Animate[6],this));
             pos = new Vector2(220, 100);
             base.Initialize();
         }
@@ -158,7 +161,7 @@ namespace sprint0
             Animate[12] = spritesEnemies;
 
             sprite = new RSprite(pos, direc);
-            enemy = new DragonSprite1(new Vector2(550, 250));
+            enemy = new DragonSprite1(Animate[7], Animate[6],new Vector2(550, 250));
             shoot = new initial();
             collide = new EnemyLinkCollision();
             MouseController = new MouseController();
@@ -232,7 +235,7 @@ namespace sprint0
             shoot.Draw(spriteBatch, Animate, pos);
             //TextSprite.Draw(spriteBatch, font);
 
-            enemy.Draw(spriteBatch, Animate, pos);
+           // enemy.Draw(spriteBatch, Animate, pos);
 
             item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);

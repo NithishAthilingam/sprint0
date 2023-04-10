@@ -11,11 +11,13 @@ namespace sprint0
 
         Rectangle water;
         private Vector2 thisPos;
+        Texture2D blockDraw;
 
-        public WaterBlock(Vector2 pos)
-		{
+        public WaterBlock(Texture2D blockSprite, Vector2 pos)
+        {
             water = new Rectangle(353, 80, 16, 16);
             thisPos = pos;
+            blockDraw = blockSprite;
         }
 
 
@@ -23,9 +25,9 @@ namespace sprint0
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[8], thisPos, water, Color.White);
+            spriteBatch.Draw(blockDraw, thisPos, water, Color.White);
 
         }
     }

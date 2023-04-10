@@ -11,20 +11,22 @@ namespace sprint0
 
         Rectangle right;
         private Vector2 thisPos;
+        Texture2D blockDraw;
 
-        public Room1RightBlock(Vector2 pos)
+        public Room1RightBlock(Texture2D blockSprite, Vector2 pos)
         {
             right = new Rectangle(1358, 248, 16, 16);
             thisPos = pos;
+            blockDraw = blockSprite;
         }
 
         public void Update(GameTime gameTime)
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[8], thisPos, right, Color.White);
+            spriteBatch.Draw(blockDraw, thisPos, right, Color.White);
 
         }
     }

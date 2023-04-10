@@ -8,8 +8,7 @@ namespace sprint0
 	{
         public void Update(GameTime gameTime);
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate);
-
+        public void Draw(SpriteBatch spriteBatch);
     }
 }
 

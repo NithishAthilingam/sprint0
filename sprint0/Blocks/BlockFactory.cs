@@ -23,20 +23,20 @@ namespace sprint0
         public BlockFactory() { }
 
 
-        public IBlock GetBlock(int blockIndex, Vector2 position)
+        public IBlock GetBlock(Texture2D blockSprite, int blockIndex, Vector2 position)
         {
             switch (blockIndex)
             {
                 case 1: 
-                    return new BlueBlock(position);
+                    return new BlueBlock(blockSprite,position);
                 case 2: 
-                    return new EdgeBlock(position);
+                    return new EdgeBlock(blockSprite,position);
                 case 3: 
-                    return new WaterBlock(position);
+                    return new WaterBlock(blockSprite,position);
                 case 4:
-                    return new Room1LeftBlock(position);
+                    return new Room1LeftBlock(blockSprite,position);
                 case 5:
-                    return new Room1RightBlock(position);
+                    return new Room1RightBlock(blockSprite,position);
                 default:
                     return null;
             }

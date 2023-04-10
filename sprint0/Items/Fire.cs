@@ -13,6 +13,7 @@ namespace sprint0
     {
         Rectangle[] fire;
         private Vector2 thisPos;
+        Texture2D fireDraw;
 
         float delayTime;
         float timer;
@@ -26,9 +27,9 @@ namespace sprint0
 
 
 
-        public Fire(Vector2 pos)
+        public Fire(Texture2D fireSprite,Vector2 pos)
         {
-
+            fireDraw = fireSprite;
             fire = new Rectangle[3];
             fire[0] = new Rectangle(350, 275, 30, 30);
             fire[1] = new Rectangle(350, 275, 30, 30);
@@ -80,9 +81,9 @@ namespace sprint0
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[12], thisPos, fire[currentA], Color.White);
+            spriteBatch.Draw(fireDraw, thisPos, fire[currentA], Color.White);
 
         }
     }

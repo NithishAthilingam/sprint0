@@ -1,52 +1,68 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<description>Enemy</description>
-<type>1</type>
-<position>130 47</position>
-
-<description>Enemy</description>
-<type>1</type>
-<position>115 64</position>
-
-<description>Enemy</description>
-<type>1</type>
-<position>80 80</position>
-
-<description>Item</description>
-<type>1</type>
-<position>145 95</position>
-
-<description>Item</description>
-<type>2</type>
-<position>160 111</position>
-
-<description>Item</description>
-<type>3</type>
-<position>160 80</position>
-
-<description>Item</description>
-<type>4</type>
-<position>205 96</position>
-
-<description>Item</description>
-<type>5</type>
-<position>175 112</position>
-
-<description>Item</description>
-<type>6</type>
-<position>166 88</position>
-
-<description>Item</description>
-<type>7</type>
-<position>104 104</position>
-
-<description>Item</description>
-<type>8</type>
-<position>73 121</position>
-
-<description>Item</description>
-<type>9</type>
-<position>200 84</position>
-
-<description>Item</description>
-<type>10</type>
-<position>100 88</position>
+<rooms>
+    <room>
+        <description>Enemy</description>
+        <type>1</type>
+        <position>130 47</position>
+    </room>
+    <room>
+        <description>Enemy</description>
+        <type>1</type>
+        <position>115 64</position>
+    </room>
+    <room>
+        <description>Enemy</description>
+        <type>1</type>
+        <position>80 80</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>1</type>
+        <position>145 95</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>2</type>
+        <position>160 111</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>3</type>
+        <position>160 80</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>4</type>
+        <position>205 96</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>5</type>
+        <position>175 112</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>6</type>
+        <position>166 88</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>7</type>
+        <position>104 104</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>8</type>
+        <position>73 121</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>9</type>
+        <position>200 84</position>
+    </room>
+    <room>
+        <description>Item</description>
+        <type>10</type>
+        <position>100 88</position>
+    </room>
+</rooms>

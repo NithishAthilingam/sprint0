@@ -1,72 +1,75 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
-<description>Enemy</description>
-<type>1</type>
-<position>130 48</position>
+<room>
+    <description>Enemy</description>
+    <type>1</type>
+    <position>130 48</position>
 
-<description>Enemy</description>
-<type>1</type>
-<position>120 79</position>
+    <description>Enemy</description>
+    <type>1</type>
+    <position>120 79</position>
 
-<description>Enemy</description>
-<type>1</type>
-<position>136 87</position>
+    <description>Enemy</description>
+    <type>1</type>
+    <position>136 87</position>
 
-<description>Enemy</description>
-<type>1</type>
-<position>150 56</position>
+    <description>Enemy</description>
+    <type>1</type>
+    <position>150 56</position>
 
-<description>Enemy</description>
-<type>1</type>
-<position>68 105</position>
+    <description>Enemy</description>
+    <type>1</type>
+    <position>68 105</position>
 
-<description>Enemy</description>
-<type>1</type>
-<position>48 48</position>
+    <description>Enemy</description>
+    <type>1</type>
+    <position>48 48</position>
 
-<description>Block</description>
-<type>5</type>
-<position>166 135</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>166 135</position>
 
-<description>Block</description>
-<type>5</type>
-<position>215 180</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>215 180</position>
 
-<description>Block</description>
-<type>5</type>
-<position>41 108</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>41 108</position>
 
-<description>Block</description>
-<type>5</type>
-<position>79 79</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>79 79</position>
 
-<description>Block</description>
-<type>5</type>
-<position>63 95</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>63 95</position>
 
-<description>Block</description>
-<type>5</type>
-<position>79 95</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>79 95</position>
 
-<description>Block</description>
-<type>5</type>
-<position>159 63</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>159 63</position>
 
-<description>Block</description>
-<type>5</type>
-<position>175 63</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>175 63</position>
 
-<description>Block</description>
-<type>5</type>
-<position>159 79</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>159 79</position>
 
-<description>Block</description>
-<type>5</type>
-<position>175 79</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>175 79</position>
 
-<description>Block</description>
-<type>5</type>
-<position>159 95</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>159 95</position>
 
-<description>Block</description>
-<type>5</type>
-<position>175 95</position>
+    <description>Block</description>
+    <type>5</type>
+    <position>175 95</position>
+
+</room>

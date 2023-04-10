@@ -23,12 +23,13 @@ namespace sprint0
         private int middle;
         private int left;
         private int right;
+        Texture2D heartDraw;
 
 
 
-        public Hearts(Vector2 pos)
+        public Hearts(Texture2D heartSprite,Vector2 pos)
         {
-
+            heartDraw = heartSprite;
             hearts = new Rectangle[3];
             hearts[0] = new Rectangle(230, 185, 30, 30);
             hearts[1] = new Rectangle(260, 185, 30, 30);
@@ -81,11 +82,14 @@ namespace sprint0
         }
 
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+ 
+
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[4], thisPos, hearts[currentA], Color.White);
+            spriteBatch.Draw(heartDraw, thisPos, hearts[currentA], Color.White);
 
         }
+
     }
 }
 

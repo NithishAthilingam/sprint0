@@ -9,20 +9,23 @@ namespace sprint0
 	
         Rectangle key;
         private Vector2 thisPos;
+        Texture2D keyDraw;
 
-        public Key(Vector2 pos)
+        public Key(Texture2D keySprite, Vector2 pos)
         {
             key = new Rectangle(350, 250, 30, 30);
             thisPos = pos;
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
-        {
-            spriteBatch.Draw(animate[4], thisPos, key, Color.White);
+            keyDraw = keySprite;
         }
 
         public void Update(GameTime gameTime)
         {
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(keyDraw, thisPos, key, Color.White);
+
         }
     }
 }

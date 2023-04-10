@@ -11,22 +11,25 @@ namespace sprint0
 
         Rectangle edge;
         private Vector2 thisPos;
+        Texture2D blockDraw;
 
-        public EdgeBlock(Vector2 pos)
+        public EdgeBlock(Texture2D blockSprite, Vector2 pos)
         {
             edge = new Rectangle(1358, 248, 16, 16);
             thisPos = pos;
+            blockDraw = blockSprite;
         }
 
         public void Update(GameTime gameTime)
         {
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[8], thisPos, edge, Color.White);
+            spriteBatch.Draw(blockDraw, thisPos, edge, Color.White);
 
         }
+
     }
 }
 

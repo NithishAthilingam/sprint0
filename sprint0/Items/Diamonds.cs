@@ -24,11 +24,13 @@ namespace sprint0
         private int left;
         private int right;
 
+        Texture2D diamondDraw;
 
 
-        public Diamonds(Vector2 pos)
+
+        public Diamonds(Texture2D diamondSprite,Vector2 pos)
         {
-
+            diamondDraw = diamondSprite;
             diamonds = new Rectangle[3];
             diamonds[0] = new Rectangle(270, 225, 30, 30);
             diamonds[1] = new Rectangle(240, 225, 30, 30);
@@ -80,9 +82,10 @@ namespace sprint0
         }
 
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[4], thisPos, diamonds[currentA], Color.White);
+            spriteBatch.Draw(diamondDraw, thisPos, diamonds[currentA], Color.White);
+
         }
     }
 }

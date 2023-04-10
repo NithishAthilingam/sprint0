@@ -9,21 +9,25 @@ namespace sprint0
     {
         Rectangle clock;
         private Vector2 thisPos;
+        Texture2D clockDraw;
 
-        public Clock(Vector2 pos)
+        public Clock(Texture2D clockSprite, Vector2 pos)
 		{
             clock = new Rectangle(350, 250, 30, 30);
             thisPos = pos;
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
-        {
-            spriteBatch.Draw(animate[4], thisPos, clock , Color.White);
+            clockDraw = clockSprite;
         }
 
         public void Update(GameTime gameTime)
         {
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(clockDraw, thisPos, clock, Color.White);
+
+        }
+
     }
 }
 

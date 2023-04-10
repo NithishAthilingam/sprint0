@@ -24,11 +24,13 @@ namespace sprint0
         private int left;
         private int right;
 
+        Texture2D triDraw;
 
 
-        public Triangle(Vector2 pos)
+
+        public Triangle(Texture2D triSprite,Vector2 pos)
         {
-
+            triDraw = triSprite;
             triangle = new Rectangle[3];
             triangle[0] = new Rectangle(350, 275, 30, 30);
             triangle[1] = new Rectangle(350, 275, 30, 30);
@@ -80,10 +82,9 @@ namespace sprint0
             }
         }
 
-
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(animate[4], thisPos, triangle[currentA], Color.White);
+            spriteBatch.Draw(triDraw, thisPos, triangle[currentA], Color.White);
 
         }
     }

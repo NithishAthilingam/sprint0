@@ -22,30 +22,30 @@ namespace sprint0
         public ItemFactory() { }
 
 
-        public IItem CreateItem(int item, Vector2 pos)
+        public IItem CreateItem(Texture2D itemsSprite, Texture2D ladySprite, Texture2D fireSprite, Texture2D boom, int item, Vector2 pos)
         {
             switch (item)
             {
                 case 1: // arrow
-                    return new Arrow(pos);
+                    return new Arrow(itemsSprite,pos);
                 case 2: // can
-                    return new Can(pos);
+                    return new Can(itemsSprite,pos);
                 case 3: // clock
-                    return new Clock(pos);
+                    return new Clock(itemsSprite,pos);
                 case 4: // diamonds
-                    return new Diamonds(pos);
+                    return new Diamonds(itemsSprite,pos);
                 case 5: // fire
-                    return new Fire(pos);
+                    return new Fire(fireSprite,pos);
                 case 6: // hearts
-                    return new Hearts(pos);
+                    return new Hearts(itemsSprite,pos);
                 case 7: // hearts w/ boarder
-                    return new HeartwithBoarder(pos);
+                    return new HeartwithBoarder(itemsSprite,pos);
                 case 8: // key
-                    return new Key(pos);
+                    return new Key(itemsSprite,pos);
                 case 9: // lady item
-                    return new LadyItem(pos);
+                    return new LadyItem(ladySprite,pos);
                 case 10: // triangle
-                    return new Triangle(pos);
+                    return new Triangle(itemsSprite,pos);
                 default:
                     return null;
             }

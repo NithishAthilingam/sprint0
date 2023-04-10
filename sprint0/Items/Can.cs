@@ -10,22 +10,25 @@ namespace sprint0
 
         Rectangle can;
         private Vector2 thisPos;
+        Texture2D canDraw;
 
-        public Can(Vector2 pos)
+        public Can(Texture2D canSprite, Vector2 pos)
         {
             can = new Rectangle(350, 250, 30, 30);
             thisPos = pos;
-        }
-
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
-        {
-            spriteBatch.Draw(animate[4], thisPos, can, Color.White);
+            canDraw = canSprite;
         }
 
         public void Update(GameTime gameTime)
         {
 
         }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(canDraw, thisPos, can, Color.White);
+        }
+
     }
 }
 

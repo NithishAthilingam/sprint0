@@ -11,20 +11,23 @@ namespace sprint0
     {
         Rectangle arrow;
         private Vector2 thisPos;
+        Texture2D arrowDraw;
 
-        public Arrow(Vector2 pos)
+        public Arrow(Texture2D arrowSprite,Vector2 pos)
         {
            arrow = new Rectangle(350, 250, 30, 30);
            thisPos = pos;
+            arrowDraw = arrowSprite;
 		}
-
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
-        {
-            spriteBatch.Draw(animate[4], thisPos, arrow, Color.White);
-        }
 
         public void Update(GameTime gameTime)
         {
+        }
+
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(arrowDraw, thisPos, arrow, Color.White);
         }
     }
 }

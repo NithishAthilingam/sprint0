@@ -10,9 +10,11 @@ namespace sprint0
 
         Rectangle heart;
         private Vector2 thisPos;
+        Texture2D heartDraw;
 
-        public HeartwithBoarder(Vector2 pos)
+        public HeartwithBoarder(Texture2D heartBorderSprite, Vector2 pos)
 		{
+            heartDraw = heartBorderSprite;
             heart = new Rectangle(290, 185, 30, 30);
             thisPos = pos;
         }
@@ -24,6 +26,12 @@ namespace sprint0
 
         public void Update(GameTime gameTime)
         {
+
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(heartDraw, thisPos, heart, Color.White);
 
         }
     }
