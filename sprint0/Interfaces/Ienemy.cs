@@ -13,12 +13,8 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game);
 
-        public void Draw(SpriteBatch spriteBatch, SpriteFont Font)
-        {
+        void Draw(SpriteBatch spriteBatch);
 
-        }
-
-        void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos);
     }
 }
 

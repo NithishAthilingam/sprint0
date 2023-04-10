@@ -10,16 +10,12 @@ namespace sprint0
 {
     public interface Isprite
     {
-        
-
-
         public void Update(GameTime gameTime);
 
         public void Draw(SpriteBatch spriteBatch, SpriteFont Font)
         {
 
         }
-
         void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos);
     }
 }

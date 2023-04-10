@@ -24,11 +24,12 @@ namespace sprint0
         private int middle;
         private int left;
         private int right;
+        Texture2D sprite;
 
 
-
-        public BatSprite1(Vector2 pos)
+        public BatSprite1(Texture2D enemiesSprite,Vector2 pos)
         {
+            sprite = enemiesSprite;
             thisPos = pos;
 
             thisPos.Y -= 100;
@@ -141,6 +142,17 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             spriteBatch.Draw(AnimationType[7], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+        }
+
+        public void Draw(SpriteBatch spriteBatch, Texture2D animate, Vector2 pos)
+        {
+            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
         }
     }
 }

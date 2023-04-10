@@ -25,16 +25,17 @@ namespace sprint0
         private int left;
         private int right;
 
+        Texture2D sprite;
 
 
-        public SkeletonSprite1(Vector2 pos)
+
+        public SkeletonSprite1(Texture2D enemiesSprite,Vector2 pos)
         {
+
+            sprite = enemiesSprite;
             thisPos = pos;
 
             thisPos.Y -= 100;
-
-
-
 
             skele = new Rectangle[2];
             skele[0] = new Rectangle(420, 118, 20, 20);
@@ -54,9 +55,6 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-
-
-
             if (thisPos.X > 0)
             {
                 frames++;
@@ -134,5 +132,18 @@ namespace sprint0
         {
             spriteBatch.Draw(AnimationType[7], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
         }
+
+
+        public void Draw(SpriteBatch spriteBatch, Texture2D animation, Vector2 pos)
+        {
+            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+        }
+
+        public void Draw(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+
+        }
+
     }
 }

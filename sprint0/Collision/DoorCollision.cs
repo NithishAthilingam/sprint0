@@ -4,6 +4,17 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.Interfaces;
+using Microsoft.Xna.Framework.Input;
+
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.Threading;
+
+
+using sprint0.Items;
 
 namespace sprint0.Collision
 {
@@ -19,6 +30,7 @@ namespace sprint0.Collision
         Rectangle[] rooms;
         Dictionary<int, int[]> myRooms;
         Color cal = Color.White;
+        KeyboardState keyboard;
 
         public DoorCollision(Texture2D r, Game1 game)
 		{
@@ -90,10 +102,10 @@ namespace sprint0.Collision
             };
         }
 
-		public void Update(GameTime gameTime, Game1 game)
-		{
+        public void Update(GameTime gameTime, Game1 game)
+        {
             //// if (game.linkPos.Y > 300)
-            
+
             //if (game.controller[0].GetLinkPos().Y > 425)
             //{
             //    Debug.WriteLine("Change room here");
@@ -102,26 +114,56 @@ namespace sprint0.Collision
             //    timer = delayTime;
             //    game.controller[0].SetLinkPos(new Vector2(200, 400));
 
-            //}
+            if (game.controller[0].GetLinkPos().Y > 425)
+            {
+                char setter = 'u';
+                Debug.WriteLine("Change room down");
+                int[] x = myRooms[currentImageIndex];
+                currentImageIndex = x[2];
+                timer = delayTime;
+                game.controller[0].SetLinkPos(new Vector2(375, 400));
+                game.controller[0].setLink(setter);
 
-            //if (game.controller[0].GetLinkPos().X > 725)
-            //{
-            //    int[] x = myRooms[currentImageIndex];
-            //    currentImageIndex = x[3];
-            //    timer = delayTime;
-            //    game.controller[0].SetLinkPos(new Vector2(200, 400));
-            //}
 
-            //if (game.controller[0].GetLinkPos().X < 75)
-            //{
-            //    int[] x = myRooms[currentImageIndex];
-            //    currentImageIndex = x[1];
-            //    timer = delayTime;
-            //    game.controller[0].SetLinkPos(new Vector2(200, 400));
-            //}
+                //}
 
+
+                //if (game.controller[0].GetLinkPos().X > 725)
+                //{
+                //    int[] x = myRooms[currentImageIndex];
+                //    currentImageIndex = x[3];
+                //    timer = delayTime;
+                //    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                //}
+
+                //if (game.controller[0].GetLinkPos().X < 75)
+                //{
+                //    int[] x = myRooms[currentImageIndex];
+                //    currentImageIndex = x[1];
+                //    timer = delayTime;
+                //    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                //}
+
+                if (game.controller[0].GetLinkPos().X > 725)
+                {
+                    Debug.WriteLine("Change room right");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[3];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                }
+
+                if (game.controller[0].GetLinkPos().X < 75)
+                {
+                    Debug.WriteLine("Change room left");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[1];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                }
+
+            }
         }
-
         public void Draw(SpriteBatch spriteBatch)
 		{
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], cal);

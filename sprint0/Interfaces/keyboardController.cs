@@ -27,37 +27,45 @@ namespace sprint0
         private int framesForLeft = 0;
         private int framesForDown = 0;
         private int framesForUp = 0;
-
+        public KeyboardState userInput;
         private float timer;
         private float delayTime;
+
         private int health = 6;
         private IHealthBar GetHealth;
+
+        public char setter;
+
 
         private Texture2D i;
         Rectangle blueArrow;
         Vector2 p;
         private Vector2 enemyStartPos;
+        Texture2D enemiesSprite;
+        Texture2D enemiesSprite2;
 
-        public keyboardController(Game1 link)
+        public keyboardController(Texture2D eSprite, Texture2D eSprite2,Game1 link)
         {
+            enemiesSprite = eSprite;
+            enemiesSprite2 = eSprite2;
             game = link;
             pos = new Vector2(220, 100);
             enemyStartPos = new Vector2(450, 250);
             speed = 200f;
             enemyIndex = 0;
-
             delayTime = 500f;
             timer = 0f;
+            setter = 'z';
         }
 
         public void Update(GameTime gameTime)
         {
-            KeyboardState userInput = Keyboard.GetState();
             game.sprite = new RSprite(pos, direc);
             GetHealth = new Health(health);
+            userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            pos.X = game.linkPos.X;
-            pos.Y = game.linkPos.Y;
+            //pos.X = game.linkPos.X;
+            //pos.Y = game.linkPos.Y;
 
 
             if (userInput.IsKeyDown(Keys.E))
@@ -169,7 +177,7 @@ namespace sprint0
                     game.sprite = new DownSprite(pos);
 
                     pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    game.linkPos.X = pos.X;
+                    game.linkPos.Y = pos.Y;
                 }
                 else
                 {
@@ -355,23 +363,23 @@ namespace sprint0
                     enemyIndex++;
                     if (enemyIndex == 0)
                     {
-                        game.enemy = new DragonSprite1(enemyStartPos);
+                        game.enemy = new DragonSprite1(enemiesSprite, enemiesSprite2,enemyStartPos);
                     }
                     else if (enemyIndex == 1)
                     {
-                        game.enemy = new SkeletonSprite1(enemyStartPos);
+                        game.enemy = new SkeletonSprite1(enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 2)
                     {
-                        game.enemy = new BatSprite1(enemyStartPos);
+                        game.enemy = new BatSprite1(enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 3)
                     {
-                        game.enemy = new BlueBlob(enemyStartPos);
+                        game.enemy = new BlueBlob(enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 4)
                     {
-                        game.enemy = new Hand(enemyStartPos);
+                        game.enemy = new Hand(enemiesSprite,enemyStartPos);
                         enemyIndex = -1;
                     }
                     timer = delayTime;
@@ -382,8 +390,14 @@ namespace sprint0
 
         }
 
-
-
+        public void setLink(char set)
+        {
+            setter = set;
+            if (setter == 'u')
+            {
+                game.sprite = new UpSprite(pos);
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -399,5 +413,11 @@ namespace sprint0
         {
             pos = newPos;
         }
+
+        public void ModifyLinkPos(Vector2 mod)
+        {
+            pos += mod;
+        }
     }
+
 }
