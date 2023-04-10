@@ -27,5 +27,25 @@ namespace sprint0
         
 
         }
+
+        public Vector2 GetLinkPos()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void SetLinkPos(Vector2 newPos)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void ModifyLinkPos(Vector2 mod)
+        {
+            throw new NotImplementedException();
+        }
+        public void setLink(char setter)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

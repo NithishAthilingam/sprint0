@@ -15,8 +15,8 @@ namespace sprint0.Items
         private Vector2 originalPos;
         private int frame;
         private Boolean draw;
+        private Boolean drawExplode;
         Rectangle[] explode;
-        private int current;
 
         public GreenArrowRight(Vector2 arrowPos)
         {
@@ -24,12 +24,11 @@ namespace sprint0.Items
             thisPos.Y -= 10;
             thisPos.X += 5;
             originalPos = arrowPos;
-            current = 0;
             frame = 0;
             draw = true;
             explode = new Rectangle[2];
             explode[0] = new Rectangle(200, 190, 30, 20);
-            explode[1] = new Rectangle(200, 270, 30, 30);
+            explode[1] = new Rectangle(118, 282, 18, 21);
         }
 
         public void Update(GameTime gameTime)
@@ -38,13 +37,13 @@ namespace sprint0.Items
             /*thisPos.X += 2;*/
             if (thisPos.X - originalPos.X > 250)
             {
-                current = 1;
+                drawExplode = true;
             }
             else
             {
                 thisPos.X += 2;
             }
-            if (frame > 130)
+            if (frame > 135)
             {
                 draw = false;
             }
@@ -54,7 +53,14 @@ namespace sprint0.Items
         {
             if (draw)
             {
-                spriteBatch.Draw(animate[4], thisPos, explode[current], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                if (!drawExplode)
+                {
+                    spriteBatch.Draw(animate[4], thisPos, explode[0], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X+15,thisPos.Y +10), explode[1], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
             }
         }
     }

@@ -32,7 +32,6 @@ namespace sprint0
         public Rooms rooms;
         public IHealthBar healthbar;
         public ICollision collide;
-        private List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[16];
         private Texture2D spriteA;
         private Texture2D spriteB;
@@ -51,6 +50,7 @@ namespace sprint0
         private Texture2D dungeon;
 
         public Vector2 linkPos;
+        public Rectangle linkBound;
         public Vector2 EnemyPos;
 
         //RenderTarget2D renderTarget;
@@ -86,6 +86,7 @@ namespace sprint0
         private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
+        private DoorCollision doorEnter;
 
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
         RoomsRoom currentRoom;
@@ -159,12 +160,19 @@ namespace sprint0
             Animate[11] = boomerang;
 
             Animate[12] = spritesEnemies;
-
+            EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
+<<<<<<< HEAD
             enemy = new DragonSprite1(Animate[7], Animate[6],new Vector2(550, 250));
+=======
+            enemy = new DragonSprite1(EnemyPos);
+>>>>>>> 4af4231f3191ede52db27ee5a857ed3a5dc0a1c4
             shoot = new initial();
-            collide = new EnemyLinkCollision();
+            collide = new BlockCollision();
+            collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
+            linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
+
 
 
             room = Content.Load<Texture2D>("rooms");
@@ -172,12 +180,17 @@ namespace sprint0
 
            // health = Content.Load<Texture2D>("Hearts");
 
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> 4af4231f3191ede52db27ee5a857ed3a5dc0a1c4
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
 
             rooms = new Rooms(dungeon, this);
-
+            doorEnter = new DoorCollision(dungeon, this);
 
 
             //font = Content.Load<SpriteFont>("Score");
@@ -211,11 +224,13 @@ namespace sprint0
             }
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
+            doorEnter.Update(gameTime, this);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this);
+            collideA.Update(gameTime, this);
             MouseController.Update(gameTime);
             base.Update(gameTime);
         }
@@ -227,6 +242,7 @@ namespace sprint0
             spriteBatch.Begin();
 
             rooms.Draw(spriteBatch);
+            doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
 
             //angle = (float)Math.PI / 2.0f;  // 90 degrees

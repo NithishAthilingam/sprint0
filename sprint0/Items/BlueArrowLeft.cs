@@ -15,6 +15,7 @@ namespace sprint0.Items
         private Vector2 originalPos;
         private int frame;
         private Boolean draw;
+        private Boolean drawExplode;
         Rectangle[] explode;
         private int current;
 
@@ -24,7 +25,7 @@ namespace sprint0.Items
             thisPos.Y -= 10;
             thisPos.X -= 55;
             originalPos = arrowPos;
-            current = 0;
+            drawExplode = false;
             frame = 0;
             draw = true;
             explode = new Rectangle[2];
@@ -38,7 +39,7 @@ namespace sprint0.Items
             //thisPos.X -= 2;
             if (originalPos.X - thisPos.X>150)
             {
-                current = 1;
+                drawExplode = true;
             }
             else
             {
@@ -54,7 +55,14 @@ namespace sprint0.Items
         {
             if (draw)
             {
-                spriteBatch.Draw(animate[4], thisPos, explode[current], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                if (!drawExplode)
+                {
+                    spriteBatch.Draw(animate[4], thisPos, explode[0], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
+                else
+                {
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X, thisPos.Y-20), explode[1], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                }
             }
         }
     }

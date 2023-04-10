@@ -21,16 +21,16 @@ namespace sprint0.Collision
             else if(intersect.Height > intersect.Width) { 
                 if(collider.X < victim.X)
                 {
-                    colide = 'd';
+                    colide = 'a';
                 }
                 else
                 {
-                    colide = 'a';
+                    colide = 'd';
                 }
             }
             else
             {
-                if(intersect.Y < victim.Y)
+                if(collider.Y < victim.Y)
                 {
                     colide = 'w';
                 }

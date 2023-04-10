@@ -26,9 +26,10 @@ namespace sprint0
         private int framesForLeft = 0;
         private int framesForDown = 0;
         private int framesForUp = 0;
-
+        public KeyboardState userInput;
         private float timer;
         private float delayTime;
+        public char setter;
 
         private Texture2D i;
         Rectangle blueArrow;
@@ -46,18 +47,18 @@ namespace sprint0
             enemyStartPos = new Vector2(450, 250);
             speed = 200f;
             enemyIndex = 0;
-
             delayTime = 500f;
             timer = 0f;
+            setter = 'z';
         }
 
         public void Update(GameTime gameTime)
         {
-            KeyboardState userInput = Keyboard.GetState();
             game.sprite = new RSprite(pos, direc);
-
+            userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
+            //pos.X = game.linkPos.X;
+            //pos.Y = game.linkPos.Y;
 
 
             if (userInput.IsKeyDown(Keys.E))
@@ -124,6 +125,12 @@ namespace sprint0
                     {
                         framesForLeft = 0;
                     }
+                } else if (pos.Y > 220 && pos.Y < 230)
+                {
+                    game.sprite = new LeftSprite(pos);
+
+                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    game.linkPos.X = pos.X;
                 }
                 else
                 {
@@ -157,6 +164,12 @@ namespace sprint0
                     {
                         framesForDown = 0;
                     }
+                } else if (pos.X > 350 && pos.X < 395)
+                {
+                    game.sprite = new DownSprite(pos);
+
+                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    game.linkPos.Y = pos.Y;
                 }
                 else
                 {
@@ -369,11 +382,34 @@ namespace sprint0
 
         }
 
+        public void setLink(char set)
+        {
+            setter = set;
+            if (setter == 'u')
+            {
+                game.sprite = new UpSprite(pos);
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(i, p, blueArrow, Color.White);
         }
 
+        public Vector2 GetLinkPos()
+        {
+            return pos;
+        }
+
+        public void SetLinkPos(Vector2 newPos)
+        {
+            pos = newPos;
+        }
+
+        public void ModifyLinkPos(Vector2 mod)
+        {
+            pos += mod;
+        }
     }
+
 }
