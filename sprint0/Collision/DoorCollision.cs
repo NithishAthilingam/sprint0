@@ -4,6 +4,17 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.Interfaces;
+using Microsoft.Xna.Framework.Input;
+
+using System.Data;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+using System.Threading;
+
+
+using sprint0.Items;
 
 namespace sprint0.Collision
 {
@@ -19,6 +30,7 @@ namespace sprint0.Collision
         Rectangle[] rooms;
         Dictionary<int, int[]> myRooms;
         Color cal = Color.White;
+        KeyboardState keyboard;
 
         public DoorCollision(Texture2D r, Game1 game)
 		{
@@ -96,11 +108,13 @@ namespace sprint0.Collision
             
             if (game.controller[0].GetLinkPos().Y > 425)
             {
+                char setter = 'u';
                 Debug.WriteLine("Change room down");
                 int[] x = myRooms[currentImageIndex];
                 currentImageIndex = x[2];
                 timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(200, 400));
+                game.controller[0].SetLinkPos(new Vector2(375, 400));
+                game.controller[0].setLink(setter);
 
             }
 

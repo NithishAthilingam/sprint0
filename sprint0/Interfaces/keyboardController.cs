@@ -26,9 +26,10 @@ namespace sprint0
         private int framesForLeft = 0;
         private int framesForDown = 0;
         private int framesForUp = 0;
-
+        public KeyboardState userInput;
         private float timer;
         private float delayTime;
+        public char setter;
 
         private Texture2D i;
         Rectangle blueArrow;
@@ -42,16 +43,15 @@ namespace sprint0
             enemyStartPos = new Vector2(450, 250);
             speed = 200f;
             enemyIndex = 0;
-
             delayTime = 500f;
             timer = 0f;
+            setter = 'z';
         }
 
         public void Update(GameTime gameTime)
         {
-            KeyboardState userInput = Keyboard.GetState();
             game.sprite = new RSprite(pos, direc);
-
+            userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //pos.X = game.linkPos.X;
             //pos.Y = game.linkPos.Y;
@@ -378,8 +378,14 @@ namespace sprint0
 
         }
 
-
-
+        public void setLink(char set)
+        {
+            setter = set;
+            if (setter == 'u')
+            {
+                game.sprite = new UpSprite(pos);
+            }
+        }
 
         public void Draw(SpriteBatch spriteBatch)
         {
@@ -401,4 +407,5 @@ namespace sprint0
             pos += mod;
         }
     }
+
 }

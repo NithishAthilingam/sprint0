@@ -42,5 +42,10 @@ namespace sprint0
         {
             throw new NotImplementedException();
         }
+        public void setLink(char setter)
+        {
+            throw new NotImplementedException();
+        }
+
     }
 }

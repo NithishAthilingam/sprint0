@@ -141,6 +141,10 @@ namespace sprint0.Items
         {
             throw new NotImplementedException();
         }
+        public void setLink(char setter)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
