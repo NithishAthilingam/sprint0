@@ -8,36 +8,75 @@ namespace sprint0.HealthBar
 	public class Health : IHealthBar
 	{
         private int thisHealth;
-        private List<Rectangle> hearts;
         private Rectangle fullHeart;
         private Rectangle halfHeart;
         private Rectangle emptyHeart;
-        private Rectangle des;
+        private Rectangle firstDes;
+        private Rectangle middleDes;
+        private Rectangle lastDes;
 
         public Health(int health)
 		{
             thisHealth = health;
-            hearts = new List<Rectangle>();
             fullHeart = new Rectangle(36, 16, 98, 98);
             halfHeart = new Rectangle(146, 16, 98, 98);
             emptyHeart = new Rectangle(256, 16, 98, 98);
-            des = new Rectangle(100, 100, 19, 19);
-            hearts.Add(fullHeart);
-            hearts.Add(fullHeart);
-            hearts.Add(fullHeart);
+            firstDes = new Rectangle(100, 100, 19, 19);
+            middleDes = new Rectangle(122, 100, 19, 19);
+            lastDes = new Rectangle(144, 100, 19, 19);
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D bar)
         {
 
-            if(thisHealth == 3)
+            if(thisHealth == 6)
             {
-                foreach(Rectangle heart in hearts)
-                {
-                    spriteBatch.Draw(bar, des, heart, Color.White);
-                }
+                spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, fullHeart, Color.White);
+                thisHealth--;
             }
-            
+            else if(thisHealth == 5)
+            {
+                spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, halfHeart, Color.White);
+                thisHealth--;
+            }
+            else if (thisHealth == 4)
+            {
+                spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
+                thisHealth--;
+            }
+            else if (thisHealth == 3)
+            {
+                spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, halfHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
+                thisHealth--;
+            }
+            else if (thisHealth == 2)
+            {
+                spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, emptyHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
+                thisHealth--;
+            }
+            else if (thisHealth == 1)
+            {
+                spriteBatch.Draw(bar, firstDes, halfHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, emptyHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
+                thisHealth--;
+            }
+            else if (thisHealth == 0)
+            {
+                spriteBatch.Draw(bar, firstDes, emptyHeart, Color.White);
+                spriteBatch.Draw(bar, middleDes, emptyHeart, Color.White);
+                spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
+            }
         }
     }
 }

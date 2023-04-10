@@ -14,6 +14,7 @@ using sprint0.Collision;
 using sprint0.Content;
 using sprint0.Interfaces;
 using sprint0.Items;
+using sprint0.HealthBar;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -42,6 +43,7 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        public int healthNum;
 
         private Texture2D health;
 
@@ -98,6 +100,8 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(this));
             pos = new Vector2(220, 100);
+            healthNum = 6;
+            healthbar = new Health(healthNum);
             base.Initialize();
         }
 
@@ -212,7 +216,7 @@ namespace sprint0
 
             rooms.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
-
+            healthbar.Draw(spriteBatch, health);
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 

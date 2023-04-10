@@ -92,33 +92,33 @@ namespace sprint0.Collision
 
 		public void Update(GameTime gameTime, Game1 game)
 		{
-            // if (game.linkPos.Y > 300)
+            //// if (game.linkPos.Y > 300)
             
-            if (game.controller[0].GetLinkPos().Y > 425)
-            {
-                Debug.WriteLine("Change room here");
-                int[] x = myRooms[currentImageIndex];
-                currentImageIndex = x[2];
-                timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(200, 400));
+            //if (game.controller[0].GetLinkPos().Y > 425)
+            //{
+            //    Debug.WriteLine("Change room here");
+            //    int[] x = myRooms[currentImageIndex];
+            //    currentImageIndex = x[2];
+            //    timer = delayTime;
+            //    game.controller[0].SetLinkPos(new Vector2(200, 400));
 
-            }
+            //}
 
-            if (game.controller[0].GetLinkPos().X > 725)
-            {
-                int[] x = myRooms[currentImageIndex];
-                currentImageIndex = x[3];
-                timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(200, 400));
-            }
+            //if (game.controller[0].GetLinkPos().X > 725)
+            //{
+            //    int[] x = myRooms[currentImageIndex];
+            //    currentImageIndex = x[3];
+            //    timer = delayTime;
+            //    game.controller[0].SetLinkPos(new Vector2(200, 400));
+            //}
 
-            if (game.controller[0].GetLinkPos().X < 75)
-            {
-                int[] x = myRooms[currentImageIndex];
-                currentImageIndex = x[1];
-                timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(200, 400));
-            }
+            //if (game.controller[0].GetLinkPos().X < 75)
+            //{
+            //    int[] x = myRooms[currentImageIndex];
+            //    currentImageIndex = x[1];
+            //    timer = delayTime;
+            //    game.controller[0].SetLinkPos(new Vector2(200, 400));
+            //}
 
         }
 

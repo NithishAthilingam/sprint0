@@ -12,6 +12,7 @@ using System.Threading;
 
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.Items;
+using sprint0.HealthBar;
 
 namespace sprint0
 {
@@ -29,6 +30,8 @@ namespace sprint0
 
         private float timer;
         private float delayTime;
+        private int health = 6;
+        private IHealthBar GetHealth;
 
         private Texture2D i;
         Rectangle blueArrow;
@@ -51,7 +54,7 @@ namespace sprint0
         {
             KeyboardState userInput = Keyboard.GetState();
             game.sprite = new RSprite(pos, direc);
-
+            GetHealth = new Health(health);
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             pos.X = game.linkPos.X;
             pos.Y = game.linkPos.Y;
@@ -60,6 +63,7 @@ namespace sprint0
             if (userInput.IsKeyDown(Keys.E))
             {
                 game.sprite = new DamagedSprite(pos);
+                game.healthbar = new Health(health);
             }
 
             if (userInput.IsKeyDown(Keys.Q))
