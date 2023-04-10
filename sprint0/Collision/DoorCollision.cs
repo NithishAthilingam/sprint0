@@ -123,7 +123,7 @@ namespace sprint0.Collision
                 timer = delayTime;
                 game.controller[0].SetLinkPos(new Vector2(375, 400));
                 game.controller[0].setLink(setter);
-
+            }
 
                 //}
 
@@ -163,7 +163,7 @@ namespace sprint0.Collision
                 }
 
             }
-        }
+        
         public void Draw(SpriteBatch spriteBatch)
 		{
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], cal);
