@@ -26,6 +26,7 @@
     <None Remove="Content\Wall Textures.png" />
     <None Remove="rooms\" />
     <None Remove="Blocks\" />
+    <None Remove="Sound\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -40,6 +41,7 @@
     <Folder Include="ProjectBuildFiles\" />
     <Folder Include="rooms\" />
     <Folder Include="Blocks\" />
+    <Folder Include="Sound\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="rooms\room1.xml">

@@ -14,8 +14,8 @@ namespace sprint0
         Rectangle[] diamonds;
         private Vector2 thisPos;
 
-        float delayTime;
-        float timer;
+        //float delayTime;
+        //float timer;
         int currentA;
         int previousA;
         float speed;
@@ -37,8 +37,8 @@ namespace sprint0
             diamonds[2] = new Rectangle(270, 225, 30, 30);
             thisPos = pos;
 
-            delayTime = 500f;
-            timer = 0f;
+            //delayTime = 500f;
+            //timer = 0f;
 
             previousA = 1;
             currentA = 2;

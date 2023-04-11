@@ -34,42 +34,36 @@ namespace sprint0.HealthBar
                 spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, middleDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, lastDes, fullHeart, Color.White);
-                thisHealth--;
             }
             else if(thisHealth == 5)
             {
                 spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, middleDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, lastDes, halfHeart, Color.White);
-                thisHealth--;
             }
             else if (thisHealth == 4)
             {
                 spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, middleDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
-                thisHealth--;
             }
             else if (thisHealth == 3)
             {
                 spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, middleDes, halfHeart, Color.White);
                 spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
-                thisHealth--;
             }
             else if (thisHealth == 2)
             {
                 spriteBatch.Draw(bar, firstDes, fullHeart, Color.White);
                 spriteBatch.Draw(bar, middleDes, emptyHeart, Color.White);
                 spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
-                thisHealth--;
             }
             else if (thisHealth == 1)
             {
                 spriteBatch.Draw(bar, firstDes, halfHeart, Color.White);
                 spriteBatch.Draw(bar, middleDes, emptyHeart, Color.White);
                 spriteBatch.Draw(bar, lastDes, emptyHeart, Color.White);
-                thisHealth--;
             }
             else if (thisHealth == 0)
             {

@@ -14,8 +14,8 @@ namespace sprint0
         Rectangle[] triangle;
         private Vector2 thisPos;
 
-        float delayTime;
-        float timer;
+        //float delayTime;
+        //float timer;
         int currentA;
         int previousA;
         float speed;
@@ -38,8 +38,8 @@ namespace sprint0
 
             thisPos = pos;
 
-            delayTime = 500f;
-            timer = 0f;
+            //delayTime = 500f;
+            //timer = 0f;
 
             previousA = 1;
             currentA = 2;

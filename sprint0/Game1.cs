@@ -95,6 +95,8 @@ namespace sprint0
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
         RoomsRoom currentRoom;
 
+        private Song backgroundMusic;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -205,6 +207,17 @@ namespace sprint0
             // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems, pos, direc);
+
+            backgroundMusic = Content.Load<Song>("dungeonmusic");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+        }
+
+        private void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
+        {
+            MediaPlayer.Volume -= 0.1f;
+            MediaPlayer.Play(backgroundMusic);
         }
 
         protected override void UnloadContent()
