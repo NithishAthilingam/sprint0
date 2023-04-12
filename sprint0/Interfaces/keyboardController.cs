@@ -12,6 +12,8 @@ using System.Threading;
 
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.Items;
+using sprint0.HealthBar;
+using Microsoft.Xna.Framework.Media;
 
 namespace sprint0
 {
@@ -29,7 +31,11 @@ namespace sprint0
         public KeyboardState userInput;
         private float timer;
         private float delayTime;
+
+        private int health;
+
         public char setter;
+
 
         private Texture2D i;
         Rectangle blueArrow;
@@ -49,21 +55,37 @@ namespace sprint0
             enemyIndex = 0;
             delayTime = 500f;
             timer = 0f;
+            health = 6;
             setter = 'z';
         }
 
         public void Update(GameTime gameTime)
         {
             game.sprite = new RSprite(pos, direc);
+            game.healthbar = new Health(health);
             userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //pos.X = game.linkPos.X;
             //pos.Y = game.linkPos.Y;
 
+            if (Keyboard.GetState().IsKeyDown(Keys.K))
+            {
+                MediaPlayer.IsMuted = true;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.L))
+            {
+                MediaPlayer.IsMuted = false;
+            }
 
             if (userInput.IsKeyDown(Keys.E))
             {
                 game.sprite = new DamagedSprite(pos);
+                game.healthbar = new Health(health);
+                health--;
+                if(health == 0)
+                {
+                    health = 6;
+                }
             }
 
             if (userInput.IsKeyDown(Keys.Q))
@@ -344,6 +366,7 @@ namespace sprint0
 
             if (userInput.IsKeyDown(Keys.R))
             {
+                health = 6;
                 pos.X = 0;
                 pos.Y = 0;
                 game.sprite = new RSprite(pos, direc);

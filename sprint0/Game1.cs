@@ -16,6 +16,7 @@ using sprint0.Collision;
 using sprint0.Content;
 using sprint0.Interfaces;
 using sprint0.Items;
+using sprint0.HealthBar;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -44,6 +45,7 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        public int healthNum;
 
         private Texture2D health;
 
@@ -101,6 +103,8 @@ namespace sprint0
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
        // RoomsRoom currentRoom;
 
+        private Song backgroundMusic;
+
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
@@ -115,6 +119,8 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
+            healthNum = 6;
+            healthbar = new Health(healthNum);
             base.Initialize();
 
             //int blockPosition1 = 45;
@@ -188,8 +194,14 @@ namespace sprint0
             Animate[12] = spritesEnemies;
             EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
+
             enemy = new DragonSprite1(Animate[7], Animate[6], new Vector2(550, 250));
             //enemy = new DragonSprite1(EnemyPos);
+
+            enemy = new DragonSprite1(Animate[7], Animate[6],new Vector2(550, 250));
+
+            enemy = new DragonSprite1(EnemyPos);
+
             shoot = new initial();
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
@@ -202,6 +214,9 @@ namespace sprint0
             Animate[13] = boomerang;
 
             // health = Content.Load<Texture2D>("Hearts");
+
+
+           // health = Content.Load<Texture2D>("Hearts");
 
 
             health = Content.Load<Texture2D>("HealthHearts");
@@ -222,6 +237,17 @@ namespace sprint0
             // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems, pos, direc);
+
+            backgroundMusic = Content.Load<Song>("dungeonmusic");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+        }
+
+        private void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
+        {
+            MediaPlayer.Volume -= 0.1f;
+            MediaPlayer.Play(backgroundMusic);
         }
 
 
@@ -276,6 +302,7 @@ namespace sprint0
 
             throwFire.Draw(spriteBatch, Animate, pos);
 
+            healthbar.Draw(spriteBatch, health);
 
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;

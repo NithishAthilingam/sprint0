@@ -193,6 +193,12 @@
 /processorParam:TextureFormat=Color
 /build:Dungeon.png
 
+#begin dungeonmusic.mp3
+/importer:Mp3Importer
+/processor:SongProcessor
+/processorParam:Quality=Best
+/build:dungeonmusic.mp3
+
 #begin HealthHearts.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -204,6 +210,18 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:HealthHearts.png
+
+#begin itempickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:itempickup.wav
+
+#begin linkdeath.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:linkdeath.wav
 
 #begin NES - The Legend of Zelda - Items & Weapons.png
 /importer:TextureImporter

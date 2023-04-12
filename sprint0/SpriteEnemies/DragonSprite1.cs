@@ -32,10 +32,7 @@ namespace sprint0
 
         Texture2D sprite;
         Texture2D sprite2;
-
-
-
-
+        private Vector2 enemyPos;
 
         public DragonSprite1(Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
         {
@@ -66,6 +63,11 @@ namespace sprint0
             left = 0;
             right = 1;
 
+        }
+
+        public DragonSprite1(Vector2 enemyPos)
+        {
+            this.enemyPos = enemyPos;
         }
 
         public void Update(GameTime gameTime, Game1 game)
