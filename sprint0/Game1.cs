@@ -151,7 +151,7 @@ namespace sprint0
             }
 
             // set the current room to the first room in the list
-            currentRoom = ListOfRooms[doorEnter.currentImageIndex + 1];
+            currentRoom = ListOfRooms[0];
         }
 
         protected override void LoadContent()
