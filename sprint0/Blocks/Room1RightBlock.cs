@@ -9,15 +9,30 @@ namespace sprint0
     {
 
 
-        Rectangle right;
+        Rectangle rightD;
+        Rectangle rightS;
+
         private Vector2 thisPos;
+        int thisPosx;
+        int thisPosy;
+
         Texture2D blockDraw;
 
-        public Room1RightBlock(Texture2D blockSprite, Vector2 pos)
+        public Room1RightBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
-            right = new Rectangle(1358, 248, 16, 16);
+            rightS = new Rectangle(556, 887, 18, 18);
+            rightD= new Rectangle((int)pos.X, (int)pos.Y, 55, 50);
+
+            blockDraw = blockRoom1;
+
+
             thisPos = pos;
-            blockDraw = blockSprite;
+            thisPosx = (int)pos.X;
+            thisPosy = (int)pos.Y;
+
+
+            Console.WriteLine("posX : " + thisPosx.ToString() + "posY : " + thisPosy.ToString());
+
         }
 
         public void Update(GameTime gameTime)
@@ -26,7 +41,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, thisPos, right, Color.White);
+            spriteBatch.Draw(blockDraw, rightD, rightS, Color.White);
 
         }
     }

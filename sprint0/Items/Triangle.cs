@@ -12,6 +12,7 @@ namespace sprint0
     public class Triangle : IItem
     {
         Rectangle[] triangle;
+        Rectangle triangleD;
         private Vector2 thisPos;
 
         float delayTime;
@@ -33,8 +34,10 @@ namespace sprint0
             triDraw = triSprite;
             triangle = new Rectangle[3];
             triangle[0] = new Rectangle(350, 275, 30, 30);
-            triangle[1] = new Rectangle(350, 275, 30, 30);
+            triangle[1] = new Rectangle(320, 275, 30, 30);
             triangle[2] = new Rectangle(350, 275, 30, 30);
+            triangleD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+
 
             thisPos = pos;
 
@@ -84,7 +87,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(triDraw, thisPos, triangle[currentA], Color.White);
+            spriteBatch.Draw(triDraw, triangleD, triangle[currentA], Color.White);
 
         }
     }

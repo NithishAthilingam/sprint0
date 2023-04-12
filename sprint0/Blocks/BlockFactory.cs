@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
+using System;
 using System.Collections.Generic;
 
 
@@ -23,20 +24,20 @@ namespace sprint0
         public BlockFactory() { }
 
 
-        public IBlock GetBlock(Texture2D blockSprite, int blockIndex, Vector2 position)
+        public IBlock GetBlock(Texture2D blockSprite, Texture2D blockRoom,int blockIndex, Vector2 position)
         {
             switch (blockIndex)
             {
                 case 1: 
-                    return new BlueBlock(blockSprite,position);
+                    return new BlueBlock(blockSprite, blockRoom,position);
                 case 2: 
-                    return new EdgeBlock(blockSprite,position);
+                    return new EdgeBlock(blockSprite, blockRoom,position);
                 case 3: 
-                    return new WaterBlock(blockSprite,position);
+                    return new WaterBlock(blockSprite, blockRoom, position);
                 case 4:
-                    return new Room1LeftBlock(blockSprite,position);
+                    return new Room1LeftBlock(blockSprite, blockRoom,position);
                 case 5:
-                    return new Room1RightBlock(blockSprite,position);
+                    return new Room1RightBlock(blockSprite, blockRoom,position);
                 default:
                     return null;
             }

@@ -13,11 +13,13 @@ namespace sprint0
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
 
-        public RoomsRoom(Game1 game)
+        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> items)
         {
-            this.game = game;
+            this.enemies = enemies;
+            this.blocks = blocks;
+            this.items = items;
         }
-
+         
         public void Draw(SpriteBatch spriteBatch)
         {
             foreach (Ienemy enemy in enemies)
@@ -29,7 +31,6 @@ namespace sprint0
             {
                 block.Draw(spriteBatch);
             }
-
 
             foreach (IItem item in items)
             {
@@ -53,7 +54,6 @@ namespace sprint0
             {
                 item.Update(gameTime);
             }
-
         }
 
         public void Update(GameTime gameTime)
@@ -61,4 +61,3 @@ namespace sprint0
         }
     }
 }
-

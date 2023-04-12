@@ -11,7 +11,7 @@ namespace sprint0
     public class Rooms
     {
 
-        float delayTime;
+        float delayTime; 
         float timer;
         int currentImageIndex;
         private Texture2D room;

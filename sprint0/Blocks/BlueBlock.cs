@@ -9,15 +9,18 @@ namespace sprint0
     {
 
 
-        Rectangle blue;
+        Rectangle blueS;
+        Rectangle blueD;
+
         private Vector2 thisPos;
         Texture2D blockDraw;
 
-        public BlueBlock(Texture2D blockSprite, Vector2 pos)
+        public BlueBlock(Texture2D blockSprite, Texture2D blockRoom, Vector2 pos)
         {
-            blue = new Rectangle(353, 80, 16, 16);
-            thisPos = pos;
-            blockDraw = blockSprite;
+            blueS = new Rectangle(365, 567, 18, 18);
+            blueD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
+
+            blockDraw = blockRoom;
         }
 
         public void Update(GameTime gameTime)
@@ -27,7 +30,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, thisPos, blue, Color.White);
+            spriteBatch.Draw(blockDraw, blueD, blueS, Color.White);
 
         }
     }

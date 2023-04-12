@@ -12,7 +12,7 @@ namespace sprint0
     public class Diamonds : IItem
     {
         Rectangle[] diamonds;
-        private Vector2 thisPos;
+        private Rectangle diamondsD;
 
         float delayTime;
         float timer;
@@ -35,7 +35,8 @@ namespace sprint0
             diamonds[0] = new Rectangle(270, 225, 30, 30);
             diamonds[1] = new Rectangle(240, 225, 30, 30);
             diamonds[2] = new Rectangle(270, 225, 30, 30);
-            thisPos = pos;
+            diamondsD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            
 
             delayTime = 500f;
             timer = 0f;
@@ -84,7 +85,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(diamondDraw, thisPos, diamonds[currentA], Color.White);
+            spriteBatch.Draw(diamondDraw, diamondsD, diamonds[currentA], Color.White);
 
         }
     }

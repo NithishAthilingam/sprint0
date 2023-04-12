@@ -13,6 +13,7 @@ namespace sprint0
     {
         Rectangle [] hearts;
         private Vector2 thisPos;
+        Rectangle heartsD;
 
         float delayTime;
         float timer;
@@ -34,7 +35,7 @@ namespace sprint0
             hearts[0] = new Rectangle(230, 185, 30, 30);
             hearts[1] = new Rectangle(260, 185, 30, 30);
             hearts[2] = new Rectangle(230, 185, 30, 30);
-
+            heartsD= new Rectangle((int)pos.X, (int)pos.Y, 50, 50); ;
             thisPos = pos;
 
             delayTime = 500f;
@@ -86,7 +87,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(heartDraw, thisPos, hearts[currentA], Color.White);
+            spriteBatch.Draw(heartDraw, heartsD, hearts[currentA], Color.White);
 
         }
 

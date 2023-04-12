@@ -9,15 +9,17 @@ namespace sprint0
     {
 
 
-        Rectangle edge;
-        private Vector2 thisPos;
+        Rectangle edgeS;
+        Rectangle edgeD;
+
         Texture2D blockDraw;
 
-        public EdgeBlock(Texture2D blockSprite, Vector2 pos)
+        public EdgeBlock(Texture2D blockSprite, Texture2D blockRoom,Vector2 pos)
         {
-            edge = new Rectangle(1358, 248, 16, 16);
-            thisPos = pos;
-            blockDraw = blockSprite;
+            edgeS = new Rectangle(1358, 247, 18, 18);
+            edgeD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
+
+            blockDraw = blockRoom;
         }
 
         public void Update(GameTime gameTime)
@@ -26,7 +28,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, thisPos, edge, Color.White);
+            spriteBatch.Draw(blockDraw, edgeD, edgeS, Color.White);
 
         }
 

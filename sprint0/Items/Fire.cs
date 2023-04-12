@@ -12,6 +12,7 @@ namespace sprint0
     public class Fire : IItem
     {
         Rectangle[] fire;
+        Rectangle fireD;
         private Vector2 thisPos;
         Texture2D fireDraw;
 
@@ -29,11 +30,14 @@ namespace sprint0
 
         public Fire(Texture2D fireSprite,Vector2 pos)
         {
+          //  Console.WriteLine("draw fire ");
+
             fireDraw = fireSprite;
             fire = new Rectangle[3];
-            fire[0] = new Rectangle(350, 275, 30, 30);
-            fire[1] = new Rectangle(350, 275, 30, 30);
-            fire[2] = new Rectangle(350, 275, 30, 30);
+            fire[0] = new Rectangle(290, 0, 30, 30);
+            fire[1] = new Rectangle(290, 30, 30, 30);
+            fire[2] = new Rectangle(290, 0, 30, 30);
+            fireD= new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
 
             thisPos = pos;
 
@@ -83,7 +87,8 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(fireDraw, thisPos, fire[currentA], Color.White);
+
+            spriteBatch.Draw(fireDraw, fireD, fire[currentA], Color.White);
 
         }
     }

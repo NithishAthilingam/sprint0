@@ -89,39 +89,63 @@ namespace sprint0
         private Projectiles projectiles;
         private keyboardController keyboardController;
         private DoorCollision doorEnter;
+        RoomsRoom roomsroom;
+        IRoom currentRoom;
+        int currentRoomIndex;
+
+        //public List<Ienemy> enemiesList = new List<Ienemy>();
+        //public List<IItem> itemsList = new List<IItem>();
+        //public List<IBlock> blocksList = new List<IBlock>();
+
 
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
-        RoomsRoom currentRoom;
+       // RoomsRoom currentRoom;
 
         public Game1()
         {
             graphics = new GraphicsDeviceManager(this);
             Content.RootDirectory = "Content";
             IsMouseVisible = true;
-
-            for (int i = 1; i <= 18; i++)
-            {
-
-                string path = Path.Combine("rooms", $"room{i}.xml");
-                RoomGenerator roomGenerator = new RoomGenerator(path);
-                roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8]);
-                RoomsRoom roomsroom = new RoomsRoom(this);
-
-                roomsroom.enemies = roomGenerator.enemies;
-                roomsroom.items = roomGenerator.items;
-                roomsroom.blocks = roomGenerator.blocks;
-                ListOfRooms.Add(roomsroom);
-            }
-            //current room is set to the first room 
-            currentRoom = ListOfRooms[0];
         }
+
+
 
         protected override void Initialize()
         {
             controller = new List<Icontroller>();
-            controller.Add(new keyboardController(Animate[7], Animate[6],this));
+            controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
             base.Initialize();
+
+            //int blockPosition1 = 45;
+            //int blockPosition2 = 47;
+            //Vector2 blockPos = new Vector2(blockPosition1, blockPosition2);
+            //IBlock newBlock = BlockFactory.Instance.GetBlock(Animate[8], 1, blockPos);
+            //blocksList.Add(newBlock);
+
+     
+
+          //  roomsroom = new RoomsRoom(enemiesList, blocksList, itemsList);
+
+
+
+            for (int i = 1; i <= 3; i++)
+            {
+                string path = $"rooms/r{i}.xml";
+                RoomGenerator roomGenerator = new RoomGenerator(path);
+                RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
+                ListOfRooms.Add(c);
+
+                //RoomsRoom roomsroom = new RoomsRoom(this);
+                //roomsroom.enemies = roomGenerator.enemies;
+                //roomsroom.items = roomGenerator.items;
+                //roomsroom.blocks = roomGenerator.blocks;
+                //ListOfRooms.Add(roomsroom);
+
+            }
+
+            // set the current room to the first room in the list
+            currentRoom = ListOfRooms[doorEnter.currentImageIndex + 1];
         }
 
         protected override void LoadContent()
@@ -164,29 +188,22 @@ namespace sprint0
             Animate[12] = spritesEnemies;
             EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
-<<<<<<< HEAD
-            enemy = new DragonSprite1(Animate[7], Animate[6],new Vector2(550, 250));
-=======
-            enemy = new DragonSprite1(EnemyPos);
->>>>>>> 4af4231f3191ede52db27ee5a857ed3a5dc0a1c4
+            enemy = new DragonSprite1(Animate[7], Animate[6], new Vector2(550, 250));
+            //enemy = new DragonSprite1(EnemyPos);
             shoot = new initial();
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
-            linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
+            linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
 
 
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-           // health = Content.Load<Texture2D>("Hearts");
-
-<<<<<<< HEAD
-=======
+            // health = Content.Load<Texture2D>("Hearts");
 
 
->>>>>>> 4af4231f3191ede52db27ee5a857ed3a5dc0a1c4
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
@@ -199,7 +216,7 @@ namespace sprint0
             TextSprite = new TextSprite();
 
             item = new Item(zelda, spritesEnemies, spritesItems);
-         
+
 
             throwFire = new InitialFire();
             // item = new Item(zelda, spritesEnemies, spritesItems);
@@ -207,16 +224,20 @@ namespace sprint0
             projectiles = new Projectiles(this, spritesItems, pos, direc);
         }
 
+
+          
+    
+
         protected override void UnloadContent()
         {
 
         }
 
         protected override void Update(GameTime gameTime)
-        {
+        { 
+
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
-
 
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
@@ -224,9 +245,13 @@ namespace sprint0
             {
                 controller.Update(gameTime);
             }
+
+           // roomsroom.Update(gameTime, this);
+
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
+            currentRoom.Update(gameTime, this);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
@@ -243,23 +268,32 @@ namespace sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
 
-            rooms.Draw(spriteBatch);
+            // roomsroom.Draw(spriteBatch);
+
+            //  rooms.Draw(spriteBatch);
             doorEnter.Draw(spriteBatch);
+
+
             throwFire.Draw(spriteBatch, Animate, pos);
+
 
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
-            shoot.Draw(spriteBatch, Animate, pos);
+          //  shoot.Draw(spriteBatch, Animate, pos);
             //TextSprite.Draw(spriteBatch, font);
 
            // enemy.Draw(spriteBatch, Animate, pos);
 
-            item.Draw(spriteBatch);
-            blocks.Draw(spriteBatch);
-            projectiles.Draw(spriteBatch);
+            
+            currentRoom.Draw(spriteBatch);
+            //item.Draw(spriteBatch);
+             blocks.Draw(spriteBatch);
+            //projectiles.Draw(spriteBatch);
 
             sprite.Draw(spriteBatch, Animate, pos);
+
+
 
             spriteBatch.End();
 

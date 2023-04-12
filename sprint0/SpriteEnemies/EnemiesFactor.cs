@@ -25,8 +25,12 @@ namespace sprint0
         }
 
         public EnemiesFactor() {}
+
+
+
         public Ienemy CreateEnemy(Texture2D enemiesSprite, Texture2D enemiesSprite2, int enemy, Vector2 pos)
         {
+
             switch (enemy)
             {
                 case 1: // bat sprite

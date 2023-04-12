@@ -93,7 +93,7 @@ namespace sprint0
 
             tri = new Rectangle[3];
             tri[0] = new Rectangle(350, 275, 30, 30);
-            tri[1] = new Rectangle(350, 275, 30, 30);
+            tri[1] = new Rectangle(320, 275, 30, 30);
             tri[2] = new Rectangle(350, 275, 30, 30);
 
             fire = new Rectangle[3];

@@ -1,68 +1,123 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<rooms>
-    <room>
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<room>
+    <object>
+        <description>Block</description>
+        <type>1</type>
+        <position>
+            <x>32</x>
+            <y>48</y>
+        </position>
+    </object>
+    <object>
+        <description>Block</description>
+        <type>2</type>
+        <position>
+            <x>48</x>
+            <y>48</y>
+        </position>
+    </object>
+    <object>
         <description>Enemy</description>
         <type>1</type>
-        <position>130 47</position>
-    </room>
-    <room>
+        <position>
+            <x>130</x>
+            <y>47</y>
+        </position>
+    </object>
+    <object>
         <description>Enemy</description>
         <type>1</type>
-        <position>115 64</position>
-    </room>
-    <room>
+        <position>
+            <x>115</x>
+            <y>64</y>
+        </position>
+    </object>
+    <object>
         <description>Enemy</description>
         <type>1</type>
-        <position>80 80</position>
-    </room>
-    <room>
+        <position>
+            <x>80</x>
+            <y>80</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>1</type>
-        <position>145 95</position>
-    </room>
-    <room>
+        <position>
+            <x>145</x>
+            <y>95</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>2</type>
-        <position>160 111</position>
-    </room>
-    <room>
+        <position>
+            <x>160</x>
+            <y>111</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>3</type>
-        <position>160 80</position>
-    </room>
-    <room>
+        <position>
+            <x>160</x>
+            <y>80</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>4</type>
-        <position>205 96</position>
-    </room>
-    <room>
+        <position>
+            <x>205</x>
+            <y>96</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>5</type>
-        <position>175 112</position>
-    </room>
-    <room>
+        <position>
+            <x>175</x>
+            <y>112</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>6</type>
-        <position>166 88</position>
-    </room>
-    <room>
+        <position>
+            <x>166</x>
+            <y>88</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>7</type>
-        <position>104 104</position>
-    </room>
-    <room>
+        <position>
+            <x>104</x>
+            <y>104</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>8</type>
-        <position>73 121</position>
-    </room>
-    <room>
+        <position>
+            <x>73</x>
+            <y>121</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>9</type>
-        <position>200 84</position>
-    </room>
-    <room>
+        <position>
+            <x>200</x>
+            <y>84</y>
+        </position>
+    </object>
+    <object>
         <description>Item</description>
         <type>10</type>
-        <position>100 88</position>
-    </room>
-</rooms>
+        <position>
+            <x>100</x>
+            <y>88</y>
+        </position>
+    </object>
+</room>

@@ -8,15 +8,19 @@ namespace sprint0
 	public class Can : IItem
 	{
 
-        Rectangle can;
+        Rectangle canS;
+        Rectangle canD;
+
         private Vector2 thisPos;
         Texture2D canDraw;
 
         public Can(Texture2D canSprite, Vector2 pos)
         {
-            can = new Rectangle(350, 250, 30, 30);
+            canS = new Rectangle(375, 250, 30, 30);
             thisPos = pos;
             canDraw = canSprite;
+            canD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+
         }
 
         public void Update(GameTime gameTime)
@@ -26,7 +30,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(canDraw, thisPos, can, Color.White);
+            spriteBatch.Draw(canDraw, canD, canS, Color.White);
         }
 
     }

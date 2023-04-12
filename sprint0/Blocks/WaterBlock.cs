@@ -9,15 +9,18 @@ namespace sprint0
 	{
 
 
-        Rectangle water;
+        Rectangle waterS;
+        Rectangle waterD;
+
         private Vector2 thisPos;
         Texture2D blockDraw;
 
-        public WaterBlock(Texture2D blockSprite, Vector2 pos)
+        public WaterBlock(Texture2D blockSprite, Texture2D blockRoom, Vector2 pos)
         {
-            water = new Rectangle(353, 80, 16, 16);
-            thisPos = pos;
-            blockDraw = blockSprite;
+            waterS = new Rectangle(545, 200, 18, 18);
+            waterD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
+
+            blockDraw = blockRoom;
         }
 
 
@@ -27,7 +30,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, thisPos, water, Color.White);
+            spriteBatch.Draw(blockDraw, waterD, waterS, Color.White);
 
         }
     }
