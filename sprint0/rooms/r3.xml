@@ -31,63 +31,63 @@
         <y>48</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>166</x>
-        <y>135</y>
-    </description>
-    <description>Block
-    <type>5</type>
-        <x>215</x>
+    <type>1</type>
+        <x>196</x>
         <y>180</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>41</x>
-        <y>108</y>
+    <type>1</type>
+        <x>196</x>
+        <y>225</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>79</x>
-        <y>79</y>
+    <type>1</type>
+        <x>196</x>
+        <y>270</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>63</x>
-        <y>95</y>
+    <type>1</type>
+        <x>249</x>
+        <y>180</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>79</x>
-        <y>95</y>
+    <type>1</type>
+        <x>249</x>
+        <y>225</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>159</x>
-        <y>63</y>
+    <type>1</type>
+        <x>249</x>
+        <y>270</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>175</x>
-        <y>63</y>
+    <type>1</type>
+        <x>496</x>
+        <y>179</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>159</x>
-        <y>79</y>
+    <type>1</type>
+        <x>496</x>
+        <y>225</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>175</x>
-        <y>79</y>
+    <type>1</type>
+        <x>496</x>
+        <y>272</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>159</x>
-        <y>95</y>
+    <type>1</type>
+        <x>546</x>
+        <y>179</y>
     </description>
     <description>Block
-    <type>5</type>
-        <x>175</x>
-        <y>95</y>
+    <type>1</type>
+        <x>546</x>
+        <y>225</y>
+    </description>
+    <description>Block
+    <type>1</type>
+        <x>546</x>
+        <y>272</y>
     </description>
 </Room>

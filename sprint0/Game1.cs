@@ -129,18 +129,16 @@ namespace sprint0
             //IBlock newBlock = BlockFactory.Instance.GetBlock(Animate[8], 1, blockPos);
             //blocksList.Add(newBlock);
 
-     
-
-          //  roomsroom = new RoomsRoom(enemiesList, blocksList, itemsList);
+            //roomsroom = new RoomsRoom(enemiesList, blocksList, itemsList);
 
 
-
-            for (int i = 1; i <= 3; i++)
+            for (int i = 1; i < 4; i++)
             {
                 string path = $"rooms/r{i}.xml";
                 RoomGenerator roomGenerator = new RoomGenerator(path);
                 RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
                 ListOfRooms.Add(c);
+
 
                 //RoomsRoom roomsroom = new RoomsRoom(this);
                 //roomsroom.enemies = roomGenerator.enemies;
@@ -151,8 +149,10 @@ namespace sprint0
             }
 
             // set the current room to the first room in the list
-            currentRoom = ListOfRooms[0];
-        }
+            //currentRoom = ListOfRooms[0];
+             currentRoom = ListOfRooms[0];
+         }
+
 
         protected override void LoadContent()
         {
@@ -197,18 +197,15 @@ namespace sprint0
 
             enemy = new DragonSprite1(Animate[7], Animate[6], new Vector2(550, 250));
             //enemy = new DragonSprite1(EnemyPos);
-
             enemy = new DragonSprite1(Animate[7], Animate[6],new Vector2(550, 250));
-
             enemy = new DragonSprite1(EnemyPos);
 
             shoot = new initial();
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
+
             linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
-
-
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
@@ -272,12 +269,21 @@ namespace sprint0
                 controller.Update(gameTime);
             }
 
-           // roomsroom.Update(gameTime, this);
+            currentRoom = ListOfRooms[doorEnter.currentImageIndex];
+            currentRoom.Update(gameTime, this);
+
+
+            // roomsroom.Update(gameTime, this);
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
-            currentRoom.Update(gameTime, this);
+
+            //ListOfRooms[0].Update(gameTime, this);
+            //ListOfRooms[1].Update(gameTime, this);
+            //ListOfRooms[2].Update(gameTime, this);
+
+            //currentRoom.Update(gameTime, this);
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
@@ -307,15 +313,21 @@ namespace sprint0
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
-          //  shoot.Draw(spriteBatch, Animate, pos);
+            //  shoot.Draw(spriteBatch, Animate, pos);
             //TextSprite.Draw(spriteBatch, font);
 
-           // enemy.Draw(spriteBatch, Animate, pos);
+            // enemy.Draw(spriteBatch, Animate, pos);
 
-            
+
+
+            //ListOfRooms[0].Draw(spriteBatch);
+            //ListOfRooms[1].Draw(spriteBatch);
+            //ListOfRooms[2].Draw(spriteBatch);
+
+
             currentRoom.Draw(spriteBatch);
             //item.Draw(spriteBatch);
-             blocks.Draw(spriteBatch);
+            blocks.Draw(spriteBatch);
             //projectiles.Draw(spriteBatch);
 
             sprite.Draw(spriteBatch, Animate, pos);
