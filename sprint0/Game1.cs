@@ -17,6 +17,7 @@ using sprint0.Content;
 using sprint0.Interfaces;
 using sprint0.Items;
 using sprint0.HealthBar;
+using sprint0.Sound;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -104,6 +105,7 @@ namespace sprint0
        // RoomsRoom currentRoom;
 
         private Song backgroundMusic;
+        private SoundClass sound;
 
         public Game1()
         {
@@ -112,8 +114,6 @@ namespace sprint0
             IsMouseVisible = true;
         }
 
-
-
         protected override void Initialize()
         {
             controller = new List<Icontroller>();
@@ -121,6 +121,8 @@ namespace sprint0
             pos = new Vector2(220, 100);
             healthNum = 6;
             healthbar = new Health(healthNum);
+
+
             base.Initialize();
 
             //int blockPosition1 = 45;
@@ -273,6 +275,10 @@ namespace sprint0
             currentRoom.Update(gameTime, this);
 
 
+
+            currentRoom = ListOfRooms[doorEnter.currentImageIndex];
+            currentRoom.Update(gameTime, this);
+
             // roomsroom.Update(gameTime, this);
 
             enemy.Update(gameTime, this);
@@ -284,6 +290,7 @@ namespace sprint0
             //ListOfRooms[2].Update(gameTime, this);
 
             //currentRoom.Update(gameTime, this);
+
             item.Update(gameTime);
             blocks.Update(gameTime);
             projectiles.Update(gameTime);
