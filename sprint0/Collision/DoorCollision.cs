@@ -31,7 +31,8 @@ namespace sprint0.Collision
         Dictionary<int, int[]> myRooms;
         Color cal = Color.White;
         KeyboardState keyboard;
-
+        Texture2D blackRectangle;
+        bool startFadeUp, startFadeDown, startFadeLeft, startFadeRight;
         public DoorCollision(Texture2D r, Game1 game)
 		{
             game1 = game;
@@ -39,6 +40,12 @@ namespace sprint0.Collision
             currentImageIndex = 0;
             delayTime = 500f;
             timer = 0f;
+            blackRectangle = new Texture2D(game.GraphicsDevice, 1, 1);
+            blackRectangle.SetData(new[] { new Color(Color.Black, 0.5f) });
+            startFadeUp = false;
+            startFadeDown = false;
+            startFadeLeft = false;
+            startFadeRight = false;
 
             rooms = new Rectangle[18];
             //enter
@@ -105,36 +112,74 @@ namespace sprint0.Collision
 		public void Update(GameTime gameTime, Game1 game)
 		{
             // if (game.linkPos.Y > 300)
+
+            if(startFadeDown)
+            {
+                timer += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
+
+                blackRectangle.SetData(new[] { new Color(Color.Black, timer) });
+
+                Debug.WriteLine("timer: " + timer);
+
+                // wait 1 second
+                // do room change logic
+
+                if (timer > 1)
+                {
+                    timer = 0;
+                    startFadeDown = false;
+                    blackRectangle.SetData(new[] { new Color(Color.Black, 0.0f) });
+
+                    // room change
+                    char setter = 'u';
+                    Debug.WriteLine("Change room down");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[2];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(375, 400));
+                    game.controller[0].setLink(setter);
+
+                }
+            } else if (startFadeUp)
+            {
+                // up logic here
+            } else if (startFadeLeft)
+            {
+                // left logic here
+            } else if (startFadeRight)
+            {
+                // right logic here
+            } else
+            {
+
+                if (game.controller[0].GetLinkPos().Y > 425)
+                {
+                    timer = 0f;
+                    startFadeDown = true;
+
+                }
+
+                if (game.controller[0].GetLinkPos().X > 725)
+                {
+                    Debug.WriteLine("Change room right");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[3];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                }
+
+                if (game.controller[0].GetLinkPos().X < 75)
+                {
+                    Debug.WriteLine("Change room left");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[1];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                }
+            }
+
+
             
-            if (game.controller[0].GetLinkPos().Y > 425)
-            {
-                char setter = 'u';
-                Debug.WriteLine("Change room down");
-                int[] x = myRooms[currentImageIndex];
-                currentImageIndex = x[2];
-                timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(375, 400));
-                game.controller[0].setLink(setter);
-
-            }
-
-            if (game.controller[0].GetLinkPos().X > 725)
-            {
-                Debug.WriteLine("Change room right");
-                int[] x = myRooms[currentImageIndex];
-                currentImageIndex = x[3];
-                timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(200, 400));
-            }
-
-            if (game.controller[0].GetLinkPos().X < 75)
-            {
-                Debug.WriteLine("Change room left");
-                int[] x = myRooms[currentImageIndex];
-                currentImageIndex = x[1];
-                timer = delayTime;
-                game.controller[0].SetLinkPos(new Vector2(200, 400));
-            }
 
         }
 
@@ -142,6 +187,12 @@ namespace sprint0.Collision
 		{
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], cal);
         }
-	}
+
+        public void DrawFade(SpriteBatch spriteBatch)
+        {
+            spriteBatch.Draw(blackRectangle, game1.GraphicsDevice.Viewport.Bounds, Color.White);
+
+        }
+    }
 }
 
