@@ -24,7 +24,7 @@ namespace sprint0.Collision
 
         float delayTime;
         float timer;
-        int currentImageIndex;
+        public int currentImageIndex;
         private Texture2D room;
         private Game1 game1;
         Rectangle[] rooms;
