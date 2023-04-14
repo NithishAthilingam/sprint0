@@ -29,6 +29,11 @@ namespace sprint0
 		{
             spriteBatch.Draw(animate[11], thisPos, boomerang, Color.White, 2.0f, new Vector2(18, 36), new Vector2(3, 3), 0, 0);
         }
-	}
+
+        public void Draw(SpriteBatch spriteBatch, Texture2D animate, Vector2 pos)
+        {
+
+        }
+    }
 }
 

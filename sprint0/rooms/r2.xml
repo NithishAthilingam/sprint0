@@ -1,0 +1,78 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Room>
+        <description>Enemy
+        <type>1</type>
+            <x>130</x>
+            <y>270</y>
+        </description>
+        <description>Enemy
+        <type>1</type>
+            <x>115</x>
+            <y>650</y>
+        </description>
+        <description>Enemy
+        <type>1</type>
+            <x>80</x>
+            <y>80</y>
+        </description>
+
+        <description>Item
+        <type>1</type>
+            <x>145</x>
+            <y>95</y>
+        </description>
+
+        <description>Item
+        <type>2</type>
+            <x>160</x>
+            <y>111</y>
+        </description>
+
+        <description>Item
+        <type>3</type>
+            <x>160</x>
+            <y>80</y>
+        </description>
+
+        <description>Item
+        <type>4</type>
+            <x>205</x>
+            <y>96</y>
+        </description>
+
+        <description>Item
+        <type>5</type>
+            <x>175</x>
+            <y>112</y>
+        </description>
+
+        <description>Item
+        <type>6</type>
+            <x>166</x>
+            <y>88</y>
+        </description>
+
+        <description>Item
+        <type>7</type>
+            <x>104</x>
+            <y>104</y>
+        </description>
+
+        <description>Item
+        <type>8</type>
+            <x>73</x>
+            <y>121</y>
+        </description>
+
+        <description>Item
+        <type>9</type>
+            <x>200</x>
+            <y>84</y>
+        </description>
+
+        <description>Item
+        <type>10</type>
+            <x>100</x>
+            <y>88</y>
+        </description>
+</Room>

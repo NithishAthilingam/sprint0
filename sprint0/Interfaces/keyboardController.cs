@@ -12,6 +12,8 @@ using System.Threading;
 
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.Items;
+using sprint0.HealthBar;
+using Microsoft.Xna.Framework.Media;
 
 namespace sprint0
 {
@@ -29,15 +31,23 @@ namespace sprint0
         public KeyboardState userInput;
         private float timer;
         private float delayTime;
+
+        private int health;
+
         public char setter;
+
 
         private Texture2D i;
         Rectangle blueArrow;
         Vector2 p;
         private Vector2 enemyStartPos;
+        Texture2D enemiesSprite;
+        Texture2D enemiesSprite2;
 
-        public keyboardController(Game1 link)
+        public keyboardController(Texture2D eSprite, Texture2D eSprite2,Game1 link)
         {
+            enemiesSprite = eSprite;
+            enemiesSprite2 = eSprite2;
             game = link;
             pos = new Vector2(220, 100);
             enemyStartPos = new Vector2(450, 250);
@@ -45,21 +55,37 @@ namespace sprint0
             enemyIndex = 0;
             delayTime = 500f;
             timer = 0f;
+            health = 6;
             setter = 'z';
         }
 
         public void Update(GameTime gameTime)
         {
             game.sprite = new RSprite(pos, direc);
+            game.healthbar = new Health(health);
             userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //pos.X = game.linkPos.X;
             //pos.Y = game.linkPos.Y;
 
+            if (Keyboard.GetState().IsKeyDown(Keys.K))
+            {
+                MediaPlayer.IsMuted = true;
+            }
+            if (Keyboard.GetState().IsKeyDown(Keys.L))
+            {
+                MediaPlayer.IsMuted = false;
+            }
 
             if (userInput.IsKeyDown(Keys.E))
             {
                 game.sprite = new DamagedSprite(pos);
+                game.healthbar = new Health(health);
+                health--;
+                if(health == 0)
+                {
+                    health = 6;
+                }
             }
 
             if (userInput.IsKeyDown(Keys.Q))
@@ -340,6 +366,7 @@ namespace sprint0
 
             if (userInput.IsKeyDown(Keys.R))
             {
+                health = 6;
                 pos.X = 0;
                 pos.Y = 0;
                 game.sprite = new RSprite(pos, direc);
@@ -351,23 +378,23 @@ namespace sprint0
                     enemyIndex++;
                     if (enemyIndex == 0)
                     {
-                        game.enemy = new DragonSprite1(enemyStartPos);
+                        game.enemy = new DragonSprite1(enemiesSprite, enemiesSprite2,enemyStartPos);
                     }
                     else if (enemyIndex == 1)
                     {
-                        game.enemy = new SkeletonSprite1(enemyStartPos);
+                        game.enemy = new SkeletonSprite1(enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 2)
                     {
-                        game.enemy = new BatSprite1(enemyStartPos);
+                        game.enemy = new BatSprite1(enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 3)
                     {
-                        game.enemy = new BlueBlob(enemyStartPos);
+                        game.enemy = new BlueBlob(enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 4)
                     {
-                        game.enemy = new Hand(enemyStartPos);
+                        game.enemy = new Hand(enemiesSprite,enemyStartPos);
                         enemyIndex = -1;
                     }
                     timer = delayTime;

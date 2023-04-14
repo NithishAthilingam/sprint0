@@ -10,10 +10,7 @@ namespace sprint0.Content
 {
     public interface IShoot
     {
-
         public void Update(GameTime gameTime);
-
-
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate, Vector2 pos);
     }
 }
