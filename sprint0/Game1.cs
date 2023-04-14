@@ -122,17 +122,7 @@ namespace sprint0
             healthNum = 6;
             healthbar = new Health(healthNum);
 
-
             base.Initialize();
-
-            //int blockPosition1 = 45;
-            //int blockPosition2 = 47;
-            //Vector2 blockPos = new Vector2(blockPosition1, blockPosition2);
-            //IBlock newBlock = BlockFactory.Instance.GetBlock(Animate[8], 1, blockPos);
-            //blocksList.Add(newBlock);
-
-            //roomsroom = new RoomsRoom(enemiesList, blocksList, itemsList);
-
 
             for (int i = 1; i < 4; i++)
             {
@@ -140,21 +130,14 @@ namespace sprint0
                 RoomGenerator roomGenerator = new RoomGenerator(path);
                 RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
                 ListOfRooms.Add(c);
-
-
-                //RoomsRoom roomsroom = new RoomsRoom(this);
-                //roomsroom.enemies = roomGenerator.enemies;
-                //roomsroom.items = roomGenerator.items;
-                //roomsroom.blocks = roomGenerator.blocks;
-                //ListOfRooms.Add(roomsroom);
-
             }
 
             // set the current room to the first room in the list
-            //currentRoom = ListOfRooms[0];
-             currentRoom = ListOfRooms[0];
-         }
+            currentRoom = ListOfRooms[0];
 
+
+            
+        }
 
         protected override void LoadContent()
         {
@@ -226,7 +209,7 @@ namespace sprint0
             doorEnter = new DoorCollision(dungeon, this);
 
 
-            //font = Content.Load<SpriteFont>("Score");
+           // font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
             item = new Item(zelda, spritesEnemies, spritesItems);
@@ -274,22 +257,9 @@ namespace sprint0
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
 
-
-
-            currentRoom = ListOfRooms[doorEnter.currentImageIndex];
-            currentRoom.Update(gameTime, this);
-
-            // roomsroom.Update(gameTime, this);
-
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
-
-            //ListOfRooms[0].Update(gameTime, this);
-            //ListOfRooms[1].Update(gameTime, this);
-            //ListOfRooms[2].Update(gameTime, this);
-
-            //currentRoom.Update(gameTime, this);
 
             item.Update(gameTime);
             blocks.Update(gameTime);
@@ -320,10 +290,10 @@ namespace sprint0
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
-            //  shoot.Draw(spriteBatch, Animate, pos);
+            //shoot.Draw(spriteBatch, Animate, pos);
             //TextSprite.Draw(spriteBatch, font);
 
-            // enemy.Draw(spriteBatch, Animate, pos);
+            //enemy.Draw(spriteBatch);
 
 
 
@@ -334,7 +304,7 @@ namespace sprint0
 
             currentRoom.Draw(spriteBatch);
             //item.Draw(spriteBatch);
-            blocks.Draw(spriteBatch);
+            //blocks.Draw(spriteBatch);
             //projectiles.Draw(spriteBatch);
 
             sprite.Draw(spriteBatch, Animate, pos);

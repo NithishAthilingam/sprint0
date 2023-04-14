@@ -37,7 +37,7 @@ namespace sprint0
             fire[0] = new Rectangle(290, 0, 30, 30);
             fire[1] = new Rectangle(290, 30, 30, 30);
             fire[2] = new Rectangle(290, 0, 30, 30);
-            fireD= new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            fireD= new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
             thisPos = pos;
 

@@ -37,6 +37,7 @@ namespace sprint0
         public DragonSprite1(Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
         {
             sprite = enemiesSprite;
+            sprite2 = enemiesSprite2;
             thisPos = pos;
 
             posBallTop = thisPos;
@@ -157,26 +158,26 @@ namespace sprint0
 
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
-        {
-            Rectangle dest2 = new Rectangle(100, 100, 50, 50);
+        //public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType)
+        //{
+        //    Rectangle dest2 = new Rectangle(100, 100, 50, 50);
 
-            spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(AnimationType[7], posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(AnimationType[7], posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //    spriteBatch.Draw(AnimationType[7], posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //    spriteBatch.Draw(AnimationType[7], posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //    spriteBatch.Draw(AnimationType[7], posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
 
-            spriteBatch.Draw(AnimationType[6], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-        }
+        //    spriteBatch.Draw(AnimationType[6], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //}
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D animate, Vector2 pos)
-        {
-            spriteBatch.Draw(sprite, posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(sprite, posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(sprite, posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //public void Draw(SpriteBatch spriteBatch, Texture2D animate)
+        //{
+        //    spriteBatch.Draw(sprite, posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //    spriteBatch.Draw(sprite, posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //    spriteBatch.Draw(sprite, posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
-            spriteBatch.Draw(sprite2, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-        }
+        //    spriteBatch.Draw(sprite2, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+        //}
 
         public void Draw(SpriteBatch spriteBatch)
         {

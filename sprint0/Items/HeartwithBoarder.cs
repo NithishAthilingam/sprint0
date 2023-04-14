@@ -18,7 +18,7 @@ namespace sprint0
 		{
             heartDraw = heartBorderSprite;
             heart = new Rectangle(290, 185, 30, 30);
-            heartD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            heartD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
 
             thisPos = pos;
         }

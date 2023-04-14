@@ -19,7 +19,7 @@ namespace sprint0
         public LadyItem(Texture2D ladySprite, Vector2 pos)
         {
             lady = new Rectangle(150, 30, 24, 25);
-            ladyD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            ladyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
             thisPos = pos;
             ladyDraw = ladySprite;

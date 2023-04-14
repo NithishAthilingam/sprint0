@@ -21,7 +21,7 @@ namespace sprint0
             arrowS = new Rectangle(205, 250, 50, 30);
             thisPos = pos;
             arrowDraw = arrowSprite;
-            arrowD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            arrowD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
 
         }
 

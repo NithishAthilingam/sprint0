@@ -36,7 +36,7 @@ namespace sprint0
             triangle[0] = new Rectangle(350, 275, 30, 30);
             triangle[1] = new Rectangle(320, 275, 30, 30);
             triangle[2] = new Rectangle(350, 275, 30, 30);
-            triangleD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            triangleD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
 
 
             thisPos = pos;

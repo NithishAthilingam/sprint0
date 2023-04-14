@@ -15,7 +15,7 @@ namespace sprint0
         public Key(Texture2D keySprite, Vector2 pos)
         {
             key = new Rectangle(350, 250, 30, 30);
-            keyD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            keyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
             thisPos = pos;
             keyDraw = keySprite;
         }

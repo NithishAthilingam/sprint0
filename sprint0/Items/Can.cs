@@ -19,7 +19,7 @@ namespace sprint0
             canS = new Rectangle(375, 250, 30, 30);
             thisPos = pos;
             canDraw = canSprite;
-            canD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            canD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
         }
 

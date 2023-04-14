@@ -35,7 +35,7 @@ namespace sprint0
             hearts[0] = new Rectangle(230, 185, 30, 30);
             hearts[1] = new Rectangle(260, 185, 30, 30);
             hearts[2] = new Rectangle(230, 185, 30, 30);
-            heartsD= new Rectangle((int)pos.X, (int)pos.Y, 50, 50); ;
+            heartsD= new Rectangle((int)pos.X, (int)pos.Y, 100, 100); ;
             thisPos = pos;
 
             //delayTime = 500f;

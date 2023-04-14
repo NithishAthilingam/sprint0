@@ -2,77 +2,67 @@
 <Room>
         <description>Enemy
         <type>1</type>
-            <x>130</x>
-            <y>270</y>
+            <x>495</x>
+            <y>179</y>
         </description>
         <description>Enemy
         <type>1</type>
-            <x>115</x>
-            <y>650</y>
+            <x>445</x>
+            <y>239</y>
         </description>
         <description>Enemy
         <type>1</type>
-            <x>80</x>
-            <y>80</y>
+            <x>447</x>
+            <y>180</y>
         </description>
-
         <description>Item
         <type>1</type>
-            <x>145</x>
-            <y>95</y>
+            <x>300</x>
+            <y>184</y>
         </description>
-
         <description>Item
         <type>2</type>
-            <x>160</x>
-            <y>111</y>
+            <x>350</x>
+            <y>280</y>
         </description>
-
         <description>Item
         <type>3</type>
-            <x>160</x>
-            <y>80</y>
+            <x>410</x>
+            <y>222</y>
         </description>
-
         <description>Item
         <type>4</type>
-            <x>205</x>
-            <y>96</y>
+            <x>550</x>
+            <y>300</y>
         </description>
-
         <description>Item
         <type>5</type>
-            <x>175</x>
-            <y>112</y>
+            <x>590</x>
+            <y>241</y>
         </description>
-
         <description>Item
         <type>6</type>
-            <x>166</x>
-            <y>88</y>
+            <x>499</x>
+            <y>288</y>
         </description>
-
         <description>Item
         <type>7</type>
             <x>104</x>
-            <y>104</y>
+            <y>338</y>
         </description>
-
         <description>Item
         <type>8</type>
-            <x>73</x>
+            <x>373</x>
             <y>121</y>
         </description>
-
         <description>Item
         <type>9</type>
-            <x>200</x>
-            <y>84</y>
+            <x>600</x>
+            <y>280</y>
         </description>
-
         <description>Item
         <type>10</type>
-            <x>100</x>
-            <y>88</y>
+            <x>194</x>
+            <y>312</y>
         </description>
 </Room>

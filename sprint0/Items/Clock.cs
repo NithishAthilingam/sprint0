@@ -16,7 +16,7 @@ namespace sprint0
         public Clock(Texture2D clockSprite, Vector2 pos)
 		{
             clockS = new Rectangle(380, 160, 30, 30);
-            clockD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            clockD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
             thisPos = pos;
             clockDraw = clockSprite;

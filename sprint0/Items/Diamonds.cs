@@ -35,7 +35,7 @@ namespace sprint0
             diamonds[0] = new Rectangle(270, 225, 30, 30);
             diamonds[1] = new Rectangle(240, 225, 30, 30);
             diamonds[2] = new Rectangle(270, 225, 30, 30);
-            diamondsD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            diamondsD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
             
 
             //delayTime = 500f;
