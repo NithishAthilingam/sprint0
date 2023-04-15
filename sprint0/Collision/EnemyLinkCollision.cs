@@ -6,6 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using sprint0.Interfaces;
+using sprint0.HealthBar;
 
 namespace sprint0.Collision
 {
@@ -15,6 +16,7 @@ namespace sprint0.Collision
         char x;
         Rectangle link;
         Rectangle enemy;
+        public Health h;
 
         public void Update(GameTime gameTime, Game1 game)
         {
@@ -53,7 +55,7 @@ namespace sprint0.Collision
                 {
                     //game.sprite = new RightSprite(game.linkPos);
                     //game.linkPos.X += intersect.Width;
-                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(-intersect.Width, 0));
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(intersect.Width, 0));
                     //game.controller[0].ModifyLinkPos(new Vector2(intersect.Width, 0));
 
                 }

@@ -12,25 +12,20 @@ namespace sprint0.Collision
 
     public class BlockCollision : ICollision
     {
-        Dictionary<int, Rectangle[]> roomsBLock;
+        int frame = 0;
+        char x;
+        Rectangle link;
+        Rectangle block;
 
-        public BlockCollision()
-        {
-            roomsBLock = new Dictionary<int, Rectangle[]>()
-            {
-                {0,new Rectangle[] { new Rectangle(70, 65, 14, 14), new Rectangle(98, 65, 14, 14), new Rectangle(126, 65, 14, 14), new Rectangle(154, 65, 14, 14) } },
-                {1,new Rectangle[] {} },
-                {2,new Rectangle[] {} },
-                {3,new Rectangle[] {} },
-
-            };
-        }
 
         public void Update(GameTime gameTime, Game1 game)
         {
-            //char x = CollisionDetection.GetDirection(NULL, NULL);
-            Rectangle EnemyBound = new Rectangle((int)game.EnemyPos.X, (int)game.EnemyPos.Y, 30, 35);
-            Vector2 initialpos = game.linkPos;
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
+            block = new Rectangle((int)game.EnemyPos.X, (int)game.EnemyPos.Y, 55, 55);
+            Rectangle intersect = Rectangle.Intersect(link, block);
+            x = CollisionDetection.GetDirection(link, block);
+            frame++;
+
             /*foreach (var rect in roomsBLock[0])
             {
                 if(rect.Intersects(game.linkBound))
