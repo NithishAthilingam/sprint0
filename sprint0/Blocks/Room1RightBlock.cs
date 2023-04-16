@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Collision;
 
 namespace sprint0
 {
@@ -15,13 +16,15 @@ namespace sprint0
         private Vector2 thisPos;
         int thisPosx;
         int thisPosy;
+        Rectangle link;
+        char x;
 
         Texture2D blockDraw;
 
         public Room1RightBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
             rightS = new Rectangle(556, 887, 18, 18);
-            rightD= new Rectangle((int)pos.X, (int)pos.Y, 55, 50);
+            rightD= new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
 
             blockDraw = blockRoom1;
 
@@ -35,8 +38,31 @@ namespace sprint0
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 40, 40);
+            Rectangle intersect = Rectangle.Intersect(link, rightD);
+            x = CollisionDetection.GetDirection(link, rightD);
+
+            if (x != 'o')
+            {
+                if (x == 'w')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, -intersect.Height));
+                }
+                else if (x == 'a')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(-intersect.Width, 0));
+                }
+                else if (x == 's')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, intersect.Height));
+                }
+                else if (x == 'd')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(intersect.Width, 0));
+                }
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
