@@ -18,13 +18,20 @@ namespace sprint0.Collision
         Rectangle enemy;
         public Health h;
 
-        public void Update(GameTime gameTime, Game1 game)
+
+
+        public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
         {
+
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
             enemy = new Rectangle((int)game.EnemyPos.X, (int)game.EnemyPos.Y, 90, 105);
             Rectangle intersect = Rectangle.Intersect(link, enemy);
             x = CollisionDetection.GetDirection(link, enemy);
             frame++;
+            foreach (Ienemy enemy in currentRoomsRoom.enemies)
+            {
+                float pos = enemy.Version;
+            }
             if (x!='o')
             {
                 //game.sprite = new DamagedSprite(game.linkPos);
