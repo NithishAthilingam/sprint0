@@ -47,7 +47,7 @@ namespace sprint0
 
             foreach (IBlock block in blocks)
             {
-                block.Update(gameTime);
+                block.Update(gameTime,game);
             }
 
             foreach (IItem item in items)
