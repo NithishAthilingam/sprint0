@@ -34,7 +34,7 @@ namespace sprint0
         Texture2D sprite2;
         private Vector2 enemyPos;
 
-        public DragonSprite1(Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
+        public DragonSprite1(int enemyID, Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
         {
             sprite = enemiesSprite;
             sprite2 = enemiesSprite2;

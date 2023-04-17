@@ -14,7 +14,7 @@ namespace sprint0
     public class BatSprite1 : Ienemy
     {
         public Vector2 thisPos;
-        Vector2 value;
+        Vector3 value;
         private int frames = 0;
         Rectangle[] bat;
         Rectangle source2;
@@ -28,15 +28,18 @@ namespace sprint0
         private int left;
         private int right;
         Texture2D sprite;
+        int id;
 
 
-        public BatSprite1(Texture2D enemiesSprite,Vector2 pos)
+        public BatSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
             sprite = enemiesSprite;
             thisPos = pos;
+            id = enemyID;
 
             thisPos.Y -= 100;
-            value = pos;
+            value.X = pos.X;
+            value.Y = pos.Y;
 
 
 
@@ -153,9 +156,16 @@ namespace sprint0
             {
                 tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
-            game.currentRoomsRoom.enemiesD.TryGetValue(1, out value);
-            game.currentRoomsRoom.enemiesD.Remove(1);
-            game.currentRoomsRoom.enemiesD.Add(1, value);
+            //game.currentRoomsRoom.enemiesD.
+            if(game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                value.X = thisPos.X;
+                value.Y = thisPos.Y;
+                game.currentRoomsRoom.enemiesD.Remove(id);
+                game.currentRoomsRoom.enemiesD.Add(id, value);
+
+            }
 
         }
 

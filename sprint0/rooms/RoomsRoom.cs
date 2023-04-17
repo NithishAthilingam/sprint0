@@ -12,9 +12,9 @@ namespace sprint0
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
-        public Dictionary<int, Vector2> enemiesD = new Dictionary<int, Vector2>();
+        public Dictionary<int, Vector3> enemiesD = new Dictionary<int, Vector3>();
 
-        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, Vector2> enemiesD)
+        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, Vector3> enemiesD)
         {
             this.enemies = enemies;
             this.blocks = blocks;
@@ -56,6 +56,7 @@ namespace sprint0
             {
                 item.Update(gameTime);
             }
+
         }
 
         public void Update(GameTime gameTime)

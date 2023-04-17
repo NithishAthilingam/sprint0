@@ -29,7 +29,7 @@ namespace sprint0
 
 
 
-        public SkeletonSprite1(Texture2D enemiesSprite,Vector2 pos)
+        public SkeletonSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
 
             sprite = enemiesSprite;

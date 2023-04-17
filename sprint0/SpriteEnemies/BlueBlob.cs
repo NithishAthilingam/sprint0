@@ -21,7 +21,7 @@ namespace sprint0
         Texture2D sprite;
 
 
-        public BlueBlob(Texture2D enemiesSprite, Vector2 pos)
+        public BlueBlob(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
             sprite = enemiesSprite;
             thisPos = pos;

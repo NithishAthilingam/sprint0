@@ -20,7 +20,7 @@ namespace sprint0
 
         Texture2D sprite;
 
-        public Hand(Texture2D enemiesSprite,Vector2 pos)
+        public Hand(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
 
             sprite = enemiesSprite;

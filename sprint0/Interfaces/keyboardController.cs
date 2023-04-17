@@ -378,23 +378,23 @@ namespace sprint0
                     enemyIndex++;
                     if (enemyIndex == 0)
                     {
-                        game.enemy = new DragonSprite1(enemiesSprite, enemiesSprite2,enemyStartPos);
+                        game.enemy = new DragonSprite1(0, enemiesSprite, enemiesSprite2,enemyStartPos);
                     }
                     else if (enemyIndex == 1)
                     {
-                        game.enemy = new SkeletonSprite1(enemiesSprite,enemyStartPos);
+                        game.enemy = new SkeletonSprite1(0, enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 2)
                     {
-                        game.enemy = new BatSprite1(enemiesSprite,enemyStartPos);
+                        game.enemy = new BatSprite1(0, enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 3)
                     {
-                        game.enemy = new BlueBlob(enemiesSprite,enemyStartPos);
+                        game.enemy = new BlueBlob(0, enemiesSprite,enemyStartPos);
                     }
                     else if (enemyIndex == 4)
                     {
-                        game.enemy = new Hand(enemiesSprite,enemyStartPos);
+                        game.enemy = new Hand(0, enemiesSprite,enemyStartPos);
                         enemyIndex = -1;
                     }
                     timer = delayTime;
