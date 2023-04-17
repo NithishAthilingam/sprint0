@@ -25,6 +25,9 @@ namespace sprint0
         private int left;
         private int right;
 
+        Vector4 value;
+        int id;
+
         Texture2D sprite;
 
 
@@ -34,6 +37,8 @@ namespace sprint0
 
             sprite = enemiesSprite;
             thisPos = pos;
+
+            id = enemyID;
 
             thisPos.Y -= 100;
 
@@ -123,6 +128,16 @@ namespace sprint0
             else
             {
                 tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            }
+
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                value.X = thisPos.X;
+                value.Y = thisPos.Y;
+                game.currentRoomsRoom.enemiesD.Remove(id);
+                game.currentRoomsRoom.enemiesD.Add(id, value);
+
             }
 
 

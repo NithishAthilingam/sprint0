@@ -14,7 +14,7 @@ namespace sprint0
     public class BatSprite1 : Ienemy
     {
         public Vector2 thisPos;
-        Vector3 value;
+        Vector4 value;
         private int frames = 0;
         Rectangle[] bat;
         Rectangle source2;

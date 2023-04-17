@@ -25,9 +25,9 @@ namespace sprint0.Collision
         {
 
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
-            foreach (KeyValuePair<int, Vector3> entry in currentRoomsRoom.enemiesD)
+            foreach (KeyValuePair<int, Vector4> entry in currentRoomsRoom.enemiesD)
             {
-                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 60, 60);
+                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 40, 40);
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
 
