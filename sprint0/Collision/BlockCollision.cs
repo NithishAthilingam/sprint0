@@ -18,7 +18,7 @@ namespace sprint0.Collision
         Rectangle block;
 
 
-        public void Update(GameTime gameTime, Game1 game)
+        public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
         {
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
             block = new Rectangle((int)game.EnemyPos.X, (int)game.EnemyPos.Y, 55, 55);

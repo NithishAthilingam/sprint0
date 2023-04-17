@@ -109,7 +109,7 @@ namespace sprint0.Collision
             };
         }
 
-		public void Update(GameTime gameTime, Game1 game)
+		public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
 		{
             // if (game.linkPos.Y > 300)
 
