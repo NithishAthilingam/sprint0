@@ -92,6 +92,7 @@ namespace sprint0
         int currentRoomIndex;
 
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
+        public RoomsRoom currentRoomsRoom;
 
         private Song backgroundMusic;
         //private SoundClass sound; 
@@ -121,6 +122,7 @@ namespace sprint0
                 string path = $"rooms/r{i}.xml";
                 RoomGenerator roomGenerator = new RoomGenerator(path);
                 RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
+                //RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
                 ListOfRooms.Add(c);
             }
 
@@ -219,7 +221,7 @@ namespace sprint0
                 this.Exit();
 
             New:
-            RoomsRoom currentRoomsRoom = (RoomsRoom)currentRoom;
+            currentRoomsRoom = (RoomsRoom)currentRoom;
             // Access currentRoomsRoom's blocks list
             List<IBlock> currentBlocks = currentRoomsRoom.blocks;
             // Access currentRoomsRoom's enemies list
@@ -252,7 +254,7 @@ namespace sprint0
             rooms.Update(gameTime);
             doorEnter.Update(gameTime, this, currentRoomsRoom);
             item.Update(gameTime);
-            blocks.Update(gameTime);
+            blocks.Update(gameTime, this);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this, currentRoomsRoom);

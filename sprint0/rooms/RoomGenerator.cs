@@ -19,6 +19,7 @@ namespace sprint0
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
+        public Dictionary<int, Vector2> enemiesD = new Dictionary<int, Vector2>();
 
 
         public RoomGenerator(string fileName)
@@ -32,7 +33,7 @@ namespace sprint0
             enemies = new List<Ienemy>();
             items = new List<IItem>();
             blocks = new List<IBlock>();
-
+            enemiesD = new Dictionary<int, Vector2>();
             using (XmlReader reader = XmlReader.Create(file))
             {
                 while (reader.Read())
@@ -76,6 +77,16 @@ namespace sprint0
                                     int enemyPosition2 = int.Parse(reader.ReadElementContentAsString());
                                     Ienemy newEnemy = EnemiesFactor.Instance.CreateEnemy(enemiesSprite, enemiesSprite2, enemyVersion, new Vector2(enemyPosition1, enemyPosition2));
                                     enemies.Add(newEnemy);
+                                    if (enemiesD.ContainsKey(enemyVersion))
+                                    {
+                                        enemiesD.Remove(enemyVersion);
+                                        enemiesD.Add(enemyVersion, new Vector2(enemyPosition1, enemyPosition2));
+
+                                    }
+                                    else
+                                    {
+                                        enemiesD.Add(enemyVersion, new Vector2(enemyPosition1, enemyPosition2));
+                                    }
                                     Console.WriteLine("enemy : " + enemyVersion.ToString() + "enemyX:" + enemyPosition1.ToString() + "enemyY:" + enemyPosition2.ToString());
                                     break;
                             }
@@ -83,7 +94,7 @@ namespace sprint0
                     }
                 }
 
-                return new RoomsRoom(enemies, blocks, items);
+                return new RoomsRoom(enemies, blocks, items, enemiesD);
             }
     //        XmlDocument xmlDoc = new XmlDocument();
     //        xmlDoc.Load(file);

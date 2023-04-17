@@ -16,6 +16,7 @@ namespace sprint0.Collision
         char x;
         Rectangle link;
         Rectangle enemy;
+        Rectangle intersect;
         public Health h;
 
 
@@ -24,14 +25,14 @@ namespace sprint0.Collision
         {
 
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
-            enemy = new Rectangle((int)game.EnemyPos.X, (int)game.EnemyPos.Y, 90, 105);
-            Rectangle intersect = Rectangle.Intersect(link, enemy);
-            x = CollisionDetection.GetDirection(link, enemy);
-            frame++;
-            foreach (Ienemy enemy in currentRoomsRoom.enemies)
+            foreach (KeyValuePair<int, Vector2> entry in currentRoomsRoom.enemiesD)
             {
-                float pos = enemy.Version;
+                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 60, 60);
+                intersect = Rectangle.Intersect(link, enemy);
+                x = CollisionDetection.GetDirection(link, enemy);
             }
+            
+            frame++;
             if (x!='o')
             {
                 //game.sprite = new DamagedSprite(game.linkPos);
