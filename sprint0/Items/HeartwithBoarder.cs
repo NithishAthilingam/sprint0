@@ -28,7 +28,7 @@ namespace sprint0
             spriteBatch.Draw(animate[4], thisPos, heart, Color.White);
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
 
         }

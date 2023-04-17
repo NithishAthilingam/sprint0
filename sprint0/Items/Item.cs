@@ -111,7 +111,7 @@ namespace sprint0
             rectangles = new Rectangle[] { rectangle };
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
 
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;

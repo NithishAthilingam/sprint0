@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace sprint0
 {
@@ -62,13 +63,16 @@ namespace sprint0
             if (thisPos.Y == 60)
             {
                 posChangeY = 2;
+
             }else if(thisPos.Y == 372)
             {
                 posChangeY = -2;
-            }else if(thisPos.X == 90)
+            }
+            else if(thisPos.X == 90)
             {
                 posChangeX = 2;
-            }else if(thisPos.X == 665)
+            }
+            else if(thisPos.X == 665)
             {
                 posChangeX = -2;
             }
@@ -76,7 +80,7 @@ namespace sprint0
 
             /*if (thisPos.X > 0 && thisPos.Y>0)
             {*/
-                frames++;
+            frames++;
                 if ((frames % 20 == 0) && source2 == bat[0])
                 {
                     source2 = bat[1];

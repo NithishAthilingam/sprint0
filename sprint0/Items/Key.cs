@@ -20,7 +20,7 @@ namespace sprint0
             keyDraw = keySprite;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
         }
 

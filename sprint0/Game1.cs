@@ -239,7 +239,7 @@ namespace sprint0
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
-            item.Update(gameTime);
+            item.Update(gameTime,this);
             blocks.Update(gameTime,this);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);

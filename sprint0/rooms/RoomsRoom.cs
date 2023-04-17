@@ -52,7 +52,7 @@ namespace sprint0
 
             foreach (IItem item in items)
             {
-                item.Update(gameTime);
+                item.Update(gameTime,game);
             }
         }
 

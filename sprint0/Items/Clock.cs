@@ -9,9 +9,11 @@ namespace sprint0
     {
         Rectangle clockS;
         Rectangle clockD;
+        Rectangle link;
 
         private Vector2 thisPos;
         Texture2D clockDraw;
+        Boolean intersect;
 
         public Clock(Texture2D clockSprite, Vector2 pos)
 		{
@@ -20,15 +22,21 @@ namespace sprint0
 
             thisPos = pos;
             clockDraw = clockSprite;
+            intersect = false;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
+            intersect = link.Intersects(clockD);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(clockDraw, clockD, clockS, Color.White);
+            if (!intersect)
+            {
+                spriteBatch.Draw(clockDraw, clockD, clockS, Color.White);
+            }
 
         }
 
