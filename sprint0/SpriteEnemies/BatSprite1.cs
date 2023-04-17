@@ -15,6 +15,7 @@ namespace sprint0
     public class BatSprite1 : Ienemy
     {
         public Vector2 thisPos;
+        Vector2 value;
         private int frames = 0;
         Rectangle[] bat;
         Rectangle source2;
@@ -36,7 +37,7 @@ namespace sprint0
             thisPos = pos;
 
             thisPos.Y -= 100;
-
+            value = pos;
 
 
 
@@ -156,7 +157,9 @@ namespace sprint0
             {
                 tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
-
+            game.currentRoomsRoom.enemiesD.TryGetValue(1, out value);
+            game.currentRoomsRoom.enemiesD.Remove(1);
+            game.currentRoomsRoom.enemiesD.Add(1, value);
 
         }
 
