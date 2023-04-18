@@ -58,7 +58,7 @@ namespace sprint0.Collision
             //enter
             rooms[0] = new Rectangle(509, 840, 256, 168);
             //l
-            rooms[1] = new Rectangle(254, 840, 256, 168);
+            rooms[1] = new Rectangle(254, 840, 255, 168);
             //r
             rooms[2] = new Rectangle(765, 840, 256, 168);
             //f
