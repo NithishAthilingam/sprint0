@@ -80,8 +80,8 @@ namespace sprint0
             if (userInput.IsKeyDown(Keys.E))
             {
                 game.sprite = new DamagedSprite(pos);
-                game.healthbar = new Health(health);
-                health--;
+                //game.healthbar = new Health(health);
+                //health--;
                 if(health == 0)
                 {
                     health = 6;

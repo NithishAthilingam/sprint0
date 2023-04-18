@@ -235,33 +235,35 @@ namespace sprint0.Collision
                     game.controller[0].setLink(setter);
 
                 }
-            } else { 
+            }
+            else
+            {
 
                 if (game.controller[0].GetLinkPos().Y > 415)
-            {
-                timer = 0f;
-                startFadeDown = true;
+                {
+                    timer = 0f;
+                    startFadeDown = true;
 
-            }
-            if (game.controller[0].GetLinkPos().Y < 29)
-            {
-                timer = 0f;
-                startFadeUp = true;
+                }
+                if (game.controller[0].GetLinkPos().Y < 29)
+                {
+                    timer = 0f;
+                    startFadeUp = true;
 
-            }
+                }
 
-            if (game.controller[0].GetLinkPos().X > 714)
-            {
-                timer = 0f;
-                startFadeRight = true;
-            }
+                if (game.controller[0].GetLinkPos().X > 714)
+                {
+                    timer = 0f;
+                    startFadeRight = true;
+                }
 
-            if (game.controller[0].GetLinkPos().X < 75)
-            {
-                timer = 0f;
-                startFadeLeft = true;
+                if (game.controller[0].GetLinkPos().X < 75)
+                {
+                    timer = 0f;
+                    startFadeLeft = true;
+                }
             }
-        }
 
 
 
@@ -278,6 +280,10 @@ namespace sprint0.Collision
 
         }
 
+        void ICollision.Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 
