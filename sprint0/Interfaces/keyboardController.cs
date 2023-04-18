@@ -95,19 +95,19 @@ namespace sprint0
             else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))
             {
                 direc = 'w';
-                game.sprite = new UpSprite(pos);
+                game.sprite = new UpSprite2(pos);
                 if (pos.Y > 0 + 60)
                 {
                     framesForUp++;
                     if (framesForUp <= 9)
                     {
-                        game.sprite = new UpSprite2(pos);
+                        game.sprite = new UpSprite(pos);
                         pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         game.linkPos.Y = pos.Y;
                     }
                     else if (framesForUp <= 18)
                     {
-                        game.sprite = new UpSprite(pos);
+                        game.sprite = new UpSprite2(pos);
                         pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                         game.linkPos.Y = pos.Y;
                     }
@@ -116,9 +116,19 @@ namespace sprint0
                         framesForUp = 0;
                     }
                 }
+                else if (pos.X > 350 && pos.X < 395)
+                {
+                    game.sprite = new UpSprite2(pos);
+
+                    if (pos.Y > 30)
+                    {
+                        pos.Y -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.Y = pos.Y;
+                    }
+                }
                 else
                 {
-                    pos.Y = 0 + 60;
+                    pos.Y = 60 - 0;
                     game.linkPos.Y = pos.Y;
                 }
 
@@ -151,8 +161,11 @@ namespace sprint0
                 {
                     game.sprite = new LeftSprite(pos);
 
-                    pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    game.linkPos.X = pos.X;
+                    if (pos.X > 50)
+                    {
+                        pos.X -= speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
+                    }
                 }
                 else
                 {
@@ -190,8 +203,11 @@ namespace sprint0
                 {
                     game.sprite = new DownSprite(pos);
 
-                    pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    game.linkPos.Y = pos.Y;
+                    if (pos.Y < 425)
+                    {
+                        pos.Y += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.Y = pos.Y;
+                    }
                 }
                 else
                 {
@@ -227,8 +243,11 @@ namespace sprint0
 
                     game.sprite = new RightSprite(pos);
 
-                    pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
-                    game.linkPos.X = pos.X;
+                    if (pos.X < 715)
+                    {
+                        pos.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                        game.linkPos.X = pos.X;
+                    }
 
                 }
                 else

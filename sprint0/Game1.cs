@@ -222,7 +222,6 @@ namespace sprint0
             {
                 controller.Update(gameTime);
             }
-
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
 
@@ -283,7 +282,7 @@ namespace sprint0
 
             sprite.Draw(spriteBatch, Animate, pos);
 
-            //doorEnter.DrawFade(spriteBatch);
+            doorEnter.DrawFade(spriteBatch);
 
             spriteBatch.End();
 
