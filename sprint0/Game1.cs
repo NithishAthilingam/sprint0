@@ -43,7 +43,7 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-        public int healthNum;
+        public int healthNum = 6;
 
         private Texture2D health;
 
@@ -114,7 +114,7 @@ namespace sprint0
             base.Initialize();
 
 
-            healthNum = 4;
+            
             healthbar = new Health(healthNum);
 
 
@@ -229,6 +229,8 @@ namespace sprint0
             List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
             // Access currentRoomsRoom's items list
             List<IItem> currentItems = currentRoomsRoom.items;
+
+            healthbar = new Health(healthNum);
 
 
             sprite.Update(gameTime);

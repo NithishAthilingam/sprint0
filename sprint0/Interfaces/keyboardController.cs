@@ -62,7 +62,7 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
             game.sprite = new RSprite(pos, direc);
-            game.healthbar = new Health(health);
+            //game.healthbar = new Health(health);
             userInput = Keyboard.GetState();
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //pos.X = game.linkPos.X;
