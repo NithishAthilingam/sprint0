@@ -16,6 +16,7 @@ using sprint0.Interfaces;
 using sprint0.Items;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
+using sprint0.HealthBar;
 
 namespace sprint0
 {
@@ -113,8 +114,8 @@ namespace sprint0
             base.Initialize();
 
 
-            //healthNum = 6;
-            //healthbar = new Health(healthNum);
+            healthNum = 4;
+            healthbar = new Health(healthNum);
 
 
             for (int i = 1; i < 4; i++)
@@ -186,7 +187,7 @@ namespace sprint0
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-           // health = Content.Load<Texture2D>("Hearts");
+           
 
 
 
@@ -261,6 +262,7 @@ namespace sprint0
             collideA.Update(gameTime, this, currentRoomsRoom);
             MouseController.Update(gameTime);
             base.Update(gameTime);
+            
         }
 
         protected override void Draw(GameTime gameTime)
@@ -303,6 +305,8 @@ namespace sprint0
             projectiles.Draw(spriteBatch);
 
             sprite.Draw(spriteBatch, Animate, pos);
+
+            healthbar.Draw(spriteBatch, health);
 
             doorEnter.DrawFade(spriteBatch);
 
