@@ -22,8 +22,9 @@ namespace sprint0
             blockDraw = blockRoom;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
+
         }
 
         public void Draw(SpriteBatch spriteBatch)

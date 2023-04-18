@@ -12,12 +12,14 @@ namespace sprint0
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
+        public Dictionary<int, Vector4> enemiesD = new Dictionary<int, Vector4>();
 
-        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> items)
+        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, Vector4> enemiesD)
         {
             this.enemies = enemies;
             this.blocks = blocks;
-            this.items = items;
+            this.items = item;
+            this.enemiesD = enemiesD;
         }
          
         public void Draw(SpriteBatch spriteBatch)
@@ -47,13 +49,14 @@ namespace sprint0
 
             foreach (IBlock block in blocks)
             {
-                block.Update(gameTime);
+                block.Update(gameTime,game);
             }
 
             foreach (IItem item in items)
             {
                 item.Update(gameTime);
             }
+
         }
 
         public void Update(GameTime gameTime)

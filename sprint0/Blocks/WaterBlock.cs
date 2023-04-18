@@ -12,7 +12,7 @@ namespace sprint0
         Rectangle waterS;
         Rectangle waterD;
 
-        private Vector2 thisPos;
+        //private Vector2 thisPos;
         Texture2D blockDraw;
 
         public WaterBlock(Texture2D blockSprite, Texture2D blockRoom, Vector2 pos)
@@ -24,7 +24,7 @@ namespace sprint0
         }
 
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
         }
 
