@@ -63,21 +63,42 @@ namespace sprint0
             if (thisPos.Y == 60)
             {
                 posChangeY = 2;
-            }else if(thisPos.Y == 372)
+            }
+            else if (thisPos.Y == 372)
             {
                 posChangeY = -2;
-            }else if(thisPos.X == 90)
+            }
+            else if (thisPos.X == 90)
             {
                 posChangeX = 2;
-            }else if(thisPos.X == 665)
+            }
+            else if (thisPos.X == 665)
             {
                 posChangeX = -2;
+            }
+
+            if(thisPos.X >= 700)
+            {
+                thisPos.X -= 2;
+                
+            }
+            else if (thisPos.X <= 100)
+            {
+                thisPos.X += 2;
+            }
+            else if(thisPos.Y <= 100)
+            {
+                thisPos.Y += 2;
+            }
+            else if (thisPos.Y >= 380)
+            {
+                thisPos.Y -= 2;
             }
 
 
             /*if (thisPos.X > 0 && thisPos.Y>0)
             {*/
-                frames++;
+            frames++;
                 if ((frames % 20 == 0) && source2 == bat[0])
                 {
                     source2 = bat[1];
@@ -129,6 +150,24 @@ namespace sprint0
 
             }*/
             //projectile
+
+            //if (game.EnemyPos.X < 0)
+            //{
+            //    game.EnemyPos.X = 0;
+            //}
+            //else if (game.EnemyPos.X > 800)
+            //{
+            //    game.EnemyPos.X = 800;
+            //}
+            //if (game.EnemyPos.Y < 0)
+            //{
+            //    game.EnemyPos.Y = 0;
+            //}
+            //else if (game.EnemyPos.Y > 480)
+            //{
+            //    game.EnemyPos.Y = 480;
+            //}
+
             if (tt > speed)
             {
                 if (currentA == middle)

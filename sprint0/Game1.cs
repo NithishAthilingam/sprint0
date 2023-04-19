@@ -95,6 +95,10 @@ namespace sprint0
         public RoomsRoom currentRoomsRoom;
 
         private Song backgroundMusic;
+
+        private BatSprite bat;
+        private Vector2 batPos;
+        private Random rand;
         //private SoundClass sound; 
 
         public Game1()
@@ -208,6 +212,8 @@ namespace sprint0
             // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems, pos, direc);
+            //batPos = new Vector2(rand.Next(GraphicsDevice.Viewport.Width - spritesEnemies.Width), rand.Next(GraphicsDevice.Viewport.Height - spritesEnemies.Height));
+            //bat = new BatSprite(spritesEnemies, new Vector2(22, 44));
         }
 
         protected override void UnloadContent()
@@ -220,7 +226,7 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            New:
+           
             currentRoomsRoom = (RoomsRoom)currentRoom;
             // Access currentRoomsRoom's blocks list
             List<IBlock> currentBlocks = currentRoomsRoom.blocks;
@@ -260,6 +266,7 @@ namespace sprint0
             collide.Update(gameTime, this, currentRoomsRoom);
             collideA.Update(gameTime, this, currentRoomsRoom);
             MouseController.Update(gameTime);
+            //bat.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -272,7 +279,7 @@ namespace sprint0
             rooms.Draw(spriteBatch);
             doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
-
+            //bat.Draw(spriteBatch);
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
