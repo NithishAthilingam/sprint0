@@ -243,9 +243,6 @@ namespace sprint0
             currentRoom.Update(gameTime, this);
             
 
-
-
-
             currentRoomsRoom = (RoomsRoom)currentRoom;
             //Access currentRoomsRoom's blocks list
             List<IBlock> currentBlocks = currentRoomsRoom.blocks;
