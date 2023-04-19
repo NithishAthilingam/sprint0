@@ -13,7 +13,6 @@ namespace sprint0
 
         Rectangle leftS;
         Rectangle leftD;
-        private Vector2 thisPos;
         int thisPosx;
         int thisPosy;
         Rectangle link;
@@ -25,9 +24,8 @@ namespace sprint0
         {
 
             leftS = new Rectangle(652, 887, 18, 18);
-            leftD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
+            leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
 
-            thisPos = pos;
             thisPosx = (int)pos.X;
             thisPosy = (int)pos.Y;
 
@@ -40,7 +38,7 @@ namespace sprint0
 
         public void Update(GameTime gameTime,Game1 game)
         {
-            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 40, 40);
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
             Rectangle intersect = Rectangle.Intersect(link,leftD);
             x = CollisionDetection.GetDirection(link, leftD);
  

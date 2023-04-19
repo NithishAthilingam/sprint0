@@ -14,6 +14,7 @@ using sprint0.Collision;
 using sprint0.Content;
 using sprint0.Interfaces;
 using sprint0.Items;
+using sprint0.HealthBar;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 
@@ -87,12 +88,11 @@ namespace sprint0
         private Projectiles projectiles;
         private keyboardController keyboardController;
         private DoorCollision doorEnter;
-        RoomsRoom roomsroom;
+        public RoomsRoom currentRoomsRoom;
         IRoom currentRoom;
         int currentRoomIndex;
 
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
-        public RoomsRoom currentRoomsRoom;
 
         private Song backgroundMusic;
 
@@ -100,6 +100,8 @@ namespace sprint0
         private Vector2 batPos;
         private Random rand;
         //private SoundClass sound; 
+        //private SoundClass sound;
+
 
         public Game1()
         {
@@ -113,29 +115,25 @@ namespace sprint0
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
+            healthNum = 6;
+            healthbar = new Health(healthNum);
 
             base.Initialize();
-
-
-            //healthNum = 6;
-            //healthbar = new Health(healthNum);
-
 
             for (int i = 1; i < 4; i++)
             {
                 string path = $"rooms/r{i}.xml";
                 RoomGenerator roomGenerator = new RoomGenerator(path);
                 RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
-                //RoomsRoom c = roomGenerator.GenerateRooms(Animate[7], Animate[6], Animate[4], Animate[9], Animate[12], Animate[11], Animate[8], Animate[14]);
                 ListOfRooms.Add(c);
             }
 
             // set the current room to the first room in the list
-            currentRoom = ListOfRooms[0];
+            currentRoomsRoom = ListOfRooms[0];
 
+            base.Initialize();
         }
 
-      
 
 
         protected override void LoadContent()
@@ -183,14 +181,14 @@ namespace sprint0
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
-            linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
+            linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
 
 
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-           // health = Content.Load<Texture2D>("Hearts");
+            //health = Content.Load<Texture2D>("Hearts");
 
 
 
@@ -202,7 +200,7 @@ namespace sprint0
             doorEnter = new DoorCollision(dungeon, this);
 
 
-           // font = Content.Load<SpriteFont>("Score");
+            // font = Content.Load<SpriteFont>("Score");
             //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
@@ -235,36 +233,38 @@ namespace sprint0
             // Access currentRoomsRoom's items list
             List<IItem> currentItems = currentRoomsRoom.items;
 
-
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
             }
-            enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this, currentRoomsRoom);
-
-            //currentRoom = ListOfRooms[doorEnter.currentImageIndex];
-            //currentRoom.Update(gameTime, this);
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
 
+        //New:
+        //    currentRoomsRoom = (RoomsRoom)currentRoom;
+        //    //Access currentRoomsRoom's blocks list
+        //    List<IBlock> currentBlocks = currentRoomsRoom.blocks;
+        //    //Access currentRoomsRoom's enemies list
+        //    List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
+        //    //Access currentRoomsRoom's items list
+        //    List<IItem> currentItems = currentRoomsRoom.items;
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this, currentRoomsRoom);
+            doorEnter.Update(gameTime, this);
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this, currentRoomsRoom);
-            item.Update(gameTime);
+            doorEnter.Update(gameTime, this);
+            item.Update(gameTime,this);
             blocks.Update(gameTime, this);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this, currentRoomsRoom);
             collideA.Update(gameTime, this, currentRoomsRoom);
+            healthbar = new Health(healthNum);
             MouseController.Update(gameTime);
             //bat.Update(gameTime);
             base.Update(gameTime);
@@ -283,7 +283,6 @@ namespace sprint0
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
-
             //shoot.Draw(spriteBatch, Animate, pos);
             //TextSprite.Draw(spriteBatch, font);
 
@@ -296,7 +295,7 @@ namespace sprint0
             //ListOfRooms[2].Draw(spriteBatch);
 
 
-            currentRoom.Draw(spriteBatch);
+            currentRoomsRoom.Draw(spriteBatch);
             //item.Draw(spriteBatch);
             //blocks.Draw(spriteBatch);
             //projectiles.Draw(spriteBatch);
@@ -312,6 +311,7 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate, pos);
 
             doorEnter.DrawFade(spriteBatch);
+            healthbar.Draw(spriteBatch, health);
 
             spriteBatch.End();
 

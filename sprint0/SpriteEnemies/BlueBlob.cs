@@ -14,6 +14,8 @@ namespace sprint0
     public class BlueBlob : Ienemy
     {
         public Vector2 thisPos;
+        Vector4 value;
+        int id;
         private int frames = 0;
         Rectangle[] blob;
         Rectangle source2;
@@ -21,8 +23,9 @@ namespace sprint0
         Texture2D sprite;
 
 
-        public BlueBlob(Texture2D enemiesSprite, Vector2 pos)
+        public BlueBlob(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
+            id = enemyID;
             sprite = enemiesSprite;
             thisPos = pos;
 
@@ -82,6 +85,15 @@ namespace sprint0
             else
             {
                 thisPos.X = 0;
+            }
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                value.X = thisPos.X;
+                value.Y = thisPos.Y;
+                game.currentRoomsRoom.enemiesD.Remove(id);
+                game.currentRoomsRoom.enemiesD.Add(id, value);
+
             }
         }
 

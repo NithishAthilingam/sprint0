@@ -6,7 +6,7 @@ namespace sprint0
 {
 	public interface IItem
 	{
-        public void Update(GameTime gameTime);
+        public void Update(GameTime gameTime, Game1 game);
 
         public void Draw(SpriteBatch spriteBatch);
     }

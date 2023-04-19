@@ -3,6 +3,7 @@ using Microsoft.Xna.Framework;
 using sprint0.Content;
 using Microsoft.Xna.Framework.Input;
 using System.ComponentModel;
+using System;
 
 namespace sprint0
 {
@@ -111,7 +112,7 @@ namespace sprint0
             rectangles = new Rectangle[] { rectangle };
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
 
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
@@ -198,5 +199,7 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch, Texture2D animate, Vector2 pos)
         {
         }
+
+
     }
     }

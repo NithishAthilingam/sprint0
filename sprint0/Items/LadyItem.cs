@@ -25,7 +25,7 @@ namespace sprint0
             ladyDraw = ladySprite;
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, Game1 game)
         {
         }
 

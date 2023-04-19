@@ -14,6 +14,8 @@ namespace sprint0.Collision
     {
         int frame =0;
         char x;
+        float timer = 0f;
+        float delayTime = 500f;
         Rectangle link;
         Rectangle enemy;
         Rectangle intersect;
@@ -23,49 +25,56 @@ namespace sprint0.Collision
 
         public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
         {
-
+            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            //push
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
-            foreach (KeyValuePair<int, Vector2> entry in currentRoomsRoom.enemiesD)
+            foreach (KeyValuePair<int, Vector4> entry in currentRoomsRoom.enemiesD)
             {
-                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 60, 60);
+                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 40, 40);
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
-            }
-            
-            frame++;
-            if (x!='o')
-            {
-                //game.sprite = new DamagedSprite(game.linkPos);
-                if(x == 'w')
-                {
-                    //game.sprite = new UpSprite(game.linkPos);
-                    //game.linkPos.Y -= intersect.Height;
-                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, -intersect.Height));
-                    //game.controller[0].ModifyLinkPos(new Vector2(0, -intersect.Height));
-                }
-                else if(x == 'a')
-                {
-                    //game.sprite = new LeftSprite(game.linkPos);
-                    //game.linkPos.X -= intersect.Width;
-                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(-intersect.Width, 0));
-                    //game.controller[0].ModifyLinkPos(new Vector2(-intersect.Width, 0));
 
-                }
-                else if (x == 's')
-                {
-                    //game.sprite = new DownSprite(game.linkPos);
-                    //game.linkPos.Y += intersect.Height;
-                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, intersect.Height));
-                    //game.controller[0].ModifyLinkPos(new Vector2(0, intersect.Height));
 
-                }
-                else if (x == 'd')
+                frame++;
+                if (x != 'o')
                 {
-                    //game.sprite = new RightSprite(game.linkPos);
-                    //game.linkPos.X += intersect.Width;
-                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(intersect.Width, 0));
-                    //game.controller[0].ModifyLinkPos(new Vector2(intersect.Width, 0));
+                    if (timer <= 0f && game.healthNum>0)
+                    {
+                        game.healthNum--;
+                        timer = delayTime;
+                    }
+                    //game.sprite = new DamagedSprite(game.linkPos);
+                    if (x == 'w')
+                    {
+                        //game.sprite = new UpSprite(game.linkPos);
+                        //game.linkPos.Y -= intersect.Height;
+                        game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, -intersect.Height));
+                        //game.controller[0].ModifyLinkPos(new Vector2(0, -intersect.Height));
+                    }
+                    else if (x == 'a')
+                    {
+                        //game.sprite = new LeftSprite(game.linkPos);
+                        //game.linkPos.X -= intersect.Width;
+                        game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(-intersect.Width, 0));
+                        //game.controller[0].ModifyLinkPos(new Vector2(-intersect.Width, 0));
 
+                    }
+                    else if (x == 's')
+                    {
+                        //game.sprite = new DownSprite(game.linkPos);
+                        //game.linkPos.Y += intersect.Height;
+                        game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, intersect.Height));
+                        //game.controller[0].ModifyLinkPos(new Vector2(0, intersect.Height));
+
+                    }
+                    else if (x == 'd')
+                    {
+                        //game.sprite = new RightSprite(game.linkPos);
+                        //game.linkPos.X += intersect.Width;
+                        game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(intersect.Width, 0));
+                        //game.controller[0].ModifyLinkPos(new Vector2(intersect.Width, 0));
+
+                    }
                 }
             }
         }

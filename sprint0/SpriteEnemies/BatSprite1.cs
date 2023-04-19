@@ -8,13 +8,14 @@ using System.Threading.Tasks;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Input;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace sprint0
 {
     public class BatSprite1 : Ienemy
     {
         public Vector2 thisPos;
-        Vector2 value;
+        Vector4 value;
         private int frames = 0;
         Rectangle[] bat;
         Rectangle source2;
@@ -28,15 +29,18 @@ namespace sprint0
         private int left;
         private int right;
         Texture2D sprite;
+        int id;
 
 
-        public BatSprite1(Texture2D enemiesSprite,Vector2 pos)
+        public BatSprite1(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
             sprite = enemiesSprite;
             thisPos = pos;
+            id = enemyID;
 
             thisPos.Y -= 100;
-            value = pos;
+            value.X = pos.X;
+            value.Y = pos.Y;
 
 
 
@@ -63,6 +67,7 @@ namespace sprint0
             if (thisPos.Y == 60)
             {
                 posChangeY = 2;
+
             }
             else if (thisPos.Y == 372)
             {
@@ -77,69 +82,51 @@ namespace sprint0
                 posChangeX = -2;
             }
 
-            if(thisPos.X >= 700)
-            {
-                thisPos.X -= 2;
-                
-            }
-            else if (thisPos.X <= 100)
-            {
-                thisPos.X += 2;
-            }
-            else if(thisPos.Y <= 100)
-            {
-                thisPos.Y += 2;
-            }
-            else if (thisPos.Y >= 380)
-            {
-                thisPos.Y -= 2;
-            }
-
 
             /*if (thisPos.X > 0 && thisPos.Y>0)
             {*/
             frames++;
-                if ((frames % 20 == 0) && source2 == bat[0])
-                {
-                    source2 = bat[1];
-                }
-                else if ((frames % 20 == 0) && source2 == bat[1])
-                {
-                    source2 = bat[0];
-                }
+            if ((frames % 20 == 0) && source2 == bat[0])
+            {
+                source2 = bat[1];
+            }
+            else if ((frames % 20 == 0) && source2 == bat[1])
+            {
+                source2 = bat[0];
+            }
+            thisPos.X += posChangeX;
+            thisPos.Y += posChangeY;
+            /*if (frames <= 75)
+            {
                 thisPos.X += posChangeX;
                 thisPos.Y += posChangeY;
-                /*if (frames <= 75)
-                {
-                    thisPos.X += posChangeX;
-                    thisPos.Y += posChangeY;
-                    game.EnemyPos.X = thisPos.X;
-                    game.EnemyPos.Y = thisPos.Y;
+                game.EnemyPos.X = thisPos.X;
+                game.EnemyPos.Y = thisPos.Y;
 
-                }
-                else if (frames <= 150)
-                {
-                    thisPos.Y += posChangeY;
-                    game.EnemyPos.Y = thisPos.Y ;
+            }
+            else if (frames <= 150)
+            {
+                thisPos.Y += posChangeY;
+                game.EnemyPos.Y = thisPos.Y ;
 
-                }
-                else if (frames <= 225)
-                {
-                    thisPos.X += posChangeX;
-                    game.EnemyPos.X = thisPos.X;
+            }
+            else if (frames <= 225)
+            {
+                thisPos.X += posChangeX;
+                game.EnemyPos.X = thisPos.X;
 
-                }
-                else if (frames <= 300)
-                {
-                    thisPos.Y += posChangeY;
-                    game.EnemyPos.Y = thisPos.Y;
+            }
+            else if (frames <= 300)
+            {
+                thisPos.Y += posChangeY;
+                game.EnemyPos.Y = thisPos.Y;
 
-                }*/
+            }*/
 
-                if (frames == 301)
-                {
-                    frames = 0;
-                }
+            if (frames == 301)
+            {
+                frames = 0;
+            }
             //}
             /*else
             {
@@ -150,24 +137,6 @@ namespace sprint0
 
             }*/
             //projectile
-
-            //if (game.EnemyPos.X < 0)
-            //{
-            //    game.EnemyPos.X = 0;
-            //}
-            //else if (game.EnemyPos.X > 800)
-            //{
-            //    game.EnemyPos.X = 800;
-            //}
-            //if (game.EnemyPos.Y < 0)
-            //{
-            //    game.EnemyPos.Y = 0;
-            //}
-            //else if (game.EnemyPos.Y > 480)
-            //{
-            //    game.EnemyPos.Y = 480;
-            //}
-
             if (tt > speed)
             {
                 if (currentA == middle)
@@ -192,9 +161,16 @@ namespace sprint0
             {
                 tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
-            game.currentRoomsRoom.enemiesD.TryGetValue(1, out value);
-            game.currentRoomsRoom.enemiesD.Remove(1);
-            game.currentRoomsRoom.enemiesD.Add(1, value);
+            //game.currentRoomsRoom.enemiesD.
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                value.X = thisPos.X;
+                value.Y = thisPos.Y;
+                game.currentRoomsRoom.enemiesD.Remove(id);
+                game.currentRoomsRoom.enemiesD.Add(id, value);
+
+            }
 
         }
 

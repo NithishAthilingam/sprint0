@@ -18,13 +18,17 @@ namespace sprint0
         Rectangle[] hand;
         Rectangle source2;
 
+        Vector4 value;
+        int id;
+
         Texture2D sprite;
 
-        public Hand(Texture2D enemiesSprite,Vector2 pos)
+        public Hand(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
 
             sprite = enemiesSprite;
             thisPos = pos;
+            id = enemyID;
 
             thisPos.Y -= 100;
 
@@ -67,6 +71,16 @@ namespace sprint0
             else
             {
                 thisPos.X = 0;
+            }
+
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                value.X = thisPos.X;
+                value.Y = thisPos.Y;
+                game.currentRoomsRoom.enemiesD.Remove(id);
+                game.currentRoomsRoom.enemiesD.Add(id, value);
+
             }
 
 
