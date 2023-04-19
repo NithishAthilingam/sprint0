@@ -25,14 +25,11 @@ namespace sprint0
         public Room1LeftBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
 
-<<<<<<< HEAD
             leftS = new Rectangle(653, 888, 16, 16);
             leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
             collisionBox = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
-=======
             leftS = new Rectangle(652, 887, 18, 18);
             leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
->>>>>>> 9ca182ffad9e5da5db5dd591827c22c0cfcc85c2
 
             thisPosx = (int)pos.X;
             thisPosy = (int)pos.Y;

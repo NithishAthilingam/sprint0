@@ -229,7 +229,6 @@ namespace sprint0
 
 
 
-        New:
             currentRoomsRoom = (RoomsRoom)currentRoom;
             //Access currentRoomsRoom's blocks list
             List<IBlock> currentBlocks = currentRoomsRoom.blocks;
@@ -297,10 +296,8 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate, pos);
 
             doorEnter.DrawFade(spriteBatch);
-<<<<<<< HEAD
-=======
+
             healthbar.Draw(spriteBatch, health);
->>>>>>> 9ca182ffad9e5da5db5dd591827c22c0cfcc85c2
 
             spriteBatch.End();
 

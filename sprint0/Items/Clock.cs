@@ -9,12 +9,10 @@ namespace sprint0
     {
         Rectangle clockS;
         Rectangle clockD;
-<<<<<<< HEAD
-=======
+
         Rectangle link;
 
         private Vector2 thisPos;
->>>>>>> 9ca182ffad9e5da5db5dd591827c22c0cfcc85c2
         Texture2D clockDraw;
         Boolean intersect;
 
