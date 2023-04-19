@@ -95,7 +95,7 @@ namespace sprint0
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
-        //private SoundClass sound; 
+        //private SoundClass sound;
 
         public Game1()
         {
@@ -128,7 +128,7 @@ namespace sprint0
             base.Initialize();
         }
 
-          
+
 
         protected override void LoadContent()
         {
@@ -173,16 +173,16 @@ namespace sprint0
             enemy = new DragonSprite1(EnemyPos);
             shoot = new initial();
             collide = new BlockCollision();
-            //collideA = new EnemyLinkCollision();
+            collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
-            linkBound = new Rectangle((int)linkPos.X,(int)linkPos.Y, 50, 50);
+            linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
 
 
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
 
-           //health = Content.Load<Texture2D>("Hearts");
+            //health = Content.Load<Texture2D>("Hearts");
 
 
 
@@ -194,7 +194,7 @@ namespace sprint0
             doorEnter = new DoorCollision(dungeon, this);
 
 
-           // font = Content.Load<SpriteFont>("Score");
+            // font = Content.Load<SpriteFont>("Score");
             //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
 
@@ -216,57 +216,23 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-
-
-
-            New:
-            currentRoomsRoom = (RoomsRoom)currentRoom;
-            // Access currentRoomsRoom's blocks list
-            List<IBlock> currentBlocks = currentRoomsRoom.blocks;
-            // Access currentRoomsRoom's enemies list
-            List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
-            // Access currentRoomsRoom's items list
-            List<IItem> currentItems = currentRoomsRoom.items;
-
-
-
-
-
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
             }
-
-            enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this,currentRoomsRoom);
-
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
 
-            enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this,currentRoomsRoom);
-
-            enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
-
-            doorEnter.Update(gameTime, this, currentRoomsRoom);
-            item.Update(gameTime,this);
-            blocks.Update(gameTime,this);
-
-            doorEnter.Update(gameTime, this, currentRoomsRoom);
-
-            enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this, currentRoomsRoom);
-            item.Update(gameTime,this);
-
-            currentRoom = ListOfRooms[doorEnter.currentImageIndex];
-            currentRoom.Update(gameTime, this);
-
+        New:
+            currentRoomsRoom = (RoomsRoom)currentRoom;
+            //Access currentRoomsRoom's blocks list
+            List<IBlock> currentBlocks = currentRoomsRoom.blocks;
+            //Access currentRoomsRoom's enemies list
+            List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
+            //Access currentRoomsRoom's items list
+            List<IItem> currentItems = currentRoomsRoom.items;
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
@@ -275,20 +241,13 @@ namespace sprint0
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
-            item.Update(gameTime);
-
+            item.Update(gameTime,this);
             blocks.Update(gameTime, this);
-
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
-
-            collide.Update(gameTime, this,currentRoomsRoom);
-            //collideA.Update(gameTime, this);
-
             collide.Update(gameTime, this, currentRoomsRoom);
             collideA.Update(gameTime, this, currentRoomsRoom);
             healthbar = new Health(healthNum);
-
             MouseController.Update(gameTime);
             base.Update(gameTime);
         }
