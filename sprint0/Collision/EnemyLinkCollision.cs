@@ -26,7 +26,7 @@ namespace sprint0.Collision
         public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
         {
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
+            //push
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
             foreach (KeyValuePair<int, Vector4> entry in currentRoomsRoom.enemiesD)
             {
