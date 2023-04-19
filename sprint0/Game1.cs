@@ -225,13 +225,13 @@ namespace sprint0
                 this.Exit();
 
            
-            currentRoomsRoom = (RoomsRoom)currentRoom;
-            // Access currentRoomsRoom's blocks list
-            List<IBlock> currentBlocks = currentRoomsRoom.blocks;
-            // Access currentRoomsRoom's enemies list
-            List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
-            // Access currentRoomsRoom's items list
-            List<IItem> currentItems = currentRoomsRoom.items;
+            //currentRoomsRoom = (RoomsRoom)currentRoom;
+            //// Access currentRoomsRoom's blocks list
+            //List<IBlock> currentBlocks = currentRoomsRoom.blocks;
+            //// Access currentRoomsRoom's enemies list
+            //List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
+            //// Access currentRoomsRoom's items list
+            //List<IItem> currentItems = currentRoomsRoom.items;
 
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
@@ -242,14 +242,13 @@ namespace sprint0
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
 
-        //New:
-        //    currentRoomsRoom = (RoomsRoom)currentRoom;
-        //    //Access currentRoomsRoom's blocks list
-        //    List<IBlock> currentBlocks = currentRoomsRoom.blocks;
-        //    //Access currentRoomsRoom's enemies list
-        //    List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
-        //    //Access currentRoomsRoom's items list
-        //    List<IItem> currentItems = currentRoomsRoom.items;
+            currentRoomsRoom = (RoomsRoom)currentRoom;
+            //Access currentRoomsRoom's blocks list
+            List<IBlock> currentBlocks = currentRoomsRoom.blocks;
+            //Access currentRoomsRoom's enemies list
+            List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
+            //Access currentRoomsRoom's items list
+            List<IItem> currentItems = currentRoomsRoom.items;
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
