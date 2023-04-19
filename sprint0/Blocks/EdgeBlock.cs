@@ -14,9 +14,10 @@ namespace sprint0
 
         Texture2D blockDraw;
 
+
         public EdgeBlock(Texture2D blockSprite, Texture2D blockRoom,Vector2 pos)
         {
-            edgeS = new Rectangle(1358, 247, 18, 18);
+            edgeS = new Rectangle(1359, 248, 16, 16);
             edgeD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
 
             blockDraw = blockRoom;
@@ -25,6 +26,8 @@ namespace sprint0
         public void Update(GameTime gameTime)
         {
         }
+
+
 
         public void Draw(SpriteBatch spriteBatch)
         {

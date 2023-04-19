@@ -23,14 +23,8 @@ namespace sprint0
             thisPos = pos;
         }
 
-        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
-        {
-            spriteBatch.Draw(animate[4], thisPos, heart, Color.White);
-        }
-
         public void Update(GameTime gameTime)
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

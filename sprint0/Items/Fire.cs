@@ -16,15 +16,10 @@ namespace sprint0
         private Vector2 thisPos;
         Texture2D fireDraw;
 
-        //float delayTime;
-        //float timer;
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
+
+        int currentA, previousA;
+        float speed, tt;
+        private int middle, left, right;
 
 
 

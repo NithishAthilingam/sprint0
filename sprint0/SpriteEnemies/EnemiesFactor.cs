@@ -37,11 +37,11 @@ namespace sprint0
                     return new BatSprite1(enemiesSprite,pos);
                 case 2: // blue blob
                     return new BlueBlob(enemiesSprite,pos);
-                case 3: // hand
+                case 3: //dragon
                     return new DragonSprite1(enemiesSprite, enemiesSprite2,pos);
                 case 4: // skeleton
                     return new SkeletonSprite1(enemiesSprite,pos);
-                case 5: // skeleton
+                case 5: // hand
                     return new Hand(enemiesSprite, pos);
                 default:
                     return null;

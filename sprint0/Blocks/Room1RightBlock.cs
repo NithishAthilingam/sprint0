@@ -17,11 +17,14 @@ namespace sprint0
         int thisPosy;
 
         Texture2D blockDraw;
+        Rectangle collisionBox;
 
         public Room1RightBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
-            rightS = new Rectangle(556, 887, 18, 18);
-            rightD= new Rectangle((int)pos.X, (int)pos.Y, 55, 50);
+            rightS = new Rectangle(557, 888, 16, 16);
+            rightD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
+            collisionBox = rightD;
+
 
             blockDraw = blockRoom1;
 
@@ -41,9 +44,11 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, rightD, rightS, Color.White);
+           spriteBatch.Draw(blockDraw, rightD, rightS, Color.White);
+
 
         }
+
     }
 }
 

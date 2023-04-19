@@ -113,7 +113,7 @@ namespace sprint0
 
             base.Initialize();
 
-            for (int i = 1; i < 4; i++)
+            for (int i = 1; i < 18; i++)
             {
                 string path = $"rooms/r{i}.xml";
                 RoomGenerator roomGenerator = new RoomGenerator(path);
@@ -124,7 +124,7 @@ namespace sprint0
             // set the current room to the first room in the list
             currentRoom = ListOfRooms[0];
 
-            base.Initialize();
+            //base.Initialize();
         }
 
           
@@ -225,6 +225,10 @@ namespace sprint0
 
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
+            
+
+
+
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
@@ -283,7 +287,7 @@ namespace sprint0
 
             sprite.Draw(spriteBatch, Animate, pos);
 
-            //doorEnter.DrawFade(spriteBatch);
+            doorEnter.DrawFade(spriteBatch);
 
             spriteBatch.End();
 

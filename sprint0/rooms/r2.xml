@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Room>
-        <description>Enemy
+     <description>Enemy
         <type>1</type>
             <x>495</x>
             <y>179</y>
@@ -14,55 +14,5 @@
         <type>1</type>
             <x>447</x>
             <y>180</y>
-        </description>
-        <description>Item
-        <type>1</type>
-            <x>300</x>
-            <y>184</y>
-        </description>
-        <description>Item
-        <type>2</type>
-            <x>350</x>
-            <y>280</y>
-        </description>
-        <description>Item
-        <type>3</type>
-            <x>410</x>
-            <y>222</y>
-        </description>
-        <description>Item
-        <type>4</type>
-            <x>550</x>
-            <y>300</y>
-        </description>
-        <description>Item
-        <type>5</type>
-            <x>590</x>
-            <y>241</y>
-        </description>
-        <description>Item
-        <type>6</type>
-            <x>499</x>
-            <y>288</y>
-        </description>
-        <description>Item
-        <type>7</type>
-            <x>104</x>
-            <y>338</y>
-        </description>
-        <description>Item
-        <type>8</type>
-            <x>373</x>
-            <y>121</y>
-        </description>
-        <description>Item
-        <type>9</type>
-            <x>600</x>
-            <y>280</y>
-        </description>
-        <description>Item
-        <type>10</type>
-            <x>194</x>
-            <y>312</y>
         </description>
 </Room>

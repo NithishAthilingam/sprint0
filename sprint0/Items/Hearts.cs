@@ -12,11 +12,10 @@ namespace sprint0
 	public class Hearts : IItem
     {
         Rectangle [] hearts;
-        private Vector2 thisPos;
         Rectangle heartsD;
+        Texture2D heartDraw;
 
-        //float delayTime;
-        //float timer;
+
         int currentA;
         int previousA;
         float speed;
@@ -24,7 +23,6 @@ namespace sprint0
         private int middle;
         private int left;
         private int right;
-        Texture2D heartDraw;
 
 
 
@@ -36,11 +34,8 @@ namespace sprint0
             hearts[1] = new Rectangle(260, 185, 30, 30);
             hearts[2] = new Rectangle(230, 185, 30, 30);
             heartsD= new Rectangle((int)pos.X, (int)pos.Y, 100, 100); ;
-            thisPos = pos;
 
-            //delayTime = 500f;
-            //timer = 0f;
-
+          
             previousA = 1;
             currentA = 2;
             tt = 0;

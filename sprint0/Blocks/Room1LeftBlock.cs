@@ -16,12 +16,15 @@ namespace sprint0
         int thisPosy;
 
         Texture2D blockDraw;
+        Rectangle collisionBox;
+
 
         public Room1LeftBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
 
-            leftS = new Rectangle(652, 887, 18, 18);
-            leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 50);
+            leftS = new Rectangle(653, 888, 16, 16);
+            leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
+            collisionBox = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
 
             thisPos = pos;
             thisPosx = (int)pos.X;
@@ -29,6 +32,8 @@ namespace sprint0
 
 
             blockDraw = blockRoom1;
+
+
 
             Console.WriteLine("posX : " + thisPosx.ToString() + "posY : " + thisPosy.ToString());
 
@@ -38,13 +43,15 @@ namespace sprint0
         {
         }
 
+
+        public Rectangle CollisionBox { get { return collisionBox; } }
+
         public void Draw(SpriteBatch spriteBatch)
         {
-
-
             spriteBatch.Draw(blockDraw, leftD, leftS, Color.White);
 
         }
+
     }
 }
 

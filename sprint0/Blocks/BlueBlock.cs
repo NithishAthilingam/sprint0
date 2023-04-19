@@ -17,8 +17,8 @@ namespace sprint0
 
         public BlueBlock(Texture2D blockSprite, Texture2D blockRoom, Vector2 pos)
         {
-            blueS = new Rectangle(365, 567, 18, 18);
-            blueD = new Rectangle((int)pos.X, (int)pos.Y, 55, 50);
+            blueS = new Rectangle(366, 568, 16, 16);
+            blueD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
 
             blockDraw = blockRoom;
         }
