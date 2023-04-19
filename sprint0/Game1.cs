@@ -216,15 +216,23 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
             {
                 controller.Update(gameTime);
             }
-            currentRoomsRoom = ListOfRooms[doorEnter.currentImageIndex];
-            currentRoomsRoom.Update(gameTime, this);
+            currentRoom = ListOfRooms[doorEnter.currentImageIndex];
+            currentRoom.Update(gameTime, this);
+
+        New:
+            currentRoomsRoom = (RoomsRoom)currentRoom;
+            //Access currentRoomsRoom's blocks list
+            List<IBlock> currentBlocks = currentRoomsRoom.blocks;
+            //Access currentRoomsRoom's enemies list
+            List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
+            //Access currentRoomsRoom's items list
+            List<IItem> currentItems = currentRoomsRoom.items;
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
