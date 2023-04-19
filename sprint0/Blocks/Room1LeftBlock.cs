@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Collision;
 
 namespace sprint0
 {
@@ -11,9 +13,10 @@ namespace sprint0
 
         Rectangle leftS;
         Rectangle leftD;
-        private Vector2 thisPos;
         int thisPosx;
         int thisPosy;
+        Rectangle link;
+        char x;
 
         Texture2D blockDraw;
         Rectangle collisionBox;
@@ -22,11 +25,15 @@ namespace sprint0
         public Room1LeftBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
 
+<<<<<<< HEAD
             leftS = new Rectangle(653, 888, 16, 16);
             leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
             collisionBox = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
+=======
+            leftS = new Rectangle(652, 887, 18, 18);
+            leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
+>>>>>>> 9ca182ffad9e5da5db5dd591827c22c0cfcc85c2
 
-            thisPos = pos;
             thisPosx = (int)pos.X;
             thisPosy = (int)pos.Y;
 
@@ -39,9 +46,32 @@ namespace sprint0
 
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime,Game1 game)
         {
-        }
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
+            Rectangle intersect = Rectangle.Intersect(link,leftD);
+            x = CollisionDetection.GetDirection(link, leftD);
+ 
+            if (x != 'o')
+            {
+                if (x == 'w')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, -intersect.Height));
+                }
+                else if (x == 'a')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(-intersect.Width, 0));
+                }
+                else if (x == 's')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, intersect.Height));
+                }
+                else if (x == 'd')
+                {
+                    game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(intersect.Width, 0));
+                }
+            }
+            }
 
 
         public Rectangle CollisionBox { get { return collisionBox; } }
@@ -49,7 +79,6 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch)
         {
             spriteBatch.Draw(blockDraw, leftD, leftS, Color.White);
-
         }
 
     }

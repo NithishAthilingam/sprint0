@@ -16,6 +16,9 @@ namespace sprint0
         public Vector2 thisPos;
         Rectangle source2;
 
+        Vector4 value;
+        int id;
+
         private int frames = 0;
         Rectangle[] dragonProjectile;
         Rectangle[] drago;
@@ -34,11 +37,13 @@ namespace sprint0
         Texture2D sprite2;
         private Vector2 enemyPos;
 
-        public DragonSprite1(Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
+        public DragonSprite1(int enemyID, Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
         {
             sprite = enemiesSprite;
             sprite2 = enemiesSprite2;
             thisPos = pos;
+
+            id = enemyID;
 
             posBallTop = thisPos;
             posBallMid = thisPos;
@@ -153,6 +158,16 @@ namespace sprint0
             else
             {
                 tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+            }
+
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                value.X = thisPos.X;
+                value.Y = thisPos.Y;
+                game.currentRoomsRoom.enemiesD.Remove(id);
+                game.currentRoomsRoom.enemiesD.Add(id, value);
+
             }
 
 

@@ -28,14 +28,15 @@ namespace sprint0
 
 
 
-        public Ienemy CreateEnemy(Texture2D enemiesSprite, Texture2D enemiesSprite2, int enemy, Vector2 pos)
+        public Ienemy CreateEnemy(Texture2D enemiesSprite, Texture2D enemiesSprite2, int enemy, Vector2 pos, int enemyID)
         {
 
             switch (enemy)
             {
                 case 1: // bat sprite
-                    return new BatSprite1(enemiesSprite,pos);
+                    return new BatSprite1(enemyID, enemiesSprite,pos);
                 case 2: // blue blob
+<<<<<<< HEAD
                     return new BlueBlob(enemiesSprite,pos);
                 case 3: //dragon
                     return new DragonSprite1(enemiesSprite, enemiesSprite2,pos);
@@ -43,6 +44,15 @@ namespace sprint0
                     return new SkeletonSprite1(enemiesSprite,pos);
                 case 5: // hand
                     return new Hand(enemiesSprite, pos);
+=======
+                    return new BlueBlob(enemyID, enemiesSprite, pos);
+                case 3: // hand
+                    return new DragonSprite1(enemyID, enemiesSprite, enemiesSprite2,pos);
+                case 4: // skeleton
+                    return new SkeletonSprite1(enemyID, enemiesSprite, pos);
+                case 5: // skeleton
+                    return new Hand(enemyID, enemiesSprite, pos);
+>>>>>>> 9ca182ffad9e5da5db5dd591827c22c0cfcc85c2
                 default:
                     return null;
             }

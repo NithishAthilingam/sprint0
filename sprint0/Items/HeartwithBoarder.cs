@@ -23,7 +23,16 @@ namespace sprint0
             thisPos = pos;
         }
 
+<<<<<<< HEAD
         public void Update(GameTime gameTime)
+=======
+        public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
+        {
+            spriteBatch.Draw(animate[4], thisPos, heart, Color.White);
+        }
+
+        public void Update(GameTime gameTime, Game1 game)
+>>>>>>> 9ca182ffad9e5da5db5dd591827c22c0cfcc85c2
         {
         }
 
