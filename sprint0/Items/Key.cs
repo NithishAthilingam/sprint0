@@ -9,14 +9,13 @@ namespace sprint0
 	
         Rectangle key;
         Rectangle keyD;
-        private Vector2 thisPos;
         Texture2D keyDraw;
 
         public Key(Texture2D keySprite, Vector2 pos)
         {
             key = new Rectangle(350, 250, 30, 30);
             keyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
-            thisPos = pos;
+
             keyDraw = keySprite;
         }
 

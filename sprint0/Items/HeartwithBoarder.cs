@@ -23,6 +23,10 @@ namespace sprint0
             thisPos = pos;
         }
 
+        public void Update(GameTime gameTime) {
+
+        }
+
         public void Draw(SpriteBatch spriteBatch, Texture2D[] animate)
         {
             spriteBatch.Draw(animate[4], thisPos, heart, Color.White);
@@ -30,7 +34,6 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-
         }
 
         public void Draw(SpriteBatch spriteBatch)

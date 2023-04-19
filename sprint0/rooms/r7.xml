@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Room>
+    <description>Block
+        <type>1</type>
+        <x>350</x>
+        <y>181</y>
+    </description>
+     <description>Block
+        <type>1</type>
+        <x>400</x>
+        <y>181</y>
+    </description>
+         <description>Block
+        <type>1</type>
+        <x>350</x>
+        <y>227</y>
+    </description>
+         <description>Block
+        <type>1</type>
+        <x>400</x>
+        <y>227</y>
+    </description>
+     <description>Block
+        <type>1</type>
+        <x>350</x>
+        <y>273</y>
+    </description>
+         <description>Block
+        <type>1</type>
+        <x>400</x>
+        <y>273</y>
+    </description>
+           <description>Enemy
+        <type>1</type>
+            <x>78</x>
+            <y>64</y>
+        </description>
+               <description>Enemy
+        <type>1</type>
+            <x>63</x>
+            <y>112</y>
+        </description>
+
+               <description>Enemy
+        <type>1</type>
+            <x>126</x>
+            <y>128</y>
+        </description>
+               <description>Enemy
+        <type>1</type>
+            <x>111</x>
+            <y>78</y>
+        </description>
+
+               <description>Enemy
+        <type>1</type>
+            <x>174</x>
+            <y>63</y>
+        </description>
+               <description>Enemy
+        <type>1</type>
+            <x>207</x>
+            <y>64</y>
+        </description>
+</Room>
+

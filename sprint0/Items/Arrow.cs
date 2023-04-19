@@ -12,16 +12,14 @@ namespace sprint0
     {
         Rectangle arrowS;
         Rectangle arrowD;
-
-        private Vector2 thisPos;
         Texture2D arrowDraw;
 
         public Arrow(Texture2D arrowSprite,Vector2 pos)
         {
-            arrowS = new Rectangle(205, 250, 50, 30);
-            thisPos = pos;
-            arrowDraw = arrowSprite;
+            arrowS = new Rectangle(205, 250, 30, 30);
             arrowD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
+
+            arrowDraw = arrowSprite;
 
         }
 

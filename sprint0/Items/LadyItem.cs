@@ -13,7 +13,6 @@ namespace sprint0
 
         Rectangle lady;
         Rectangle ladyD;
-        private Vector2 thisPos;
         Texture2D ladyDraw;
 
         public LadyItem(Texture2D ladySprite, Vector2 pos)
@@ -21,7 +20,6 @@ namespace sprint0
             lady = new Rectangle(150, 30, 24, 25);
             ladyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
-            thisPos = pos;
             ladyDraw = ladySprite;
         }
 

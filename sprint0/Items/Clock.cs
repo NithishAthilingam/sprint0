@@ -9,6 +9,7 @@ namespace sprint0
     {
         Rectangle clockS;
         Rectangle clockD;
+
         Rectangle link;
 
         private Vector2 thisPos;
@@ -20,7 +21,6 @@ namespace sprint0
             clockS = new Rectangle(380, 160, 30, 30);
             clockD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
-            thisPos = pos;
             clockDraw = clockSprite;
             intersect = false;
         }

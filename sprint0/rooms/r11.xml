@@ -1,0 +1,23 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Room>
+    <description>Block
+    <type>1</type>
+     <x>199</x>
+     <y>185</y>
+     </description>
+    <description>Block
+    <type>1</type>
+     <x>199</x>
+     <y>276</y>
+     </description>
+     <description>Block
+    <type>1</type>
+     <x>549</x>
+     <y>185</y>
+     </description>
+     <description>Block
+    <type>1</type>
+     <x>549</x>
+     <y>276</y>
+     </description>
+</Room>
