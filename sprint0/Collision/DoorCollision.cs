@@ -18,12 +18,13 @@ using sprint0.Items;
 
 namespace sprint0.Collision
 {
-	public class DoorCollision : ICollision
-	{
-       
+    public class DoorCollision : ICollision
+    {
+
 
         float delayTime;
         float timer;
+        float timerIn;
         public int currentImageIndex;
         private Texture2D room;
         private Game1 game1;
@@ -32,26 +33,32 @@ namespace sprint0.Collision
         Color cal = Color.White;
         KeyboardState keyboard;
         Texture2D blackRectangle;
+        Texture2D blackRectangle2;
         bool startFadeUp, startFadeDown, startFadeLeft, startFadeRight;
+
         public DoorCollision(Texture2D r, Game1 game)
-		{
+        {
             game1 = game;
             room = r;
             currentImageIndex = 0;
             delayTime = 500f;
             timer = 0f;
+            timerIn = 1.0f;
             blackRectangle = new Texture2D(game.GraphicsDevice, 1, 1);
-            blackRectangle.SetData(new[] { new Color(Color.Black, 0.5f) });
+            blackRectangle.SetData(new[] { new Color(Color.Black, 0f) });
+            blackRectangle2 = new Texture2D(game.GraphicsDevice, 1, 1);
+            blackRectangle2.SetData(new[] { new Color(Color.Black, 1f) });
             startFadeUp = false;
             startFadeDown = false;
             startFadeLeft = false;
             startFadeRight = false;
 
+
             rooms = new Rectangle[18];
             //enter
             rooms[0] = new Rectangle(509, 840, 256, 168);
             //l
-            rooms[1] = new Rectangle(254, 840, 256, 168);
+            rooms[1] = new Rectangle(254, 840, 255, 168);
             //r
             rooms[2] = new Rectangle(765, 840, 256, 168);
             //f
@@ -109,13 +116,13 @@ namespace sprint0.Collision
             };
         }
 
-		public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
-		{
+        public void Update(GameTime gameTime, Game1 game)
+        {
             // if (game.linkPos.Y > 300)
 
-            if(startFadeDown)
+            if (startFadeDown)
             {
-                timer += (float)gameTime.ElapsedGameTime.Milliseconds / 1000;
+                timer += (float)gameTime.ElapsedGameTime.Milliseconds / 3000;
 
                 blackRectangle.SetData(new[] { new Color(Color.Black, timer) });
 
@@ -128,6 +135,9 @@ namespace sprint0.Collision
                 {
                     timer = 0;
                     startFadeDown = false;
+                    //blackRectangle.SetData(new[] { new Color(Color.Black, 0.0f) });
+
+
                     blackRectangle.SetData(new[] { new Color(Color.Black, 0.0f) });
 
                     // room change
@@ -140,51 +150,127 @@ namespace sprint0.Collision
                     game.controller[0].setLink(setter);
 
                 }
-            } else if (startFadeUp)
+            }
+            else if (startFadeRight)
             {
-                // up logic here
-            } else if (startFadeLeft)
+                timer += (float)gameTime.ElapsedGameTime.Milliseconds / 3000;
+
+                blackRectangle.SetData(new[] { new Color(Color.Black, timer) });
+
+                Debug.WriteLine("timer: " + timer);
+
+                // wait 1 second
+                // do room change logic
+
+                if (timer > 1)
+                {
+                    timer = 0;
+                    startFadeRight = false;
+                    blackRectangle.SetData(new[] { new Color(Color.Black, 0.0f) });
+
+                    // room change
+                    char setter = 'r';
+                    Debug.WriteLine("Change room down");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[3];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(75, 225));
+                    game.controller[0].setLink(setter);
+
+                }
+
+            }
+            else if (startFadeLeft)
             {
-                // left logic here
-            } else if (startFadeRight)
+                timer += (float)gameTime.ElapsedGameTime.Milliseconds / 3000;
+
+                blackRectangle.SetData(new[] { new Color(Color.Black, timer) });
+
+                Debug.WriteLine("timer: " + timer);
+
+                // wait 1 second
+                // do room change logic
+
+                if (timer > 1)
+                {
+                    timer = 0;
+                    startFadeLeft = false;
+                    blackRectangle.SetData(new[] { new Color(Color.Black, 0.0f) });
+
+                    // room change
+                    char setter = 'l';
+                    Debug.WriteLine("Change room down");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[1];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(675, 225));
+                    game.controller[0].setLink(setter);
+                }
+
+            }
+            else if (startFadeUp)
             {
-                // right logic here
-            } else
+                timer += (float)gameTime.ElapsedGameTime.Milliseconds / 3000;
+
+                blackRectangle.SetData(new[] { new Color(Color.Black, timer) });
+
+                Debug.WriteLine("timer: " + timer);
+
+                // wait 1 second
+                // do room change logic
+
+                if (timer > 1)
+                {
+                    timer = 0;
+                    startFadeUp = false;
+                    blackRectangle.SetData(new[] { new Color(Color.Black, 0.0f) });
+
+                    // room change
+                    char setter = 'l';
+                    Debug.WriteLine("Change room down");
+                    int[] x = myRooms[currentImageIndex];
+                    currentImageIndex = x[0];
+                    timer = delayTime;
+                    game.controller[0].SetLinkPos(new Vector2(500, 300));
+                    game.controller[0].setLink(setter);
+
+                }
+            }
+            else
             {
 
-                if (game.controller[0].GetLinkPos().Y > 425)
+                if (game.controller[0].GetLinkPos().Y > 415)
                 {
                     timer = 0f;
                     startFadeDown = true;
 
                 }
-
-                if (game.controller[0].GetLinkPos().X > 725)
+                if (game.controller[0].GetLinkPos().Y < 29)
                 {
-                    Debug.WriteLine("Change room right");
-                    int[] x = myRooms[currentImageIndex];
-                    currentImageIndex = x[3];
-                    timer = delayTime;
-                    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                    timer = 0f;
+                    startFadeUp = true;
+
+                }
+
+                if (game.controller[0].GetLinkPos().X > 714)
+                {
+                    timer = 0f;
+                    startFadeRight = true;
                 }
 
                 if (game.controller[0].GetLinkPos().X < 75)
                 {
-                    Debug.WriteLine("Change room left");
-                    int[] x = myRooms[currentImageIndex];
-                    currentImageIndex = x[1];
-                    timer = delayTime;
-                    game.controller[0].SetLinkPos(new Vector2(200, 400));
+                    timer = 0f;
+                    startFadeLeft = true;
                 }
             }
 
 
-            
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
-		{
+        {
             spriteBatch.Draw(room, new Rectangle(0, 0, game1.GraphicsDevice.Viewport.Width, game1.GraphicsDevice.Viewport.Height), rooms[currentImageIndex], cal);
         }
 
@@ -192,6 +278,11 @@ namespace sprint0.Collision
         {
             spriteBatch.Draw(blackRectangle, game1.GraphicsDevice.Viewport.Bounds, Color.White);
 
+        }
+
+        void ICollision.Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
+        {
+            throw new NotImplementedException();
         }
     }
 }
