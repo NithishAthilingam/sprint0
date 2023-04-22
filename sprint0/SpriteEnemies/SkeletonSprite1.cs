@@ -63,11 +63,11 @@ namespace sprint0
             if (thisPos.X > 0)
             {
                 frames++;
-                if((frames%20 == 0) && source2 == skele[0])
+                if((frames%10 == 0) && source2 == skele[0])
                 {
                     source2 = skele[1];
                 }
-                else if ((frames % 20 == 0) && source2 == skele[1])
+                else if ((frames % 10 == 0) && source2 == skele[1])
                 {
                     source2 = skele[0];
                 }

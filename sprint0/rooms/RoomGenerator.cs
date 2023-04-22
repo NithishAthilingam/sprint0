@@ -57,7 +57,7 @@ namespace sprint0
                                     int blockPosition2 = int.Parse(reader.ReadElementContentAsString());
                                     IBlock newBlock = BlockFactory.Instance.GetBlock(blockSprite, blockRoom, blockVersion, new Vector2(blockPosition1, blockPosition2));
                                     blocks.Add(newBlock);
-                                    Console.WriteLine("block : " + blockVersion.ToString() + "blockX:" + blockPosition1.ToString() + "blockY:"  + blockPosition2.ToString());
+                                   // Console.WriteLine("block : " + blockVersion.ToString() + "blockX:" + blockPosition1.ToString() + "blockY:"  + blockPosition2.ToString());
                                     break;
 
                                 case "Item":

@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Room>
+    <description>Block
+        <type>1</type>
+        <x>347</x>
+        <y>182</y>
+    </description>
+    <description>Block
+        <type>1</type>
+        <x>398</x>
+        <y>182</y>
+    </description>
+    <description>Block
+        <type>1</type>
+        <x>347</x>
+        <y>227</y>
+    </description>
+    <description>Block
+        <type>1</type>
+        <x>398</x>
+        <y>227</y>
+    </description>
+    <description>Block
+        <type>1</type>
+        <x>347</x>
+        <y>272</y>
+    </description>
+    <description>Block
+        <type>1</type>
+        <x>398</x>
+        <y>272</y>
+    </description>
+</Room>

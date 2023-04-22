@@ -13,29 +13,21 @@ namespace sprint0
     {
         Rectangle[] diamonds;
         private Rectangle diamondsD;
-
-        //float delayTime;
-        //float timer;
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
-
         Texture2D diamondDraw;
 
 
+        int currentA, previousA;
+        float speed, tt;
+        private int middle, left, right;
 
         public Diamonds(Texture2D diamondSprite,Vector2 pos)
         {
             diamondDraw = diamondSprite;
             diamonds = new Rectangle[3];
-            diamonds[0] = new Rectangle(270, 225, 30, 30);
-            diamonds[1] = new Rectangle(240, 225, 30, 30);
-            diamonds[2] = new Rectangle(270, 225, 30, 30);
-            diamondsD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
+            diamonds[0] = new Rectangle(270, 225, 20, 20);
+            diamonds[1] = new Rectangle(240, 224, 20, 20);
+            diamonds[2] = new Rectangle(270, 224, 20, 20);
+            diamondsD = new Rectangle((int)pos.X, (int)pos.Y, 50, 50);
             
 
             //delayTime = 500f;

@@ -15,9 +15,10 @@ namespace sprint0
         //private Vector2 thisPos;
         Texture2D blockDraw;
 
+
         public WaterBlock(Texture2D blockSprite, Texture2D blockRoom, Vector2 pos)
         {
-            waterS = new Rectangle(545, 200, 18, 18);
+            waterS = new Rectangle(545, 200, 16, 16);
             waterD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
 
             blockDraw = blockRoom;

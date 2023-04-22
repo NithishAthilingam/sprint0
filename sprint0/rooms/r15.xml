@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<Room>
+    <description>Block
+    <type>3</type>
+    <x>99</x>
+    <y>94</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>99</x>
+    <y>194</y>
+    </description>
+
+    <description>Block
+    <type>3</type>
+    <x>99</x>
+    <y>185</y>
+    </description>
+
+    <description>Block
+    <type>3</type>
+    <x>99</x>
+    <y>276</y>
+    </description>
+
+    <description>Block
+    <type>3</type>
+    <x>99</x>
+    <y>332</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>99</x>
+    <y>368</y>
+    </description>
+
+    <description>Block
+    <type>3</type>
+    <x>148</x>
+    <y>94</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>148</x>
+    <y>368</y>
+    </description>
+
+
+</Room>

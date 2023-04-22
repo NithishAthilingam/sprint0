@@ -13,19 +13,14 @@ namespace sprint0
     {
         Rectangle[] triangle;
         Rectangle triangleD;
-        private Vector2 thisPos;
-
-        //float delayTime;
-        //float timer;
-        int currentA;
-        int previousA;
-        float speed;
-        float tt;
-        private int middle;
-        private int left;
-        private int right;
-
         Texture2D triDraw;
+
+
+        int currentA, previousA;
+        float speed, tt;
+        private int middle, left, right;
+
+
 
 
 
@@ -38,11 +33,6 @@ namespace sprint0
             triangle[2] = new Rectangle(350, 275, 30, 30);
             triangleD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
 
-
-            thisPos = pos;
-
-            //delayTime = 500f;
-            //timer = 0f;
 
             previousA = 1;
             currentA = 2;
