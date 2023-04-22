@@ -19,7 +19,7 @@ namespace sprint0
         public WaterBlock(Texture2D blockSprite, Texture2D blockRoom, Vector2 pos)
         {
             waterS = new Rectangle(545, 200, 16, 16);
-            waterD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
+            waterD = new Rectangle((int)pos.X, (int)pos.Y, 45, 45);
 
             blockDraw = blockRoom;
         }

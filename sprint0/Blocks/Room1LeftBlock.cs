@@ -19,17 +19,15 @@ namespace sprint0
         char x;
 
         Texture2D blockDraw;
-        Rectangle collisionBox;
 
 
         public Room1LeftBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
         {
 
             leftS = new Rectangle(653, 888, 16, 16);
-            leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
-            collisionBox = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
-            leftS = new Rectangle(652, 887, 18, 18);
-            leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
+            leftD = new Rectangle((int)pos.X, (int)pos.Y, 47, 43);
+            //leftS = new Rectangle(652, 887, 18, 18);
+            //leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
 
             thisPosx = (int)pos.X;
             thisPosy = (int)pos.Y;
@@ -71,7 +69,6 @@ namespace sprint0
             }
 
 
-        public Rectangle CollisionBox { get { return collisionBox; } }
 
         public void Draw(SpriteBatch spriteBatch)
         {
