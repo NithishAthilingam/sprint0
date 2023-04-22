@@ -33,7 +33,7 @@ namespace sprint0
         public ICollision collide;
         public ICollision collideA;
         public List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[16];
+        private Texture2D[] Animate = new Texture2D[17];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -95,10 +95,7 @@ namespace sprint0
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
-
-        private BatSprite bat;
-        private Vector2 batPos;
-        private Random rand;
+        private Texture2D HUDScreen;
         //private SoundClass sound; 
         //private SoundClass sound;
 
@@ -195,6 +192,8 @@ namespace sprint0
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
+            HUDScreen = Content.Load<Texture2D>("HUDScreen");
+            Animate[16] = HUDScreen;
 
             rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
@@ -210,8 +209,6 @@ namespace sprint0
             // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems, pos, direc);
-            //batPos = new Vector2(rand.Next(GraphicsDevice.Viewport.Width - spritesEnemies.Width), rand.Next(GraphicsDevice.Viewport.Height - spritesEnemies.Height));
-            //bat = new BatSprite(spritesEnemies, new Vector2(22, 44));
         }
 
         protected override void UnloadContent()
@@ -266,7 +263,6 @@ namespace sprint0
             collideA.Update(gameTime, this, currentRoomsRoom);
             healthbar = new Health(healthNum);
             MouseController.Update(gameTime);
-            //bat.Update(gameTime);
             base.Update(gameTime);
         }
 
@@ -304,7 +300,7 @@ namespace sprint0
 
             //enemy.Draw(spriteBatch);
 
-            item.Draw(spriteBatch);
+            //item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 

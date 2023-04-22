@@ -43,10 +43,9 @@ namespace sprint0
             value.Y = pos.Y;
 
 
-
             bat = new Rectangle[2];
             bat[0] = new Rectangle(230, 270, 20, 20);
-            bat[1] = new Rectangle(260, 270, 20, 20);
+            bat[1] = new Rectangle(258, 270, 20, 20);
             source2 = bat[0];
 
             previousA = 1;
@@ -64,78 +63,41 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-            if (thisPos.Y == 60)
+            if (thisPos.Y <= 60)
             {
                 posChangeY = 2;
-
             }
-            else if (thisPos.Y == 372)
+            else if (thisPos.Y >= 372)
             {
                 posChangeY = -2;
             }
-            else if (thisPos.X == 90)
+            else if (thisPos.X <= 90)
             {
                 posChangeX = 2;
             }
-            else if (thisPos.X == 665)
+            else if (thisPos.X >= 665)
             {
                 posChangeX = -2;
             }
 
-
-            /*if (thisPos.X > 0 && thisPos.Y>0)
-            {*/
             frames++;
-            if ((frames % 20 == 0) && source2 == bat[0])
+            if ((frames % 5 == 0) && source2 == bat[0])
             {
                 source2 = bat[1];
             }
-            else if ((frames % 20 == 0) && source2 == bat[1])
+            else if ((frames % 5 == 0) && source2 == bat[1])
             {
                 source2 = bat[0];
             }
-            thisPos.X += posChangeX;
-            thisPos.Y += posChangeY;
-            /*if (frames <= 75)
-            {
-                thisPos.X += posChangeX;
-                thisPos.Y += posChangeY;
-                game.EnemyPos.X = thisPos.X;
-                game.EnemyPos.Y = thisPos.Y;
-
-            }
-            else if (frames <= 150)
-            {
-                thisPos.Y += posChangeY;
-                game.EnemyPos.Y = thisPos.Y ;
-
-            }
-            else if (frames <= 225)
-            {
-                thisPos.X += posChangeX;
-                game.EnemyPos.X = thisPos.X;
-
-            }
-            else if (frames <= 300)
-            {
-                thisPos.Y += posChangeY;
-                game.EnemyPos.Y = thisPos.Y;
-
-            }*/
 
             if (frames == 301)
             {
                 frames = 0;
             }
-            //}
-            /*else
-            {
-                thisPos.X += posChangeX;
-                thisPos.Y += posChangeY;
-                game.EnemyPos.X = thisPos.X;
-                game.EnemyPos.Y = thisPos.Y;
 
-            }*/
+            thisPos.X += posChangeX;
+            thisPos.Y += posChangeY;
+
             //projectile
             if (tt > speed)
             {
