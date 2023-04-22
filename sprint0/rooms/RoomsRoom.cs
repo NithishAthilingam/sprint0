@@ -13,13 +13,15 @@ namespace sprint0
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
         public Dictionary<int, Vector4> enemiesD = new Dictionary<int, Vector4>();
+        public Dictionary<int, int> roomItem;
 
-        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, Vector4> enemiesD)
+        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, Vector4> enemiesD,Dictionary<int,int>roomItem)
         {
             this.enemies = enemies;
             this.blocks = blocks;
             this.items = item;
             this.enemiesD = enemiesD;
+            this.roomItem = roomItem;
         }
          
         public void Draw(SpriteBatch spriteBatch)
