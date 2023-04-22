@@ -30,7 +30,11 @@ namespace sprint0
             {
                 spriteBatch.Draw(barDraw, barD, barS, Color.White);
             }
+
+        public void Update(GameTime gameTime, Game1 game)
+        {
         }
+    }
     }
 
 	

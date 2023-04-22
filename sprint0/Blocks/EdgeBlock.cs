@@ -18,7 +18,7 @@ namespace sprint0
         public EdgeBlock(Texture2D blockSprite, Texture2D blockRoom,Vector2 pos)
         {
             edgeS = new Rectangle(1359, 248, 16, 16);
-            edgeD = new Rectangle((int)pos.X, (int)pos.Y, 18, 18);
+            edgeD = new Rectangle((int)pos.X, (int)pos.Y, 45, 45);
 
             blockDraw = blockRoom;
         }

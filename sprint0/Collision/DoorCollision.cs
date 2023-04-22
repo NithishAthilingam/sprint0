@@ -290,7 +290,7 @@ namespace sprint0.Collision
 
                     int[] x = myRooms[currentImageIndex];
 
-                    currentImageIndex = x[2];
+                    currentImageIndex = x[0];
 
                     timer = delayTime;
 

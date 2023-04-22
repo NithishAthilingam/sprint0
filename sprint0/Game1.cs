@@ -289,7 +289,7 @@ namespace sprint0
 
             //enemy.Draw(spriteBatch);
 
-            item.Draw(spriteBatch);
+           // item.Draw(spriteBatch);
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 
