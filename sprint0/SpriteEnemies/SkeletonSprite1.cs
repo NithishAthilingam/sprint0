@@ -29,7 +29,7 @@ namespace sprint0
         int id;
 
         Texture2D sprite;
-
+        Random random;
 
 
         public SkeletonSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
@@ -55,7 +55,7 @@ namespace sprint0
             middle = 2;
             left = 0;
             right = 1;
-
+            random = new Random();
         }
 
         public void Update(GameTime gameTime, Game1 game)
@@ -63,7 +63,7 @@ namespace sprint0
             if (thisPos.X > 0)
             {
                 frames++;
-                if((frames%10 == 0) && source2 == skele[0])
+                if((frames % 10 == 0) && source2 == skele[0])
                 {
                     source2 = skele[1];
                 }
@@ -72,27 +72,46 @@ namespace sprint0
                     source2 = skele[0];
                 }
 
-                if (frames <= 75)
-                {
-                    thisPos.X += 3;
-                    game.EnemyPos.X = thisPos.X;
-                }
-                else if (frames <= 150) {
-                    thisPos.Y += 3;
-                    game.EnemyPos.Y = thisPos.Y;
+                //if (frames <= 75)
+                //{
+                //    thisPos.X += 3;
+                //    game.EnemyPos.X = thisPos.X;
+                //}
+                //else if (frames <= 150) {
+                //    thisPos.Y += 3;
+                //    game.EnemyPos.Y = thisPos.Y;
 
-                }
-                else if (frames <= 225)
-                {
-                    thisPos.X -= 3;
-                    game.EnemyPos.X = thisPos.X;
+                //}
+                //else if (frames <= 225)
+                //{
+                //    thisPos.X -= 3;
+                //    game.EnemyPos.X = thisPos.X;
 
-                }
-                else if (frames <= 300)
-                {
-                    thisPos.Y -= 3;
-                    game.EnemyPos.Y = thisPos.Y;
+                //}
+                //else if (frames <= 300)
+                //{
+                //    thisPos.Y -= 3;
+                //    game.EnemyPos.Y = thisPos.Y;
 
+                //}
+
+                int direction = random.Next(4);
+
+                // Move the bat in the chosen direction
+                switch (direction)
+                {
+                    case 0:
+                        thisPos.Y -= 2;
+                        break;
+                    case 1:
+                        thisPos.Y += 2;
+                        break;
+                    case 2:
+                        thisPos.X -= 2;
+                        break;
+                    case 3:
+                        thisPos.X += 2;
+                        break;
                 }
 
                 if (frames == 301)

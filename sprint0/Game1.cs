@@ -91,7 +91,6 @@ namespace sprint0
         public RoomsRoom currentRoomsRoom;
         IRoom currentRoom;
         int currentRoomIndex;
-
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
@@ -114,7 +113,7 @@ namespace sprint0
             pos = new Vector2(220, 100);
             healthNum = 6;
             healthbar = new Health(healthNum);
-
+            
             base.Initialize();
 
             for (int i = 1; i < 18; i++)
@@ -179,8 +178,6 @@ namespace sprint0
             collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
             linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
-
-
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;
