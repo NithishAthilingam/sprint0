@@ -90,4 +90,9 @@
         <x>547</x>
         <y>273</y>
     </description>
+        <description>Item
+        <type>8</type>
+            <x>174</x>
+            <y>121</y>
+        </description>
 </Room>

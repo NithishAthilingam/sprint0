@@ -15,4 +15,9 @@
             <x>447</x>
             <y>180</y>
         </description>
+         <description>Item
+        <type>8</type>
+            <x>174</x>
+            <y>121</y>
+        </description>
 </Room>
