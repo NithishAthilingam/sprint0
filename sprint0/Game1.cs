@@ -33,7 +33,7 @@ namespace sprint0
         public ICollision collide;
         public ICollision collideA;
         public List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[16];
+        private Texture2D[] Animate = new Texture2D[17];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -45,6 +45,8 @@ namespace sprint0
         private Texture2D room;
         public int healthNum;
 
+        //public Dictionary<int, int> enemiesD = new Dictionary<int, Vector4>();
+
         private Texture2D health;
 
         private MouseController MouseController;
@@ -52,7 +54,6 @@ namespace sprint0
         private Texture2D dungeon;
 
         public Vector2 linkPos;
-        public Rectangle linkBound;
         public Vector2 EnemyPos;
 
         //RenderTarget2D renderTarget;
@@ -81,6 +82,7 @@ namespace sprint0
         public Vector2 pos;
         public Vector2 pos0;
         public Vector2 healthPos;
+        public Dictionary<int, int> inventory = new Dictionary<int,int>();
         private Isprite TextSprite;
         public Content.IShoot items;
         public Item item;
@@ -95,7 +97,10 @@ namespace sprint0
         List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
+        private Texture2D HUDScreen;
+        //private SoundClass sound; 
         //private SoundClass sound;
+
 
         public Game1()
         {
@@ -175,7 +180,6 @@ namespace sprint0
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
-            linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
 
 
 
@@ -189,6 +193,8 @@ namespace sprint0
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
+            HUDScreen = Content.Load<Texture2D>("HUDScreen");
+            Animate[16] = HUDScreen;
 
             rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
@@ -216,6 +222,15 @@ namespace sprint0
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
+           
+            //currentRoomsRoom = (RoomsRoom)currentRoom;
+            //// Access currentRoomsRoom's blocks list
+            //List<IBlock> currentBlocks = currentRoomsRoom.blocks;
+            //// Access currentRoomsRoom's enemies list
+            //List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
+            //// Access currentRoomsRoom's items list
+            //List<IItem> currentItems = currentRoomsRoom.items;
+
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
@@ -225,9 +240,6 @@ namespace sprint0
             currentRoom = ListOfRooms[doorEnter.currentImageIndex];
             currentRoom.Update(gameTime, this);
             
-
-
-
 
             currentRoomsRoom = (RoomsRoom)currentRoom;
             //Access currentRoomsRoom's blocks list
@@ -264,7 +276,7 @@ namespace sprint0
             rooms.Draw(spriteBatch);
             doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
-
+            //bat.Draw(spriteBatch);
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
             //scale = 1.0f;
 
@@ -289,7 +301,11 @@ namespace sprint0
 
             //enemy.Draw(spriteBatch);
 
+<<<<<<< HEAD
            // item.Draw(spriteBatch);
+=======
+            //item.Draw(spriteBatch);
+>>>>>>> c5af5dddb38dd8d375f78ae240cb0a90b1401072
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 

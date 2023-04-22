@@ -19,7 +19,8 @@ namespace sprint0
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
-        public Dictionary<int, Vector4> enemiesD = new Dictionary<int, Vector4>();
+        public Dictionary<int, Vector4> enemiesD;
+        public Dictionary<int, int> roomItem;
         private int i = 0;
         private int enemyHealth = 0;
 
@@ -36,6 +37,7 @@ namespace sprint0
             items = new List<IItem>();
             blocks = new List<IBlock>();
             enemiesD = new Dictionary<int, Vector4>();
+            roomItem = new Dictionary<int, int>();
             using (XmlReader reader = XmlReader.Create(file))
             {
                 while (reader.Read())
@@ -43,7 +45,7 @@ namespace sprint0
                     if (reader.IsStartElement() && reader.Name == "description")
                     {
                         reader.Read();
-                            
+                                    
                             switch (reader.Value.Trim())
                             {
                                 case "Block":
@@ -67,6 +69,14 @@ namespace sprint0
                                     int itemPosition2 = int.Parse(reader.ReadElementContentAsString());
                                     IItem newItem = ItemFactory.Instance.CreateItem(itemsSprite, ladySprite, fireSprite, boom, itemVersion, new Vector2(itemPosition1, itemPosition2));
                                     items.Add(newItem);
+                                if (roomItem.ContainsKey(itemVersion))
+                                {
+                                    roomItem[itemVersion] = roomItem[itemVersion] + 1;
+                                }
+                                else
+                                {
+                                    roomItem.Add(itemVersion, 1);
+                                }
                                 Console.WriteLine("item : " + itemVersion.ToString() + "itemX:" + itemPosition1.ToString() + "itemY:" + itemPosition2.ToString());
                                 break;
 
@@ -98,7 +108,7 @@ namespace sprint0
                     }
                 }
 
-                return new RoomsRoom(enemies, blocks, items, enemiesD);
+                return new RoomsRoom(enemies, blocks, items, enemiesD,roomItem);
             }
     //        XmlDocument xmlDoc = new XmlDocument();
     //        xmlDoc.Load(file);

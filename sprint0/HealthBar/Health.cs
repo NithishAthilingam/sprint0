@@ -21,9 +21,9 @@ namespace sprint0.HealthBar
             fullHeart = new Rectangle(36, 16, 98, 98);
             halfHeart = new Rectangle(146, 16, 98, 98);
             emptyHeart = new Rectangle(256, 16, 98, 98);
-            firstDes = new Rectangle(100, 100, 19, 19);
-            middleDes = new Rectangle(122, 100, 19, 19);
-            lastDes = new Rectangle(144, 100, 19, 19);
+            firstDes = new Rectangle(722, 3, 19, 19);
+            middleDes = new Rectangle(744, 3, 19, 19);
+            lastDes = new Rectangle(766, 3, 19, 19);
         }
 
         public void Draw(SpriteBatch spriteBatch, Texture2D bar)
