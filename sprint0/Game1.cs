@@ -45,6 +45,8 @@ namespace sprint0
         private Texture2D room;
         public int healthNum;
 
+        //public Dictionary<int, int> enemiesD = new Dictionary<int, Vector4>();
+
         private Texture2D health;
 
         private MouseController MouseController;
@@ -52,7 +54,6 @@ namespace sprint0
         private Texture2D dungeon;
 
         public Vector2 linkPos;
-        public Rectangle linkBound;
         public Vector2 EnemyPos;
 
         //RenderTarget2D renderTarget;
@@ -81,6 +82,7 @@ namespace sprint0
         public Vector2 pos;
         public Vector2 pos0;
         public Vector2 healthPos;
+        public Dictionary<int, int> inventory = new Dictionary<int,int>();
         private Isprite TextSprite;
         public Content.IShoot items;
         public Item item;
@@ -177,7 +179,6 @@ namespace sprint0
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
             MouseController = new MouseController();
-            linkBound = new Rectangle((int)linkPos.X, (int)linkPos.Y, 50, 50);
 
             room = Content.Load<Texture2D>("rooms");
             Animate[13] = boomerang;

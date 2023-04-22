@@ -2,6 +2,7 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
+using sprint0.Items;
 
 namespace sprint0
 {
@@ -27,8 +28,15 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
+            Inventory test = new Inventory();
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
-            intersect = link.Intersects(clockD);
+            if (link.Intersects(clockD))
+            {
+
+                //test.inventory.Add(new Clock(clockSprite,pos));
+                intersect = true;
+
+            }
         }
 
         public void Draw(SpriteBatch spriteBatch)
