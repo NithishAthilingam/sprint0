@@ -58,7 +58,6 @@ namespace sprint0
             {
                 item.Update(gameTime,game);
             }
-
         }
 
         public void Update(GameTime gameTime)
