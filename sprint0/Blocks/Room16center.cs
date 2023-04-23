@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -6,47 +7,29 @@ using sprint0.Collision;
 
 namespace sprint0
 {
-    public class Room1RightBlock : IBlock
+	public class Room16center : IBlock
     {
 
-
-        Rectangle rightD;
-        Rectangle rightS;
-
-
-        int thisPosx;
-        int thisPosy;
+        Rectangle centerS;
+        Rectangle centerD;
         Rectangle link;
         char x;
+        Texture2D centerDraw;
 
-        Texture2D blockDraw;
-
-        public Room1RightBlock(Texture2D blockSprite,Texture2D blockRoom1, Vector2 pos)
+        public Room16center(Texture2D blockSprite, Texture2D blockRoom1, Vector2 pos)
         {
-            rightS = new Rectangle(557, 888, 16, 16);
-            rightD = new Rectangle((int)pos.X, (int)pos.Y, 47, 47);
-            //collisionBox = rightD;
-
-            //rightS = new Rectangle(556, 887, 18, 18);
-            //rightD= new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
-
-            blockDraw = blockRoom1;
+            centerS = new Rectangle(386, 81, 16, 16);
+            centerD = new Rectangle((int)pos.X, (int)pos.Y, 47, 47);
 
 
-
-            thisPosx = (int)pos.X;
-            thisPosy = (int)pos.Y;
-
-
-            Console.WriteLine("posX : " + thisPosx.ToString() + "posY : " + thisPosy.ToString());
-
+            centerDraw = blockRoom1;
         }
 
         public void Update(GameTime gameTime, Game1 game)
         {
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
-            Rectangle intersect = Rectangle.Intersect(link, rightD);
-            x = CollisionDetection.GetDirection(link, rightD);
+            Rectangle intersect = Rectangle.Intersect(link, centerD);
+            x = CollisionDetection.GetDirection(link, centerD);
 
             if (x != 'o')
             {
@@ -69,16 +52,12 @@ namespace sprint0
             }
         }
 
+
+
         public void Draw(SpriteBatch spriteBatch)
         {
-          spriteBatch.Draw(blockDraw, rightD, rightS, Color.White);
-
-
+            spriteBatch.Draw(centerDraw, centerD, centerS, Color.White);
         }
-
     }
 }
-
-
-
 

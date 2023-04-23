@@ -2,54 +2,52 @@
 <Room>
       <description>Block
         <type>1</type>
-            <x>149</x>
-            <y>139</y>
+            <x>152</x>
+            <y>138</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>199</x>
-            <y>139</y>
-        </description>
-
-         <description>Block
-        <type>1</type>
-            <x>149</x>
-            <y>332</y>
+            <x>202</x>
+            <y>138</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>199</x>
-            <y>322</y>
-        </description>
-
-         <description>Block
-        <type>1</type>
-            <x>349</x>
-            <y>230</y>
+            <x>152</x>
+            <y>321</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>399</x>
-            <y>230</y>
+            <x>202</x>
+            <y>321</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>549</x>
-            <y>139</y>
+            <x>352</x>
+            <y>229</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>599</x>
-            <y>139</y>
+            <x>409</x>
+            <y>229</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>549</x>
-            <y>322</y>
+            <x>552</x>
+            <y>138</y>
         </description>
          <description>Block
         <type>1</type>
-            <x>599</x>
+            <x>602</x>
+            <y>138</y>
+        </description>
+         <description>Block
+        <type>1</type>
+            <x>552</x>
+            <y>321</y>
+        </description>
+         <description>Block
+        <type>1</type>
+            <x>602</x>
             <y>322</y>
         </description>
           <description>Item
@@ -57,4 +55,28 @@
             <x>400</x>
             <y>323</y>
         </description>
+
+         <description>Enemy
+    <type>2</type>
+        <x>573</x>
+        <y>115</y>
+    </description>
+
+          <description>Enemy
+    <type>2</type>
+        <x>430</x>
+        <y>165</y>
+    </description>
+
+          <description>Enemy
+    <type>2</type>
+        <x>425</x>
+        <y>385</y>
+    </description>
+
+          <description>Enemy
+    <type>2</type>
+        <x>470</x>
+        <y>295</y>
+    </description>
 </Room>
