@@ -40,8 +40,6 @@ namespace sprint0
 
             id = enemyID;
 
-            thisPos.Y -= 100;
-
             skele = new Rectangle[2];
             skele[0] = new Rectangle(420, 118, 20, 20);
             skele[1] = new Rectangle(420, 148, 20, 20);

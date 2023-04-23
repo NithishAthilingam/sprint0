@@ -93,7 +93,7 @@ namespace sprint0
         public RoomsRoom currentRoomsRoom;
         IRoom currentRoom;
         int currentRoomIndex;
-        List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
+        public List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
         private Texture2D HUDScreen;
@@ -298,9 +298,16 @@ namespace sprint0
 
             //enemy.Draw(spriteBatch);
 
+<<<<<<< HEAD
 
            // item.Draw(spriteBatch);
             //item.Draw(spriteBatch);
+=======
+           // item.Draw(spriteBatch);
+
+            //item.Draw(spriteBatch);
+
+>>>>>>> 3931131652d4569495fe3687d1958483e465128b
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 
