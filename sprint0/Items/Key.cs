@@ -20,7 +20,6 @@ namespace sprint0
         {
             key = new Rectangle(350, 250, 30, 30);
             keyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
-            inc = 0;
             keyDraw = keySprite;
         }
 
@@ -39,7 +38,7 @@ namespace sprint0
                 Debug.WriteLine("room key after:" + game.currentRoomsRoom.roomItem[8]);
                 if (game.inventory.ContainsKey(8))
                 {
-                    game.inventory[8] = inc + 1;
+                    game.inventory[8] = game.inventory[8] + 1;
                 }
                 else
                 {
