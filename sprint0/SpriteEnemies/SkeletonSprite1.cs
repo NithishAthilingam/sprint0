@@ -28,9 +28,11 @@ namespace sprint0
         Vector4 value;
         int id;
 
+        //int posChangeY;
+        //int posChangeX;
+        int delayTime;
         Texture2D sprite;
         Random random;
-
 
         public SkeletonSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
@@ -53,7 +55,12 @@ namespace sprint0
             middle = 2;
             left = 0;
             right = 1;
+
+            //posChangeY = 2;
+            //posChangeX = 2;
+
             random = new Random();
+            delayTime = 0;
         }
 
         public void Update(GameTime gameTime, Game1 game)
@@ -70,12 +77,30 @@ namespace sprint0
                     source2 = skele[0];
                 }
 
+                int next = random.Next(4);
+                switch (next)
+                {
+                    case 0:
+                        thisPos.X++;
+                        break;
+                    case 1:
+                        thisPos.X--;
+                        break;
+                    case 2:
+                        thisPos.Y++;
+                        break;
+                    case 3:
+                        thisPos.Y--;
+                        break;
+                }
+
                 //if (frames <= 75)
                 //{
                 //    thisPos.X += 3;
                 //    game.EnemyPos.X = thisPos.X;
                 //}
-                //else if (frames <= 150) {
+                //else if (frames <= 150)
+                //{
                 //    thisPos.Y += 3;
                 //    game.EnemyPos.Y = thisPos.Y;
 
@@ -93,29 +118,11 @@ namespace sprint0
 
                 //}
 
-                int direction = random.Next(4);
-
-                // Move the bat in the chosen direction
-                switch (direction)
-                {
-                    case 0:
-                        thisPos.Y -= 2;
-                        break;
-                    case 1:
-                        thisPos.Y += 2;
-                        break;
-                    case 2:
-                        thisPos.X -= 2;
-                        break;
-                    case 3:
-                        thisPos.X += 2;
-                        break;
-                }
-
                 if (frames == 301)
                 {
                     frames = 0;
                 }
+
             }
             else
             {
@@ -163,8 +170,8 @@ namespace sprint0
                 thisPos.Y = value.Y;
             }
 
-
         }
+
 
         //public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         //{
