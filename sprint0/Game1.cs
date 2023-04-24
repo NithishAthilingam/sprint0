@@ -97,6 +97,7 @@ namespace sprint0
 
         private Song backgroundMusic;
         private Texture2D HUDScreen;
+        Key key;
         //private SoundClass sound; 
         //private SoundClass sound;
 
@@ -310,6 +311,8 @@ namespace sprint0
             doorEnter.DrawFade(spriteBatch);
 
             healthbar.Draw(spriteBatch, health);
+
+            //key.Draw(spriteBatch);
 
             spriteBatch.End();
 

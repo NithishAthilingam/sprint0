@@ -55,6 +55,11 @@ namespace sprint0
             {
                 spriteBatch.Draw(keyDraw, keyD, key, Color.White);
             }
+            if (intersect)
+            {
+                spriteBatch.Draw(keyDraw, new Rectangle(644, -3, 35, 35), key, Color.White);
+            }
+            
         }
     }
 }
