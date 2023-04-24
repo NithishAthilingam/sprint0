@@ -27,7 +27,6 @@ namespace sprint0.Collision
         public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int enemyID)
         {
             game.currentRoomsRoom.enemiesD.TryGetValue(enemyID, out enemyInfo);
-            game.currentRoomsRoom.enemiesD.Remove(enemyID);
 
             enemy = new Rectangle((int)enemyInfo.X, (int)enemyInfo.Y, (int)enemyInfo.Z, (int)enemyInfo.W);
 
@@ -61,6 +60,10 @@ namespace sprint0.Collision
 
                     }
                     currentRoomsRoom.enemiesD.Add(enemyID, enemyInfo);
+                }
+                else
+                {
+
                 }
             }
         }

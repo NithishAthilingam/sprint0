@@ -248,9 +248,9 @@ namespace sprint0
             //Access currentRoomsRoom's items list
             List<IItem> currentItems = currentRoomsRoom.items;
 
-            enemy.Update(gameTime, this);
+            /*enemy.Update(gameTime, this);
             rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this);
+            doorEnter.Update(gameTime, this);*/
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
