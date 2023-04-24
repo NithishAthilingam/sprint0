@@ -169,7 +169,10 @@ namespace sprint0
                 value.W = 100;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
-
+                game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
+                game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
+                thisPos.X = value.X;
+                thisPos.Y = value.Y;
             }
 
 

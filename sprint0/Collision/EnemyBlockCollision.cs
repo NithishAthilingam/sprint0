@@ -19,46 +19,48 @@ namespace sprint0.Collision
         Rectangle block;
         Rectangle enemy;
         Rectangle intersect;
+        Vector4 enemyInfo;
         public Health h;
 
 
 
-        public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
+        public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int enemyID)
         {
-            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            //push
-            foreach (KeyValuePair<int, Vector4> entry in currentRoomsRoom.enemiesD)
+            game.currentRoomsRoom.enemiesD.TryGetValue(enemyID, out enemyInfo);
+            game.currentRoomsRoom.enemiesD.Remove(enemyID);
+
+            enemy = new Rectangle((int)enemyInfo.X, (int)enemyInfo.Y, (int)enemyInfo.Z, (int)enemyInfo.W);
+
+            foreach (KeyValuePair<int, Vector4> blockEntry in currentRoomsRoom.blocksD)
             {
-                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 40, 40);
-                foreach (KeyValuePair<int, Vector4> blockEntry in currentRoomsRoom.blocksD)
+                block = new Rectangle((int)blockEntry.Value.X, (int)blockEntry.Value.Y, 50, 50);
+                    
+                x = CollisionDetection.GetDirection(enemy, block);
+
+                if (x != 'o')
                 {
-                    block = new Rectangle((int)blockEntry.Value.X, (int)blockEntry.Value.Y, 50, 50);
-                    intersect = Rectangle.Intersect(enemy, block);
-                    x = CollisionDetection.GetDirection(enemy, block);
-
-
-                    if (x != 'o')
+                intersect = Rectangle.Intersect(enemy, block);
+                currentRoomsRoom.enemiesD.Remove(enemyID);
+                    //game.sprite = new DamagedSprite(game.linkPos);
+                    if (x == 'w')
                     {
-                        //game.sprite = new DamagedSprite(game.linkPos);
-                        if (x == 'w')
-                        {
-                            currentRoomsRoom.enemiesD.Remove(1);
-                            float num = (entry.Value.Y) - (intersect.Height);
-                        }
-                        else if (x == 'a')
-                        {
-                            game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(-intersect.Width, 0));
-                        }
-                        else if (x == 's')
-                        {
-                            game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(0, intersect.Height));
-                        }
-                        else if (x == 'd')
-                        {
-                            game.controller[0].SetLinkPos(game.controller[0].GetLinkPos() + new Vector2(intersect.Width, 0));
-
-                        }
+                            
+                        enemyInfo.Y -= intersect.Height;
                     }
+                    else if (x == 'a')
+                    {
+                        enemyInfo.X -= intersect.Width;
+                    }
+                    else if (x == 's')
+                    {
+                        enemyInfo.Y += intersect.Height;
+                    }
+                    else if (x == 'd')
+                    {
+                        enemyInfo.X += intersect.Width;
+
+                    }
+                    currentRoomsRoom.enemiesD.Add(enemyID, enemyInfo);
                 }
             }
         }
