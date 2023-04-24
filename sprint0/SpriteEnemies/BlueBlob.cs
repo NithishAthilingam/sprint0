@@ -91,6 +91,8 @@ namespace sprint0
                 game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
                 value.X = thisPos.X;
                 value.Y = thisPos.Y;
+                value.Z = 20;
+                value.W = 20;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
 

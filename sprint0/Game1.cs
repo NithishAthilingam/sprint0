@@ -298,16 +298,13 @@ namespace sprint0
 
             //enemy.Draw(spriteBatch);
 
-<<<<<<< HEAD
 
            // item.Draw(spriteBatch);
             //item.Draw(spriteBatch);
-=======
            // item.Draw(spriteBatch);
 
             //item.Draw(spriteBatch);
 
->>>>>>> 3931131652d4569495fe3687d1958483e465128b
             blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 
