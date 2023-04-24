@@ -77,29 +77,46 @@ namespace sprint0
                     source2 = skele[0];
                 }
 
-                if (frames <= 75)
+                int next = random.Next(4);
+                switch (next)
                 {
-                    thisPos.X += 3;
-                    game.EnemyPos.X = thisPos.X;
+                    case 0:
+                        thisPos.X++;
+                        break;
+                    case 1:
+                        thisPos.X--;
+                        break;
+                    case 2:
+                        thisPos.Y++;
+                        break;
+                    case 3:
+                        thisPos.Y--;
+                        break;
                 }
-                else if (frames <= 150)
-                {
-                    thisPos.Y += 3;
-                    game.EnemyPos.Y = thisPos.Y;
 
-                }
-                else if (frames <= 225)
-                {
-                    thisPos.X -= 3;
-                    game.EnemyPos.X = thisPos.X;
+                //if (frames <= 75)
+                //{
+                //    thisPos.X += 3;
+                //    game.EnemyPos.X = thisPos.X;
+                //}
+                //else if (frames <= 150)
+                //{
+                //    thisPos.Y += 3;
+                //    game.EnemyPos.Y = thisPos.Y;
 
-                }
-                else if (frames <= 300)
-                {
-                    thisPos.Y -= 3;
-                    game.EnemyPos.Y = thisPos.Y;
+                //}
+                //else if (frames <= 225)
+                //{
+                //    thisPos.X -= 3;
+                //    game.EnemyPos.X = thisPos.X;
 
-                }
+                //}
+                //else if (frames <= 300)
+                //{
+                //    thisPos.Y -= 3;
+                //    game.EnemyPos.Y = thisPos.Y;
+
+                //}
 
                 if (frames == 301)
                 {
