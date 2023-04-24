@@ -30,4 +30,22 @@
         <x>398</x>
         <y>272</y>
     </description>
+
+        <description>Enemy
+    <type>4</type>
+        <x>151</x>
+        <y>141</y>
+    </description>
+
+        <description>Enemy
+    <type>4</type>
+        <x>151</x>
+        <y>253</y>
+    </description>
+
+        <description>Enemy
+    <type>4</type>
+        <x>251</x>
+        <y>187</y>
+    </description>
 </Room>

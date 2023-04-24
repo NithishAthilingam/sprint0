@@ -107,7 +107,12 @@
     </description>
      <description>Enemy 
     <type>3</type>
-    <x>324</x>
-    <y>257</y>
+    <x>150</x>
+    <y>370</y>
+    </description>
+      <description>Enemy
+    <type>2</type>
+        <x>225</x>
+        <y>390</y>
     </description>
 </Room>

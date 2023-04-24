@@ -2,48 +2,264 @@
 <Room>
     <description>Block
     <type>3</type>
-    <x>99</x>
-    <y>94</y>
+    <x>101</x>
+    <y>93</y>
     </description>
     <description>Block
     <type>3</type>
-    <x>99</x>
-    <y>194</y>
+    <x>101</x>
+    <y>141</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>101</x>
+    <y>185</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>101</x>
+    <y>278</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>101</x>
+    <y>324</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>101</x>
+    <y>365</y>
     </description>
 
     <description>Block
     <type>3</type>
-    <x>99</x>
+    <x>151</x>
+    <y>365</y>
+    </description>
+      <description>Block
+    <type>3</type>
+    <x>152</x>
+    <y>93</y>
+    </description>
+
+
+    <description>Block
+    <type>3</type>
+    <x>202</x>
+    <y>93</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>186</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>232</y>
+    </description>
+      <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>278</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>324</y>
+    </description>
+       <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>365</y>
+    </description>
+
+
+    <description>Block
+    <type>3</type>
+    <x>252</x>
+    <y>93</y>
+    </description>
+       <description>Block
+    <type>3</type>
+    <x>251</x>
+    <y>365</y>
+    </description>
+
+
+
+    <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>93</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>141</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>186</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>232</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>274</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>365</y>
+    </description>
+
+    <description>Block
+    <type>3</type>
+    <x>351</x>
+    <y>274</y>
+    </description>
+
+    <description>Block
+    <type>3</type>
+    <x>401</x>
     <y>185</y>
     </description>
 
+
     <description>Block
     <type>3</type>
-    <x>99</x>
+    <x>451</x>
+    <y>93</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>451</x>
+    <y>187</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>451</x>
+    <y>232</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>451</x>
+    <y>278</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>451</x>
+    <y>365</y>
+    </description>
+
+
+     <description>Block
+    <type>3</type>
+    <x>501</x>
+    <y>93</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>501</x>
+    <y>365</y>
+    </description>
+   
+
+    <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>93</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>141</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>186</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>232</y>
+    </description>
+      <description>Block
+    <type>3</type>
+    <x>551</x>
     <y>276</y>
     </description>
+       <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>365</y>
+    </description>
+
+        <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>93</y>
+    </description>
+       <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>365</y>
+    </description>
 
     <description>Block
     <type>3</type>
-    <x>99</x>
-    <y>332</y>
+    <x>651</x>
+    <y>93</y>
     </description>
     <description>Block
     <type>3</type>
-    <x>99</x>
-    <y>368</y>
+    <x>651</x>
+    <y>141</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>651</x>
+    <y>184</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>651</x>
+    <y>278</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>651</x>
+    <y>324</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>651</x>
+    <y>365</y>
     </description>
 
-    <description>Block
-    <type>3</type>
-    <x>148</x>
-    <y>94</y>
-    </description>
-    <description>Block
-    <type>3</type>
-    <x>148</x>
-    <y>368</y>
+            <description>Enemy
+    <type>4</type>
+        <x>175</x>
+        <y>255</y>
     </description>
 
+          <description>Enemy
+    <type>4</type>
+        <x>280</x>
+        <y>345</y>
+    </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>430</x>
+        <y>340</y>
+    </description>
 
 </Room>

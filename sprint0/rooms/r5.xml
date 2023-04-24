@@ -20,4 +20,29 @@
         <x>550</x>
         <y>272</y>
     </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>351</x>
+        <y>232</y>
+    </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>401</x>
+        <y>324</y>
+    </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>451</x>
+        <y>278</y>
+    </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>451</x>
+        <y>187</y>
+    </description>
+
 </Room>

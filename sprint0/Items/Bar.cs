@@ -31,11 +31,12 @@ namespace sprint0
             spriteBatch.Draw(barDraw, barD, barS, Color.White);
         }
 
-        void IItem.Update(GameTime gameTime, Game1 game)
+        public void Update(GameTime gameTime, Game1 game)
         {
-            throw new NotImplementedException();
+        
+            }
         }
     }
-}
+   
 
 	

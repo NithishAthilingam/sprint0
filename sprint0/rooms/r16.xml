@@ -1,4 +1,155 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <Room>
+    <description>Block
+    <type>3</type>
+    <x>151</x>
+    <y>139</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>151</x>
+    <y>187</y>
+    </description>
+   <description>Block
+    <type>3</type>
+    <x>151</x>
+    <y>232</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>151</x>
+    <y>278</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>151</x>
+    <y>322</y>
+    </description>
+   
+    <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>139</y>
+    </description>
+      <description>Block
+    <type>3</type>
+    <x>201</x>
+    <y>322</y>
+    </description>
+    
+    <description>Block
+    <type>3</type>
+    <x>251</x>
+    <y>139</y>
+    </description>
+   <description>Block
+    <type>3</type>
+    <x>251</x>
+    <y>232</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>251</x>
+    <y>324</y>
+    </description>
 
+
+
+     <description>Block
+    <type>3</type>
+    <x>301</x>
+    <y>231</y>
+    </description>
+
+
+     <description>Block
+    <type>3</type>
+    <x>351</x>
+    <y>231</y>
+    </description>
+
+     <description>Block
+    <type>3</type>
+    <x>401</x>
+    <y>231</y>
+    </description>
+
+     <description>Block
+    <type>3</type>
+    <x>451</x>
+    <y>231</y>
+    </description>
+
+
+     <description>Block
+    <type>3</type>
+    <x>501</x>
+    <y>231</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>501</x>
+    <y>139</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>501</x>
+    <y>322</y>
+    </description>
+
+
+      <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>139</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>551</x>
+    <y>322</y>
+    </description>
+
+ <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>139</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>187</y>
+    </description>
+   <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>232</y>
+    </description>
+    <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>278</y>
+    </description>
+     <description>Block
+    <type>3</type>
+    <x>601</x>
+    <y>322</y>
+    </description>
+
+      <description>Enemy
+    <type>4</type>
+        <x>330</x>
+        <y>115</y>
+    </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>430</x>
+        <y>340</y>
+    </description>
+
+          <description>Enemy
+    <type>4</type>
+        <x>350</x>
+        <y>365</y>
+    </description>
 </Room>

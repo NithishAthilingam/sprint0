@@ -2,62 +2,62 @@
 <Room>
         <description>Block
         <type>5</type>
-            <x>151</x>
-            <y>137</y>
+            <x>152</x>
+            <y>138</y>
         </description>
         <description>Block
         <type>5</type>
-            <x>151</x>
-            <y>227</y>
+            <x>152</x>
+            <y>229</y>
         </description>
         <description>Block
         <type>5</type>
-            <x>151</x>
-            <y>320</y>
+            <x>152</x>
+            <y>321</y>
         </description>
         <description>Block
         <type>5</type>
-            <x>300</x>
-            <y>137</y>
+            <x>302</x>
+            <y>138</y>
         </description>
         <description>Block
         <type>5</type>
-            <x>300</x>
-            <y>227</y>
+            <x>302</x>
+            <y>229</y>
         </description>
         <description>Block
         <type>5</type>
-            <x>300</x>
-            <y>320</y>
+            <x>302</x>
+            <y>321</y>
         </description>
         <description>Block
         <type>4</type>
-            <x>447</x> 
-            <y>137</y> 
+            <x>452</x> 
+            <y>138</y> 
         </description>
         <description>Block
         <type>4</type>
-            <x>447</x> 
-            <y>228</y> 
+            <x>452</x> 
+            <y>229</y> 
         </description>
         <description>Block
         <type>4</type>
-            <x>447</x> 
-            <y>320</y> 
+            <x>452</x> 
+            <y>321</y> 
         </description>
         <description>Block
         <type>4</type>
-            <x>597</x> 
-            <y>140</y>
+            <x>602</x> 
+            <y>138</y>
         </description>
         <description>Block
         <type>4</type>
-            <x>597</x> 
-            <y>228</y> 
+            <x>602</x> 
+            <y>229</y> 
         </description>
         <description>Block
         <type>4</type>
-            <x>597</x> 
-            <y>320</y> 
+            <x>602</x> 
+            <y>321</y> 
         </description>
 </Room>

@@ -25,7 +25,7 @@ namespace sprint0
         {
 
             leftS = new Rectangle(653, 888, 16, 16);
-            leftD = new Rectangle((int)pos.X, (int)pos.Y, 47, 43);
+            leftD = new Rectangle((int)pos.X, (int)pos.Y, 47, 47);
             //leftS = new Rectangle(652, 887, 18, 18);
             //leftD = new Rectangle((int)pos.X, (int)pos.Y, 55, 55);
 
@@ -72,7 +72,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, leftD, leftS, Color.White);
+           spriteBatch.Draw(blockDraw, leftD, leftS, Color.White);
         }
 
     }

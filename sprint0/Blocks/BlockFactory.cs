@@ -38,6 +38,8 @@ namespace sprint0
                     return new Room1LeftBlock(blockSprite, blockRoom,position);
                 case 5:
                     return new Room1RightBlock(blockSprite, blockRoom,position);
+                case 6:
+                    return new Room16center(blockSprite, blockRoom, position);
                 default:
                     return null;
             }

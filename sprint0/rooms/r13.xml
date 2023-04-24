@@ -105,4 +105,14 @@
     <x>175</x>
     <y>252</y>
     </description>
+     <description>Block
+    <type>1</type>
+    <x>602</x>
+    <y>275</y>
+    </description>
+     <description>Block
+    <type>1</type>
+    <x>652</x>
+    <y>275</y>
+    </description>
 </Room>

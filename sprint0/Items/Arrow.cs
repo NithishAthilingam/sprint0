@@ -16,7 +16,7 @@ namespace sprint0
 
         public Arrow(Texture2D arrowSprite,Vector2 pos)
         {
-            arrowS = new Rectangle(205, 250, 30, 30);
+            arrowS = new(415, 250, 30, 30);
             arrowD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
 
             arrowDraw = arrowSprite;

@@ -127,12 +127,17 @@
     </description>
     <description>Block
     <type>4</type>
-    <x>499</x>
+    <x>452</x>
     <y>185</y>
     </description>
     <description>Block
     <type>4</type>
     <x>499</x>
     <y>231</y>
+    </description>
+    <description>Item
+    <type>10</type>
+        <x>400</x>
+        <y>250</y>
     </description>
 </Room>
