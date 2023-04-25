@@ -56,7 +56,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, edgeD, edgeS, Color.White);
+           // spriteBatch.Draw(blockDraw, edgeD, edgeS, Color.White);
 
         }
 

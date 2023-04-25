@@ -58,7 +58,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(blockDraw, waterD, waterS, Color.White);
+            //spriteBatch.Draw(blockDraw, waterD, waterS, Color.White);
 
         }
     }

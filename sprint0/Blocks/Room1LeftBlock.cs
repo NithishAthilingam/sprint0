@@ -72,7 +72,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-           spriteBatch.Draw(blockDraw, leftD, leftS, Color.White);
+           //spriteBatch.Draw(blockDraw, leftD, leftS, Color.White);
         }
 
     }
