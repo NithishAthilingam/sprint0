@@ -23,14 +23,14 @@ namespace sprint0.Collision
 
 
 
-        public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
+        public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int id)
         {
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //push
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
             foreach (KeyValuePair<int, Vector4> entry in currentRoomsRoom.enemiesD)
             {
-                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, 40, 40);
+                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, (int)entry.Value.Z, (int)entry.Value.W);
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
 

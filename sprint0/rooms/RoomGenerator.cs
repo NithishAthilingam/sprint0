@@ -20,8 +20,10 @@ namespace sprint0
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
         public Dictionary<int, Vector4> enemiesD;
+        public Dictionary<int, Vector4> blocksD;
         public Dictionary<int, int> roomItem;
         private int i = 0;
+        private int j = 0;
         private int enemyHealth = 0;
 
 
@@ -38,6 +40,7 @@ namespace sprint0
             blocks = new List<IBlock>();
             enemiesD = new Dictionary<int, Vector4>();
             roomItem = new Dictionary<int, int>();
+            blocksD = new Dictionary<int, Vector4>();
             using (XmlReader reader = XmlReader.Create(file))
             {
                 while (reader.Read())
@@ -57,6 +60,8 @@ namespace sprint0
                                     int blockPosition2 = int.Parse(reader.ReadElementContentAsString());
                                     IBlock newBlock = BlockFactory.Instance.GetBlock(blockSprite, blockRoom, blockVersion, new Vector2(blockPosition1, blockPosition2));
                                     blocks.Add(newBlock);
+                                    j++;
+                                    blocksD.Add(j, new Vector4(blockPosition1, blockPosition2, 1, 1));
                                    // Console.WriteLine("block : " + blockVersion.ToString() + "blockX:" + blockPosition1.ToString() + "blockY:"  + blockPosition2.ToString());
                                     break;
 
@@ -108,7 +113,7 @@ namespace sprint0
                     }
                 }
 
-                return new RoomsRoom(enemies, blocks, items, enemiesD,roomItem);
+                return new RoomsRoom(enemies, blocks, items, enemiesD, blocksD, roomItem);
             }
     //        XmlDocument xmlDoc = new XmlDocument();
     //        xmlDoc.Load(file);

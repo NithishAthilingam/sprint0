@@ -28,9 +28,12 @@ namespace sprint0
         Vector4 value;
         int id;
 
+        //int posChangeY;
+        //int posChangeX;
+        int delayTime;
         Texture2D sprite;
         Random random;
-
+        Random rand;
 
         public SkeletonSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
@@ -53,7 +56,13 @@ namespace sprint0
             middle = 2;
             left = 0;
             right = 1;
+
+            //posChangeY = 2;
+            //posChangeX = 2;
+
             random = new Random();
+            rand = new Random();
+            delayTime = 0;
         }
 
         public void Update(GameTime gameTime, Game1 game)
@@ -70,52 +79,48 @@ namespace sprint0
                     source2 = skele[0];
                 }
 
-                //if (frames <= 75)
-                //{
-                //    thisPos.X += 3;
-                //    game.EnemyPos.X = thisPos.X;
-                //}
-                //else if (frames <= 150) {
-                //    thisPos.Y += 3;
-                //    game.EnemyPos.Y = thisPos.Y;
+                int next = random.Next(0, 3);
 
-                //}
-                //else if (frames <= 225)
-                //{
-                //    thisPos.X -= 3;
-                //    game.EnemyPos.X = thisPos.X;
-
-                //}
-                //else if (frames <= 300)
-                //{
-                //    thisPos.Y -= 3;
-                //    game.EnemyPos.Y = thisPos.Y;
-
-                //}
-
-                int direction = random.Next(4);
-
-                // Move the bat in the chosen direction
-                switch (direction)
+                if (frames <= 75)
                 {
-                    case 0:
-                        thisPos.Y -= 2;
-                        break;
-                    case 1:
-                        thisPos.Y += 2;
-                        break;
-                    case 2:
-                        thisPos.X -= 2;
-                        break;
-                    case 3:
-                        thisPos.X += 2;
-                        break;
+                    if(next == 2)
+                    {
+                        thisPos.X += 3;
+                        game.EnemyPos.X = thisPos.X;
+                    }
+                }
+                else if (frames <= 150)
+                {
+                    if (next == 0)
+                    {
+                        thisPos.Y += 3;
+                        game.EnemyPos.Y = thisPos.Y;
+                    }
+
+                }
+                else if (frames <= 225)
+                {
+                    if (next == 3)
+                    {
+                        thisPos.X -= 3;
+                        game.EnemyPos.X = thisPos.X;
+                    }
+
+                }
+                else if (frames <= 300)
+                {
+                    if (next == 1)
+                    {
+                        thisPos.Y -= 3;
+                        game.EnemyPos.Y = thisPos.Y;
+                    }
                 }
 
                 if (frames == 301)
                 {
                     frames = 0;
                 }
+
             }
             else
             {
@@ -152,13 +157,19 @@ namespace sprint0
                 game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
                 value.X = thisPos.X;
                 value.Y = thisPos.Y;
+                value.Z = 40;
+                value.W = 40;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
 
+                game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
+                game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
+                thisPos.X = value.X;
+                thisPos.Y = value.Y;
             }
 
-
         }
+
 
         //public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         //{

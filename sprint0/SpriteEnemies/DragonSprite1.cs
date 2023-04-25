@@ -165,9 +165,14 @@ namespace sprint0
                 game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
                 value.X = thisPos.X;
                 value.Y = thisPos.Y;
+                value.Z = 90;
+                value.W = 100;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
-
+                game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
+                game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
+                thisPos.X = value.X;
+                thisPos.Y = value.Y;
             }
 
 
