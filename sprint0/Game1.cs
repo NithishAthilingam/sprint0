@@ -32,6 +32,7 @@ namespace sprint0
         public IHealthBar healthbar;
         public ICollision collide;
         public ICollision collideA;
+        public ICollision collideB;
         public List<Icontroller> controller;
         private Texture2D[] Animate = new Texture2D[17];
         private Texture2D spriteA;
@@ -179,6 +180,7 @@ namespace sprint0
             shoot = new initial();
             collide = new BlockCollision();
             collideA = new EnemyLinkCollision();
+            collideB = new EnemyBlockCollision();
             MouseController = new MouseController();
 
             room = Content.Load<Texture2D>("rooms");
@@ -247,9 +249,9 @@ namespace sprint0
             //Access currentRoomsRoom's items list
             List<IItem> currentItems = currentRoomsRoom.items;
 
-            enemy.Update(gameTime, this);
+            /*enemy.Update(gameTime, this);
             rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this);
+            doorEnter.Update(gameTime, this);*/
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
@@ -258,8 +260,8 @@ namespace sprint0
             blocks.Update(gameTime, this);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
-            collide.Update(gameTime, this, currentRoomsRoom);
-            collideA.Update(gameTime, this, currentRoomsRoom);
+            collide.Update(gameTime, this, currentRoomsRoom, 1);
+            collideA.Update(gameTime, this, currentRoomsRoom, 1);
             healthbar = new Health(healthNum);
             MouseController.Update(gameTime);
             base.Update(gameTime);

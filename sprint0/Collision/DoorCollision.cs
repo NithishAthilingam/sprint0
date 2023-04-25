@@ -560,7 +560,7 @@ namespace sprint0.Collision
 
 
 
-        void ICollision.Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom)
+        void ICollision.Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int id)
 
         {
 
