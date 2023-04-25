@@ -64,7 +64,7 @@ namespace sprint0
         public void Update(GameTime gameTime, Game1 game)
         {
             int next = rand.Next(4);
-            if (thisPos.X >= 90 && thisPos.X <= 665 || thisPos.Y >= 60 && thisPos.Y <= 372)
+            if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
             {
                 if (thisPos.Y <= 60 || next == 0)
                 {
@@ -86,8 +86,22 @@ namespace sprint0
 
             else
             {
-                thisPos.X = 90;
-                thisPos.Y = 60;
+                if (thisPos.X < 90)
+                {
+                    posChangeX = 4;
+                }
+                else if(thisPos.X > 665)
+                {
+                    posChangeX = -4;
+                }
+                else if(thisPos.Y < 60)
+                {
+                    posChangeY = 4;
+                }
+                else if(thisPos.Y > 372)
+                {
+                    posChangeY = -4;
+                }
             }
 
             frames++;
