@@ -33,6 +33,7 @@ namespace sprint0
         int delayTime;
         Texture2D sprite;
         Random random;
+        Random rand;
 
         public SkeletonSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
@@ -60,6 +61,7 @@ namespace sprint0
             //posChangeX = 2;
 
             random = new Random();
+            rand = new Random();
             delayTime = 0;
         }
 
@@ -77,46 +79,42 @@ namespace sprint0
                     source2 = skele[0];
                 }
 
-                int next = random.Next(4);
-                switch (next)
+                int next = random.Next(0, 3);
+
+                if (frames <= 75)
                 {
-                    case 0:
-                        thisPos.X++;
-                        break;
-                    case 1:
-                        thisPos.X--;
-                        break;
-                    case 2:
-                        thisPos.Y++;
-                        break;
-                    case 3:
-                        thisPos.Y--;
-                        break;
+                    if(next == 2)
+                    {
+                        thisPos.X += 3;
+                        game.EnemyPos.X = thisPos.X;
+                    }
                 }
+                else if (frames <= 150)
+                {
+                    if (next == 0)
+                    {
+                        thisPos.Y += 3;
+                        game.EnemyPos.Y = thisPos.Y;
+                    }
 
-                //if (frames <= 75)
-                //{
-                //    thisPos.X += 3;
-                //    game.EnemyPos.X = thisPos.X;
-                //}
-                //else if (frames <= 150)
-                //{
-                //    thisPos.Y += 3;
-                //    game.EnemyPos.Y = thisPos.Y;
+                }
+                else if (frames <= 225)
+                {
+                    if (next == 3)
+                    {
+                        thisPos.X -= 3;
+                        game.EnemyPos.X = thisPos.X;
+                    }
 
-                //}
-                //else if (frames <= 225)
-                //{
-                //    thisPos.X -= 3;
-                //    game.EnemyPos.X = thisPos.X;
-
-                //}
-                //else if (frames <= 300)
-                //{
-                //    thisPos.Y -= 3;
-                //    game.EnemyPos.Y = thisPos.Y;
-
-                //}
+                }
+                else if (frames <= 300)
+                {
+                    if (next == 1)
+                    {
+                        thisPos.Y -= 3;
+                        game.EnemyPos.Y = thisPos.Y;
+                    }
+                }
 
                 if (frames == 301)
                 {
