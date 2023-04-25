@@ -15,12 +15,14 @@ namespace sprint0
         Rectangle link;
         Boolean intersect;
         int inc;
+        Boolean hasKey;
 
         public Key(Texture2D keySprite, Vector2 pos)
         {
             key = new Rectangle(350, 250, 30, 30);
             keyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
             keyDraw = keySprite;
+            hasKey = false;
         }
 
         public void Update(GameTime gameTime, Game1 game)
@@ -30,6 +32,7 @@ namespace sprint0
             if (link.Intersects(keyD))
             {
                 intersect = true;
+
             }
             if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(8))
             { 
@@ -45,6 +48,7 @@ namespace sprint0
                     game.inventory.Add(8, 1);
                     Debug.WriteLine("inventory key:" + game.inventory[8]);
                 }
+                hasKey = true;
             }
         }
 
@@ -54,7 +58,7 @@ namespace sprint0
             {
                 spriteBatch.Draw(keyDraw, keyD, key, Color.White);
             }
-            if (intersect)
+            if (hasKey)
             {
                 spriteBatch.Draw(keyDraw, new Rectangle(644, -3, 35, 35), key, Color.White);
             }

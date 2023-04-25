@@ -210,8 +210,16 @@ namespace sprint0
             // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems, pos, direc);
+            backgroundMusic = Content.Load<Song>("dungeonmusic");
+            MediaPlayer.Play(backgroundMusic);
+            MediaPlayer.IsRepeating = true;
+            MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
         }
-
+        private void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
+        {
+            MediaPlayer.Volume -= 0.1f;
+            MediaPlayer.Play(backgroundMusic);
+        }
         protected override void UnloadContent()
         {
 
@@ -317,7 +325,7 @@ namespace sprint0
 
             healthbar.Draw(spriteBatch, health);
 
-            //key.Draw(spriteBatch);
+            //key.Draw(spriteBatch, this);
 
             spriteBatch.End();
 
