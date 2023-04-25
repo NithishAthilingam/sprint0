@@ -30,7 +30,7 @@ namespace sprint0
         private int right;
         Texture2D sprite;
         int id;
-
+        Random rand;
 
         public BatSprite1(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
@@ -58,34 +58,44 @@ namespace sprint0
             right = 1;
             posChangeY = 2;
             posChangeX = 2;
-
+            rand = new Random();
         }
 
         public void Update(GameTime gameTime, Game1 game)
         {
-            if (thisPos.Y <= 60)
+            int next = rand.Next(4);
+            if (thisPos.X >= 90 && thisPos.X <= 665 || thisPos.Y >= 60 && thisPos.Y <= 372)
             {
-                posChangeY = 2;
+                if (thisPos.Y <= 60 || next == 0)
+                {
+                    posChangeY = 2;
+                }
+                else if (thisPos.Y >= 372 || next == 1)
+                {
+                    posChangeY = -2;
+                }
+                else if (thisPos.X <= 90 || next == 2)
+                {
+                    posChangeX = 2;
+                }
+                else if (thisPos.X >= 665 || next == 3)
+                {
+                    posChangeX = -2;
+                }
             }
-            else if (thisPos.Y >= 372)
+
+            else
             {
-                posChangeY = -2;
-            }
-            else if (thisPos.X <= 90)
-            {
-                posChangeX = 2;
-            }
-            else if (thisPos.X >= 665)
-            {
-                posChangeX = -2;
+                thisPos.X = 90;
+                thisPos.Y = 60;
             }
 
             frames++;
-            if ((frames % 5 == 0) && source2 == bat[0])
+            if ((frames % 10 == 0) && source2 == bat[0])
             {
                 source2 = bat[1];
             }
-            else if ((frames % 5 == 0) && source2 == bat[1])
+            else if ((frames % 10 == 0) && source2 == bat[1])
             {
                 source2 = bat[0];
             }
