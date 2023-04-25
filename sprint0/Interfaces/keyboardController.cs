@@ -262,50 +262,52 @@ namespace sprint0
             {
                 if (direc == 's')
                 {
-                    game.sprite = new SwordSpriteDown(pos);
+                    if(game.healthNum == 6)
+                    {
+                        game.shoot = new FlyingSwordDown(new Vector2(pos.X,pos.Y+10));
+                        game.sprite = new ThrowingItemDown(pos);
+                    }
+                    else
+                    {
+                        game.sprite = new SwordSpriteDown(pos);
+
+                    }
                 }
                 else if (direc == 'a')
                 {
-
-                    game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
+                    if (game.healthNum == 6)
+                    {
+                        game.shoot = new FlyingSwordLeft(new Vector2(pos.X+40,pos.Y));
+                        game.sprite = new ThrowingItemLeft(pos);
+                    }
+                    else
+                    {
+                        game.sprite = new SwordSpriteLeft(new Vector2(pos.X - 40, pos.Y - 30));
+                    }
                 }
                 else if (direc == 'w')
                 {
-                    game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
+                    if (game.healthNum == 6)
+                    {
+                        game.shoot = new FlyingSwordUp(new Vector2(pos.X,pos.Y-20));
+                        game.sprite = new ThrowingItemUp(pos);
+                    }
+                    else
+                    {
+                        game.sprite = new SwordSpriteUp(new Vector2(pos.X, pos.Y - 40));
+                    }
                 }
                 else if (direc == 'd')
                 {
-                    game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
-                }
-            }
-
-            else if (userInput.IsKeyDown(Keys.NumPad1) || userInput.IsKeyDown(Keys.D1))
-            {
-
-                if (direc == 's')
-                {
-                    game.sprite = new ThrowingItemDown(pos);
-                    game.shoot = new BlueArrowDown(pos);
-                }
-                else if (direc == 'a')
-                {
-                    game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
-                    game.shoot = new BlueArrowLeft(pos);
-
-                }
-                else if (direc == 'w')
-                {
-                    game.sprite = new ThrowingItemUp(pos);
-                    game.shoot = new BlueArrowUp(pos);
-
-                }
-                else if (direc == 'd')
-                {
-                    p.Y = pos.Y;
-                    game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
-                    game.shoot = new BlueArrowRight(pos);
-
-                    p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
+                    if (game.healthNum == 6)
+                    {
+                        game.shoot = new FlyingSwordRight(new Vector2(pos.X+60,pos.Y));
+                        game.sprite = new ThrowingItemRight(pos);
+                    }
+                    else
+                    {
+                        game.sprite = new SwordSpriteRight(new Vector2(pos.X - 5, pos.Y - 25));
+                    }
                 }
             }
             else if (userInput.IsKeyDown(Keys.NumPad2) || userInput.IsKeyDown(Keys.D2))
@@ -390,36 +392,7 @@ namespace sprint0
                 pos.Y = 0;
                 game.sprite = new RSprite(pos, direc);
             }
-            if (timer <= 0f)
-            {
-                if (Keyboard.GetState().IsKeyDown(Keys.P) || Keyboard.GetState().IsKeyDown(Keys.O))
-                {
-                    enemyIndex++;
-                    if (enemyIndex == 0)
-                    {
-                        game.enemy = new DragonSprite1(0, enemiesSprite, enemiesSprite2,enemyStartPos);
-                    }
-                    else if (enemyIndex == 1)
-                    {
-                        game.enemy = new SkeletonSprite1(0, enemiesSprite,enemyStartPos);
-                    }
-                    else if (enemyIndex == 2)
-                    {
-                        game.enemy = new BatSprite1(0, enemiesSprite,enemyStartPos);
-                    }
-                    else if (enemyIndex == 3)
-                    {
-                        game.enemy = new BlueBlob(0, enemiesSprite,enemyStartPos);
-                    }
-                    else if (enemyIndex == 4)
-                    {
-                        game.enemy = new Hand(0, enemiesSprite,enemyStartPos);
-                        enemyIndex = -1;
-                    }
-                    timer = delayTime;
-                }
-
-            }
+            
 
 
         }

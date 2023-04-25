@@ -9,7 +9,7 @@ using sprint0.Content;
 
 namespace sprint0.Items
 {
-    internal class BlueArrowDown : IShoot
+    internal class FlyingSwordRight : IShoot
     {
         private Vector2 thisPos;
         private Vector2 originalPos;
@@ -18,34 +18,34 @@ namespace sprint0.Items
         private Boolean drawExplode;
         Rectangle[] explode;
 
-        public BlueArrowDown(Vector2 arrowPos) 
-        { 
-            thisPos= arrowPos;
-            thisPos.Y += 15;
-            originalPos = arrowPos;
 
+        public FlyingSwordRight(Vector2 arrowPos)
+        {
+            thisPos = arrowPos;
+            thisPos.Y -= 10;
+            thisPos.X += 5;
+            originalPos = arrowPos;
             frame = 0;
             draw = true;
             drawExplode = false;
             explode = new Rectangle[2];
-            explode[0] = new Rectangle(120, 250, 20, 20);
+            explode[0] = new Rectangle(90, 220, 20, 25);
             explode[1] = new Rectangle(200, 270, 30, 30);
         }
 
         public void Update(GameTime gameTime)
         {
             frame++;
-
-            //thisPos.Y += 2;
-            if (thisPos.Y - 150 > originalPos.Y)
+            //thisPos.X += 2;
+            if (thisPos.X - 150 > originalPos.X)
             {
                 drawExplode = true;
             }
             else
             {
-                thisPos.Y += 2;
+                thisPos.X += 2;
             }
-            if(frame>82)
+            if(frame > 82)
             {
                 draw = false;
             }
@@ -61,7 +61,7 @@ namespace sprint0.Items
                 }
                 else
                 {
-                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X-30,thisPos.Y-15), explode[1], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                    spriteBatch.Draw(animate[4], new Vector2(thisPos.X-15, thisPos.Y -25), explode[1], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
                 }
             }
         }

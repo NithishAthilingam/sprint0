@@ -28,25 +28,25 @@ namespace sprint0.Items
                 if (direc == 's')
                 {
                     game.sprite = new ThrowingItemDown(pos);
-                    game.shoot = new BlueArrowDown(pos);
+                    game.shoot = new FlyingSwordDown(pos);
                 }
                 else if (direc == 'a')
                 {
                     game.sprite = new ThrowingItemLeft(new Vector2(pos.X - 20, pos.Y));
-                    game.shoot = new BlueArrowLeft(pos);
+                    game.shoot = new FlyingSwordLeft(pos);
 
                 }
                 else if (direc == 'w')
                 {
                     game.sprite = new ThrowingItemUp(pos);
-                    game.shoot = new BlueArrowUp(pos);
+                    game.shoot = new FlyingSwordUp(pos);
 
                 }
                 else if (direc == 'd')
                 {
                     p.Y = pos.Y;
                     game.sprite = new ThrowingItemRight(new Vector2(pos.X - 15, pos.Y));
-                    game.shoot = new BlueArrowRight(pos);
+                    game.shoot = new FlyingSwordRight(pos);
 
                     p.X += speed * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 }
