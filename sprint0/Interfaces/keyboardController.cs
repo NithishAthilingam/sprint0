@@ -260,6 +260,7 @@ namespace sprint0
 
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
+                game.collideC.Update(gameTime, game, game.currentRoomsRoom, 1);
                 if (direc == 's')
                 {
                     if(game.healthNum == 6)

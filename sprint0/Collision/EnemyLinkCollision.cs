@@ -28,9 +28,9 @@ namespace sprint0.Collision
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //push
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
-            foreach (KeyValuePair<int, Vector4> entry in currentRoomsRoom.enemiesD)
+            foreach (KeyValuePair<int, int[]> entry in currentRoomsRoom.enemiesD)
             {
-                enemy = new Rectangle((int)entry.Value.X, (int)entry.Value.Y, (int)entry.Value.Z, (int)entry.Value.W);
+                enemy = new Rectangle((int)entry.Value[0], (int)entry.Value[1], (int)entry.Value[2], (int)entry.Value[3]);
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
 

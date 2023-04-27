@@ -19,16 +19,17 @@ namespace sprint0.Collision
         Rectangle block;
         Rectangle enemy;
         Rectangle intersect;
-        Vector4 enemyInfo;
+        int[] enemyInfo;
         public Health h;
 
 
 
         public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int enemyID)
         {
+            enemyInfo = new int[6];
             game.currentRoomsRoom.enemiesD.TryGetValue(enemyID, out enemyInfo);
 
-            enemy = new Rectangle((int)enemyInfo.X, (int)enemyInfo.Y, (int)enemyInfo.Z, (int)enemyInfo.W);
+            enemy = new Rectangle((int)enemyInfo[0], (int)enemyInfo[1], (int)enemyInfo[2], (int)enemyInfo[3]);
 
             foreach (KeyValuePair<int, Vector4> blockEntry in currentRoomsRoom.blocksD)
             {
@@ -43,20 +44,20 @@ namespace sprint0.Collision
                     //game.sprite = new DamagedSprite(game.linkPos);
                     if (x == 'w')
                     {
-                            
-                        enemyInfo.Y -= intersect.Height;
+
+                        enemyInfo[1] -= intersect.Height;
                     }
                     else if (x == 'a')
                     {
-                        enemyInfo.X -= intersect.Width;
+                        enemyInfo[0] -= intersect.Width;
                     }
                     else if (x == 's')
                     {
-                        enemyInfo.Y += intersect.Height;
+                        enemyInfo[1] += intersect.Height;
                     }
                     else if (x == 'd')
                     {
-                        enemyInfo.X += intersect.Width;
+                        enemyInfo[0] += intersect.Width;
 
                     }
                     currentRoomsRoom.enemiesD.Add(enemyID, enemyInfo);

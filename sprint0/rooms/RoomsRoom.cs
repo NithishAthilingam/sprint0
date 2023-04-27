@@ -12,11 +12,11 @@ namespace sprint0
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
-        public Dictionary<int, Vector4> enemiesD = new Dictionary<int, Vector4>();
+        public Dictionary<int, int[]> enemiesD = new Dictionary<int, int[]>();
         public Dictionary<int, Vector4> blocksD = new Dictionary<int, Vector4>();
         public Dictionary<int, int> roomItem;
 
-        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, Vector4> enemiesD, Dictionary<int, Vector4> blocksD, Dictionary<int,int>roomItem)
+        public RoomsRoom(List<Ienemy> enemies, List<IBlock> blocks, List<IItem> item, Dictionary<int, int[]> enemiesD, Dictionary<int, Vector4> blocksD, Dictionary<int,int>roomItem)
         {
             this.enemies = enemies;
             this.blocks = blocks;

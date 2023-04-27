@@ -15,7 +15,7 @@ namespace sprint0
     public class BatSprite1 : Ienemy
     {
         public Vector2 thisPos;
-        Vector4 value;
+        int[] value;
         private int frames = 0;
         Rectangle[] bat;
         Rectangle source2;
@@ -37,10 +37,10 @@ namespace sprint0
             sprite = enemiesSprite;
             thisPos = pos;
             id = enemyID;
-
+            value = new int[6];
             thisPos.Y -= 100;
-            value.X = pos.X;
-            value.Y = pos.Y;
+            value[0] = (int)pos.X;
+            value[1] = (int)pos.Y;
 
 
             bat = new Rectangle[2];
@@ -63,7 +63,9 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-            int next = rand.Next(4);
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+            {
+                int next = rand.Next(4);
             if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
             {
                 if (thisPos.Y <= 60 || next == 0)
@@ -148,19 +150,19 @@ namespace sprint0
                 tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             }
             //game.currentRoomsRoom.enemiesD.
-            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
-            {
+            
                 game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
-                value.X = thisPos.X;
-                value.Y = thisPos.Y;
-                value.Z = 40;
-                value.W = 40;
+                value[0] = (int)thisPos.X;
+                value[1] = (int)thisPos.Y;
+                value[2] = 40;
+                value[3] = 40;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
                 game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
                 game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
-                thisPos.X = value.X;
-                thisPos.Y = value.Y;
+                thisPos.X = value[0];
+                thisPos.Y = value[1];
+
 
             }
 
@@ -168,6 +170,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
+
             spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
         }
     }

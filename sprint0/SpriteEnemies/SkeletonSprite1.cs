@@ -25,7 +25,7 @@ namespace sprint0
         private int left;
         private int right;
 
-        Vector4 value;
+        int[] value;
         int id;
 
         //int posChangeY;
@@ -39,7 +39,7 @@ namespace sprint0
 
             sprite = enemiesSprite;
             thisPos = pos;
-
+            value = new int[6];
             id = enemyID;
 
             skele = new Rectangle[2];
@@ -156,17 +156,17 @@ namespace sprint0
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
                 game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
-                value.X = thisPos.X;
-                value.Y = thisPos.Y;
-                value.Z = 40;
-                value.W = 40;
+                value[0] = (int)thisPos.X;
+                value[1] = (int)thisPos.Y;
+                value[2] = 40;
+                value[3] = 40;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
 
                 game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
                 game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
-                thisPos.X = value.X;
-                thisPos.Y = value.Y;
+                thisPos.X = value[0];
+                thisPos.Y = value[1];
             }
 
         }

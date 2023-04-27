@@ -26,6 +26,7 @@ namespace sprint0
         public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
         {
             pos = thisPos;
+
             Rectangle source2 = new Rectangle(60, 80, 20, 32);
             //Rectangle dest2 = new Rectangle(100, 100, 50, 50);
             spriteBatch.Draw(AnimationType[4], pos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);

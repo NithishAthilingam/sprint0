@@ -19,11 +19,13 @@ namespace sprint0
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();
         public List<IBlock> blocks = new List<IBlock>();
-        public Dictionary<int, Vector4> enemiesD;
+        public Dictionary<int, int[]> enemiesD;
         public Dictionary<int, Vector4> blocksD;
         public Dictionary<int, int> roomItem;
         private int i = 0;
         private int j = 0;
+        private int enemyWidth = 0;
+        private int enemyHeight = 0;
         private int enemyHealth = 0;
 
 
@@ -38,7 +40,7 @@ namespace sprint0
             enemies = new List<Ienemy>();
             items = new List<IItem>();
             blocks = new List<IBlock>();
-            enemiesD = new Dictionary<int, Vector4>();
+            enemiesD = new Dictionary<int, int[]>();
             roomItem = new Dictionary<int, int>();
             blocksD = new Dictionary<int, Vector4>();
             using (XmlReader reader = XmlReader.Create(file))
@@ -95,7 +97,7 @@ namespace sprint0
                                     i++;
                                     Ienemy newEnemy = EnemiesFactor.Instance.CreateEnemy(enemiesSprite, enemiesSprite2, enemyVersion, new Vector2(enemyPosition1, enemyPosition2), i);
                                     enemies.Add(newEnemy);
-                                    enemiesD.Add(i, new Vector4(enemyPosition1, enemyPosition2, enemyVersion, enemyHealth));
+                                    enemiesD.Add(i, new int[] { enemyPosition1, enemyPosition2, enemyWidth, enemyHeight, enemyVersion, enemyHealth});
                                 /*if (enemiesD.ContainsKey(enemyVersion))
                                 {
                                     enemiesD.Remove(enemyVersion);

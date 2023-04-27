@@ -16,7 +16,7 @@ namespace sprint0
         public Vector2 thisPos;
         Rectangle source2;
 
-        Vector4 value;
+        int[] value;
         int id;
 
         private int frames = 0;
@@ -42,7 +42,7 @@ namespace sprint0
             sprite = enemiesSprite;
             sprite2 = enemiesSprite2;
             thisPos = pos;
-
+            value = new int[6];
             id = enemyID;
 
             posBallTop = thisPos;
@@ -163,16 +163,16 @@ namespace sprint0
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
                 game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
-                value.X = thisPos.X;
-                value.Y = thisPos.Y;
-                value.Z = 90;
-                value.W = 100;
+                value[0] = (int)thisPos.X;
+                value[1] = (int)thisPos.Y;
+                value[2] = 90;
+                value[3] = 100;
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
                 game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
                 game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
-                thisPos.X = value.X;
-                thisPos.Y = value.Y;
+                thisPos.X = value[0];
+                thisPos.Y = value[1];
             }
 
 
