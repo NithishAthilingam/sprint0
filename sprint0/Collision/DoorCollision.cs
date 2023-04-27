@@ -490,7 +490,7 @@ namespace sprint0.Collision
 
                 }
 
-                if (game.controller[0].GetLinkPos().Y < 29)
+                if (game.controller[0].GetLinkPos().Y < 35)
 
                 {
 

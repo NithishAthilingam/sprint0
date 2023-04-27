@@ -21,7 +21,7 @@ namespace sprint0
         Rectangle source2;
 
         Texture2D sprite;
-
+        Random random;
 
         public BlueBlob(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
@@ -35,6 +35,7 @@ namespace sprint0
             blob[0] = new Rectangle(404, 184, 10, 10);
             blob[1] = new Rectangle(404, 213, 10, 10);
             source2 = blob[0];
+            random = new Random();
         }
 
         public void Update(GameTime gameTime, Game1 game)
@@ -52,29 +53,51 @@ namespace sprint0
                     source2 = blob[0];
                 }
 
-                if (frames <= 75)
-                {
-                    thisPos.X += 1;
-                    game.EnemyPos.X = thisPos.X;
+                int next = random.Next(0, 3);
 
+                if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
+                {
+                    if (thisPos.Y <= 60 || next == 0)
+                    {
+                        thisPos.Y += 2;
+                        game.EnemyPos.Y = thisPos.Y;
+                    }
+                    else if (thisPos.Y >= 372 || next == 1)
+                    {
+                        thisPos.Y -= 2;
+                        game.EnemyPos.Y = thisPos.Y;
+
+                    }
+                    else if (thisPos.X <= 90 || next == 2)
+                    {
+                        thisPos.X += 2;
+                        game.EnemyPos.X = thisPos.X;
+
+                    }
+                    else if (thisPos.X >= 665 || next == 3)
+                    {
+                        thisPos.X -= 2;
+                        game.EnemyPos.X = thisPos.X;
+                    }
                 }
-                else if (frames <= 150)
+                else
                 {
-                    thisPos.Y += 1;
-                    game.EnemyPos.Y = thisPos.Y;
-
-                }
-                else if (frames <= 225)
-                {
-                    thisPos.X -= 1;
-                    game.EnemyPos.X = thisPos.X;
-
-                }
-                else if (frames <= 300)
-                {
-                    thisPos.Y -= 1;
-                    game.EnemyPos.Y = thisPos.Y;
-
+                    if (thisPos.X < 90)
+                    {
+                        thisPos.X += 3;
+                    }
+                    else if (thisPos.X > 665)
+                    {
+                        thisPos.X -= 3;
+                    }
+                    else if (thisPos.Y < 60)
+                    {
+                        thisPos.Y += 3;
+                    }
+                    else if (thisPos.Y > 372)
+                    {
+                        thisPos.Y -= 3;
+                    }
                 }
 
                 if (frames == 301)

@@ -90,15 +90,15 @@ namespace sprint0
                 {
                     posChangeX = 4;
                 }
-                else if(thisPos.X > 665)
+                else if (thisPos.X > 665)
                 {
                     posChangeX = -4;
                 }
-                else if(thisPos.Y < 60)
+                else if (thisPos.Y < 60)
                 {
                     posChangeY = 4;
                 }
-                else if(thisPos.Y > 372)
+                else if (thisPos.Y > 372)
                 {
                     posChangeY = -4;
                 }
