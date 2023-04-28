@@ -26,7 +26,7 @@ namespace sprint0
         private int j = 0;
         private int enemyWidth = 0;
         private int enemyHeight = 0;
-        private int enemyHealth = 0;
+        private int enemyHealth = 1;
 
 
         public RoomGenerator(string fileName)

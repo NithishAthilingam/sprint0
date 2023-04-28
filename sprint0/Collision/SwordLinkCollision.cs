@@ -31,7 +31,24 @@ namespace sprint0.Collision
             enemyInfo = new int[6];
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //push
-            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 60);
+            if (id == 1)
+            {
+                link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y-40, 60, 96);
+            }
+            else if (id == 2)
+            {
+                link = new Rectangle((int)game.controller[0].GetLinkPos().X-40, (int)game.controller[0].GetLinkPos().Y-30, 96, 78);
+            }
+            else if (id == 3)
+            {
+                link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 60, 96);
+            }
+            else 
+            {
+                link = new Rectangle((int)game.controller[0].GetLinkPos().X-5, (int)game.controller[0].GetLinkPos().Y-25, 96, 78);
+            }
+
+
             foreach (KeyValuePair<int, int[]> entry in currentRoomsRoom.enemiesD)
             {
                 enemy = new Rectangle((int)entry.Value[0], (int)entry.Value[1], (int)entry.Value[2], (int)entry.Value[3]);
@@ -48,13 +65,14 @@ namespace sprint0.Collision
                 }
                 else
                 {
-                    key = 9000;
+                    //key = 9000;
                 }
             }
 
-            game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
-            if (key != 9000)
+            
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(key))
             {
+                game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
                 game.currentRoomsRoom.enemiesD.Remove(key);
                 if (direction == 'w')
                 {
@@ -75,12 +93,12 @@ namespace sprint0.Collision
 
                 }
 
-                enemyHealth = enemyInfo[4];
-                if (enemyInfo[4] > 0)
+                enemyHealth = enemyInfo[5];
+                if (enemyInfo[5] > 0)
                 {
                     //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                     enemyHealth--;
-                    enemyInfo[4] = enemyHealth;
+                    enemyInfo[5] = enemyHealth;
                     timer = delayTime;
                     currentRoomsRoom.enemiesD.Add(key, enemyInfo);
 

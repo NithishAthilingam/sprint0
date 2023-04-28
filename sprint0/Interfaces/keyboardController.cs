@@ -260,10 +260,11 @@ namespace sprint0
 
             else if (userInput.IsKeyDown(Keys.Z) || userInput.IsKeyDown(Keys.N))
             {
-                game.collideC.Update(gameTime, game, game.currentRoomsRoom, 1);
+                
                 if (direc == 's')
                 {
-                    if(game.healthNum == 6)
+                    game.collideC.Update(gameTime, game, game.currentRoomsRoom, 3);
+                    if (game.healthNum == 6)
                     {
                         game.shoot = new FlyingSwordDown(new Vector2(pos.X,pos.Y+10));
                         game.sprite = new ThrowingItemDown(pos);
@@ -276,6 +277,7 @@ namespace sprint0
                 }
                 else if (direc == 'a')
                 {
+                    game.collideC.Update(gameTime, game, game.currentRoomsRoom, 2);
                     if (game.healthNum == 6)
                     {
                         game.shoot = new FlyingSwordLeft(new Vector2(pos.X+40,pos.Y));
@@ -288,6 +290,7 @@ namespace sprint0
                 }
                 else if (direc == 'w')
                 {
+                    game.collideC.Update(gameTime, game, game.currentRoomsRoom, 1);
                     if (game.healthNum == 6)
                     {
                         game.shoot = new FlyingSwordUp(new Vector2(pos.X,pos.Y-20));
@@ -300,6 +303,7 @@ namespace sprint0
                 }
                 else if (direc == 'd')
                 {
+                    game.collideC.Update(gameTime, game, game.currentRoomsRoom, 4);
                     if (game.healthNum == 6)
                     {
                         game.shoot = new FlyingSwordRight(new Vector2(pos.X+60,pos.Y));
