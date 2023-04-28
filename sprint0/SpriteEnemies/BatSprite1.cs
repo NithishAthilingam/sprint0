@@ -23,6 +23,8 @@ namespace sprint0
         int previousA;
         int posChangeY;
         int posChangeX;
+        int batHealth;
+        Boolean stopDraw;
         float speed;
         float tt;
         private int middle;
@@ -41,6 +43,7 @@ namespace sprint0
             thisPos.Y -= 100;
             value[0] = (int)pos.X;
             value[1] = (int)pos.Y;
+            stopDraw = false;
 
 
             bat = new Rectangle[2];
@@ -156,12 +159,18 @@ namespace sprint0
                 value[1] = (int)thisPos.Y;
                 value[2] = 40;
                 value[3] = 40;
+                batHealth = value[5];
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
                 game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
                 game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
                 thisPos.X = value[0];
                 thisPos.Y = value[1];
+
+                if (batHealth == 0)
+                {
+                    stopDraw = true;
+                }
 
 
             }
@@ -170,8 +179,10 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-
-            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+            if (!stopDraw)
+            {
+                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+            }
         }
     }
 }
