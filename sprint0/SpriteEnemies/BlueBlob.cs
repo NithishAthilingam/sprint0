@@ -40,88 +40,90 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-
-            if (thisPos.X > 0)
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
-                frames++;
-                if ((frames % 20 == 0) && source2 == blob[0])
+                if (thisPos.X > 0)
                 {
-                    source2 = blob[1];
-                }
-                else if ((frames % 20 == 0) && source2 == blob[1])
-                {
-                    source2 = blob[0];
-                }
-
-                int next = random.Next(0, 3);
-
-                if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
-                {
-                    if (thisPos.Y <= 60 || next == 0)
+                    frames++;
+                    if ((frames % 20 == 0) && source2 == blob[0])
                     {
-                        thisPos.Y += 2;
-                        game.EnemyPos.Y = thisPos.Y;
+                        source2 = blob[1];
                     }
-                    else if (thisPos.Y >= 372 || next == 1)
+                    else if ((frames % 20 == 0) && source2 == blob[1])
                     {
-                        thisPos.Y -= 2;
-                        game.EnemyPos.Y = thisPos.Y;
-
+                        source2 = blob[0];
                     }
-                    else if (thisPos.X <= 90 || next == 2)
-                    {
-                        thisPos.X += 2;
-                        game.EnemyPos.X = thisPos.X;
 
-                    }
-                    else if (thisPos.X >= 665 || next == 3)
+                    int next = random.Next(0, 3);
+
+                    if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
                     {
-                        thisPos.X -= 2;
-                        game.EnemyPos.X = thisPos.X;
+                        if (thisPos.Y <= 60 || next == 0)
+                        {
+                            thisPos.Y += 2;
+                            game.EnemyPos.Y = thisPos.Y;
+                        }
+                        else if (thisPos.Y >= 372 || next == 1)
+                        {
+                            thisPos.Y -= 2;
+                            game.EnemyPos.Y = thisPos.Y;
+
+                        }
+                        else if (thisPos.X <= 90 || next == 2)
+                        {
+                            thisPos.X += 2;
+                            game.EnemyPos.X = thisPos.X;
+
+                        }
+                        else if (thisPos.X >= 665 || next == 3)
+                        {
+                            thisPos.X -= 2;
+                            game.EnemyPos.X = thisPos.X;
+                        }
+                    }
+                    else
+                    {
+                        if (thisPos.X < 90)
+                        {
+                            thisPos.X += 3;
+                        }
+                        else if (thisPos.X > 665)
+                        {
+                            thisPos.X -= 3;
+                        }
+                        else if (thisPos.Y < 60)
+                        {
+                            thisPos.Y += 3;
+                        }
+                        else if (thisPos.Y > 372)
+                        {
+                            thisPos.Y -= 3;
+                        }
+                    }
+
+                    if (frames == 301)
+                    {
+                        frames = 0;
                     }
                 }
                 else
                 {
-                    if (thisPos.X < 90)
-                    {
-                        thisPos.X += 3;
-                    }
-                    else if (thisPos.X > 665)
-                    {
-                        thisPos.X -= 3;
-                    }
-                    else if (thisPos.Y < 60)
-                    {
-                        thisPos.Y += 3;
-                    }
-                    else if (thisPos.Y > 372)
-                    {
-                        thisPos.Y -= 3;
-                    }
+                    thisPos.X = 0;
                 }
-
-                if (frames == 301)
+                if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
                 {
-                    frames = 0;
+                    game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                    value[0] = (int)thisPos.X;
+                    value[1] = (int)thisPos.Y;
+                    value[2] = 20;
+                    value[3] = 20;
+                    game.currentRoomsRoom.enemiesD.Remove(id);
+                    game.currentRoomsRoom.enemiesD.Add(id, value);
+                    game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
+                    game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
+                    thisPos.X = value[0];
+                    thisPos.Y = value[1];
                 }
-            }
-            else
-            {
-                thisPos.X = 0;
-            }
-            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
-            {
-                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
-                value[0] = (int)thisPos.X;
-                value[1] = (int)thisPos.Y;
-                value[2] = 20;
-                value[3] = 20;
-                game.currentRoomsRoom.enemiesD.Remove(id);
-                game.currentRoomsRoom.enemiesD.Add(id, value);
-                game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
-                game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
-                thisPos.X = value[0];
-                thisPos.Y = value[1];
             }
         }
 

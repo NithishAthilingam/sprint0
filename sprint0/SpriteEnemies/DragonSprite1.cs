@@ -78,101 +78,104 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-
-            posBallTop.X -= 3;
-            posBallTop.Y -= 1;
-            posBallMid.X -= 3;
-            posBallBtm.X -= 3;
-            posBallBtm.Y += 1;
-
-
-
-            if (thisPos.X > 0)
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
-                frames++;
-                if ((frames % 20 == 0) && (source2 == drago[0] || source2 == drago[3]))
-                {
-                    source2 = drago[1];
-                }
-                else if ((frames % 20 == 0) && (source2 == drago[1] || source2 == drago[2]))
-                {
-                    source2 = drago[0];
-                }
-                if (frames <= 160)
-                {
-                    thisPos.X += 1;
-                    game.EnemyPos.X = thisPos.X;
 
-                }
-                else if (frames <= 320)
-                {
-                    thisPos.X -= 1;
-                    game.EnemyPos.X = thisPos.X;
+                posBallTop.X -= 3;
+                posBallTop.Y -= 1;
+                posBallMid.X -= 3;
+                posBallBtm.X -= 3;
+                posBallBtm.Y += 1;
 
 
-                }
 
-                if (frames == 321)
+                if (thisPos.X > 0)
                 {
-                    frames = 0;
-                    posBallTop = thisPos;
-                    posBallMid = thisPos;
-                    posBallBtm = thisPos;
-                    if (source2 == drago[0])
+                    frames++;
+                    if ((frames % 20 == 0) && (source2 == drago[0] || source2 == drago[3]))
                     {
-                        source2 = drago[3];
+                        source2 = drago[1];
+                    }
+                    else if ((frames % 20 == 0) && (source2 == drago[1] || source2 == drago[2]))
+                    {
+                        source2 = drago[0];
+                    }
+                    if (frames <= 160)
+                    {
+                        thisPos.X += 1;
+                        game.EnemyPos.X = thisPos.X;
+
+                    }
+                    else if (frames <= 320)
+                    {
+                        thisPos.X -= 1;
+                        game.EnemyPos.X = thisPos.X;
+
+
+                    }
+
+                    if (frames == 321)
+                    {
+                        frames = 0;
+                        posBallTop = thisPos;
+                        posBallMid = thisPos;
+                        posBallBtm = thisPos;
+                        if (source2 == drago[0])
+                        {
+                            source2 = drago[3];
+                        }
+                        else
+                        {
+                            source2 = drago[2];
+                        }
+                    }
+                }
+
+                else
+                {
+                    thisPos.X = 0;
+                }
+
+                //projectile
+                if (tt > speed)
+                {
+                    if (currentA == middle)
+                    {
+                        if (previousA == left)
+                        {
+                            currentA = right;
+                        }
+                        else
+                        {
+                            currentA = left;
+                        }
+                        previousA = currentA;
                     }
                     else
                     {
-                        source2 = drago[2];
+                        currentA = middle;
                     }
-                }
-            }
-
-            else
-            {
-                thisPos.X = 0;
-            }
-
-            //projectile
-            if (tt > speed)
-            {
-                if (currentA == middle)
-                {
-                    if (previousA == left)
-                    {
-                        currentA = right;
-                    }
-                    else
-                    {
-                        currentA = left;
-                    }
-                    previousA = currentA;
+                    tt = 0;
                 }
                 else
                 {
-                    currentA = middle;
+                    tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
                 }
-                tt = 0;
-            }
-            else
-            {
-                tt += (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            }
 
-            if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
-            {
-                game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
-                value[0] = (int)thisPos.X;
-                value[1] = (int)thisPos.Y;
-                value[2] = 90;
-                value[3] = 100;
-                game.currentRoomsRoom.enemiesD.Remove(id);
-                game.currentRoomsRoom.enemiesD.Add(id, value);
-                game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
-                game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
-                thisPos.X = value[0];
-                thisPos.Y = value[1];
+                if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
+                {
+                    game.currentRoomsRoom.enemiesD.TryGetValue(id, out value);
+                    value[0] = (int)thisPos.X;
+                    value[1] = (int)thisPos.Y;
+                    value[2] = 90;
+                    value[3] = 100;
+                    game.currentRoomsRoom.enemiesD.Remove(id);
+                    game.currentRoomsRoom.enemiesD.Add(id, value);
+                    game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
+                    game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
+                    thisPos.X = value[0];
+                    thisPos.Y = value[1];
+                }
             }
 
 
