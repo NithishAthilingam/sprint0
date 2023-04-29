@@ -27,7 +27,7 @@ namespace sprint0
 
         public void Update(GameTime gameTime,Game1 game)
         {
-            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 47, 47);
             Rectangle intersect = Rectangle.Intersect(link, blueD);
             x = CollisionDetection.GetDirection(link, blueD);
 
