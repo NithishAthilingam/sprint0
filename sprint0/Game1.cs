@@ -45,6 +45,8 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        private KeyboardState user;
+        private KeyboardState prev;
         public int healthNum;
 
         //public Dictionary<int, int> enemiesD = new Dictionary<int, Vector4>();
@@ -100,6 +102,7 @@ namespace sprint0
         private Song backgroundMusic;
         private Texture2D HUDScreen;
         Key key;
+        private SpriteFont pause;
         //private SoundClass sound; 
         //private SoundClass sound;
 
@@ -113,6 +116,8 @@ namespace sprint0
 
         protected override void Initialize()
         {
+            user = Keyboard.GetState();
+            prev = user;
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
@@ -141,6 +146,8 @@ namespace sprint0
         {
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            pause = Content.Load<SpriteFont>("paused");
+
             spriteA = Content.Load<Texture2D>("alec");
             Animate[0] = spriteA;
             spriteB = Content.Load<Texture2D>("afrah");
@@ -272,7 +279,7 @@ namespace sprint0
             shoot.Update(gameTime);
             collide.Update(gameTime, this, currentRoomsRoom, 1);
             collideA.Update(gameTime, this, currentRoomsRoom, 1);
-            
+            //collideC.Update(gameTime, this, currentRoomsRoom, 1);
             healthbar = new Health(healthNum);
             MouseController.Update(gameTime);
             base.Update(gameTime);
@@ -283,7 +290,6 @@ namespace sprint0
             banana = new Rectangle(128, 0, 7, 10);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
             rooms.Draw(spriteBatch);
             doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
@@ -329,7 +335,10 @@ namespace sprint0
             healthbar.Draw(spriteBatch, health);
 
             //key.Draw(spriteBatch, this);
-
+            if (user.IsKeyDown(Keys.P) && !prev.IsKeyDown(Keys.P))
+            {
+                spriteBatch.DrawString(pause, "Paused", new Vector2(100, 100), Color.Black);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);

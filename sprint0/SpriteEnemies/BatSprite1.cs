@@ -69,25 +69,25 @@ namespace sprint0
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
                 int next = rand.Next(4);
-            if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
-            {
-                if (thisPos.Y <= 60 || next == 0)
+                if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
                 {
-                    posChangeY = 2;
+                    if (thisPos.Y <= 60 || next == 0)
+                    {
+                        posChangeY = 2;
+                    }
+                    else if (thisPos.Y >= 372 || next == 1)
+                    {
+                        posChangeY = -2;
+                    }
+                    else if (thisPos.X <= 90 || next == 2)
+                    {
+                        posChangeX = 2;
+                    }
+                    else if (thisPos.X >= 665 || next == 3)
+                    {
+                        posChangeX = -2;
+                    }
                 }
-                else if (thisPos.Y >= 372 || next == 1)
-                {
-                    posChangeY = -2;
-                }
-                else if (thisPos.X <= 90 || next == 2)
-                {
-                    posChangeX = 2;
-                }
-                else if (thisPos.X >= 665 || next == 3)
-                {
-                    posChangeX = -2;
-                }
-            }
 
             else
             {
