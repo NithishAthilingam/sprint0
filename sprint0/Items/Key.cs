@@ -47,18 +47,16 @@ namespace sprint0
             }
             if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(8))
             { 
-                Debug.WriteLine("room key before:" + game.currentRoomsRoom.roomItem[8]);
                 game.currentRoomsRoom.roomItem[8] = game.currentRoomsRoom.roomItem[8] - 1;
-                Debug.WriteLine("room key after:" + game.currentRoomsRoom.roomItem[8]);
                 if (game.inventory.ContainsKey(8))
                 {
                     game.inventory[8] = game.inventory[8] + 1;
-                    Debug.WriteLine("inventory key:" + game.inventory[8]);
+                    game.keyCountInventory = game.inventory[8].ToString();
                 }
                 else
                 {
                     game.inventory.Add(8, 1);
-                    Debug.WriteLine("inventory key:" + game.inventory[8]);
+                    game.keyCountInventory = game.inventory[8].ToString();
                 }
                 hasKey = true;
                 inc++;

@@ -229,6 +229,13 @@
 /processorParam:Quality=Best
 /build:itempickup.wav
 
+#begin key.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:key.spritefont
+
 #begin linkdeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor

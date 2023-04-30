@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace sprint0
 {
-    public interface IHealthBar
+    public interface IDisplay
     {
         void Draw(SpriteBatch spriteBatch, Texture2D bar);
     }
