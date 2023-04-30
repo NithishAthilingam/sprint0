@@ -35,7 +35,7 @@ namespace sprint0
         public ICollision collideB;
         public ICollision collideC;
         public List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[17];
+        public Texture2D[] Animate = new Texture2D[18];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -204,7 +204,7 @@ namespace sprint0
 
             HUDScreen = Content.Load<Texture2D>("HUDScreen");
             Animate[16] = HUDScreen;
-
+            Animate[17] = room;
             rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
 
@@ -331,7 +331,7 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate, pos);
 
             doorEnter.DrawFade(spriteBatch);
-
+            doorEnter.DrawOpenDoor(spriteBatch);
             healthbar.Draw(spriteBatch, health);
 
             //key.Draw(spriteBatch, this);

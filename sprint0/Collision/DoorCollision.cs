@@ -69,8 +69,10 @@ namespace sprint0.Collision
         Texture2D blackRectangle;
 
         Texture2D blackRectangle2;
-
-        bool startFadeUp, startFadeDown, startFadeLeft, startFadeRight;
+        Texture2D doorToOpen;
+        Rectangle sourceDoor;
+        Rectangle destDoor;
+        bool startFadeUp, startFadeDown, startFadeLeft, startFadeRight, drawOpen;
 
 
 
@@ -98,6 +100,9 @@ namespace sprint0.Collision
 
             blackRectangle2.SetData(new[] { new Color(Color.Black, 1f) });
 
+            doorToOpen = game1.Animate[17];
+            sourceDoor = new Rectangle(848, 11, 32, 32);
+            destDoor = new Rectangle(360, 0, 92, 92);
             startFadeUp = false;
 
             startFadeDown = false;
@@ -105,6 +110,8 @@ namespace sprint0.Collision
             startFadeLeft = false;
 
             startFadeRight = false;
+
+            drawOpen = false;
 
 
 
@@ -400,7 +407,7 @@ namespace sprint0.Collision
 
                     char setter = 'l';
 
-                    Debug.WriteLine("Change room down");
+                    Debug.WriteLine("Change room left");
 
                     int[] x = myRooms[currentImageIndex];
 
@@ -418,9 +425,12 @@ namespace sprint0.Collision
 
             }
 
-            else if (startFadeUp)
+
+            else if (startFadeUp && currentImageIndex == 0 && game.inventory[8] >= 1)
 
             {
+
+                drawOpen = true;
 
                 timer += (float)gameTime.ElapsedGameTime.Milliseconds / 3000;
 
@@ -558,7 +568,14 @@ namespace sprint0.Collision
 
         }
 
+        public void DrawOpenDoor(SpriteBatch spriteBatch)
 
+        {
+            if (drawOpen)
+            {
+                spriteBatch.Draw(doorToOpen, destDoor, sourceDoor, Color.White);
+            }
+        }
 
         void ICollision.Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int id)
 
