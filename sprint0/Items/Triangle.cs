@@ -6,7 +6,6 @@ using Microsoft.Xna.Framework.Input;
 using System.ComponentModel;
 using sprint0.HealthBar;
 using System.Reflection;
-using System.Diagnostics;
 
 namespace sprint0
 {
@@ -15,23 +14,26 @@ namespace sprint0
         Rectangle[] triangle;
         Rectangle triangleD;
         Texture2D triDraw;
-        Rectangle link;
-        Texture2D trilink;
-        bool intersect;
+
+
         int currentA, previousA;
         float speed, tt;
         private int middle, left, right;
 
-        public Triangle(Texture2D triSprite, Vector2 pos)
+
+
+
+
+        public Triangle(Texture2D triSprite,Vector2 pos)
         {
             triDraw = triSprite;
-            //trilink = linktri;
             triangle = new Rectangle[3];
             triangle[0] = new Rectangle(350, 275, 30, 30);
             triangle[1] = new Rectangle(320, 275, 30, 30);
             triangle[2] = new Rectangle(350, 275, 30, 30);
             triangleD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
-            intersect = false;
+
+
             previousA = 1;
             currentA = 2;
             tt = 0;
@@ -46,24 +48,7 @@ namespace sprint0
         public void Update(GameTime gameTime, Game1 game)
         {
 
-            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
-            if (link.Intersects(triangleD))
-            {
-                intersect = true;
-            }
-            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(10))
-            {
-                game.currentRoomsRoom.roomItem[10] = game.currentRoomsRoom.roomItem[10] - 1;
 
-                if (game.inventory.ContainsKey(10))
-                {
-                    game.inventory[8] = game.inventory[10] + 1;              
-                }
-                else
-                {
-                    game.inventory.Add(10, 1);
-                }
-            }
             if (tt > speed)
             {
                 if (currentA == middle)
@@ -92,14 +77,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
-            {
-                spriteBatch.Draw(triDraw, triangleD, triangle[currentA], Color.White);
-            }
-            else
-            {
-                //spriteBatch.Draw(trilink, new Rectangle(400, 300, 30, 30), link, Color.White);
-            }
+            spriteBatch.Draw(triDraw, triangleD, triangle[currentA], Color.White);
 
         }
     }
