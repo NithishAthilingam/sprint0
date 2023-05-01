@@ -31,9 +31,11 @@ namespace sprint0
         Texture2D sprite;
         int id;
         Random rand;
+        Dictionary<int, int[]> enemies;
 
         public BatSprite1(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
+            enemies = new Dictionary<int, int[]>();
             sprite = enemiesSprite;
             thisPos = pos;
             id = enemyID;
@@ -63,8 +65,10 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
+
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
+                enemies = game.currentRoomsRoom.enemiesD;
                 int next = rand.Next(4);
             if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
             {
@@ -170,8 +174,11 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
+            if (enemies.ContainsKey(id)) {
+                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+            }
 
-            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+
         }
     }
 }

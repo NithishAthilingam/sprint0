@@ -28,6 +28,8 @@ namespace sprint0
         int[] value;
         int id;
 
+        Dictionary<int, int[]> enemies;
+
         //int posChangeY;
         //int posChangeX;
         int delayTime;
@@ -36,6 +38,7 @@ namespace sprint0
 
         public SkeletonSprite1(int enemyID, Texture2D enemiesSprite,Vector2 pos)
         {
+            enemies = new Dictionary<int, int[]>();
 
             sprite = enemiesSprite;
             thisPos = pos;
@@ -67,6 +70,7 @@ namespace sprint0
         {
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
+                enemies = game.currentRoomsRoom.enemiesD;
                 frames++;
                 if ((frames % 10 == 0) && source2 == skele[0])
                 {
@@ -188,8 +192,10 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
-
+            if (enemies.ContainsKey(id))
+            {
+                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+            }
         }
 
     }
