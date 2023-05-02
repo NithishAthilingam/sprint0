@@ -298,6 +298,7 @@ namespace sprint0
             spriteBatch.Begin();
             rooms.Draw(spriteBatch);
             doorEnter.Draw(spriteBatch);
+            doorEnter.DrawOpenDoor(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
             //bat.Draw(spriteBatch);
             //angle = (float)Math.PI / 2.0f;  // 90 degrees
@@ -337,7 +338,6 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate, pos);
 
             doorEnter.DrawFade(spriteBatch);
-            doorEnter.DrawOpenDoor(spriteBatch);
             healthbar.Draw(spriteBatch, health);
             keys.Draw(spriteBatch, zelda);
 

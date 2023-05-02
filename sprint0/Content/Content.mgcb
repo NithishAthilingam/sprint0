@@ -242,18 +242,6 @@
 /processorParam:Quality=Best
 /build:linkdeath.wav
 
-#begin linktriforce.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:linktriforce.png
-
 #begin NES - The Legend of Zelda - Items & Weapons.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -411,4 +399,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:sprites-link.png
+
+#begin victory.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:victory.png
 

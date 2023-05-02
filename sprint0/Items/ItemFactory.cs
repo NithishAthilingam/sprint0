@@ -45,7 +45,7 @@ namespace sprint0
                 case 9: // lady item
                     return new LadyItem(ladySprite,pos);
                 case 10: // triangle
-                    return new Triangle(itemsSprite, pos);
+                    return new Triangle(itemsSprite,pos);
                 case 11: // bar
                     return new Bar(itemsSprite, pos);
                 default:

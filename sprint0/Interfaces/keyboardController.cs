@@ -699,9 +699,7 @@ namespace sprint0
                     pos.Y = 0;
                     game.sprite = new RSprite(pos, direc);
                 }
-
             
-
         }
 
         public void setLink(char set)
