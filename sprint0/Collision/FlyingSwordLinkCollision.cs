@@ -10,7 +10,7 @@ using sprint0.HealthBar;
 
 namespace sprint0.Collision
 {
-    internal class SwordLinkCollision : ICollision
+    internal class FlyingSwordLinkCollision : ICollision
     {
         int frame =0;
         char x;
