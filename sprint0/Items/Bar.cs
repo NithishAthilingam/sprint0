@@ -26,7 +26,10 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(barDraw, barD, barS, Color.White);
+            if (!intersect)
+            {
+                spriteBatch.Draw(barDraw, barD, barS, Color.White);
+            }
         }
 
         public void Update(GameTime gameTime, Game1 game)
