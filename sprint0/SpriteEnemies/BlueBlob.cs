@@ -22,9 +22,11 @@ namespace sprint0
 
         Texture2D sprite;
         Random random;
+        Dictionary<int, int[]> enemies;
 
         public BlueBlob(int enemyID, Texture2D enemiesSprite, Vector2 pos)
         {
+            enemies = new Dictionary<int, int[]>();
             id = enemyID;
             sprite = enemiesSprite;
             thisPos = pos;
@@ -42,6 +44,7 @@ namespace sprint0
         {
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
+                enemies = game.currentRoomsRoom.enemiesD;
                 if (thisPos.X > 0)
                 {
                     frames++;
@@ -129,8 +132,10 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
-
+            if (enemies.ContainsKey(id))
+            {
+                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+            }
         }
     }
 }

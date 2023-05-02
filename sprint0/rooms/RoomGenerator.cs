@@ -24,6 +24,7 @@ namespace sprint0
         public Dictionary<int, int> roomItem;
         private int i = 0;
         private int j = 0;
+        private int k = 0;
         private int enemyWidth = 0;
         private int enemyHeight = 0;
         private int enemyHealth = 1;
@@ -97,7 +98,10 @@ namespace sprint0
                                     i++;
                                     Ienemy newEnemy = EnemiesFactor.Instance.CreateEnemy(enemiesSprite, enemiesSprite2, enemyVersion, new Vector2(enemyPosition1, enemyPosition2), i);
                                     enemies.Add(newEnemy);
-                                    enemiesD.Add(i, new int[] { enemyPosition1, enemyPosition2, enemyWidth, enemyHeight, enemyVersion, enemyHealth});
+                                if (enemyVersion == 3) { enemyHealth = 5; }
+                                else if (enemyVersion == 4) { enemyHealth = 2; }
+                                else { enemyHealth = 1; }
+                                    enemiesD.Add(i, new int[] { enemyPosition1, enemyPosition2, enemyWidth, enemyHeight, enemyVersion, enemyHealth });
                                 /*if (enemiesD.ContainsKey(enemyVersion))
                                 {
                                     enemiesD.Remove(enemyVersion);

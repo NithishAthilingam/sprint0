@@ -57,7 +57,6 @@ namespace sprint0.Collision
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
                 y = CollisionDetection.GetDirection(link, enemy);
-
                 frame++;
                 if (x != 'o')
                 {
@@ -71,43 +70,47 @@ namespace sprint0.Collision
                 }
             }
 
-            
-            if (game.currentRoomsRoom.enemiesD.ContainsKey(key))
-            {
-                game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
-                game.currentRoomsRoom.enemiesD.Remove(key);
-                if (direction == 'w')
-                {
-                    enemyInfo[1] -= intersect.Height;
-                }
-                else if (direction == 'a')
-                {
-                    enemyInfo[0] -= intersect.Width;
-                }
-                else if (direction == 's')
-                {
-                    enemyInfo[1] += intersect.Height;
-                }
-                else if (direction == 'd')
-                {
-                    enemyInfo[0] += intersect.Width;
 
-                }
+                if (game.currentRoomsRoom.enemiesD.ContainsKey(key))
+                {
+
+
+                    game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
+                    game.currentRoomsRoom.enemiesD.Remove(key);
+                    if (direction == 'w')
+                    {enemyInfo[1] -= intersect.Height;
+                    }
+                    else if (direction == 'a')
+                    {
+                        enemyInfo[0] -= intersect.Width;
+                    }
+                    else if (direction == 's')
+                    {
+                        enemyInfo[1] += intersect.Height;
+                    }
+                    else if (direction == 'd')
+                    {
+                        enemyInfo[0] += intersect.Width;
+
+                    }
+                currentRoomsRoom.enemiesD.Add(key, enemyInfo);
 
                 enemyHealth = enemyInfo[5];
-                if (enemyInfo[5] > 0)
+                if (timer <= 0f)
                 {
-                    //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
-                    enemyHealth--;
-                    enemyInfo[5] = enemyHealth;
-                    timer = delayTime;
-                    currentRoomsRoom.enemiesD.Add(key, enemyInfo);
+                    game.currentRoomsRoom.enemiesD.Remove(key);
+                    if (enemyInfo[5] > 0)
+                    {
+                        //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
+                        enemyHealth--;
+                        enemyInfo[5] = enemyHealth;
+                        timer = delayTime;
+                        currentRoomsRoom.enemiesD.Add(key, enemyInfo);
 
+                    }
+                    timer = delayTime;
                 }
-                else
-                {
-                    //dont add back enemy
-                }
+                
                 
             }
 

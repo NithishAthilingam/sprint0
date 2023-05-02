@@ -16,6 +16,8 @@ namespace sprint0
         public Vector2 thisPos;
         Rectangle source2;
 
+        Dictionary<int, int[]> enemies;
+
         int[] value;
         int id;
 
@@ -39,6 +41,7 @@ namespace sprint0
 
         public DragonSprite1(int enemyID, Texture2D enemiesSprite, Texture2D enemiesSprite2, Vector2 pos)
         {
+            enemies = new Dictionary<int, int[]>();
             sprite = enemiesSprite;
             sprite2 = enemiesSprite2;
             thisPos = pos;
@@ -80,6 +83,7 @@ namespace sprint0
         {
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
+                enemies = game.currentRoomsRoom.enemiesD;
 
                 posBallTop.X -= 3;
                 posBallTop.Y -= 1;
@@ -204,11 +208,14 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(sprite, posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(sprite, posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
-            spriteBatch.Draw(sprite, posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            if (enemies.ContainsKey(id))
+            {
+                spriteBatch.Draw(sprite, posBallTop, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(sprite, posBallMid, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(sprite, posBallBtm, dragonProjectile[currentA], Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
 
-            spriteBatch.Draw(sprite2, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(sprite2, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+            }
  
     }
     }
