@@ -102,10 +102,11 @@ namespace sprint0
         public List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
-        private Texture2D HUDScreen;
+        private Texture2D victory;
         private SpriteFont pause;
         private SpriteFont keyCount;
 
+        private Triangle tri;
         //private SoundClass sound; 
         //private SoundClass sound;
 
@@ -207,8 +208,8 @@ namespace sprint0
             health = Content.Load<Texture2D>("HealthHearts");
             Animate[15] = health;
 
-            HUDScreen = Content.Load<Texture2D>("HUDScreen");
-            Animate[16] = HUDScreen;
+            victory = Content.Load<Texture2D>("victory");
+            Animate[16] = victory;
             Animate[17] = room;
             rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
@@ -220,7 +221,7 @@ namespace sprint0
 
 
             item = new Item(zelda, spritesEnemies, spritesItems);
-
+            tri = new Triangle(spritesItems, pos);
             throwFire = new InitialFire();
             // item = new Item(zelda, spritesEnemies, spritesItems);
             blocks = new Blocks(b, dungeon);
@@ -297,6 +298,7 @@ namespace sprint0
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
             rooms.Draw(spriteBatch);
+
             doorEnter.Draw(spriteBatch);
             doorEnter.DrawOpenDoor(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
@@ -342,11 +344,16 @@ namespace sprint0
             keys.Draw(spriteBatch, zelda);
 
             //key.Draw(spriteBatch, this);
-            if (user.IsKeyDown(Keys.P) && !prev.IsKeyDown(Keys.P))
-            {
-                spriteBatch.DrawString(pause, "Paused", new Vector2(100, 100), Color.Black);
-            }
+            
             spriteBatch.DrawString(keyCount, "x " + keyCountInventory, new Vector2(750,30), Color.White);
+            if (healthNum == 0)
+            {
+                spriteBatch.DrawString(pause, "GAMEOVER", new Vector2(350, 240), Color.Black);
+            }
+            if (inventory.ContainsKey(10))
+            {
+                spriteBatch.Draw(victory, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+            }
             spriteBatch.End();
 
             base.Draw(gameTime);

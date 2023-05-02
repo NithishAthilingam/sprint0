@@ -49,13 +49,13 @@ namespace sprint0
                 intersect = true;
 
             }
-            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(8))
+            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(10))
             {
                 game.currentRoomsRoom.roomItem[10] = game.currentRoomsRoom.roomItem[10] - 1;
                 if (game.inventory.ContainsKey(10))
                 {
                     game.inventory[10] = game.inventory[10] + 1;
-                    game.keyCountInventory = game.inventory[10].ToString();
+                    //game.keyCountInventory = game.inventory[10].ToString();
                 }
                 else
                 {

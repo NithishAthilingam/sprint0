@@ -250,6 +250,7 @@ namespace sprint0.Collision
             if (game.controller[0].GetLinkPos().Y < 105 && game.controller[0].GetLinkPos().X > 352 && game.controller[0].GetLinkPos().X < 400 && game.inventory[8] >= 1 && currentImageIndex == 0)
             {
                 drawOpen = true;
+                //game.inventory[8]--;
             } else if (currentImageIndex != 0)
             {
                 drawOpen = false;
