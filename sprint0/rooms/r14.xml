@@ -115,21 +115,26 @@
     <x>199</x>
     <y>139</y>
     </description>
+
+
     <description>Block
     <type>5</type>
     <x>299</x>
     <y>185</y>
     </description>
+
     <description>Block
     <type>5</type>
     <x>249</x>
     <y>230</y>
     </description>
+
     <description>Block
     <type>4</type>
     <x>452</x>
     <y>185</y>
     </description>
+
     <description>Block
     <type>4</type>
     <x>499</x>
@@ -150,7 +155,7 @@
 
     <description>Item
     <type>10</type>
-        <x>400</x>
-        <y>275</y>
+        <x>350</x>
+        <y>240</y>
     </description>
 </Room>
