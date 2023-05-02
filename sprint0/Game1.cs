@@ -29,7 +29,6 @@ namespace sprint0
         public Isprite throwFire;
         public Ienemy enemy;
         public IShoot shoot;
-        public Rooms rooms;
         public IDisplay healthbar;
         public IDisplay keys;
         public ICollision collide;
@@ -47,7 +46,6 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
-        private Texture2D blackRectangle;
         private KeyboardState user;
         private KeyboardState prev;
         public int healthNum;
@@ -92,8 +90,6 @@ namespace sprint0
         public Dictionary<int, int> inventory = new Dictionary<int,int>();
         private Isprite TextSprite;
         public Content.IShoot items;
-        public Item item;
-        private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
         private DoorCollision doorEnter;
@@ -108,7 +104,6 @@ namespace sprint0
         private Texture2D gameover;
         private SpriteFont pause;
         private SpriteFont keyCount;
-        private Boolean dead;
 
         private Triangle tri;
         //private SoundClass sound; 
@@ -130,7 +125,6 @@ namespace sprint0
             controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
             healthNum = 6;
-            dead = false;
             healthbar = new Health(healthNum);
             keys = new InventoryKey();
             
@@ -217,7 +211,6 @@ namespace sprint0
             Animate[16] = victory;
             Animate[17] = room;
 
-            rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
 
 
@@ -226,11 +219,10 @@ namespace sprint0
             TextSprite = new TextSprite();
 
 
-            item = new Item(zelda, spritesEnemies, spritesItems);
             tri = new Triangle(spritesItems, pos);
             throwFire = new InitialFire();
             // item = new Item(zelda, spritesEnemies, spritesItems);
-            blocks = new Blocks(b, dungeon);
+
             projectiles = new Projectiles(this, spritesItems, pos, direc);
             backgroundMusic = Content.Load<Song>("dungeonmusic");
             MediaPlayer.Play(backgroundMusic);
@@ -249,22 +241,9 @@ namespace sprint0
 
         protected override void Update(GameTime gameTime)
         {
-            float timer = 0f;
-            float delayTime = 50f;
-            timer = delayTime;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-            if (dead)
-            {
-                timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-
-                if (timer <= 0f)
-                {
-                    this.Exit();
-                    timer = delayTime;
-                }
-            }
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
@@ -286,10 +265,7 @@ namespace sprint0
 
 
             enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
-            item.Update(gameTime,this);
-            blocks.Update(gameTime, this);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this, currentRoomsRoom, 1);
@@ -306,7 +282,6 @@ namespace sprint0
             banana = new Rectangle(128, 0, 7, 10);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            rooms.Draw(spriteBatch);
 
             doorEnter.Draw(spriteBatch);
             doorEnter.DrawOpenDoor(spriteBatch);
@@ -343,7 +318,6 @@ namespace sprint0
 
             //item.Draw(spriteBatch);
 
-            blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 
             sprite.Draw(spriteBatch, Animate, pos);
@@ -357,7 +331,7 @@ namespace sprint0
             spriteBatch.DrawString(keyCount, "x " + keyCountInventory, new Vector2(750,30), Color.White);
             if (healthNum == 0)
             {
-                dead = true;
+                
                 spriteBatch.Draw(gameover, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
             }
             if (inventory.ContainsKey(10))

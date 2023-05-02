@@ -135,9 +135,22 @@
     <x>499</x>
     <y>231</y>
     </description>
+
+      <description>Block
+    <type>4</type>
+    <x>499</x>
+    <y>231</y>
+    </description>
+
+    <description>Block
+    <type>1</type>
+    <x>499</x>
+    <y>322</y>
+    </description>
+
     <description>Item
     <type>10</type>
         <x>400</x>
-        <y>250</y>
+        <y>275</y>
     </description>
 </Room>

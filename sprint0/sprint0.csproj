@@ -26,6 +26,7 @@
     <None Remove="Content\Wall Textures.png" />
     <None Remove="Blocks\" />
     <None Remove="Sound\" />
+    <None Remove="Controls\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Icon.ico" />
@@ -39,6 +40,7 @@
     <Folder Include="ProjectBuildFiles\" />
     <Folder Include="Blocks\" />
     <Folder Include="Sound\" />
+    <Folder Include="Controls\" />
   </ItemGroup>
   <Target Name="RestoreDotnetTools" BeforeTargets="Restore">
     <Message Text="Restoring dotnet tools" Importance="High" />
