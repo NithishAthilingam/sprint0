@@ -17,6 +17,7 @@ using sprint0.Items;
 using sprint0.HealthBar;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
+using System.Threading;
 
 namespace sprint0
 {
@@ -46,6 +47,7 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        private Texture2D blackRectangle;
         private KeyboardState user;
         private KeyboardState prev;
         public int healthNum;
@@ -103,8 +105,10 @@ namespace sprint0
 
         private Song backgroundMusic;
         private Texture2D victory;
+        private Texture2D gameover;
         private SpriteFont pause;
         private SpriteFont keyCount;
+        private Boolean dead;
 
         private Triangle tri;
         //private SoundClass sound; 
@@ -126,6 +130,7 @@ namespace sprint0
             controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
             healthNum = 6;
+            dead = false;
             healthbar = new Health(healthNum);
             keys = new InventoryKey();
             
@@ -175,7 +180,7 @@ namespace sprint0
             deathEffect = Content.Load<Texture2D>("death-effects");
             nes = Content.Load<Texture2D>("NES - The Legend of Zelda - Items & Weapons");
             boomerang = Content.Load<Texture2D>("boomerang");
-
+            gameover = Content.Load<Texture2D>("gameover");
             dungeon = Content.Load<Texture2D>("Dungeon");
             Animate[14] = dungeon;
 
@@ -211,6 +216,7 @@ namespace sprint0
             victory = Content.Load<Texture2D>("victory");
             Animate[16] = victory;
             Animate[17] = room;
+
             rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
 
@@ -243,18 +249,22 @@ namespace sprint0
 
         protected override void Update(GameTime gameTime)
         {
+            float timer = 0f;
+            float delayTime = 50f;
+            timer = delayTime;
             if (GamePad.GetState(PlayerIndex.One).Buttons.Back == ButtonState.Pressed)
                 this.Exit();
 
-           
-            //currentRoomsRoom = (RoomsRoom)currentRoom;
-            //// Access currentRoomsRoom's blocks list
-            //List<IBlock> currentBlocks = currentRoomsRoom.blocks;
-            //// Access currentRoomsRoom's enemies list
-            //List<Ienemy> currentEnemies = currentRoomsRoom.enemies;
-            //// Access currentRoomsRoom's items list
-            //List<IItem> currentItems = currentRoomsRoom.items;
+            if (dead)
+            {
+                timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
 
+                if (timer <= 0f)
+                {
+                    this.Exit();
+                    timer = delayTime;
+                }
+            }
             sprite.Update(gameTime);
             throwFire.Update(gameTime);
             foreach (Icontroller controller in controller)
@@ -273,9 +283,7 @@ namespace sprint0
             //Access currentRoomsRoom's items list
             List<IItem> currentItems = currentRoomsRoom.items;
 
-            /*enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
-            doorEnter.Update(gameTime, this);*/
+
 
             enemy.Update(gameTime, this);
             rooms.Update(gameTime);
@@ -289,6 +297,7 @@ namespace sprint0
             //collideC.Update(gameTime, this, currentRoomsRoom, 1);
             healthbar = new Health(healthNum);
             MouseController.Update(gameTime);
+
             base.Update(gameTime);
         }
 
@@ -348,7 +357,8 @@ namespace sprint0
             spriteBatch.DrawString(keyCount, "x " + keyCountInventory, new Vector2(750,30), Color.White);
             if (healthNum == 0)
             {
-                spriteBatch.DrawString(pause, "GAMEOVER", new Vector2(350, 240), Color.Black);
+                dead = true;
+                spriteBatch.Draw(gameover, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
             }
             if (inventory.ContainsKey(10))
             {
