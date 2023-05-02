@@ -28,7 +28,6 @@ namespace sprint0
         public Isprite throwFire;
         public Ienemy enemy;
         public IShoot shoot;
-        public Rooms rooms;
         public IDisplay healthbar;
         public IDisplay keys;
         public ICollision collide;
@@ -90,8 +89,6 @@ namespace sprint0
         public Dictionary<int, int> inventory = new Dictionary<int,int>();
         private Isprite TextSprite;
         public Content.IShoot items;
-        public Item item;
-        private Blocks blocks;
         private Projectiles projectiles;
         private keyboardController keyboardController;
         private DoorCollision doorEnter;
@@ -211,7 +208,6 @@ namespace sprint0
             victory = Content.Load<Texture2D>("victory");
             Animate[16] = victory;
             Animate[17] = room;
-            rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
 
 
@@ -220,11 +216,10 @@ namespace sprint0
             TextSprite = new TextSprite();
 
 
-            item = new Item(zelda, spritesEnemies, spritesItems);
             tri = new Triangle(spritesItems, pos);
+
             throwFire = new InitialFire();
             // item = new Item(zelda, spritesEnemies, spritesItems);
-            blocks = new Blocks(b, dungeon);
             projectiles = new Projectiles(this, spritesItems, pos, direc);
             backgroundMusic = Content.Load<Song>("dungeonmusic");
             MediaPlayer.Play(backgroundMusic);
@@ -278,10 +273,7 @@ namespace sprint0
             doorEnter.Update(gameTime, this);*/
 
             enemy.Update(gameTime, this);
-            rooms.Update(gameTime);
             doorEnter.Update(gameTime, this);
-            item.Update(gameTime,this);
-            blocks.Update(gameTime, this);
             projectiles.Update(gameTime);
             shoot.Update(gameTime);
             collide.Update(gameTime, this, currentRoomsRoom, 1);
@@ -297,7 +289,6 @@ namespace sprint0
             banana = new Rectangle(128, 0, 7, 10);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-            rooms.Draw(spriteBatch);
 
             doorEnter.Draw(spriteBatch);
             doorEnter.DrawOpenDoor(spriteBatch);
@@ -334,7 +325,6 @@ namespace sprint0
 
             //item.Draw(spriteBatch);
 
-            blocks.Draw(spriteBatch);
             projectiles.Draw(spriteBatch);
 
             sprite.Draw(spriteBatch, Animate, pos);
