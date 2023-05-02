@@ -24,7 +24,6 @@ namespace sprint0
         public Dictionary<int, int> roomItem;
         private int i = 0;
         private int j = 0;
-        private int k = 0;
         private int enemyWidth = 0;
         private int enemyHeight = 0;
         private int enemyHealth = 1;
@@ -65,7 +64,6 @@ namespace sprint0
                                     blocks.Add(newBlock);
                                     j++;
                                     blocksD.Add(j, new Vector4(blockPosition1, blockPosition2, 1, 1));
-                                   // Console.WriteLine("block : " + blockVersion.ToString() + "blockX:" + blockPosition1.ToString() + "blockY:"  + blockPosition2.ToString());
                                     break;
 
                                 case "Item":
@@ -102,16 +100,7 @@ namespace sprint0
                                 else if (enemyVersion == 4) { enemyHealth = 2; }
                                 else { enemyHealth = 1; }
                                     enemiesD.Add(i, new int[] { enemyPosition1, enemyPosition2, enemyWidth, enemyHeight, enemyVersion, enemyHealth });
-                                /*if (enemiesD.ContainsKey(enemyVersion))
-                                {
-                                    enemiesD.Remove(enemyVersion);
-                                    enemiesD.Add(enemyVersion, new Vector2(enemyPosition1, enemyPosition2));
 
-                                }
-                                else
-                                {
-                                    enemiesD.Add(enemyVersion, new Vector2(enemyPosition1, enemyPosition2));
-                                }*/
                                 Console.WriteLine("enemy : " + enemyVersion.ToString() + "enemyX:" + enemyPosition1.ToString() + "enemyY:" + enemyPosition2.ToString());
                                     break;
                             }
@@ -121,47 +110,5 @@ namespace sprint0
 
                 return new RoomsRoom(enemies, blocks, items, enemiesD, blocksD, roomItem);
             }
-    //        XmlDocument xmlDoc = new XmlDocument();
-    //        xmlDoc.Load(file);
-
-    //        foreach (XmlNode roomNode in xmlDoc.DocumentElement.ChildNodes)
-    //        {
-
-    //            foreach (XmlNode node in roomNode.ChildNodes)
-    //            {
-    //                switch (node.SelectSingleNode("description").InnerText)
-    //                {
-    //                    case "Block":
-    //                        int version1 = int.Parse(node.SelectSingleNode("type").InnerText);
-    //                        string[] position1 = node.SelectSingleNode("position").InnerText.Split(' ');
-    //                        int x1 = int.Parse(position1[0]);
-    //                        int y1 = int.Parse(position1[1]);
-    //                        Vector2 blockPos = new Vector2(x1, y1);
-    //                        IBlock Newblock = BlockFactory.Instance.GetBlock(blockSprite,version1, blockPos);
-    //                        blocks.Add(Newblock);
-    //                        break;
-
-    //                    case "Item":
-    //                        int version2 = int.Parse(node.SelectSingleNode("type").InnerText);
-    //                        string[] position2 = node.SelectSingleNode("position").InnerText.Split(' ');
-    //                        int x2 = int.Parse(position2[0]);
-    //                        int y2 = int.Parse(position2[1]);
-    //                        Vector2 itemPos = new Vector2(x2, y2);
-    //                        IItem Newitem = ItemFactory.Instance.CreateItem(itemsSprite, ladySprite, fireSprite, boom,version2, itemPos);
-    //                        items.Add(Newitem);
-    //                        break;
-
-    //                    case "Enemy":
-    //                        int version3 = int.Parse(node.SelectSingleNode("type").InnerText);
-    //                        string[] position3 = node.SelectSingleNode("position").InnerText.Split(' ');
-    //                        int x3 = int.Parse(position3[0]);
-    //                        int y3 = int.Parse(position3[1]);
-    //                        Vector2 enemyPos = new Vector2(x3, y3);
-    //                        Ienemy Newenemy = EnemiesFactor.Instance.CreateEnemy(enemiesSprite, enemiesSprite2,version3, enemyPos);
-    //                        enemies.Add(Newenemy);
-    //                        break;
-    //                }
-    //            }
-    //        }
         }
     }

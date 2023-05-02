@@ -19,7 +19,6 @@ namespace sprint0.Collision
         Rectangle link;
         Rectangle enemy;
         Rectangle intersect;
-        public Health h;
 
 
 

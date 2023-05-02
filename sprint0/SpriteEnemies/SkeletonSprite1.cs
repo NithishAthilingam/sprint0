@@ -32,10 +32,6 @@ namespace sprint0
 
         Dictionary<int, int[]> enemies;
 
-        //int posChangeY;
-        //int posChangeX;
-        int posChangeY;
-        int posChangeX;
         float timer;
         float delayTime;
         Texture2D sprite;
@@ -66,9 +62,6 @@ namespace sprint0
             middle = 2;
             left = 0;
             right = 1;
-
-            posChangeY = 3;
-            posChangeX = 3;
 
             random = new Random();
             delayTime = 0;
@@ -193,23 +186,11 @@ namespace sprint0
 
         }
 
-
-        //public void Draw(SpriteBatch spriteBatch, Texture2D[] AnimationType, Vector2 pos)
-        //{
-        //    spriteBatch.Draw(AnimationType[7], thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
-        //}
-
-
-        //public void Draw(SpriteBatch spriteBatch, Texture2D animation, Vector2 pos)
-        //{
-        //    spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
-        //}
-
         public void Draw(SpriteBatch spriteBatch)
         {
             if (enemies.ContainsKey(id))
             {
-                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
+                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
             }
         }
 

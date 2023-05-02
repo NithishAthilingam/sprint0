@@ -12,15 +12,11 @@ namespace sprint0.Collision
 {
     internal class EnemyBlockCollision : ICollision
     {
-        int frame =0;
         char x;
-        float timer = 0f;
-        float delayTime = 500f;
         Rectangle block;
         Rectangle enemy;
         Rectangle intersect;
         int[] enemyInfo;
-        public Health h;
 
 
 
@@ -41,7 +37,7 @@ namespace sprint0.Collision
                 {
                 intersect = Rectangle.Intersect(enemy, block);
                 currentRoomsRoom.enemiesD.Remove(enemyID);
-                    //game.sprite = new DamagedSprite(game.linkPos);
+                    
                     if (x == 'w')
                     {
 

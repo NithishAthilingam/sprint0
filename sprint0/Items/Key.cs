@@ -16,7 +16,6 @@ namespace sprint0
         Rectangle link;
         Boolean intersect;
         Boolean hasKey;
-        Dictionary<int, int> roomKey;
         Game1 game1;
 
         public Key(Texture2D keySprite, Vector2 pos)
@@ -29,7 +28,6 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
-            //roomKey.Add(8, game.currentRoomsRoom.roomItem[8]);
             game1 = game;
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
             if (link.Intersects(keyD))

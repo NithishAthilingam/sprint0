@@ -64,8 +64,6 @@ namespace sprint0.Collision
 
         Color cal = Color.White;
 
-        KeyboardState keyboard;
-
         Texture2D blackRectangle;
 
         Texture2D blackRectangle2;

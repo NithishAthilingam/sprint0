@@ -55,14 +55,11 @@ namespace sprint0
                 if (game.inventory.ContainsKey(10))
                 {
                     game.inventory[10] = game.inventory[10] + 1;
-                    //game.keyCountInventory = game.inventory[10].ToString();
                 }
                 else
                 {
                     game.inventory.Add(10, 1);
-                    //game.keyCountInventory = game.inventory[10].ToString();
                 }
-                //Debug.WriteLine("inventory key:" + game.inventory[8]);
             }
 
             if (tt > speed)

@@ -7,7 +7,6 @@ namespace sprint0
 {
     public class RoomsRoom : IRoom
     {
-        Game1 game;
 
         public List<Ienemy> enemies = new List<Ienemy>();
         public List<IItem> items = new List<IItem>();

@@ -13,7 +13,6 @@ namespace sprint0
 
         Rectangle link;
 
-        private Vector2 thisPos;
         Texture2D clockDraw;
         Boolean intersect;
 
@@ -32,8 +31,6 @@ namespace sprint0
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
             if (link.Intersects(clockD))
             {
-
-                //test.inventory.Add(new Clock(clockSprite,pos));
                 intersect = true;
 
             }

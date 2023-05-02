@@ -23,22 +23,18 @@ namespace sprint0
         public Vector2 pos;
         private float speed;
         private char direc;
-        private int enemyIndex = -1;
         private int framesForRight = 0;
         private int framesForLeft = 0;
         private int framesForDown = 0;
         private int framesForUp = 0;
         public KeyboardState userInput;
         private float timer;
-        private float delayTime;
 
         private int health;
 
         public char setter;
         KeyboardState prev;
 
-        private Texture2D i;
-        Rectangle blueArrow;
         Vector2 p;
         private Vector2 enemyStartPos;
         Texture2D enemiesSprite;
@@ -52,8 +48,6 @@ namespace sprint0
             pos = new Vector2(220, 100);
             enemyStartPos = new Vector2(450, 250);
             speed = 200f;
-            enemyIndex = 0;
-            delayTime = 500f;
             timer = 0f;
             health = 6;
             setter = 'z';
@@ -66,8 +60,6 @@ namespace sprint0
             userInput = Keyboard.GetState();
             prev = userInput;
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
-            //pos.X = game.linkPos.X;
-            //pos.Y = game.linkPos.Y;
 
             if (Keyboard.GetState().IsKeyDown(Keys.K))
             {
@@ -82,8 +74,6 @@ namespace sprint0
                 if (userInput.IsKeyDown(Keys.E))
                 {
                     game.sprite = new DamagedSprite(pos);
-                    //game.healthbar = new Health(health);
-                    //health--;
                     if (health == 0)
                     {
                         health = 6;
@@ -713,7 +703,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            //spriteBatch.Draw(i, p, blueArrow, Color.White);
+            
         }
 
         public Vector2 GetLinkPos()
