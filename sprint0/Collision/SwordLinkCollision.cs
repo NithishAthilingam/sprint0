@@ -51,7 +51,7 @@ namespace sprint0.Collision
             }
 
 
-            foreach (KeyValuePair<int, int[]> entry in currentRoomsRoom.enemiesD)
+            foreach (KeyValuePair<int, int[]> entry in game.currentRoomsRoom.enemiesD)
             {
                 enemy = new Rectangle((int)entry.Value[0], (int)entry.Value[1], (int)entry.Value[2], (int)entry.Value[3]);
                 intersect = Rectangle.Intersect(link, enemy);
@@ -71,47 +71,52 @@ namespace sprint0.Collision
             }
 
 
-                if (game.currentRoomsRoom.enemiesD.ContainsKey(key))
+            if (game.currentRoomsRoom.enemiesD.ContainsKey(key))
+            {
+
+
+                game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
+                game.currentRoomsRoom.enemiesD.Remove(key);
+                if (direction == 'w')
                 {
+                    enemyInfo[1] -= intersect.Height;
+                }
+                else if (direction == 'a')
+                {
+                    enemyInfo[0] -= intersect.Width;
+                }
+                else if (direction == 's')
+                {
+                    enemyInfo[1] += intersect.Height;
+                }
+                else if (direction == 'd')
+                {
+                     enemyInfo[0] += intersect.Width;
 
-
-                    game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
-                    game.currentRoomsRoom.enemiesD.Remove(key);
-                    if (direction == 'w')
-                    {enemyInfo[1] -= intersect.Height;
-                    }
-                    else if (direction == 'a')
-                    {
-                        enemyInfo[0] -= intersect.Width;
-                    }
-                    else if (direction == 's')
-                    {
-                        enemyInfo[1] += intersect.Height;
-                    }
-                    else if (direction == 'd')
-                    {
-                        enemyInfo[0] += intersect.Width;
-
-                    }
-                currentRoomsRoom.enemiesD.Add(key, enemyInfo);
+                }
+                game.currentRoomsRoom.enemiesD.Add(key, enemyInfo);
 
                 enemyHealth = enemyInfo[5];
-                if (timer <= 0f)
-                {
+                
                     game.currentRoomsRoom.enemiesD.Remove(key);
-                    if (enemyInfo[5] > 0)
+                if (enemyInfo[5] > 0)
+                {
+                    if (timer <= 0f && enemyHealth!=1)
                     {
                         //XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
                         enemyHealth--;
-                        enemyInfo[5] = enemyHealth;
+                    enemyInfo[5] = enemyHealth;
+                    game.currentRoomsRoom.enemiesD.Add(key, enemyInfo);
+                    
                         timer = delayTime;
-                        currentRoomsRoom.enemiesD.Add(key, enemyInfo);
-
                     }
-                    timer = delayTime;
-                }
-                
-                
+                    else
+                    {
+                        enemyHealth--;
+                        enemyInfo[5] = enemyHealth;
+                        game.currentRoomsRoom.enemiesD.Add(key, enemyInfo);
+                    }
+                }                
             }
 
 
