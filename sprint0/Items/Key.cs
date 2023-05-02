@@ -70,25 +70,6 @@ namespace sprint0
             {
                 spriteBatch.Draw(keyDraw, keyD, key, Color.White);
             }
-            if (game1.inventory.ContainsKey(8))
-            {
-                spriteBatch.Draw(keyDraw2, firstDes, key, Color.White);
-            }
-            if (inc == 1)
-            {
-                spriteBatch.Draw(keyDraw2, firstDes, key, Color.White);
-            }
-            else if(inc == 2)
-            {
-                spriteBatch.Draw(keyDraw2, firstDes, key, Color.White);
-                spriteBatch.Draw(keyDraw2, middleDes, key, Color.White);
-            }
-            else if (inc == 3)
-            {
-                spriteBatch.Draw(keyDraw2, firstDes, key, Color.White);
-                spriteBatch.Draw(keyDraw2, middleDes, key, Color.White);
-                spriteBatch.Draw(keyDraw2, lastDes, key, Color.White);
-            }
         }
     }
 }
