@@ -623,7 +623,7 @@ namespace sprint0.Collision
 
             spriteBatch.Draw(blackRectangle, game1.GraphicsDevice.Viewport.Bounds, Color.White);
 
-
+            
 
         }
 

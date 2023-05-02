@@ -14,6 +14,8 @@ namespace sprint0
         Rectangle lady;
         Rectangle ladyD;
         Texture2D ladyDraw;
+        Rectangle link;
+        Boolean intersect;
 
         public LadyItem(Texture2D ladySprite, Vector2 pos)
         {
@@ -21,15 +23,26 @@ namespace sprint0
             ladyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
             ladyDraw = ladySprite;
+            intersect = false;
         }
 
         public void Update(GameTime gameTime, Game1 game)
         {
+            link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
+            if (link.Intersects(ladyD))
+            {
+                intersect = true;
+
+            }
+
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(ladyDraw, ladyD, lady, Color.White);
+            if (!intersect)
+            {
+                spriteBatch.Draw(ladyDraw, ladyD, lady, Color.White);
+            }
 
         }
     }
