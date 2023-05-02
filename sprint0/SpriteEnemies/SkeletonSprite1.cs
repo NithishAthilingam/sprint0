@@ -30,9 +30,10 @@ namespace sprint0
         int[] value;
         int id;
 
-        //int posChangeY;
-        //int posChangeX;
-        int delayTime;
+        int posChangeY;
+        int posChangeX;
+        float timer;
+        float delayTime;
         Texture2D sprite;
         Random random;
 
@@ -43,6 +44,8 @@ namespace sprint0
             thisPos = pos;
             value = new int[6];
             id = enemyID;
+            delayTime = 1000f;
+            timer = 0f;
 
             skele = new Rectangle[2];
             skele[0] = new Rectangle(420, 118, 20, 20);
@@ -59,8 +62,8 @@ namespace sprint0
             left = 0;
             right = 1;
 
-            //posChangeY = 2;
-            //posChangeX = 2;
+            posChangeY = 3;
+            posChangeX = 3;
 
             random = new Random();
             delayTime = 0;
@@ -68,9 +71,12 @@ namespace sprint0
 
         public void Update(GameTime gameTime, Game1 game)
         {
+            timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
+
             if (game.currentRoomsRoom.enemiesD.ContainsKey(id))
             {
                 frames++;
+                
                 if ((frames % 10 == 0) && source2 == skele[0])
                 {
                     source2 = skele[1];
@@ -81,30 +87,28 @@ namespace sprint0
                 }
 
                 int next = random.Next(0, 3);
-
+                
                 if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
                 {
-                    if (thisPos.Y <= 60 || next == 0)
+                    if (timer <= 0f &&  next == 0)
                     {
-                        thisPos.Y += 2;
-                        game.EnemyPos.Y = thisPos.Y;
+                        thisPos.Y += 3;
+                        timer = delayTime;
                     }
-                    else if (thisPos.Y >= 372 || next == 1)
+                    else if (timer <= 0f && next == 1)
                     {
-                        thisPos.Y -= 2;
-                        game.EnemyPos.Y = thisPos.Y;
-
+                        thisPos.Y -= 3;
+                        timer = delayTime;
                     }
-                    else if (thisPos.X <= 90 || next == 2)
+                    else if (timer <= 0f &&  next == 2)
                     {
-                        thisPos.X += 2;
-                        game.EnemyPos.X = thisPos.X;
-
+                        thisPos.X += 3;
+                        timer = delayTime;
                     }
-                    else if (thisPos.X >= 665 || next == 3)
+                    else if (timer <= 0f &&  next == 3)
                     {
-                        thisPos.X -= 2;
-                        game.EnemyPos.X = thisPos.X;
+                        thisPos.X -= 3;
+                        timer = delayTime;
                     }
                 }
                 else
@@ -199,7 +203,7 @@ namespace sprint0
         {
             if (!stopDraw)
             {
-                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(2, 2), 0, 0);
+                spriteBatch.Draw(sprite, thisPos, source2, Color.White, 0, new Vector2(0, 0), new Vector2(3, 3), 0, 0);
             }
 
         }
