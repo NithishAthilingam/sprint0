@@ -43,7 +43,7 @@ namespace sprint0.Items
             }
             else
             {
-                thisPos.Y += 2;
+                thisPos.Y += 7;
             }
             if(frame>82)
             {

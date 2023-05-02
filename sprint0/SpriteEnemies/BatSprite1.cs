@@ -23,6 +23,8 @@ namespace sprint0
         int previousA;
         int posChangeY;
         int posChangeX;
+        int batHealth;
+        Boolean stopDraw;
         float speed;
         float tt;
         private int middle;
@@ -43,6 +45,7 @@ namespace sprint0
             thisPos.Y -= 100;
             value[0] = (int)pos.X;
             value[1] = (int)pos.Y;
+            stopDraw = false;
 
 
             bat = new Rectangle[2];
@@ -70,25 +73,25 @@ namespace sprint0
             {
                 enemies = game.currentRoomsRoom.enemiesD;
                 int next = rand.Next(4);
-            if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
-            {
-                if (thisPos.Y <= 60 || next == 0)
+                if ((thisPos.X >= 90 && thisPos.X <= 665) && (thisPos.Y >= 60 && thisPos.Y <= 372))
                 {
-                    posChangeY = 2;
+                    if (thisPos.Y <= 60 || next == 0)
+                    {
+                        posChangeY = 2;
+                    }
+                    else if (thisPos.Y >= 372 || next == 1)
+                    {
+                        posChangeY = -2;
+                    }
+                    else if (thisPos.X <= 90 || next == 2)
+                    {
+                        posChangeX = 2;
+                    }
+                    else if (thisPos.X >= 665 || next == 3)
+                    {
+                        posChangeX = -2;
+                    }
                 }
-                else if (thisPos.Y >= 372 || next == 1)
-                {
-                    posChangeY = -2;
-                }
-                else if (thisPos.X <= 90 || next == 2)
-                {
-                    posChangeX = 2;
-                }
-                else if (thisPos.X >= 665 || next == 3)
-                {
-                    posChangeX = -2;
-                }
-            }
 
             else
             {
@@ -160,12 +163,18 @@ namespace sprint0
                 value[1] = (int)thisPos.Y;
                 value[2] = 40;
                 value[3] = 40;
+                batHealth = value[5];
                 game.currentRoomsRoom.enemiesD.Remove(id);
                 game.currentRoomsRoom.enemiesD.Add(id, value);
                 game.collideB.Update(gameTime, game, game.currentRoomsRoom, id);
                 game.currentRoomsRoom.enemiesD.TryGetValue((int)id, out value);
                 thisPos.X = value[0];
                 thisPos.Y = value[1];
+
+                if (batHealth == 0)
+                {
+                    stopDraw = true;
+                }
 
 
             }

@@ -29,13 +29,14 @@ namespace sprint0
         public Ienemy enemy;
         public IShoot shoot;
         public Rooms rooms;
-        public IHealthBar healthbar;
+        public IDisplay healthbar;
+        public IDisplay keys;
         public ICollision collide;
         public ICollision collideA;
         public ICollision collideB;
         public ICollision collideC;
         public List<Icontroller> controller;
-        private Texture2D[] Animate = new Texture2D[17];
+        public Texture2D[] Animate = new Texture2D[18];
         private Texture2D spriteA;
         private Texture2D spriteB;
         private Texture2D spriteC;
@@ -45,6 +46,8 @@ namespace sprint0
         private Texture2D zelda;
         private Texture2D nes;
         private Texture2D room;
+        private KeyboardState user;
+        private KeyboardState prev;
         public int healthNum;
 
         //public Dictionary<int, int> enemiesD = new Dictionary<int, Vector4>();
@@ -93,13 +96,16 @@ namespace sprint0
         private keyboardController keyboardController;
         private DoorCollision doorEnter;
         public RoomsRoom currentRoomsRoom;
+        public String keyCountInventory;
         IRoom currentRoom;
         int currentRoomIndex;
         public List<RoomsRoom> ListOfRooms = new List<RoomsRoom>();
 
         private Song backgroundMusic;
         private Texture2D HUDScreen;
-        Key key;
+        private SpriteFont pause;
+        private SpriteFont keyCount;
+
         //private SoundClass sound; 
         //private SoundClass sound;
 
@@ -113,11 +119,14 @@ namespace sprint0
 
         protected override void Initialize()
         {
+            user = Keyboard.GetState();
+            prev = user;
             controller = new List<Icontroller>();
             controller.Add(new keyboardController(Animate[7], Animate[6], this));
             pos = new Vector2(220, 100);
             healthNum = 6;
             healthbar = new Health(healthNum);
+            keys = new InventoryKey();
             
             base.Initialize();
 
@@ -141,6 +150,9 @@ namespace sprint0
         {
 
             spriteBatch = new SpriteBatch(GraphicsDevice);
+            pause = Content.Load<SpriteFont>("paused");
+            keyCount = Content.Load<SpriteFont>("key");
+
             spriteA = Content.Load<Texture2D>("alec");
             Animate[0] = spriteA;
             spriteB = Content.Load<Texture2D>("afrah");
@@ -197,7 +209,7 @@ namespace sprint0
 
             HUDScreen = Content.Load<Texture2D>("HUDScreen");
             Animate[16] = HUDScreen;
-
+            Animate[17] = room;
             rooms = new Rooms(dungeon, this);
             doorEnter = new DoorCollision(dungeon, this);
 
@@ -205,6 +217,7 @@ namespace sprint0
             // font = Content.Load<SpriteFont>("Score");
             //font = Content.Load<SpriteFont>("Score");
             TextSprite = new TextSprite();
+
 
             item = new Item(zelda, spritesEnemies, spritesItems);
 
@@ -272,7 +285,7 @@ namespace sprint0
             shoot.Update(gameTime);
             collide.Update(gameTime, this, currentRoomsRoom, 1);
             collideA.Update(gameTime, this, currentRoomsRoom, 1);
-            
+            //collideC.Update(gameTime, this, currentRoomsRoom, 1);
             healthbar = new Health(healthNum);
             MouseController.Update(gameTime);
             base.Update(gameTime);
@@ -283,7 +296,6 @@ namespace sprint0
             banana = new Rectangle(128, 0, 7, 10);
             GraphicsDevice.Clear(Color.CornflowerBlue);
             spriteBatch.Begin();
-
             rooms.Draw(spriteBatch);
             doorEnter.Draw(spriteBatch);
             throwFire.Draw(spriteBatch, Animate, pos);
@@ -325,11 +337,16 @@ namespace sprint0
             sprite.Draw(spriteBatch, Animate, pos);
 
             doorEnter.DrawFade(spriteBatch);
-
+            doorEnter.DrawOpenDoor(spriteBatch);
             healthbar.Draw(spriteBatch, health);
+            keys.Draw(spriteBatch, zelda);
 
             //key.Draw(spriteBatch, this);
-
+            if (user.IsKeyDown(Keys.P) && !prev.IsKeyDown(Keys.P))
+            {
+                spriteBatch.DrawString(pause, "Paused", new Vector2(100, 100), Color.Black);
+            }
+            spriteBatch.DrawString(keyCount, "x " + keyCountInventory, new Vector2(750,30), Color.White);
             spriteBatch.End();
 
             base.Draw(gameTime);

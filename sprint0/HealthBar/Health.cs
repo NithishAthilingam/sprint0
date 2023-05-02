@@ -5,7 +5,7 @@ using Microsoft.Xna.Framework;
 
 namespace sprint0.HealthBar
 {
-	public class Health : IHealthBar
+	public class Health : IDisplay
 	{
         private int thisHealth;
         private Rectangle fullHeart;

@@ -229,11 +229,30 @@
 /processorParam:Quality=Best
 /build:itempickup.wav
 
+#begin key.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:key.spritefont
+
 #begin linkdeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
 /processorParam:Quality=Best
 /build:linkdeath.wav
+
+#begin linktriforce.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:linktriforce.png
 
 #begin NES - The Legend of Zelda - Items & Weapons.png
 /importer:TextureImporter
@@ -258,6 +277,13 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:nithish.png
+
+#begin paused.spritefont
+/importer:FontDescriptionImporter
+/processor:FontDescriptionProcessor
+/processorParam:PremultiplyAlpha=True
+/processorParam:TextureFormat=Compressed
+/build:paused.spritefont
 
 #begin rooms.png
 /importer:TextureImporter

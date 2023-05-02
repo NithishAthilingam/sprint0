@@ -14,10 +14,12 @@ namespace sprint0.Collision
     {
         int frame =0;
         char x;
+        char y;
         char direction;
         float timer = 0f;
         float delayTime = 500f;
         Rectangle link;
+        Rectangle flyingSword;
         Rectangle enemy;
         Rectangle intersect;
         public Health h;
@@ -54,8 +56,7 @@ namespace sprint0.Collision
                 enemy = new Rectangle((int)entry.Value[0], (int)entry.Value[1], (int)entry.Value[2], (int)entry.Value[3]);
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
-
-
+                y = CollisionDetection.GetDirection(link, enemy);
                 frame++;
                 if (x != 'o')
                 {
@@ -73,12 +74,11 @@ namespace sprint0.Collision
                 if (game.currentRoomsRoom.enemiesD.ContainsKey(key))
                 {
 
+
                     game.currentRoomsRoom.enemiesD.TryGetValue(key, out enemyInfo);
                     game.currentRoomsRoom.enemiesD.Remove(key);
                     if (direction == 'w')
-                    {
-
-                        enemyInfo[1] -= intersect.Height;
+                    {enemyInfo[1] -= intersect.Height;
                     }
                     else if (direction == 'a')
                     {
