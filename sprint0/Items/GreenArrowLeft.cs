@@ -43,7 +43,7 @@ namespace sprint0.Items
             {
                 thisPos.X -= 2;
             }
-            if (frame > 135)
+            if (frame > 150)
             {
                 draw = false;
             }
