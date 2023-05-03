@@ -74,10 +74,6 @@ namespace sprint0
                 if (userInput.IsKeyDown(Keys.E))
                 {
                     game.sprite = new DamagedSprite(pos);
-                    if (health == 0)
-                    {
-                        health = 6;
-                    }
                 }
 
                 else if (userInput.IsKeyDown(Keys.Up) || userInput.IsKeyDown(Keys.W))

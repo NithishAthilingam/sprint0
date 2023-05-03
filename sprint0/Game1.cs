@@ -92,7 +92,7 @@ namespace sprint0
         private SpriteFont pause;
         private SpriteFont keyCount;
 
-        private Triangle tri;
+        private Texture2D linktri;
 
         public Game1()
         {
@@ -167,7 +167,7 @@ namespace sprint0
             Animate[10] = deathEffect;
 
             Animate[11] = boomerang;
-
+            linktri = Content.Load<Texture2D>("linktriforce");
             Animate[12] = spritesEnemies;
             EnemyPos = new Vector2(550, 250);
             sprite = new RSprite(pos, direc);
@@ -193,8 +193,6 @@ namespace sprint0
 
             TextSprite = new TextSprite();
 
-
-            tri = new Triangle(spritesItems, pos);
             throwFire = new InitialFire();
 
             projectiles = new Projectiles(this, spritesItems, pos, direc);
@@ -279,6 +277,8 @@ namespace sprint0
             if (inventory.ContainsKey(10))
             {
                 spriteBatch.Draw(victory, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
+                spriteBatch.Draw(linktri, new Rectangle(350, 140, 35, 40), Color.White);
+
             }
             spriteBatch.End();
 
