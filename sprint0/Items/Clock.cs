@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Input;
@@ -18,7 +19,7 @@ namespace sprint0
 
         public Clock(Texture2D clockSprite, Vector2 pos)
 		{
-            clockS = new Rectangle(380, 160, 30, 30);
+            clockS = new Rectangle(330, 160, 30, 30);
             clockD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
 
             clockDraw = clockSprite;
@@ -33,6 +34,22 @@ namespace sprint0
             {
                 intersect = true;
 
+            }
+            if (intersect && game.currentRoomsRoom.roomItem[3] > 0)
+            {
+                game.currentRoomsRoom.roomItem[3] = game.currentRoomsRoom.roomItem[3] - 1;
+                if (game.inventory.ContainsKey(3))
+                {
+                    game.inventory[3] = game.inventory[3] + 1;
+                    game.keyCountInventory = game.inventory[3].ToString();
+                }
+                else
+                {
+                    game.inventory.Add(3, 1);
+                    game.keyCountInventory = game.inventory[3].ToString();
+                }
+                Debug.WriteLine("sound played");
+                game.soundEffects.ItemPickup();
             }
         }
 

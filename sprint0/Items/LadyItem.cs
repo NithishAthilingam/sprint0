@@ -4,6 +4,7 @@ using Microsoft.Xna.Framework;
 using sprint0.Content;
 using Microsoft.Xna.Framework.Input;
 using System.ComponentModel;
+using System.Diagnostics;
 
 namespace sprint0
 {
@@ -32,6 +33,23 @@ namespace sprint0
             if (link.Intersects(ladyD))
             {
                 intersect = true;
+
+            }
+            if (intersect && game.currentRoomsRoom.roomItem[9] > 0)
+            {
+                game.currentRoomsRoom.roomItem[9] = game.currentRoomsRoom.roomItem[9] - 1;
+                if (game.inventory.ContainsKey(9))
+                {
+                    game.inventory[9] = game.inventory[9] + 1;
+                    game.keyCountInventory = game.inventory[9].ToString();
+                }
+                else
+                {
+                    game.inventory.Add(9, 1);
+                    game.keyCountInventory = game.inventory[9].ToString();
+                }
+                Debug.WriteLine("sound played");
+                game.soundEffects.ItemPickup();
 
             }
 

@@ -4,6 +4,7 @@ using System.Diagnostics;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using sprint0.Items;
+using sprint0.Sound;
 
 namespace sprint0
 {
@@ -49,8 +50,9 @@ namespace sprint0
                     game.keyCountInventory = game.inventory[8].ToString();
                 }
                 hasKey = true;
-                
-                
+                Debug.WriteLine("sound played");
+                game.soundEffects.ItemPickup();
+
             }
         }
 

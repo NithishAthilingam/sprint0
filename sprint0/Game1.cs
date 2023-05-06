@@ -18,6 +18,7 @@ using sprint0.HealthBar;
 using static System.Formats.Asn1.AsnWriter;
 using Vector2 = Microsoft.Xna.Framework.Vector2;
 using System.Threading;
+using sprint0.Sound;
 
 namespace sprint0
 {
@@ -93,6 +94,7 @@ namespace sprint0
         private SpriteFont keyCount;
 
         private Texture2D linktri;
+        public PlaySoundEffects soundEffects;
 
         public Game1()
         {
@@ -111,7 +113,7 @@ namespace sprint0
             healthNum = 6;
             healthbar = new Health(healthNum);
             keys = new InventoryKey();
-            
+            soundEffects = new PlaySoundEffects(Content);
             base.Initialize();
 
             for (int i = 1; i < 18; i++)
@@ -124,6 +126,7 @@ namespace sprint0
 
             // set the current room to the first room in the list
             currentRoomsRoom = ListOfRooms[0];
+
         }
 
 
@@ -200,6 +203,7 @@ namespace sprint0
             MediaPlayer.Play(backgroundMusic);
             MediaPlayer.IsRepeating = true;
             MediaPlayer.MediaStateChanged += MediaPlayer_MediaStateChanged;
+            soundEffects.LoadContent();
         }
         private void MediaPlayer_MediaStateChanged(object sender, EventArgs e)
         {
@@ -269,7 +273,12 @@ namespace sprint0
             keys.Draw(spriteBatch, zelda);
             
             spriteBatch.DrawString(keyCount, "x " + keyCountInventory, new Vector2(750,30), Color.White);
-            if (healthNum == 0)
+            if (Keyboard.GetState().GetPressedKeys().Contains(Keys.RightShift) || GamePad.GetState(PlayerIndex.One).IsButtonDown(Buttons.Start))
+            {
+                //spriteBatch.DrawString(pause, );
+            }
+
+                if (healthNum == 0)
             {
                 
                 spriteBatch.Draw(gameover, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
