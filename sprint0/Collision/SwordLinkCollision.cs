@@ -119,10 +119,10 @@ namespace sprint0.Collision
                 }
                 else if (enemyInfo[5] == 0)
                 {
-                    int next = rand.Next(1);
+                    int next = rand.Next(2);
                     if(next== 0) { i = 6; }
                     else { i = 9; }
-                    IItem newItem = ItemFactory.Instance.CreateItem(game.Animate[4], game.Animate[9], game.Animate[12], game.Animate[11], 9, new Vector2(enemyInfo[0], enemyInfo[1]));
+                    IItem newItem = ItemFactory.Instance.CreateItem(game.Animate[4], game.Animate[9], game.Animate[12], game.Animate[11], i, new Vector2(enemyInfo[0], enemyInfo[1]));
 
                     game.currentRoomsRoom.items.Add(newItem);
                 }
