@@ -29,7 +29,7 @@ namespace sprint0
         public Isprite sprite;
         public Isprite throwFire;
         public Ienemy enemy;
-        public IShoot shoot;
+        public Content.IShoot shoot;
         public IDisplay healthbar;
         public IDisplay keys;
         public ICollision collide;

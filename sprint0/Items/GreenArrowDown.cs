@@ -9,7 +9,7 @@ using sprint0.Content;
 
 namespace sprint0.Items
 {
-    internal class GreenArrowDown : IShoot
+    internal class GreenArrowDown : Content.IShoot
     {
         private Vector2 thisPos;
         private Vector2 originalPos;

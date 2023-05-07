@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace sprint0.Items
 {
-    internal class initial : IShoot
+    internal class initial : Content.IShoot
     {
         public void Update(GameTime gametime)
         {

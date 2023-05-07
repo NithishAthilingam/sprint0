@@ -9,7 +9,7 @@ using sprint0.Content;
 
 namespace sprint0.Items
 {
-    internal class FlyingSwordRight : IShoot
+    internal class FlyingSwordRight : Content.IShoot
     {
         private Vector2 thisPos;
         private Vector2 originalPos;
