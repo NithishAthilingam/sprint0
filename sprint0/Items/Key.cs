@@ -15,8 +15,9 @@ namespace sprint0
         Rectangle keyD;
         Texture2D keyDraw;
         Rectangle link;
-        Boolean intersect;
-        Boolean hasKey;
+        bool intersect;
+        bool intersectDraw; 
+        bool hasKey;
         Game1 game1;
 
         public Key(Texture2D keySprite, Vector2 pos)
@@ -24,6 +25,8 @@ namespace sprint0
             key = new Rectangle(350, 250, 30, 30);
             keyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
             keyDraw = keySprite;
+            intersect = false;
+            intersectDraw = false;
             hasKey = false;
         }
 
@@ -34,7 +37,11 @@ namespace sprint0
             if (link.Intersects(keyD))
             {
                 intersect = true;
-
+                intersectDraw = true;
+            }
+            else
+            {
+                intersect = false;
             }
             if (intersect && game.currentRoomsRoom.roomItem[8] > 0)
             { 
@@ -51,14 +58,14 @@ namespace sprint0
                 }
                 hasKey = true;
                 Debug.WriteLine("sound played");
-                game.soundEffects.ItemPickup();
+                game.soundEffects.KeyPickup();
 
             }
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
+            if (!intersectDraw)
             {
                 spriteBatch.Draw(keyDraw, keyD, key, Color.White);
             }

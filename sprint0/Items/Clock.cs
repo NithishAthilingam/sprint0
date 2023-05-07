@@ -13,7 +13,7 @@ namespace sprint0
         Rectangle clockD;
 
         Rectangle link;
-
+        bool intersectDraw;
         Texture2D clockDraw;
         Boolean intersect;
 
@@ -21,7 +21,7 @@ namespace sprint0
 		{
             clockS = new Rectangle(330, 160, 30, 30);
             clockD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
-
+            intersectDraw = false;
             clockDraw = clockSprite;
             intersect = false;
         }
@@ -33,7 +33,11 @@ namespace sprint0
             if (link.Intersects(clockD))
             {
                 intersect = true;
-
+                intersectDraw = true;
+            }
+            else
+            {
+                intersect = false;
             }
             if (intersect && game.currentRoomsRoom.roomItem[3] > 0)
             {
@@ -46,16 +50,15 @@ namespace sprint0
                 else
                 {
                     game.inventory.Add(3, 1);
-                    game.keyCountInventory = game.inventory[3].ToString();
+                    game.keyCountInventory = game.inventory[8].ToString();
                 }
                 Debug.WriteLine("sound played");
                 game.soundEffects.ItemPickup();
             }
         }
-
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
+            if (!intersectDraw)
             {
                 spriteBatch.Draw(clockDraw, clockD, clockS, Color.White);
             }

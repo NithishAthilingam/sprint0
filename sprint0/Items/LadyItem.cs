@@ -17,12 +17,13 @@ namespace sprint0
         Texture2D ladyDraw;
         Rectangle link;
         Boolean intersect;
+        bool intersectDraw;
 
         public LadyItem(Texture2D ladySprite, Vector2 pos)
         {
             lady = new Rectangle(150, 30, 24, 25);
             ladyD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
-
+            intersectDraw = false;
             ladyDraw = ladySprite;
             intersect = false;
         }
@@ -33,7 +34,12 @@ namespace sprint0
             if (link.Intersects(ladyD))
             {
                 intersect = true;
+                intersectDraw = true;
 
+            }
+            else
+            {
+                intersect = false;
             }
             if (intersect && game.currentRoomsRoom.roomItem[9] > 0)
             {
@@ -57,7 +63,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
+            if (!intersectDraw)
             {
                 spriteBatch.Draw(ladyDraw, ladyD, lady, Color.White);
             }

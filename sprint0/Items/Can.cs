@@ -13,14 +13,15 @@ namespace sprint0
         Rectangle link;
         Texture2D canDraw;
         Boolean intersect;
+        bool intersectDraw;
 
         public Can(Texture2D canSprite, Vector2 pos)
         {
             canS = new Rectangle(375, 250, 30, 30);
             canD = new Rectangle((int)pos.X, (int)pos.Y, 75, 75);
             canDraw = canSprite;
-            intersect = false; 
-
+            intersect = false;
+            intersectDraw = false;
 
         }
 
@@ -30,14 +31,31 @@ namespace sprint0
             if (link.Intersects(canD))
             {
                 intersect = true;
-
+                intersectDraw = true;
+            }
+            else
+            {
+                intersect = false;
+            }
+            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(2))
+            {
+                game.currentRoomsRoom.roomItem[2] = game.currentRoomsRoom.roomItem[2] - 1;
+                if (game.inventory.ContainsKey(2))
+                {
+                    game.inventory[2] = game.inventory[2] + 1;
+                }
+                else
+                {
+                    game.inventory.Add(2, 1);
+                }
+                game.soundEffects.ItemPickup();
             }
 
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
+            if (!intersectDraw)
             {
                 spriteBatch.Draw(canDraw, canD, canS, Color.White);
             }

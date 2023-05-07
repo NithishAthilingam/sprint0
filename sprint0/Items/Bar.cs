@@ -14,6 +14,7 @@ namespace sprint0
         Texture2D barDraw;
         Rectangle link;
         Boolean intersect;
+        bool intersectDraw;
 
         public Bar(Texture2D arrowSprite, Vector2 pos)
         {
@@ -27,7 +28,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
+            if (!intersectDraw)
             {
                 spriteBatch.Draw(barDraw, barD, barS, Color.White);
             }
@@ -39,6 +40,11 @@ namespace sprint0
             if (link.Intersects(barD))
             {
                 intersect = true;
+                intersectDraw = true;
+            }
+            else
+            {
+                intersect = false;
             }
             if (intersect && game.currentRoomsRoom.roomItem[11] > 0)
             {
@@ -51,10 +57,11 @@ namespace sprint0
                 else
                 {
                     game.inventory.Add(11, 1);
-                    game.keyCountInventory = game.inventory[11].ToString();
+                    game.keyCountInventory = game.inventory[8].ToString();
                 }
                 Debug.WriteLine("sound played");
                 game.soundEffects.ItemPickup();
+
             }
         }
     }

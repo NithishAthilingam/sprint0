@@ -16,6 +16,7 @@ namespace sprint0
         Texture2D triDraw;
         Rectangle link;
         public bool intersect;
+        bool intersectDraw;
         int currentA, previousA;
         float speed, tt;
         private int middle, left, right;
@@ -29,7 +30,8 @@ namespace sprint0
             triangle[2] = new Rectangle(350, 275, 30, 30);
             triangleD = new Rectangle((int)pos.X, (int)pos.Y, 100, 100);
 
-
+            intersect = false;
+            intersectDraw = false;
             previousA = 1;
             currentA = 2;
             tt = 0;
@@ -47,7 +49,11 @@ namespace sprint0
             if (link.Intersects(triangleD))
             {
                 intersect = true;
-
+                intersectDraw = true;
+            }
+            else
+            {
+                intersect = false;
             }
             if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(10))
             {
@@ -60,6 +66,8 @@ namespace sprint0
                 {
                     game.inventory.Add(10, 1);
                 }
+                game.soundEffects.ItemPickup();
+                //game.soundEffects.PickTriforce();
             }
 
             if (tt > speed)
@@ -90,7 +98,7 @@ namespace sprint0
 
         public void Draw(SpriteBatch spriteBatch)
         {
-            if (!intersect)
+            if (!intersectDraw)
             {
                 spriteBatch.Draw(triDraw, triangleD, triangle[currentA], Color.White);
             }

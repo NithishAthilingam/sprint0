@@ -9,6 +9,7 @@ namespace sprint0.Sound
     {
 		private ContentManager myContent;
 		private SoundEffect itemPickup;
+        private SoundEffect keyPickup;
         private SoundEffect linkDeath;
 		private SoundEffect pickTriforce;
 		
@@ -22,12 +23,19 @@ namespace sprint0.Sound
 		{
 			itemPickup = myContent.Load<SoundEffect>("itempickup");
 			linkDeath = myContent.Load<SoundEffect>("linkdeath");
+			keyPickup = myContent.Load<SoundEffect>("keypickup");
 		}
 
 		public void ItemPickup()
 		{
 			itemPickup.Play();
 		}
+
+
+        public void KeyPickup()
+        {
+            keyPickup.Play();
+        }
 
         public void LinkDeath()
         {

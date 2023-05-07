@@ -248,6 +248,12 @@
 /processorParam:TextureFormat=Compressed
 /build:key.spritefont
 
+#begin keypickup.wav
+/importer:WavImporter
+/processor:SoundEffectProcessor
+/processorParam:Quality=Best
+/build:keypickup.wav
+
 #begin linkdeath.wav
 /importer:WavImporter
 /processor:SoundEffectProcessor
