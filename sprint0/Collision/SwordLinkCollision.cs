@@ -26,10 +26,14 @@ namespace sprint0.Collision
         int key = 9000;
         int enemyHealth;
         int[] enemyInfo;
+        int i;
+        Random rand;
 
 
         public void Update(GameTime gameTime, Game1 game, RoomsRoom currentRoomsRoom, int id)
         {
+            rand = new Random();
+            i = 0;
             enemyInfo = new int[6];
             timer -= (float)gameTime.ElapsedGameTime.TotalMilliseconds;
             //push
@@ -115,7 +119,10 @@ namespace sprint0.Collision
                 }
                 else if (enemyInfo[5] == 0)
                 {
-                    IItem newItem = ItemFactory.Instance.CreateItem(game.Animate[4], game.Animate[9], game.Animate[12], game.Animate[11], 6, new Vector2(enemyInfo[0], enemyInfo[1]));
+                    int next = rand.Next(1);
+                    if(next== 0) { i = 6; }
+                    else { i = 9; }
+                    IItem newItem = ItemFactory.Instance.CreateItem(game.Animate[4], game.Animate[9], game.Animate[12], game.Animate[11], 9, new Vector2(enemyInfo[0], enemyInfo[1]));
 
                     game.currentRoomsRoom.items.Add(newItem);
                 }
