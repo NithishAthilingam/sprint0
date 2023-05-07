@@ -74,6 +74,7 @@ namespace sprint0
                                     reader.ReadToFollowing("y");
                                     int itemPosition2 = int.Parse(reader.ReadElementContentAsString());
                                     IItem newItem = ItemFactory.Instance.CreateItem(itemsSprite, ladySprite, fireSprite, boom, itemVersion, new Vector2(itemPosition1, itemPosition2));
+                                    
                                     items.Add(newItem);
                                     if (roomItem.ContainsKey(itemVersion))
                                     {

@@ -53,7 +53,9 @@ namespace sprint0.Collision
 
             foreach (KeyValuePair<int, int[]> entry in game.currentRoomsRoom.enemiesD)
             {
-                enemy = new Rectangle((int)entry.Value[0], (int)entry.Value[1], (int)entry.Value[2], (int)entry.Value[3]);
+                enemyInfo = entry.Value;
+                enemy = new Rectangle((int)enemyInfo[0], (int)enemyInfo[1], (int)enemyInfo[2], (int)enemyInfo[3]);
+                
                 intersect = Rectangle.Intersect(link, enemy);
                 x = CollisionDetection.GetDirection(link, enemy);
                 y = CollisionDetection.GetDirection(link, enemy);
@@ -110,8 +112,15 @@ namespace sprint0.Collision
                     
                         timer = delayTime;
                     }
-                }                
+                }
+                else if (enemyInfo[5] == 0)
+                {
+                    IItem newItem = ItemFactory.Instance.CreateItem(game.Animate[4], game.Animate[9], game.Animate[12], game.Animate[11], 6, new Vector2(enemyInfo[0], enemyInfo[1]));
+
+                    game.currentRoomsRoom.items.Add(newItem);
+                }
             }
+            
 
 
             
