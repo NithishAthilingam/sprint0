@@ -59,16 +59,16 @@ namespace sprint0
             {
                 intersect = false;
             }
-            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(2))
+            if (intersect && game.currentRoomsRoom.roomItem[4] > 0)
             {
-                game.currentRoomsRoom.roomItem[2] = game.currentRoomsRoom.roomItem[2] - 1;
-                if (game.inventory.ContainsKey(2))
+                game.currentRoomsRoom.roomItem[4] = game.currentRoomsRoom.roomItem[4] - 1;
+                if (game.inventory.ContainsKey(4))
                 {
-                    game.inventory[2] = game.inventory[2] + 1;
+                    game.inventory[4] = game.inventory[4] + 1;
                 }
                 else
                 {
-                    game.inventory.Add(2, 1);
+                    game.inventory.Add(4, 1);
                 }
                 game.soundEffects.ItemPickup();
             }

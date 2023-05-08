@@ -73,7 +73,6 @@ namespace sprint0
                 {
                     game.inventory.Add(6, 1);
                 }
-                game.soundEffects.ItemPickup();
             }
 
 

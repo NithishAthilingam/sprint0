@@ -55,7 +55,7 @@ namespace sprint0
             {
                 intersect = false;
             }
-            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(10))
+            if (intersect && game.currentRoomsRoom.roomItem[10] > 0)
             {
                 game.currentRoomsRoom.roomItem[10] = game.currentRoomsRoom.roomItem[10] - 1;
                 if (game.inventory.ContainsKey(10))
@@ -67,7 +67,6 @@ namespace sprint0
                     game.inventory.Add(10, 1);
                 }
                 game.soundEffects.ItemPickup();
-                //game.soundEffects.PickTriforce();
             }
 
             if (tt > speed)

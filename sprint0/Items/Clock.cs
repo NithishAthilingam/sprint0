@@ -53,7 +53,7 @@ namespace sprint0
                     game.keyCountInventory = game.inventory[8].ToString();
                 }
                 //Debug.WriteLine("sound played");
-                //game.soundEffects.ItemPickup();
+                game.soundEffects.ItemPickup();
             }
         }
         public void Draw(SpriteBatch spriteBatch)

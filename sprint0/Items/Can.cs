@@ -37,7 +37,7 @@ namespace sprint0
             {
                 intersect = false;
             }
-            if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(2))
+            if (intersect && game.currentRoomsRoom.roomItem[2] > 0)
             {
                 game.currentRoomsRoom.roomItem[2] = game.currentRoomsRoom.roomItem[2] - 1;
                 if (game.inventory.ContainsKey(2))
