@@ -48,7 +48,7 @@ namespace sprint0
                 {
                     game.inventory.Add(2, 1);
                 }
-                game.soundEffects.ItemPickup();
+                //game.soundEffects.ItemPickup();
             }
 
         }

@@ -281,7 +281,7 @@ namespace sprint0
             if (healthNum == 0)
             {  
                 spriteBatch.Draw(gameover, new Rectangle(0, 0, GraphicsDevice.Viewport.Width, GraphicsDevice.Viewport.Height), Color.White);
-                soundEffects.LinkDeath();
+                //soundEffects.LinkDeath();
             }
             if (inventory.ContainsKey(10))
             {

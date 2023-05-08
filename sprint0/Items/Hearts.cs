@@ -51,8 +51,9 @@ namespace sprint0
         public void Update(GameTime gameTime, Game1 game)
         {
             link = new Rectangle((int)game.controller[0].GetLinkPos().X, (int)game.controller[0].GetLinkPos().Y, 30, 30);
-            if (link.Intersects(heartsD))
+            if (link.Intersects(heartsD) && !intersectDraw)
             {
+                game.healthNum = 5;
                 intersect = true;
                 intersectDraw = true;
             }
@@ -62,6 +63,7 @@ namespace sprint0
             }
             if (intersect && game.currentRoomsRoom.roomItem.ContainsKey(6))
             {
+                game.healthNum = 5;
                 game.currentRoomsRoom.roomItem[6] = game.currentRoomsRoom.roomItem[6] - 1;
                 if (game.inventory.ContainsKey(6))
                 {
